@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>k近邻算法代码实现 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="k近邻一般算法的实现
+一般的方法指的是直接计算训练集中每个点到测试点的距离，然后根据排序结果进行判断。思路：
+
+
+创建一个矩阵用来容纳每个训练点到测试点的距离
+计算每个训练点到测试点的距离
+对距离进,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/blog-icon.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">k近邻算法代码实现</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">k近邻算法代码实现</h1>
+        <div class="stuff">
+            <span>四月 18, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="k近邻一般算法的实现"><a href="#k近邻一般算法的实现" class="headerlink" title="k近邻一般算法的实现"></a><b>k近邻一般算法的实现</b></h4><blockquote>
+<p>一般的方法指的是直接计算训练集中每个点到测试点的距离，然后根据排序结果进行判断。<br><b>思路：</b></p>
+<blockquote>
+<ul>
+<li>创建一个矩阵用来容纳每个训练点到测试点的距离</li>
+<li>计算每个训练点到测试点的距离</li>
+<li>对距离进行排序</li>
+<li>根据排序结果，对前k个训练点进行统计</li>
+<li>对统计结果进行排序，并且输出统计最多的标签</li>
+<li>以统计最多的标签的结果为测试点的预测结果</li>
+</ul>
+</blockquote>
+<p><b>代码(主要为分类器的那一块)：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">   </span><br><span class="line">   classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>代码（完整版）：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span>():</span></span><br><span class="line">   group = np.array([[<span class="number">1</span>, <span class="number">101</span>], [<span class="number">5</span>, <span class="number">89</span>], [<span class="number">108</span>, <span class="number">5</span>], [<span class="number">115</span>, <span class="number">8</span>]])   <span class="comment"># 数据第一个变量为打斗次数，第二个变量为接吻次数</span></span><br><span class="line">   labels = [<span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>]</span><br><span class="line">   <span class="keyword">return</span> group, labels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">       classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line"></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   group,labels = createDataSet()</span><br><span class="line"></span><br><span class="line">   test = [<span class="number">50</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">   test_class = classify(test, group, labels, <span class="number">3</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;分类结果为&quot;</span>,test_class)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>输出：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分类结果为 动作片</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<p><b>后记：</b></p>
+<blockquote>
+<p>如果你觉得这个代码眼熟，那就对了。<br>我是借鉴了Jack Cui大佬的。<br>详细文章：<a target="_blank" rel="noopener" href="https://cuijiahua.com/blog/2017/11/ml_1_knn.html">戳这里</a></p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>线性代数 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="第一章 矩阵与行列式第一节 矩阵及其运算一、n维向量及其线性运算
+定义：n维向量：$a=\begin{pmatrix}a_1&amp;amp;a_2&amp;amp;a_3&amp;amp;\cdots&amp;amp;a_n\e,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/blog-icon.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">线性代数</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">线性代数</h1>
+        <div class="stuff">
+            <span>一月 01, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
+</blockquote>
+<h5 id="二、线性变换及系数矩阵"><a href="#二、线性变换及系数矩阵" class="headerlink" title="二、线性变换及系数矩阵"></a><b>二、线性变换及系数矩阵</b></h5><blockquote>
+<p><b>定义：</b><br><b>线性变换：</b> 变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的关系式，<br>$$\begin{cases}y_1=a_{11}x_1+a_{12}x_2+{\cdots}+a_{1n}x_n,\\<br>y_2=a_{21}x_1+a_{22}x_2+{\cdots}+a_{2n}x_n,\\<br>              \cdots \\<br>y_m=a_{m1}x_1+a_{m2}x_2+{\cdots}+a_{mn}x_n\\<br>\end{cases}$$<br>称为变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的<b>线性变换&lt;\b&gt;<br><b>系数矩阵：&lt;\b&gt;由线性变换的系数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成<b>m行n列</b>的矩阵。<br><b>性质：</b><br>(1)、分配律：$(A+B)x=Ax+Bx$<br>(2)、结合律：$(kA)x=k(Ax)$<br>(3)、结合律：$(AB)x=A(Bx)$</p>
+</blockquote>
+<h5 id="三、矩阵及其线性运算"><a href="#三、矩阵及其线性运算" class="headerlink" title="三、矩阵及其线性运算"></a><b>三、矩阵及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br>由mXn个数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成的m行n列的矩阵数表，<br>$$\begin{matrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{nm}}\\<br>\end{matrix}$$<br>称为一个mXn<b>矩阵</b>，其中每一个$a_{ij}$都是该矩阵的元素。<br><b>方阵：</b>行数与列数相等的矩阵称为方阵。<br><b>同型矩阵：</b>两个矩阵的<b>行数和列数相同</b>的两个矩阵。<br><b>矩阵相同：</b>两个矩阵的对应位元素相同的同型矩阵。<br><b>矩阵的加法：</b>设$A=(a_{ij})$与$B=(b_{ij})$都是mXn矩阵，记<br>$c_{ij}=a_{ij}+b_{ij},(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$<br>称mXn矩阵$C=(c_{ij})$为矩阵A与矩阵B的和，记作$C=A+B$<br><b>矩阵的乘数：</b></p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
