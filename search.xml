@@ -552,25 +552,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown的语法-续</title>
-    <url>/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
-    <content><![CDATA[<h3 id="Markdown的拓展学习"><a href="#Markdown的拓展学习" class="headerlink" title="Markdown的拓展学习"></a><b>Markdown的拓展学习</b></h3><h4 id="1、实现内容的折叠"><a href="#1、实现内容的折叠" class="headerlink" title="1、实现内容的折叠"></a><b>1、实现内容的折叠</b></h4><h5 id="语法如下"><a href="#语法如下" class="headerlink" title="语法如下:"></a><b>语法如下:</b></h5><blockquote>
-<p>&lt;details&gt;<br>&lt;summary&gt;标题&lt;/summary&gt;<br>隐藏的内容!<br>&lt;/details&gt;</p>
-</blockquote>
-<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a><b>效果如下：</b></h5> <details>
- <summary>标题</summary>
- 隐藏的内容!
- </details>
-
-]]></content>
-      <categories>
-        <category>基础</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown的语法（1）</title>
     <url>/2020/12/20/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h3 id="什么是Markdown："><a href="#什么是Markdown：" class="headerlink" title="什么是Markdown："></a><b>什么是Markdown：</b></h3><blockquote>
@@ -815,215 +796,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Matlab绘图语法</title>
-    <url>/2021/03/05/Matlab%E7%BB%98%E5%9B%BE%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="二维平面绘图"><a href="#二维平面绘图" class="headerlink" title="二维平面绘图"></a><b>二维平面绘图</b></h4><blockquote>
-<p><b>过程</b></p>
-<blockquote>
-<ul>
-<li>设置x值</li>
-<li>设置函数</li>
-<li>建立一个figure幕布</li>
-<li>绘制一个画图函数</li>
-<li>给图取标题</li>
-<li>给x轴，y轴取标签</li>
-<li>修整图像(可选)</li>
-</ul>
+    <title>Markdown的语法-续</title>
+    <url>/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
+    <content><![CDATA[<h3 id="Markdown的拓展学习"><a href="#Markdown的拓展学习" class="headerlink" title="Markdown的拓展学习"></a><b>Markdown的拓展学习</b></h3><h4 id="1、实现内容的折叠"><a href="#1、实现内容的折叠" class="headerlink" title="1、实现内容的折叠"></a><b>1、实现内容的折叠</b></h4><h5 id="语法如下"><a href="#语法如下" class="headerlink" title="语法如下:"></a><b>语法如下:</b></h5><blockquote>
+<p>&lt;details&gt;<br>&lt;summary&gt;标题&lt;/summary&gt;<br>隐藏的内容!<br>&lt;/details&gt;</p>
 </blockquote>
-<p><b>例子：</b> </p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x = <span class="number">0</span>: <span class="number">0.01</span>: <span class="number">2</span>*<span class="built_in">pi</span>		<span class="comment">%设置x的取值，取x为0到2兀，间隔点为0.01</span></span><br><span class="line">y = <span class="built_in">sin</span>(x)			<span class="comment">%设置sin函数</span></span><br><span class="line"><span class="built_in">figure</span>			<span class="comment">%创建一个幕布</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)			<span class="comment">%画图</span></span><br><span class="line">title(<span class="string">&#x27;y = sin(x)&#x27;</span>)		<span class="comment">%给图像命名</span></span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)			<span class="comment">%给x轴取名</span></span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)		<span class="comment">%给y轴取名</span></span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>])		<span class="comment">%修整图像</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>效果如下：</b></p>
-<blockquote>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%BA%8C%E7%BB%B4%E5%9B%BE%E5%83%8F.jpg" alt="二维图像" title="二维图像"></p>
-</blockquote>
-<p><b>补充：</b>图像中线的颜色，线型，样本点的样式都可以自己定义。<br><b>例子：</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span></span><br><span class="line">y1 = <span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x);</span><br><span class="line">y2 = <span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,H1,H2] = plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>);</span><br><span class="line">set(get(AX(<span class="number">1</span>),<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)      <span class="comment">%设置y轴</span></span><br><span class="line">set(get(AX(<span class="number">2</span>),<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)      <span class="comment">%设置y轴</span></span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiole Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)            <span class="comment">%将H1线的风格改成虚线</span></span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)             <span class="comment">%将H1线的风格改成点</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>效果如下：</b></p>
-<blockquote>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%BA%8C%E7%BB%B4%E5%9B%BE%E5%83%8F-1.jpg" alt="二维图像" title="二维图像"></p>
-</blockquote>
-</blockquote>
-<h4 id="三维立体绘图"><a href="#三维立体绘图" class="headerlink" title="三维立体绘图"></a><b>三维立体绘图</b></h4><blockquote>
-<p>三维绘图与二维绘图大同小异。<br><b>例如：</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">t = <span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)      <span class="comment">%三维所以是plot3</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on                     <span class="comment">%开启网格</span></span><br><span class="line">axis square                 <span class="comment">%将图形正方形化</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>效果如下：</b></p>
-<blockquote>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%B8%89%E7%BB%B4%E5%9B%BE%E5%83%8F.jpg" alt="三维图像" title="三维图像"></p>
-</blockquote>
-</blockquote>
+<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a><b>效果如下：</b></h5> <details>
+ <summary>标题</summary>
+ 隐藏的内容!
+ </details>
+
 ]]></content>
       <categories>
         <category>基础</category>
       </categories>
       <tags>
-        <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Matlab语法</title>
-    <url>/2021/03/04/Matlab%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h4 id="一、界面介绍"><a href="#一、界面介绍" class="headerlink" title="一、界面介绍"></a><b>一、界面介绍</b></h4><blockquote>
-<p><b>matlab软件界面：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/matlab%E7%95%8C%E9%9D%A2.png" alt="Matlab" title="界面"></p>
-<ul>
-<li>matlab一般包括两个窗口，一个是<b>编辑器窗口</b>,另一个是<b>命令行窗口</b>。</li>
-<li>matlab与python一样也分<b>交互式编程</b>和<b>脚本式编程</b>。<br><b>交互式编程清屏命令：</b><blockquote>
-<ul>
-<li><code>clc</code>,清除命令行窗口的所有东西</li>
-<li><code>clear all</code>,清除工作区中所有的变量</li>
-<li><code>clear a</code>,清除工作区的a变量</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<p><b>注释</b></p>
-<ul>
-<li><p>大段的注释<code>%% %%</code><br><b>如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%%e=3</span></span><br><span class="line"><span class="comment">%%</span></span><br></pre></td></tr></table></figure></li>
-<li><p>单行的注释<code>% </code><br><b>如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%这是注释</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</blockquote>
-<h4 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a><b>二、数据类型</b></h4><blockquote>
-<p>Matlab的数据类型包括<b>数字</b>、<b>字符与字符串</b>、<b>矩阵</b>、<b>元胞数组</b>和<b>结构体</b></p>
-<ul>
-<li><p><b>数字:</b></p>
-<blockquote>
-<p>Matlab中数字类型的变量可以类似与python中直接赋值</p>
-<p><b>如，</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span></span><br><span class="line">b=<span class="number">1.2</span></span><br><span class="line">a+b</span><br></pre></td></tr></table></figure>
-<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E6%95%B0%E5%AD%97.jpg" alt="数字类型" title="数字"></p>
-</blockquote>
-</li>
-<li><p><b>字符与字符串</b></p>
-<blockquote>
-<p>matlab中字符与字符串与C语言等赋值方法一致。</p>
-<p><b>如，</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">s=<span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="built_in">abs</span>(s) <span class="comment">% 返回s的ascii值</span></span><br><span class="line">char(<span class="number">65</span>) <span class="comment">% 返回ascii为65的字符串</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">&#x27;这是一条字符串&#x27;</span></span><br><span class="line"><span class="built_in">length</span>(str) <span class="comment">% 返回str的长度（空格也算一个长度）</span></span><br></pre></td></tr></table></figure>
-<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%AD%97%E7%AC%A6.jpg" alt="字符类型" title="char"></p>
-</blockquote>
-</li>
-<li><p><b>矩阵</b></p>
-<blockquote>
-<p>在Matlab中可以方便的对矩阵进行各种操作</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B=A&#x27;		<span class="comment">% 对矩阵A求转置</span></span><br><span class="line">A(:)		<span class="comment">% 将矩阵A所有列合成一列</span></span><br><span class="line">D=inv(A)	<span class="comment">% 对方阵A求逆</span></span><br><span class="line">D*A		<span class="comment">% 矩阵相乘</span></span><br><span class="line"></span><br><span class="line">E= <span class="built_in">zeros</span>(<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>)             <span class="comment">% 创建一个3维的5行4列的全0矩阵</span></span><br><span class="line">E(:,:,<span class="number">1</span>) = <span class="built_in">rand</span>(<span class="number">5</span>,<span class="number">4</span>)        <span class="comment">% 创建一个0—1的5行4列的随机矩阵</span></span><br><span class="line">E(:,:,<span class="number">2</span>) = randi(<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>)     <span class="comment">% 创建一个小于6的5行4列的随机均匀分布整数矩阵</span></span><br><span class="line">E(:,:,<span class="number">3</span>) = <span class="built_in">randn</span>(<span class="number">5</span>,<span class="number">4</span>)       <span class="comment">% 创建一个5行4列的标准正态分布随机矩阵</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p><b>元胞数组</b></p>
-<blockquote>
-<p>元胞数组是数组的一种,数据中可以有不同的数据类型，它类似于C语言中的结构体或C++中的对象，关键字为<code>cell</code>。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = cell(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">A&#123;<span class="number">2</span>&#125; = <span class="built_in">eye</span>(<span class="number">3</span>)       <span class="comment">% 生成一个3*3，对角线数值为1的矩阵</span></span><br><span class="line">A&#123;<span class="number">5</span>&#125; = <span class="built_in">magic</span>(<span class="number">5</span>)     <span class="comment">% 生成一个5阶幻方</span></span><br><span class="line">B = A&#123;<span class="number">5</span>&#125;            <span class="comment">% 幻方的行、列和斜线之和都相等</span></span><br></pre></td></tr></table></figure>
-<p><b>运行结果</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%85%83%E8%83%9E%E6%95%B0%E7%BB%84.jpg" alt="元胞数组" title="元胞数组"></p>
-</blockquote>
-</li>
-<li><p><b>结构体</b> </p>
-<blockquote>
-<p>类似于python中的字典，关键字为<code>struct</code></p>
-<p><b>如，</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">book = struct(<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;Machine&#x27;</span>,<span class="string">&#x27;Learning&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span>,<span class="number">40</span>])</span><br><span class="line">book.name           <span class="comment">% 取出结构体中的name项</span></span><br><span class="line">book.price          <span class="comment">% 取出结构体中的price项</span></span><br><span class="line">book.name(<span class="number">1</span>)        <span class="comment">% 取出name项的第一个，数据类型为cell</span></span><br><span class="line">book.name&#123;<span class="number">1</span>&#125;        <span class="comment">% 取出name项的第一个，数据类型为字符串</span></span><br></pre></td></tr></table></figure>
-<p><b>运行结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%BB%93%E6%9E%84%E4%BD%93.jpg" alt="结构体" title="结构体"></p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h4 id="三、矩阵操作"><a href="#三、矩阵操作" class="headerlink" title="三、矩阵操作"></a><b>三、矩阵操作</b></h4><blockquote>
-<ul>
-<li><b>矩阵的创建：</b><blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]	<span class="comment">% 空格分割，分号换行</span></span><br><span class="line">B = <span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>			<span class="comment">% 创建一个向量，该向量范围为1～9,步长为2</span></span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C.jpg" alt="矩阵创建" title="矩阵创建"></p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">C = <span class="built_in">repmat</span>(B,<span class="number">3</span>,<span class="number">1</span>)		<span class="comment">%将矩阵B横向重复1次，纵向重复3次 </span></span><br><span class="line">D = <span class="built_in">ones</span>(<span class="number">2</span>, <span class="number">4</span>)		<span class="comment">%创建一个2行4列的全1矩阵</span></span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C-2.jpg" alt="矩阵操作" title="矩阵操作"></p>
-</blockquote>
-<ul>
-<li><p><b>矩阵的转置</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line">B = A&#x27;</span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BD%AC%E7%BD%AE.jpg" alt="矩阵的转置" title="矩阵的转置"></p>
-</blockquote>
-</li>
-<li><p><b>矩阵的逆</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B = inv(A)</span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86.jpg" alt="矩阵的逆" title="矩阵的逆"></p>
-</blockquote>
-</li>
-<li><p><b>矩阵的运算</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>; <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>]</span><br><span class="line">B = [<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">A + B		<span class="comment">%矩阵相加</span></span><br><span class="line">A - B		<span class="comment">%矩阵相减</span></span><br><span class="line">A * B&#x27;		<span class="comment">%矩阵相乘</span></span><br><span class="line">A / B		<span class="comment">%相当于矩阵A乘以矩阵B的逆</span></span><br><span class="line">A .* B		<span class="comment">%矩阵中的对应项相乘</span></span><br><span class="line">A ./ B		<span class="comment">%矩阵中对应项相除</span></span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-1.jpg" alt="矩阵运算" title="矩阵运算"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-2.jpg" alt="矩阵运算" title="矩阵运算"></p>
-</blockquote>
-</li>
-<li><p><b>矩阵的下标</b></p>
-<blockquote>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = <span class="built_in">magic</span>(<span class="number">5</span>)</span><br><span class="line">B = A(<span class="number">2</span>,<span class="number">3</span>)      <span class="comment">%取矩阵A中第2行第3列的数</span></span><br><span class="line">C = A(<span class="number">3</span>,:)      <span class="comment">%取矩阵A中第三行所有的数</span></span><br><span class="line">D = A(:,<span class="number">4</span>)      <span class="comment">%取矩阵A中第四列所有的数</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)      <span class="comment">%在矩阵A中找到大于20的数，并输出它的索引值</span></span><br></pre></td></tr></table></figure>
-<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-1.jpg" alt="矩阵的下标" title="矩阵下标"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-2.jpg" alt="矩阵的下标" title="矩阵下标"></p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h4 id="Matlab简单语句"><a href="#Matlab简单语句" class="headerlink" title="Matlab简单语句"></a><b>Matlab简单语句</b></h4><blockquote>
-<ul>
-<li><b>循环语句：</b><blockquote>
-<ul>
-<li><p><b>for循环</b></p>
-<blockquote>
-<p><b>格式：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for 循环变量 = 初值: 步长: 终值（其中步长可以省略，默认为1）</span><br><span class="line">    执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><b>例如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="number">1</span>: <span class="number">100</span></span><br><span class="line">    a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p><b>while循环</b></p>
-<blockquote>
-<p><b>格式：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while 条件表达式</span><br><span class="line">	  执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><b>例如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">10</span></span><br><span class="line">   a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><b>分支语句：</b><blockquote>
-<p><b>if…end语句</b></p>
-<blockquote>
-<p><b>格式：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><b>例如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p><b>if…else…end语句</b></p>
-<blockquote>
-<p><b>格式：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">else</span><br><span class="line"> 执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><b>例如：</b></p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">101</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="string">&#x27;不成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p><b>switch…case…end语句</b></p>
-<blockquote>
-<p><b>格式：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch 表达式（数值或字符串）</span><br><span class="line">	   case 数值或字符串1</span><br><span class="line">	执行语句1;</span><br><span class="line">	   case 数值或字符串2</span><br><span class="line">	执行语句2;	   </span><br><span class="line">       ...</span><br><span class="line">       otherwise</span><br><span class="line">		执行语句n</span><br><span class="line">end</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>基础</category>
-      </categories>
-      <tags>
-        <tag>Matlab</tag>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1617,6 +1405,218 @@
       </tags>
   </entry>
   <entry>
+    <title>Matlab绘图语法</title>
+    <url>/2021/03/05/Matlab%E7%BB%98%E5%9B%BE%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="二维平面绘图"><a href="#二维平面绘图" class="headerlink" title="二维平面绘图"></a><b>二维平面绘图</b></h4><blockquote>
+<p><b>过程</b></p>
+<blockquote>
+<ul>
+<li>设置x值</li>
+<li>设置函数</li>
+<li>建立一个figure幕布</li>
+<li>绘制一个画图函数</li>
+<li>给图取标题</li>
+<li>给x轴，y轴取标签</li>
+<li>修整图像(可选)</li>
+</ul>
+</blockquote>
+<p><b>例子：</b> </p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x = <span class="number">0</span>: <span class="number">0.01</span>: <span class="number">2</span>*<span class="built_in">pi</span>		<span class="comment">%设置x的取值，取x为0到2兀，间隔点为0.01</span></span><br><span class="line">y = <span class="built_in">sin</span>(x)			<span class="comment">%设置sin函数</span></span><br><span class="line"><span class="built_in">figure</span>			<span class="comment">%创建一个幕布</span></span><br><span class="line"><span class="built_in">plot</span>(x,y)			<span class="comment">%画图</span></span><br><span class="line">title(<span class="string">&#x27;y = sin(x)&#x27;</span>)		<span class="comment">%给图像命名</span></span><br><span class="line">xlabel(<span class="string">&#x27;x&#x27;</span>)			<span class="comment">%给x轴取名</span></span><br><span class="line">ylabel(<span class="string">&#x27;sin(x)&#x27;</span>)		<span class="comment">%给y轴取名</span></span><br><span class="line">xlim([<span class="number">0</span> <span class="number">2</span>*<span class="built_in">pi</span>])		<span class="comment">%修整图像</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>效果如下：</b></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%BA%8C%E7%BB%B4%E5%9B%BE%E5%83%8F.jpg" alt="二维图像" title="二维图像"></p>
+</blockquote>
+<p><b>补充：</b>图像中线的颜色，线型，样本点的样式都可以自己定义。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="number">0.01</span>:<span class="number">20</span></span><br><span class="line">y1 = <span class="number">200</span>*<span class="built_in">exp</span>(<span class="number">-0.05</span>*x).*<span class="built_in">sin</span>(x);</span><br><span class="line">y2 = <span class="number">0.8</span>*<span class="built_in">exp</span>(<span class="number">-0.5</span>*x).*<span class="built_in">sin</span>(<span class="number">10</span>*x);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">[AX,H1,H2] = plotyy(x,y1,x,y2,<span class="string">&#x27;plot&#x27;</span>);</span><br><span class="line">set(get(AX(<span class="number">1</span>),<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Slow Decay&#x27;</span>)      <span class="comment">%设置y轴</span></span><br><span class="line">set(get(AX(<span class="number">2</span>),<span class="string">&#x27;Ylabel&#x27;</span>),<span class="string">&#x27;String&#x27;</span>,<span class="string">&#x27;Fast Decay&#x27;</span>)      <span class="comment">%设置y轴</span></span><br><span class="line">xlabel(<span class="string">&#x27;Time (\musec)&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;Multiole Decay Rates&#x27;</span>)</span><br><span class="line">set(H1,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;--&#x27;</span>)            <span class="comment">%将H1线的风格改成虚线</span></span><br><span class="line">set(H2,<span class="string">&#x27;LineStyle&#x27;</span>,<span class="string">&#x27;:&#x27;</span>)             <span class="comment">%将H1线的风格改成点</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>效果如下：</b></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%BA%8C%E7%BB%B4%E5%9B%BE%E5%83%8F-1.jpg" alt="二维图像" title="二维图像"></p>
+</blockquote>
+</blockquote>
+<h4 id="三维立体绘图"><a href="#三维立体绘图" class="headerlink" title="三维立体绘图"></a><b>三维立体绘图</b></h4><blockquote>
+<p>三维绘图与二维绘图大同小异。<br><b>例如：</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">t = <span class="number">0</span>:<span class="built_in">pi</span>/<span class="number">50</span>:<span class="number">10</span>*<span class="built_in">pi</span>;</span><br><span class="line"><span class="built_in">plot3</span>(<span class="built_in">sin</span>(t),<span class="built_in">cos</span>(t),t)      <span class="comment">%三维所以是plot3</span></span><br><span class="line">xlabel(<span class="string">&#x27;sin(t)&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;cos(t)&#x27;</span>)</span><br><span class="line">zlabel(<span class="string">&#x27;t&#x27;</span>)</span><br><span class="line">grid on                     <span class="comment">%开启网格</span></span><br><span class="line">axis square                 <span class="comment">%将图形正方形化</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>效果如下：</b></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E4%B8%89%E7%BB%B4%E5%9B%BE%E5%83%8F.jpg" alt="三维图像" title="三维图像"></p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Matlab语法</title>
+    <url>/2021/03/04/Matlab%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="一、界面介绍"><a href="#一、界面介绍" class="headerlink" title="一、界面介绍"></a><b>一、界面介绍</b></h4><blockquote>
+<p><b>matlab软件界面：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/matlab%E7%95%8C%E9%9D%A2.png" alt="Matlab" title="界面"></p>
+<ul>
+<li>matlab一般包括两个窗口，一个是<b>编辑器窗口</b>,另一个是<b>命令行窗口</b>。</li>
+<li>matlab与python一样也分<b>交互式编程</b>和<b>脚本式编程</b>。<br><b>交互式编程清屏命令：</b><blockquote>
+<ul>
+<li><code>clc</code>,清除命令行窗口的所有东西</li>
+<li><code>clear all</code>,清除工作区中所有的变量</li>
+<li><code>clear a</code>,清除工作区的a变量</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><b>注释</b></p>
+<ul>
+<li><p>大段的注释<code>%% %%</code><br><b>如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%%e=3</span></span><br><span class="line"><span class="comment">%%</span></span><br></pre></td></tr></table></figure></li>
+<li><p>单行的注释<code>% </code><br><b>如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">%这是注释</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h4 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a><b>二、数据类型</b></h4><blockquote>
+<p>Matlab的数据类型包括<b>数字</b>、<b>字符与字符串</b>、<b>矩阵</b>、<b>元胞数组</b>和<b>结构体</b></p>
+<ul>
+<li><p><b>数字:</b></p>
+<blockquote>
+<p>Matlab中数字类型的变量可以类似与python中直接赋值</p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">3</span></span><br><span class="line">b=<span class="number">1.2</span></span><br><span class="line">a+b</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E6%95%B0%E5%AD%97.jpg" alt="数字类型" title="数字"></p>
+</blockquote>
+</li>
+<li><p><b>字符与字符串</b></p>
+<blockquote>
+<p>matlab中字符与字符串与C语言等赋值方法一致。</p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">s=<span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="built_in">abs</span>(s) <span class="comment">% 返回s的ascii值</span></span><br><span class="line">char(<span class="number">65</span>) <span class="comment">% 返回ascii为65的字符串</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">&#x27;这是一条字符串&#x27;</span></span><br><span class="line"><span class="built_in">length</span>(str) <span class="comment">% 返回str的长度（空格也算一个长度）</span></span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%AD%97%E7%AC%A6.jpg" alt="字符类型" title="char"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵</b></p>
+<blockquote>
+<p>在Matlab中可以方便的对矩阵进行各种操作</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B=A&#x27;		<span class="comment">% 对矩阵A求转置</span></span><br><span class="line">A(:)		<span class="comment">% 将矩阵A所有列合成一列</span></span><br><span class="line">D=inv(A)	<span class="comment">% 对方阵A求逆</span></span><br><span class="line">D*A		<span class="comment">% 矩阵相乘</span></span><br><span class="line"></span><br><span class="line">E= <span class="built_in">zeros</span>(<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>)             <span class="comment">% 创建一个3维的5行4列的全0矩阵</span></span><br><span class="line">E(:,:,<span class="number">1</span>) = <span class="built_in">rand</span>(<span class="number">5</span>,<span class="number">4</span>)        <span class="comment">% 创建一个0—1的5行4列的随机矩阵</span></span><br><span class="line">E(:,:,<span class="number">2</span>) = randi(<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>)     <span class="comment">% 创建一个小于6的5行4列的随机均匀分布整数矩阵</span></span><br><span class="line">E(:,:,<span class="number">3</span>) = <span class="built_in">randn</span>(<span class="number">5</span>,<span class="number">4</span>)       <span class="comment">% 创建一个5行4列的标准正态分布随机矩阵</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p><b>元胞数组</b></p>
+<blockquote>
+<p>元胞数组是数组的一种,数据中可以有不同的数据类型，它类似于C语言中的结构体或C++中的对象，关键字为<code>cell</code>。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = cell(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">A&#123;<span class="number">2</span>&#125; = <span class="built_in">eye</span>(<span class="number">3</span>)       <span class="comment">% 生成一个3*3，对角线数值为1的矩阵</span></span><br><span class="line">A&#123;<span class="number">5</span>&#125; = <span class="built_in">magic</span>(<span class="number">5</span>)     <span class="comment">% 生成一个5阶幻方</span></span><br><span class="line">B = A&#123;<span class="number">5</span>&#125;            <span class="comment">% 幻方的行、列和斜线之和都相等</span></span><br></pre></td></tr></table></figure>
+<p><b>运行结果</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%85%83%E8%83%9E%E6%95%B0%E7%BB%84.jpg" alt="元胞数组" title="元胞数组"></p>
+</blockquote>
+</li>
+<li><p><b>结构体</b> </p>
+<blockquote>
+<p>类似于python中的字典，关键字为<code>struct</code></p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">book = struct(<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;Machine&#x27;</span>,<span class="string">&#x27;Learning&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span>,<span class="number">40</span>])</span><br><span class="line">book.name           <span class="comment">% 取出结构体中的name项</span></span><br><span class="line">book.price          <span class="comment">% 取出结构体中的price项</span></span><br><span class="line">book.name(<span class="number">1</span>)        <span class="comment">% 取出name项的第一个，数据类型为cell</span></span><br><span class="line">book.name&#123;<span class="number">1</span>&#125;        <span class="comment">% 取出name项的第一个，数据类型为字符串</span></span><br></pre></td></tr></table></figure>
+<p><b>运行结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%BB%93%E6%9E%84%E4%BD%93.jpg" alt="结构体" title="结构体"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="三、矩阵操作"><a href="#三、矩阵操作" class="headerlink" title="三、矩阵操作"></a><b>三、矩阵操作</b></h4><blockquote>
+<ul>
+<li><b>矩阵的创建：</b><blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]	<span class="comment">% 空格分割，分号换行</span></span><br><span class="line">B = <span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>			<span class="comment">% 创建一个向量，该向量范围为1～9,步长为2</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C.jpg" alt="矩阵创建" title="矩阵创建"></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">C = <span class="built_in">repmat</span>(B,<span class="number">3</span>,<span class="number">1</span>)		<span class="comment">%将矩阵B横向重复1次，纵向重复3次 </span></span><br><span class="line">D = <span class="built_in">ones</span>(<span class="number">2</span>, <span class="number">4</span>)		<span class="comment">%创建一个2行4列的全1矩阵</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C-2.jpg" alt="矩阵操作" title="矩阵操作"></p>
+</blockquote>
+<ul>
+<li><p><b>矩阵的转置</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line">B = A&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BD%AC%E7%BD%AE.jpg" alt="矩阵的转置" title="矩阵的转置"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的逆</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B = inv(A)</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86.jpg" alt="矩阵的逆" title="矩阵的逆"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的运算</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>; <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>]</span><br><span class="line">B = [<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">A + B		<span class="comment">%矩阵相加</span></span><br><span class="line">A - B		<span class="comment">%矩阵相减</span></span><br><span class="line">A * B&#x27;		<span class="comment">%矩阵相乘</span></span><br><span class="line">A / B		<span class="comment">%相当于矩阵A乘以矩阵B的逆</span></span><br><span class="line">A .* B		<span class="comment">%矩阵中的对应项相乘</span></span><br><span class="line">A ./ B		<span class="comment">%矩阵中对应项相除</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-1.jpg" alt="矩阵运算" title="矩阵运算"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-2.jpg" alt="矩阵运算" title="矩阵运算"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的下标</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">A = <span class="built_in">magic</span>(<span class="number">5</span>)</span><br><span class="line">B = A(<span class="number">2</span>,<span class="number">3</span>)      <span class="comment">%取矩阵A中第2行第3列的数</span></span><br><span class="line">C = A(<span class="number">3</span>,:)      <span class="comment">%取矩阵A中第三行所有的数</span></span><br><span class="line">D = A(:,<span class="number">4</span>)      <span class="comment">%取矩阵A中第四列所有的数</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)      <span class="comment">%在矩阵A中找到大于20的数，并输出它的索引值</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-1.jpg" alt="矩阵的下标" title="矩阵下标"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-2.jpg" alt="矩阵的下标" title="矩阵下标"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="Matlab简单语句"><a href="#Matlab简单语句" class="headerlink" title="Matlab简单语句"></a><b>Matlab简单语句</b></h4><blockquote>
+<ul>
+<li><b>循环语句：</b><blockquote>
+<ul>
+<li><p><b>for循环</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for 循环变量 = 初值: 步长: 终值（其中步长可以省略，默认为1）</span><br><span class="line">    执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="number">1</span>: <span class="number">100</span></span><br><span class="line">    a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p><b>while循环</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while 条件表达式</span><br><span class="line">	  执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">10</span></span><br><span class="line">   a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><b>分支语句：</b><blockquote>
+<p><b>if…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p><b>if…else…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">else</span><br><span class="line"> 执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">a=<span class="number">101</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="string">&#x27;不成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+<li><p><b>switch…case…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">switch 表达式（数值或字符串）</span><br><span class="line">	   case 数值或字符串1</span><br><span class="line">	执行语句1;</span><br><span class="line">	   case 数值或字符串2</span><br><span class="line">	执行语句2;	   </span><br><span class="line">       ...</span><br><span class="line">       otherwise</span><br><span class="line">		执行语句n</span><br><span class="line">end</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Numpy包</title>
     <url>/2021/04/19/Numpy%E5%8C%85/</url>
     <content><![CDATA[<h4 id="Numpy介绍"><a href="#Numpy介绍" class="headerlink" title="Numpy介绍"></a><b>Numpy介绍</b></h4><blockquote>
@@ -1812,18 +1812,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SMO算法</title>
-    <url>/2021/03/03/SMO%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>深渊巨坑</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python-变量</title>
     <url>/2021/03/26/Python-%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h4 id="Python的变量"><a href="#Python的变量" class="headerlink" title="Python的变量"></a><b>Python的变量</b></h4><blockquote>
@@ -1905,24 +1893,6 @@
         <tag>Python</tag>
         <tag>编程语言基础</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/08/15/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>SVM算法</title>
@@ -2107,6 +2077,18 @@
       </tags>
   </entry>
   <entry>
+    <title>SMO算法</title>
+    <url>/2021/03/03/SMO%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>深渊巨坑</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>k近邻算法代码实现</title>
     <url>/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h4 id="k近邻一般算法的实现"><a href="#k近邻一般算法的实现" class="headerlink" title="k近邻一般算法的实现"></a><b>k近邻一般算法的实现</b></h4><blockquote>
@@ -2148,26 +2130,22 @@
       </tags>
   </entry>
   <entry>
-    <title>中心极限定理</title>
-    <url>/2021/03/14/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</url>
-    <content><![CDATA[<h4 id="中心极限定理的客观背景："><a href="#中心极限定理的客观背景：" class="headerlink" title="中心极限定理的客观背景："></a><b>中心极限定理的客观背景：</b></h4><blockquote>
-<p>在客观现实中有许多随机变量，它们都是由大量相互独立的<b>随机因素</b>的综合影响形成的，其中一些个别因素所起的作用都是微小的。这种随机变量往往服从<b>正态分布</b>。</p>
-</blockquote>
-<h4 id="独立同分布的中心极限定理："><a href="#独立同分布的中心极限定理：" class="headerlink" title="独立同分布的中心极限定理："></a><b>独立同分布的中心极限定理：</b></h4><blockquote>
-<p>设随机变量$X_1,X_2,X_3,…,X_n$相互独立，服从同一分布，且具有数学期望和方差。<br>$E(X_k)=\mu,D(X_k)=\sigma^2$(k=1,2,3,…)<br>则随机变量之和$\sum^n_{k=1}X_k$的标准化变量：</p>
-<p>$$Y_n=\frac{\sum^n_{k=1}X_k-E(\sum^n_{k=1}X_k)}{\sqrt[]{D(\sum^n_{k=1}X_k)}}=\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}$$ </p>
-<p>当n充分大时，近似地有<br>$$\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}～N(0,1)$$</p>
-<p>或者说，当n充分大时，近似的有<br>$$\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}～N(n\mu,n\sigma^2)$$</p>
-<p><b>结论：</b><br>由上式可得，无论随机变量$X_i$服从什么分布，且都具有有限的期望和方差，那么作为总和$\sum^n_{i=1}X_i$这个随机变量，当n充分大时，那么可以近似看作正态分布。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86.png" alt="中心极限定理" title="中心极限定理"></p>
-</blockquote>
+    <title>Hello World</title>
+    <url>/2021/08/15/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-      <categories>
-        <category>数学基础</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-        <tag>概率论</tag>
-      </tags>
   </entry>
   <entry>
     <title>k近邻法</title>
@@ -2357,16 +2335,25 @@
       </tags>
   </entry>
   <entry>
-    <title>排序算法</title>
-    <url>/2020/12/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
+    <title>中心极限定理</title>
+    <url>/2021/03/14/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</url>
+    <content><![CDATA[<h4 id="中心极限定理的客观背景："><a href="#中心极限定理的客观背景：" class="headerlink" title="中心极限定理的客观背景："></a><b>中心极限定理的客观背景：</b></h4><blockquote>
+<p>在客观现实中有许多随机变量，它们都是由大量相互独立的<b>随机因素</b>的综合影响形成的，其中一些个别因素所起的作用都是微小的。这种随机变量往往服从<b>正态分布</b>。</p>
+</blockquote>
+<h4 id="独立同分布的中心极限定理："><a href="#独立同分布的中心极限定理：" class="headerlink" title="独立同分布的中心极限定理："></a><b>独立同分布的中心极限定理：</b></h4><blockquote>
+<p>设随机变量$X_1,X_2,X_3,…,X_n$相互独立，服从同一分布，且具有数学期望和方差。<br>$E(X_k)=\mu,D(X_k)=\sigma^2$(k=1,2,3,…)<br>则随机变量之和$\sum^n_{k=1}X_k$的标准化变量：</p>
+<p>$$Y_n=\frac{\sum^n_{k=1}X_k-E(\sum^n_{k=1}X_k)}{\sqrt[]{D(\sum^n_{k=1}X_k)}}=\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}$$ </p>
+<p>当n充分大时，近似地有<br>$$\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}～N(0,1)$$</p>
+<p>或者说，当n充分大时，近似的有<br>$$\frac{\sum^n_{k=1}X_k-n\mu}{\sqrt[]{n}\sigma}～N(n\mu,n\sigma^2)$$</p>
+<p><b>结论：</b><br>由上式可得，无论随机变量$X_i$服从什么分布，且都具有有限的期望和方差，那么作为总和$\sum^n_{i=1}X_i$这个随机变量，当n充分大时，那么可以近似看作正态分布。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86.png" alt="中心极限定理" title="中心极限定理"></p>
+</blockquote>
+]]></content>
       <categories>
-        <category>数据结构与算法</category>
+        <category>数学基础</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>数据结构</tag>
-        <tag>基础学科</tag>
+        <tag>数学</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
@@ -2404,6 +2391,17 @@
       <tags>
         <tag>机器学习</tag>
         <tag>深渊巨坑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关系数据库标准语言SQL</title>
+    <url>/2021/04/19/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>基础学科</tag>
       </tags>
   </entry>
   <entry>
@@ -2520,14 +2518,16 @@
       </tags>
   </entry>
   <entry>
-    <title>关系数据库标准语言SQL</title>
-    <url>/2021/04/19/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80SQL/</url>
+    <title>排序算法</title>
+    <url>/2020/12/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>基础</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
+        <tag>算法</tag>
         <tag>基础学科</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2617,8 +2617,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>数据结构</tag>
         <tag>基础学科</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2663,8 +2663,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>基础学科</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2721,8 +2721,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>基础学科</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2909,140 +2909,6 @@
       </tags>
   </entry>
   <entry>
-    <title>链表</title>
-    <url>/2021/01/24/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h3 id="链表的定义和表示："><a href="#链表的定义和表示：" class="headerlink" title="链表的定义和表示："></a><b>链表的定义和表示：</b></h3><p>（<b>声明：</b>这里的链表都是线性表的链式结构。）</p>
-<h4 id="链表的定义："><a href="#链表的定义：" class="headerlink" title="链表的定义："></a><b>链表的定义：</b></h4><blockquote>
-<p>链表是一种物理存储结构上非连续、非顺序的存储结构（物理结构与逻辑结构不一致）。</p>
-</blockquote>
-<h4 id="链表存储结构："><a href="#链表存储结构：" class="headerlink" title="链表存储结构："></a><b>链表存储结构：</b></h4><blockquote>
-<p><b>数据域</b>和<b>指针域</b></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LinkList</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;		<span class="comment">//数据域</span></span><br><span class="line">	LinkList* next;		<span class="comment">//指针域</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="链表的分类："><a href="#链表的分类：" class="headerlink" title="链表的分类："></a><b>链表的分类：</b></h4><blockquote>
-<ul>
-<li><b>单链表：</b>指针域只有一个next指针的链表<blockquote>
-<ul>
-<li><b>直线型的单链表</b></li>
-<li><b>单循环链表</b></li>
-</ul>
-</blockquote>
-</li>
-<li><b>双向链表：</b>指针域有指向前一个节点的prior指针和指向后一个节点的next指针。<blockquote>
-<ul>
-<li><b>直线型的双向链表</b></li>
-<li><b>双循环链表</b></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><b>以下是单链表的表示图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84.jpg" alt="链表" title="单链表"></p>
-</blockquote>
-<h3 id="链表的操作"><a href="#链表的操作" class="headerlink" title="链表的操作"></a><b>链表的操作</b></h3><blockquote>
-<p>链表主要包括<b>增</b>（结点的增加）、<b>删</b>（删除某个结点）。</p>
-<ul>
-<li><b>增：</b>链表结点的插入分为<b>头插法</b>和<b>尾插法</b><blockquote>
-<p><b>两者区别：</b>同样是按顺序将1-2-3-4-5创建成链表，<br>头插法的结果为：5-4-3-2-1<br>尾插法的结果为：1-2-3-4-5</p>
-<ul>
-<li><b>头插法：</b>即每次都将新结点插到头结点之后。<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateList_H</span><span class="params">(Linklist &amp;L,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LNode *p;</span><br><span class="line">   L=<span class="keyword">new</span> LNode;</span><br><span class="line">   L-&gt;next=<span class="literal">NULL</span>;		<span class="comment">//创建一个带头结点的空表</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">   &#123;</span><br><span class="line">p = <span class="keyword">new</span> LNode;		<span class="comment">//生成新的结点</span></span><br><span class="line">cin&gt;&gt;p-&gt;data;</span><br><span class="line"></span><br><span class="line">p-&gt;next=L-&gt;next;	<span class="comment">//将新结点插到头结点之后</span></span><br><span class="line">L-&gt;next=p;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><b>尾插法：</b>每次将新结点插到尾结点之后。<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateList_R</span><span class="params">(Linklist &amp;L,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LNode *p;</span><br><span class="line">   LNode *r;</span><br><span class="line">   L=<span class="keyword">new</span> LNode;</span><br><span class="line">   L-&gt;next=<span class="literal">NULL</span>;	<span class="comment">//创建一个带头结点的空表</span></span><br><span class="line">   </span><br><span class="line">   r=L;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">   &#123;</span><br><span class="line">       p=<span class="keyword">new</span> LNode;</span><br><span class="line">cin&gt;&gt;p-&gt;data;</span><br><span class="line"></span><br><span class="line">p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">r-&gt;next=p;</span><br><span class="line">r=p;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li><b>删：</b>将链表中某个结点删掉。<blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(LinkList*&amp; L, <span class="keyword">int</span> i)</span>			<span class="comment">//删除元素</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">LinkList* p = L, * q;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">0</span>)		<span class="comment">//输入要删除的位置有误</span></span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;位置输入错误&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (j &lt; i - <span class="number">1</span> &amp;&amp; p != <span class="literal">NULL</span>)		<span class="comment">//查找要删除的位置</span></span><br><span class="line">&#123;</span><br><span class="line">	j++;</span><br><span class="line">	p = p-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (p == <span class="literal">NULL</span>)		<span class="comment">//要删除的链表为空</span></span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;链表为空，删除失败!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	q = p-&gt;next;</span><br><span class="line">	<span class="keyword">if</span> (q == <span class="literal">NULL</span>)	<span class="comment">//要删除的链表为空</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;链表为空，删除失败!&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p-&gt;next = q-&gt;next;	<span class="comment">//删除部分</span></span><br><span class="line">	<span class="keyword">delete</span> q;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;删除成功!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>基础学科</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>概率论与数理统计（四）</title>
-    <url>/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="常见的概率分布"><a href="#常见的概率分布" class="headerlink" title="常见的概率分布"></a><b>常见的概率分布</b></h3><p><b>离散型分布：</b></p>
-<h4 id="0-1分布："><a href="#0-1分布：" class="headerlink" title="0-1分布："></a><b>0-1分布：</b></h4><blockquote>
-<p><b>定义：</b>$P(X=k)=p^k(1-p)^{1-k}$<br><b>特性：</b>实验只有两种结果，且实验只做一次。</p>
-</blockquote>
-<h4 id="几何分布："><a href="#几何分布：" class="headerlink" title="几何分布："></a><b>几何分布：</b></h4><blockquote>
-<p><b>定义：</b>$P(X=k)=(1-p)^{k-1}p$，其中P(A)=p，第k次是首次发生，前k-1次不发生。记作$G～B(p)$</p>
-</blockquote>
-<h4 id="二项分布："><a href="#二项分布：" class="headerlink" title="二项分布："></a><b>二项分布：</b></h4><blockquote>
-<p><b>定义：</b>A为某事件发生的情况，一共做了n次实验，其中A发生的次数是k次。记作$X～B(n,p)$<br>$$P(X=k)=C_{n}^{k}p^k(1-p)^{n-k}$$其中，$k=0,1,2,…,n$<br><b>特性：</b></p>
-<blockquote>
-<ul>
-<li>$(n+1)p$不为整数时，$(n+1)p$取整时达到最大值。</li>
-<li>$(n+1)p$为整数时，$(n+1)p$和$(n+1)p-1$是最大值。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h4 id="泊松分布："><a href="#泊松分布：" class="headerlink" title="泊松分布："></a><b>泊松分布：</b></h4><blockquote>
-<p><b>定义：</b>$$P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$$其中$\lambda$为单位时间内随机事件的平均<b>发生率</b>，$k=0,1,2,…$<br><b>注：</b>在一些情况下二项分布可以用泊松分布近似表示。<br><b>泊松分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83.png" alt="泊松分布" title="泊松分布"></p>
-</blockquote>
-<h4 id="超几何分布："><a href="#超几何分布：" class="headerlink" title="超几何分布："></a><b>超几何分布：</b></h4><blockquote>
-<p><b>定义：</b>N个元素，$N_1$个元素属于第一类，$N_2$个元素属于第二类，在其中取n个元素，X：这n个元素中属于第一类的个数。<br>$$P(X=k)=\frac{C_{N_1}^kC_{N_2}^{n-k}}{C_N^n}$$<br>其中k=0,1,2,…,min(n,$N_1$)<br><b>注：</b>当N很大，n相对于N小得很的时候，超几何分布可以近似看成二项分布。</p>
-</blockquote>
-<p><b>连续型分布</b></p>
-<h4 id="均匀分布："><a href="#均匀分布：" class="headerlink" title="均匀分布："></a><b>均匀分布：</b></h4><blockquote>
-<p><b>密度分布函数：</b><br>$$\begin{cases}<br>\frac{1}{b-a}\quad \quad (a&lt;=x&lt;=b)\\<br>\\<br>0\quad \quad(x属于其他)\\<br>\end{cases}$$</p>
-<p><b>分布函数：</b><br>$$\begin{cases}<br>0 \quad \quad x&lt;0 \\<br>\frac{x-a}{b-a} \quad \quad (a&lt;=x&lt;b)\\<br>1 \quad \quad \\<br>\end{cases}$$<br>记作$X～U[a,b]$<br><b>均匀分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83.png" alt="均匀分布" title="均匀分布"></p>
-</blockquote>
-<h4 id="指数分布："><a href="#指数分布：" class="headerlink" title="指数分布："></a><b>指数分布：</b></h4><blockquote>
-<p><b>密度分布函数：</b><br>$$\begin{cases}<br>{\lambda}e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br>一般记作$X～E_{XP}(\lambda)$<br><b>分布函数：</b><br>$$\begin{cases}<br>1-e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83.png" alt="指数分布" title="指数分布"><br><b>性质：无记忆性</b>，当$s,t&gt;=0$时，有$P(x&gt;s+t|x&gt;s)=p(x&gt;t)$<br>例如，x是一个灯泡的使用寿命，一个已经使用了s小时的灯泡，它能再使用t小时的概率与一个新灯泡使用t小时的概率是一样的。</p>
-</blockquote>
-<h4 id="正态分布："><a href="#正态分布：" class="headerlink" title="正态分布："></a><b>正态分布：</b></h4><blockquote>
-<p><b>密度函数：</b><br>$$\phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$<br><b>分布函数：</b><br>$$\Phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2{\sigma}^2}}$$<br>一般记作：$X～N(\mu,{\sigma}^2)$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83.png" alt="正态分布" title="正态分布"><br><b>性质：</b></p>
-<ul>
-<li>$y=\phi(x)$以$x=\mu$为对称轴，当$x=\mu$时，$\phi(x)$最大值$\frac{1}{\sqrt[]{2\pi}\sigma}$</li>
-<li>$y=\phi(x)$以x轴为渐近线，$x=\mu$土$\sigma$处有拐点</li>
-<li>$\sigma$固定，$\mu$变化时，图像左/右移动。</li>
-<li>$\mu$固定，$\sigma$变小时，最高点上移，反之最高点下降</li>
-</ul>
-</blockquote>
-<p><a href="/blog/public/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/index.html">上一篇</a></p>
-]]></content>
-      <categories>
-        <category>数学基础</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>线性代数</title>
-    <url>/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
-<p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
-</blockquote>
-<h5 id="二、线性变换及系数矩阵"><a href="#二、线性变换及系数矩阵" class="headerlink" title="二、线性变换及系数矩阵"></a><b>二、线性变换及系数矩阵</b></h5><blockquote>
-<p><b>定义：</b><br><b>线性变换：</b> 变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的关系式，<br>$$\begin{cases}y_1=a_{11}x_1+a_{12}x_2+{\cdots}+a_{1n}x_n,\\<br>y_2=a_{21}x_1+a_{22}x_2+{\cdots}+a_{2n}x_n,\\<br>              \cdots \\<br>y_m=a_{m1}x_1+a_{m2}x_2+{\cdots}+a_{mn}x_n\\<br>\end{cases}$$<br>称为变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的<b>线性变换&lt;\b&gt;<br><b>系数矩阵：&lt;\b&gt;由线性变换的系数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成<b>m行n列</b>的矩阵。<br><b>性质：</b><br>(1)、分配律：$(A+B)x=Ax+Bx$<br>(2)、结合律：$(kA)x=k(Ax)$<br>(3)、结合律：$(AB)x=A(Bx)$</p>
-</blockquote>
-<h5 id="三、矩阵及其线性运算"><a href="#三、矩阵及其线性运算" class="headerlink" title="三、矩阵及其线性运算"></a><b>三、矩阵及其线性运算</b></h5><blockquote>
-<p><b>定义：</b><br>由mXn个数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成的m行n列的矩阵数表，<br>$$\begin{matrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{nm}}\\<br>\end{matrix}$$<br>称为一个mXn<b>矩阵</b>，其中每一个$a_{ij}$都是该矩阵的元素。<br><b>方阵：</b>行数与列数相等的矩阵称为方阵。<br><b>同型矩阵：</b>两个矩阵的<b>行数和列数相同</b>的两个矩阵。<br><b>矩阵相同：</b>两个矩阵的对应位元素相同的同型矩阵。<br><b>矩阵的加法：</b>设$A=(a_{ij})$与$B=(b_{ij})$都是mXn矩阵，记<br>$c_{ij}=a_{ij}+b_{ij},(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$<br>称mXn矩阵$C=(c_{ij})$为矩阵A与矩阵B的和，记作$C=A+B$<br><b>矩阵的乘数：</b></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数学基础</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>概率论与数理统计（二）</title>
     <url>/2021/01/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h3 id="1-3-事件概率"><a href="#1-3-事件概率" class="headerlink" title="1.3 事件概率"></a><b>1.3 事件概率</b></h3><h4 id="1-3-1-概率的定义："><a href="#1-3-1-概率的定义：" class="headerlink" title="1.3.1 概率的定义："></a><b>1.3.1 概率的定义：</b></h4><blockquote>
@@ -3168,6 +3034,58 @@
       </tags>
   </entry>
   <entry>
+    <title>概率论与数理统计（四）</title>
+    <url>/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="常见的概率分布"><a href="#常见的概率分布" class="headerlink" title="常见的概率分布"></a><b>常见的概率分布</b></h3><p><b>离散型分布：</b></p>
+<h4 id="0-1分布："><a href="#0-1分布：" class="headerlink" title="0-1分布："></a><b>0-1分布：</b></h4><blockquote>
+<p><b>定义：</b>$P(X=k)=p^k(1-p)^{1-k}$<br><b>特性：</b>实验只有两种结果，且实验只做一次。</p>
+</blockquote>
+<h4 id="几何分布："><a href="#几何分布：" class="headerlink" title="几何分布："></a><b>几何分布：</b></h4><blockquote>
+<p><b>定义：</b>$P(X=k)=(1-p)^{k-1}p$，其中P(A)=p，第k次是首次发生，前k-1次不发生。记作$G～B(p)$</p>
+</blockquote>
+<h4 id="二项分布："><a href="#二项分布：" class="headerlink" title="二项分布："></a><b>二项分布：</b></h4><blockquote>
+<p><b>定义：</b>A为某事件发生的情况，一共做了n次实验，其中A发生的次数是k次。记作$X～B(n,p)$<br>$$P(X=k)=C_{n}^{k}p^k(1-p)^{n-k}$$其中，$k=0,1,2,…,n$<br><b>特性：</b></p>
+<blockquote>
+<ul>
+<li>$(n+1)p$不为整数时，$(n+1)p$取整时达到最大值。</li>
+<li>$(n+1)p$为整数时，$(n+1)p$和$(n+1)p-1$是最大值。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="泊松分布："><a href="#泊松分布：" class="headerlink" title="泊松分布："></a><b>泊松分布：</b></h4><blockquote>
+<p><b>定义：</b>$$P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$$其中$\lambda$为单位时间内随机事件的平均<b>发生率</b>，$k=0,1,2,…$<br><b>注：</b>在一些情况下二项分布可以用泊松分布近似表示。<br><b>泊松分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83.png" alt="泊松分布" title="泊松分布"></p>
+</blockquote>
+<h4 id="超几何分布："><a href="#超几何分布：" class="headerlink" title="超几何分布："></a><b>超几何分布：</b></h4><blockquote>
+<p><b>定义：</b>N个元素，$N_1$个元素属于第一类，$N_2$个元素属于第二类，在其中取n个元素，X：这n个元素中属于第一类的个数。<br>$$P(X=k)=\frac{C_{N_1}^kC_{N_2}^{n-k}}{C_N^n}$$<br>其中k=0,1,2,…,min(n,$N_1$)<br><b>注：</b>当N很大，n相对于N小得很的时候，超几何分布可以近似看成二项分布。</p>
+</blockquote>
+<p><b>连续型分布</b></p>
+<h4 id="均匀分布："><a href="#均匀分布：" class="headerlink" title="均匀分布："></a><b>均匀分布：</b></h4><blockquote>
+<p><b>密度分布函数：</b><br>$$\begin{cases}<br>\frac{1}{b-a}\quad \quad (a&lt;=x&lt;=b)\\<br>\\<br>0\quad \quad(x属于其他)\\<br>\end{cases}$$</p>
+<p><b>分布函数：</b><br>$$\begin{cases}<br>0 \quad \quad x&lt;0 \\<br>\frac{x-a}{b-a} \quad \quad (a&lt;=x&lt;b)\\<br>1 \quad \quad \\<br>\end{cases}$$<br>记作$X～U[a,b]$<br><b>均匀分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83.png" alt="均匀分布" title="均匀分布"></p>
+</blockquote>
+<h4 id="指数分布："><a href="#指数分布：" class="headerlink" title="指数分布："></a><b>指数分布：</b></h4><blockquote>
+<p><b>密度分布函数：</b><br>$$\begin{cases}<br>{\lambda}e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br>一般记作$X～E_{XP}(\lambda)$<br><b>分布函数：</b><br>$$\begin{cases}<br>1-e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83.png" alt="指数分布" title="指数分布"><br><b>性质：无记忆性</b>，当$s,t&gt;=0$时，有$P(x&gt;s+t|x&gt;s)=p(x&gt;t)$<br>例如，x是一个灯泡的使用寿命，一个已经使用了s小时的灯泡，它能再使用t小时的概率与一个新灯泡使用t小时的概率是一样的。</p>
+</blockquote>
+<h4 id="正态分布："><a href="#正态分布：" class="headerlink" title="正态分布："></a><b>正态分布：</b></h4><blockquote>
+<p><b>密度函数：</b><br>$$\phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$<br><b>分布函数：</b><br>$$\Phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2{\sigma}^2}}$$<br>一般记作：$X～N(\mu,{\sigma}^2)$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83.png" alt="正态分布" title="正态分布"><br><b>性质：</b></p>
+<ul>
+<li>$y=\phi(x)$以$x=\mu$为对称轴，当$x=\mu$时，$\phi(x)$最大值$\frac{1}{\sqrt[]{2\pi}\sigma}$</li>
+<li>$y=\phi(x)$以x轴为渐近线，$x=\mu$土$\sigma$处有拐点</li>
+<li>$\sigma$固定，$\mu$变化时，图像左/右移动。</li>
+<li>$\mu$固定，$\sigma$变小时，最高点上移，反之最高点下降</li>
+</ul>
+</blockquote>
+<p><a href="/blog/public/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/index.html">上一篇</a></p>
+]]></content>
+      <categories>
+        <category>数学基础</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>模型选择与模型优化</title>
     <url>/2021/03/25/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h4 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a><b>训练误差与测试误差</b></h4><blockquote>
@@ -3260,6 +3178,88 @@
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数</title>
+    <url>/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
+</blockquote>
+<h5 id="二、线性变换及系数矩阵"><a href="#二、线性变换及系数矩阵" class="headerlink" title="二、线性变换及系数矩阵"></a><b>二、线性变换及系数矩阵</b></h5><blockquote>
+<p><b>定义：</b><br><b>线性变换：</b> 变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的关系式，<br>$$\begin{cases}y_1=a_{11}x_1+a_{12}x_2+{\cdots}+a_{1n}x_n,\\<br>y_2=a_{21}x_1+a_{22}x_2+{\cdots}+a_{2n}x_n,\\<br>              \cdots \\<br>y_m=a_{m1}x_1+a_{m2}x_2+{\cdots}+a_{mn}x_n\\<br>\end{cases}$$<br>称为变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的<b>线性变换&lt;\b&gt;<br><b>系数矩阵：&lt;\b&gt;由线性变换的系数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成<b>m行n列</b>的矩阵。<br><b>性质：</b><br>(1)、分配律：$(A+B)x=Ax+Bx$<br>(2)、结合律：$(kA)x=k(Ax)$<br>(3)、结合律：$(AB)x=A(Bx)$</p>
+</blockquote>
+<h5 id="三、矩阵及其线性运算"><a href="#三、矩阵及其线性运算" class="headerlink" title="三、矩阵及其线性运算"></a><b>三、矩阵及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br>由mXn个数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成的m行n列的矩阵数表，<br>$$\begin{matrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{nm}}\\<br>\end{matrix}$$<br>称为一个mXn<b>矩阵</b>，其中每一个$a_{ij}$都是该矩阵的元素。<br><b>方阵：</b>行数与列数相等的矩阵称为方阵。<br><b>同型矩阵：</b>两个矩阵的<b>行数和列数相同</b>的两个矩阵。<br><b>矩阵相同：</b>两个矩阵的对应位元素相同的同型矩阵。<br><b>矩阵的加法：</b>设$A=(a_{ij})$与$B=(b_{ij})$都是mXn矩阵，记<br>$c_{ij}=a_{ij}+b_{ij},(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$<br>称mXn矩阵$C=(c_{ij})$为矩阵A与矩阵B的和，记作$C=A+B$<br><b>矩阵的乘数：</b></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数学基础</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链表</title>
+    <url>/2021/01/24/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h3 id="链表的定义和表示："><a href="#链表的定义和表示：" class="headerlink" title="链表的定义和表示："></a><b>链表的定义和表示：</b></h3><p>（<b>声明：</b>这里的链表都是线性表的链式结构。）</p>
+<h4 id="链表的定义："><a href="#链表的定义：" class="headerlink" title="链表的定义："></a><b>链表的定义：</b></h4><blockquote>
+<p>链表是一种物理存储结构上非连续、非顺序的存储结构（物理结构与逻辑结构不一致）。</p>
+</blockquote>
+<h4 id="链表存储结构："><a href="#链表存储结构：" class="headerlink" title="链表存储结构："></a><b>链表存储结构：</b></h4><blockquote>
+<p><b>数据域</b>和<b>指针域</b></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LinkList</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;		<span class="comment">//数据域</span></span><br><span class="line">	LinkList* next;		<span class="comment">//指针域</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="链表的分类："><a href="#链表的分类：" class="headerlink" title="链表的分类："></a><b>链表的分类：</b></h4><blockquote>
+<ul>
+<li><b>单链表：</b>指针域只有一个next指针的链表<blockquote>
+<ul>
+<li><b>直线型的单链表</b></li>
+<li><b>单循环链表</b></li>
+</ul>
+</blockquote>
+</li>
+<li><b>双向链表：</b>指针域有指向前一个节点的prior指针和指向后一个节点的next指针。<blockquote>
+<ul>
+<li><b>直线型的双向链表</b></li>
+<li><b>双循环链表</b></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><b>以下是单链表的表示图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84.jpg" alt="链表" title="单链表"></p>
+</blockquote>
+<h3 id="链表的操作"><a href="#链表的操作" class="headerlink" title="链表的操作"></a><b>链表的操作</b></h3><blockquote>
+<p>链表主要包括<b>增</b>（结点的增加）、<b>删</b>（删除某个结点）。</p>
+<ul>
+<li><b>增：</b>链表结点的插入分为<b>头插法</b>和<b>尾插法</b><blockquote>
+<p><b>两者区别：</b>同样是按顺序将1-2-3-4-5创建成链表，<br>头插法的结果为：5-4-3-2-1<br>尾插法的结果为：1-2-3-4-5</p>
+<ul>
+<li><b>头插法：</b>即每次都将新结点插到头结点之后。<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateList_H</span><span class="params">(Linklist &amp;L,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LNode *p;</span><br><span class="line">   L=<span class="keyword">new</span> LNode;</span><br><span class="line">   L-&gt;next=<span class="literal">NULL</span>;		<span class="comment">//创建一个带头结点的空表</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">   &#123;</span><br><span class="line">p = <span class="keyword">new</span> LNode;		<span class="comment">//生成新的结点</span></span><br><span class="line">cin&gt;&gt;p-&gt;data;</span><br><span class="line"></span><br><span class="line">p-&gt;next=L-&gt;next;	<span class="comment">//将新结点插到头结点之后</span></span><br><span class="line">L-&gt;next=p;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><b>尾插法：</b>每次将新结点插到尾结点之后。<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateList_R</span><span class="params">(Linklist &amp;L,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   LNode *p;</span><br><span class="line">   LNode *r;</span><br><span class="line">   L=<span class="keyword">new</span> LNode;</span><br><span class="line">   L-&gt;next=<span class="literal">NULL</span>;	<span class="comment">//创建一个带头结点的空表</span></span><br><span class="line">   </span><br><span class="line">   r=L;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">   &#123;</span><br><span class="line">       p=<span class="keyword">new</span> LNode;</span><br><span class="line">cin&gt;&gt;p-&gt;data;</span><br><span class="line"></span><br><span class="line">p-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">r-&gt;next=p;</span><br><span class="line">r=p;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><b>删：</b>将链表中某个结点删掉。<blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(LinkList*&amp; L, <span class="keyword">int</span> i)</span>			<span class="comment">//删除元素</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">LinkList* p = L, * q;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">0</span>)		<span class="comment">//输入要删除的位置有误</span></span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;位置输入错误&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (j &lt; i - <span class="number">1</span> &amp;&amp; p != <span class="literal">NULL</span>)		<span class="comment">//查找要删除的位置</span></span><br><span class="line">&#123;</span><br><span class="line">	j++;</span><br><span class="line">	p = p-&gt;next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (p == <span class="literal">NULL</span>)		<span class="comment">//要删除的链表为空</span></span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;链表为空，删除失败!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	q = p-&gt;next;</span><br><span class="line">	<span class="keyword">if</span> (q == <span class="literal">NULL</span>)	<span class="comment">//要删除的链表为空</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;链表为空，删除失败!&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p-&gt;next = q-&gt;next;	<span class="comment">//删除部分</span></span><br><span class="line">	<span class="keyword">delete</span> q;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;删除成功!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>基础学科</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
