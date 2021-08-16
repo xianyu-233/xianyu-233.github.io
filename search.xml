@@ -490,331 +490,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HTML(一)</title>
-    <url>/2021/04/06/HTML%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h4 id="HTML介绍"><a href="#HTML介绍" class="headerlink" title="HTML介绍"></a><b>HTML介绍</b></h4><blockquote>
-<p>HTML全称为<b>超文本标记语言</b>，是一种用于创建网页的标准标记语言。HTML可以创建属于自己的Web站点，并且一般由浏览器负责解析。</p>
-</blockquote>
-<h5 id="HTML简介"><a href="#HTML简介" class="headerlink" title="HTML简介"></a><b>HTML简介</b></h5><blockquote>
-<p><b>例如：</b></p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">title</span>&gt;</span>这是网站标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是第一个标题！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是第一个段落！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是第二级标题！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是第二个段落！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>HTML实例解析：</b></p>
-<ul>
-<li><code>&lt;!DOCTYPE html&gt;</code>声明该文件是一个HTML文件。</li>
-<li><code>&lt;html&gt;</code>元素是HTML的根元素。</li>
-<li><code>&lt;head&gt;</code>元素包含了文档的元数据，<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>就标指了网页的编码格式为<code>utf-8</code></li>
-<li><code>&lt;title&gt;</code>元素定义了网页的标题。</li>
-<li><code>&lt;body&gt;</code>元素包括了网页的可见内容。</li>
-<li><code>&lt;h1&gt;</code>元素定义了一个一级标题。</li>
-<li><code>&lt;p&gt;</code>元素定义了一个段落。</li>
-</ul>
-</blockquote>
-<h5 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a><b>HTML标签</b></h5><blockquote>
-<ul>
-<li>HTML标签是由尖括号包围的关键字，如<code>&lt;head&gt;</code></li>
-<li>HTML标签分为<b>开放标签</b>和<b>闭合标签</b></li>
-<li>HTML标签一般成对出现，如<code>&lt;head&gt;&lt;/head&gt;</code></li>
-<li><b>HTML元素</b>与<b>HTML标签</b>通常是相同的意思，不过HTML元素特指<b>开始与结束的两个标签</b>。</li>
-</ul>
-</blockquote>
-<h4 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a><b>HTML基础</b></h4><h5 id="标题"><a href="#标题" class="headerlink" title="标题"></a><b>标题</b></h5><blockquote>
-<p>在HTML中标题有六级，<code>&lt;h1&gt;～&lt;h6&gt;</code>如：</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一级标题！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是二级标题！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>这是三级标题！<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>这是四级标题！<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>这是五级标题！<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h6</span>&gt;</span>这是六级标题！<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><b>效果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/HTML/HTML%E6%A0%87%E9%A2%98.jpg" alt="HTML标题" title="标题"></p>
-</blockquote>
-</blockquote>
-<h5 id="HTML段落"><a href="#HTML段落" class="headerlink" title="HTML段落"></a><b>HTML段落</b></h5><blockquote>
-<p>在HTML中，段落可以用<code>&lt;p&gt;  &lt;/p&gt;</code>来定义，如：</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
-<h5 id="HTML链接"><a href="#HTML链接" class="headerlink" title="HTML链接"></a><b>HTML链接</b></h5><blockquote>
-<p>在HTML中，链接可以用<code>&lt;a&gt;  &lt;/a&gt;</code>来定义，如：</p>
-<blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span>&gt;</span>这是一个链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>补充：</b>上述元素只是稍微提及，后面会有更详细的描述。 </p>
-</blockquote>
-<hr>
-<blockquote>
-<p><b>补充：</b><br><a href="/blog/public/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/index.html">常用元素</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网页设计</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown的语法（1）</title>
-    <url>/2020/12/20/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="什么是Markdown："><a href="#什么是Markdown：" class="headerlink" title="什么是Markdown："></a><b>什么是Markdown：</b></h3><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。<br>Markdown 编写的文档后缀为 .md或 .markdown。</p>
-</blockquote>
-<h3 id="Markdown的应用"><a href="#Markdown的应用" class="headerlink" title="Markdown的应用"></a><b>Markdown的应用</b></h3><blockquote>
-<p>Markdown 能被使用来撰写电子书，如：Gitbook。<br>当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。<br>例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。<br><del>(没错我就是复制过来的)</del></p>
-</blockquote>
-<h2 id="一、Markdown的标题"><a href="#一、Markdown的标题" class="headerlink" title="一、Markdown的标题"></a><b>一、Markdown的标题</b></h2><h4 id="1、使用-来表示不同的标题"><a href="#1、使用-来表示不同的标题" class="headerlink" title="1、使用#来表示不同的标题"></a>1、使用<code>#</code>来表示不同的标题</h4><h5 id="语法如下：（注意-后面有空格）"><a href="#语法如下：（注意-后面有空格）" class="headerlink" title="语法如下：（注意#后面有空格）"></a>语法如下：（注意#后面有空格）</h5><blockquote>
-<p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br><del>(好像有六级标题，但第六级标题与第五级标题差不多，所以就懒得写了)</del></p>
-</blockquote>
-<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></blockquote>
-<h4 id="2、使用-和-来表示不同的标题"><a href="#2、使用-和-来表示不同的标题" class="headerlink" title="2、使用=和-来表示不同的标题"></a>2、使用<code>=</code>和<code>-</code>来表示不同的标题</h4><h5 id="语法如下："><a href="#语法如下：" class="headerlink" title="语法如下："></a>语法如下：</h5><blockquote>
-<p>这是一级标题<br>=========<br>这是二级标题<br>-——–</p>
-</blockquote>
-<h5 id="效果如下：-1"><a href="#效果如下：-1" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2></blockquote>
-<h2 id="二、Markdown的段落格式"><a href="#二、Markdown的段落格式" class="headerlink" title="二、Markdown的段落格式"></a><b>二、Markdown的段落格式</b></h2><h4 id="1、字体"><a href="#1、字体" class="headerlink" title="1、字体"></a>1、字体</h4><p>用<code>-</code>或<code>*</code>包裹要标注的文字<br>一个表示斜体<br>两个表示粗体<br>三个表示斜粗体</p>
-<h5 id="具体语法如下："><a href="#具体语法如下：" class="headerlink" title="具体语法如下："></a>具体语法如下：</h5><blockquote>
-<p>*文字* 或 _文字_<br>**文字** 或 __文字__<br>***文字*** 或 ___文字___</p>
-</blockquote>
-<h5 id="效果如下：-2"><a href="#效果如下：-2" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong>  <del>（说好的粗体字呢？？）</del><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
-</blockquote>
-<h4 id="2、分割线"><a href="#2、分割线" class="headerlink" title="2、分割线"></a>2、分割线</h4><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
-<h5 id="具体语法："><a href="#具体语法：" class="headerlink" title="具体语法："></a>具体语法：</h5><blockquote>
-<p>***<br>* * *<br>******<br>- - -<br>-——–</p>
-</blockquote>
-<h5 id="效果如下：-3"><a href="#效果如下：-3" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<hr>
-<hr>
-<hr>
-<hr>
-</blockquote>
-<h3 id="3、删除线"><a href="#3、删除线" class="headerlink" title="3、删除线"></a>3、删除线</h3><p>在文字两端加上两个波浪线<code>~~</code>即可</p>
-<h5 id="具体语法：-1"><a href="#具体语法：-1" class="headerlink" title="具体语法："></a>具体语法：</h5><blockquote>
-<p>啥东西都没有<br>~~啥东西都没有~~</p>
-</blockquote>
-<h5 id="效果如下：-4"><a href="#效果如下：-4" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<p>啥东西都没有<br><del>啥东西都没有</del></p>
-</blockquote>
-<h3 id="4、下划线"><a href="#4、下划线" class="headerlink" title="4、下划线"></a>4、下划线</h3><p>下划线可以通过HTML的<code>&lt;u&gt;</code>标签来实现：</p>
-<blockquote>
-<p>&lt;u&gt;带下划线&lt;/u&gt;</p>
-</blockquote>
-<h5 id="效果如下：-5"><a href="#效果如下：-5" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<p><u>带下划线</u></p>
-</blockquote>
-<h3 id="5、脚注"><a href="#5、脚注" class="headerlink" title="5、脚注"></a>5、脚注</h3><p>Markdown 脚注的格式如下：</p>
-<blockquote>
-<p>创建一个[^脚注]<br>[^脚注]: 这是一个脚注</p>
-</blockquote>
-<h5 id="效果如下：-6"><a href="#效果如下：-6" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<p>创建一个[^脚注]<br>[^脚注]: 这是一个脚注    <del>（可惜Hexo不支持脚注的实现）</del></p>
-</blockquote>
-<h2 id="三、Markdown列表"><a href="#三、Markdown列表" class="headerlink" title="三、Markdown列表"></a><b>三、Markdown列表</b></h2><h4 id="1、无序表"><a href="#1、无序表" class="headerlink" title="1、无序表"></a>1、无序表</h4><p>无序表使用星号<code>*</code>、加号<code>+</code>或者是减号<code>-</code>作为标记<b>（符号后面一定要有空格！）</b></p>
-<h4 id="具体语法"><a href="#具体语法" class="headerlink" title="具体语法"></a>具体语法</h4><blockquote>
-<p>* 第一项<br>* 第二项<br>* 第三项</p>
-<p>+ 第一项<br>+ 第二项<br>+ 第三项</p>
-<p>- 第一项<br>- 第二项<br>- 第三项</p>
-</blockquote>
-<h5 id="效果如下：-7"><a href="#效果如下：-7" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ul>
-</blockquote>
-<h4 id="2、有序列表"><a href="#2、有序列表" class="headerlink" title="2、有序列表"></a>2、有序列表</h4><p>有序列表使用数字加<code>.</code>来表示，如</p>
-<blockquote>
-<p>1. 第一项<br>2. 第二项<br>3. 第三项</p>
-</blockquote>
-<h5 id="效果如下：-8"><a href="#效果如下：-8" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-</blockquote>
-<h2 id="四、Markdown区块"><a href="#四、Markdown区块" class="headerlink" title="四、Markdown区块"></a><b>四、Markdown区块</b></h2><p>Markdown区块是在开头使用<code>&gt;</code>符号，然后紧跟一个空格，如：</p>
-<blockquote>
-<p>&gt; 区块引用<br>&gt; Markdown学习<br>&gt; 一直摸鱼</p>
-</blockquote>
-<h5 id="结果如下："><a href="#结果如下：" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
-<p>区块引用<br>Markdown学习<br>一直摸鱼</p>
-</blockquote>
-<p>当然，区块也是可以嵌套的，<br>一个<code>&gt;</code>是最外层，两个为第一层嵌套，以此类推：</p>
-<blockquote>
-<p>&gt;最外层<br>&gt;&gt;第一层嵌套<br>&gt;&gt;&gt;第二层嵌套</p>
-</blockquote>
-<h5 id="结果如下：-1"><a href="#结果如下：-1" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
-<p>最外层</p>
-<blockquote>
-<p>第一层嵌套</p>
-<blockquote>
-<p>第二层嵌套</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="五、Markdown代码"><a href="#五、Markdown代码" class="headerlink" title="五、Markdown代码"></a><b>五、Markdown代码</b></h2><p>如果是段落上的一个函数或片段的代码，可以用反引号（`）将其包起来，如</p>
-<blockquote>
-<p>`printf()`函数</p>
-</blockquote>
-<h5 id="结果如下：-2"><a href="#结果如下：-2" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
-<p><code>printf()</code>函数</p>
-</blockquote>
-<h5 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h5><p><del>代码区块可以使用<b>4个空格</b>或者一个<b>制表符(Tab键)</b>来表示:</del>    (太麻烦了)<br>(顺带提一下，这里加粗部分都是是直接用了html的语法)</p>
-<p>当然也可以用(```)包裹一段代码，并指定一种语言（也可以不指定）：</p>
-<blockquote>
-<p>```c++<br>int main()<br>{<br>  cout&lt;&lt;”Hello World!”&lt;&lt;endl;<br>}<br>```</p>
-</blockquote>
-<h5 id="效果如下：-9"><a href="#效果如下：-9" class="headerlink" title="效果如下："></a>效果如下：</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   cout&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="六、Markdown链接"><a href="#六、Markdown链接" class="headerlink" title="六、Markdown链接"></a><b>六、Markdown链接</b></h2><p>链接使用方法如下：</p>
-<blockquote>
-<p>[链接名称](链接地址)<br>或者<br>&lt;链接地址&gt;</p>
-</blockquote>
-<p>用<code>[]()</code>来表示：</p>
-<blockquote>
-<p><b>例如：</b>这是一个链接[百度](<code>https://www.baidu.com</code>)<br><b>效果：</b>这是一个链接<a href="https://www.baidu.com/">百度</a></p>
-</blockquote>
-<p>直接使用链接地址：</p>
-<blockquote>
-<p><b>例如：</b><code>&lt;https://www.baidu.com&gt;</code><br><b>效果：</b><a href="https://www.baidu.com/">https://www.baidu.com</a></p>
-</blockquote>
-<p>当然也可以博客内文章之间的链接：</p>
-<blockquote>
-<p><b>例如：</b>转去另一篇[博客](/blog/public/2021/01/01/Markdown的学习（2）/index.html)<br><b>效果：</b>转去另一篇<a href="/blog/public/2021/01/01/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/index.html">博客</a></p>
-</blockquote>
-<h4 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a><del><b>高级链接</b></del></h4><p>(我不会！)    <del>(理直气壮)</del></p>
-<h2 id="七、Markdown图片"><a href="#七、Markdown图片" class="headerlink" title="七、Markdown图片"></a><b>七、Markdown图片</b></h2><p>Markdown图片语法格式如下：</p>
-<blockquote>
-<p>![alt 属性文本](图片地址)<br>![alt 属性文本](图片地址 “可选标题”)<br><b>（这个图片地址是要从服务器最开始的地址开始写起）</b></p>
-</blockquote>
-<blockquote>
-<ul>
-<li>开头一个感叹号 !</li>
-<li>接着一个方括号，里面放上图片的替代文字</li>
-<li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。</li>
-</ul>
-</blockquote>
-<h5 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[kano 的图片](/blog/public/img/blog-background.jpg)</span><br><span class="line">![kano 的图片](/blog/public/img/blog-background.jpg &quot;鹿乃！&quot;)</span><br></pre></td></tr></table></figure>
-<p><a href="/blog/public/img/blog-background.jpg">kano 的图片</a><br><img src="/blog/public/img/blog-background.jpg" alt="kano 的图片" title="鹿乃！"></p>
-<h2 id="八、Markdown表格"><a href="#八、Markdown表格" class="headerlink" title="八、Markdown表格"></a><b>八、Markdown表格</b></h2><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。<br>语法格式如下：</p>
-<blockquote>
-<p>| 表头 | 表头 |<br>| --- | --- |<br>| 单元格 | 单元格 |<br>| 单元格 | 单元格 |</p>
-</blockquote>
-<h5 id="效果如下：-10"><a href="#效果如下：-10" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-</tbody></table>
-</blockquote>
-<p>当然也可以设置表格的<b>对齐方式</b>：</p>
-<ul>
-<li><code>-:</code>设置内容和标题栏居右对齐。</li>
-<li><code>:-</code>设置内容和标题栏居左对齐。</li>
-<li><code>:-:</code> 设置内容和标题栏居中对齐。<h5 id="语法如下：-1"><a href="#语法如下：-1" class="headerlink" title="语法如下："></a>语法如下：</h5><blockquote>
-<p>| 左对齐 | 右对齐 | 居中对齐 |<br>| :-----| ----: | :----: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |</p>
-</blockquote>
-<h5 id="效果如下：-11"><a href="#效果如下：-11" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
-<table>
-<thead>
-<tr>
-<th align="left">左对齐</th>
-<th align="right">右对齐</th>
-<th align="center">居中对齐</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-<tr>
-<td align="left">单元格</td>
-<td align="right">单元格</td>
-<td align="center">单元格</td>
-</tr>
-</tbody></table>
-<p><b>注意:</b>文字和表格最好隔开一行不然表格可能会失效。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="九、拓展的东西"><a href="#九、拓展的东西" class="headerlink" title="九、拓展的东西"></a><b>九、拓展的东西</b></h2><h4 id="支持的-HTML-元素"><a href="#支持的-HTML-元素" class="headerlink" title="支持的 HTML 元素"></a><b>支持的 HTML 元素</b></h4><blockquote>
-<p>目前支持的HTML元素有：&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;等</p>
-</blockquote>
-<h4 id="转义"><a href="#转义" class="headerlink" title="转义"></a><b>转义</b></h4><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<blockquote>
-<p>\  反斜杠<br>`  反引号<br>*  星号<br>_   下划线<br>{}  花括号<br>[]  方括号<br>()  小括号<br>#   井字号<br>+   加号<br>-   减号<br>.   英文句点<br>!   感叹号</p>
-</blockquote>
-<h4 id="改文字颜色与字体"><a href="#改文字颜色与字体" class="headerlink" title="改文字颜色与字体"></a><b>改文字颜色与字体</b></h4><p>要改变字体和颜色可以使用<b><font></b>标签<br>要改变字体大小可以用<b>size</b>属性<br>改变颜色的化要用<b>color</b>属性(支持十六进制)<br>改颜色的例子：</p>
-<blockquote>
-<p>&lt;font color=blue&gt;我是蓝色&lt;/font&gt;<br>&lt;font color=#3366FF&gt;我是蓝色&lt;/font&gt;</p>
-</blockquote>
-<p>样例如下：</p>
-<blockquote>
-<p><font color=blue>我是蓝色</font><br><font color=#3366FF>我是蓝色</font></p>
-</blockquote>
-<p>改字体大小的例子：</p>
-<blockquote>
-<p>&lt;font size=5&gt;我是5号字体/<font><br>&lt;font size=6&gt;我是6号字体/<font><br>&lt;font size=7&gt;我是7号字体/<font></p>
-</blockquote>
-<p>样例如下：</p>
-<blockquote>
-<p><font size=5>我是5号字体</font><br><font size=6>我是6号字体</font><br><font size=7>我是7号字体</font></p>
-</blockquote>
-<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a><b>公式</b></h4><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax(这玩意要手动开) 对数学公式进行渲染。如：<br>(详细情况见<a href="/blog/public/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">Mathjax的使用</a>这篇文章)</p>
-]]></content>
-      <categories>
-        <category>基础</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown的语法-续</title>
-    <url>/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
-    <content><![CDATA[<h3 id="Markdown的拓展学习"><a href="#Markdown的拓展学习" class="headerlink" title="Markdown的拓展学习"></a><b>Markdown的拓展学习</b></h3><h4 id="1、实现内容的折叠"><a href="#1、实现内容的折叠" class="headerlink" title="1、实现内容的折叠"></a><b>1、实现内容的折叠</b></h4><h5 id="语法如下"><a href="#语法如下" class="headerlink" title="语法如下:"></a><b>语法如下:</b></h5><blockquote>
-<p>&lt;details&gt;<br>&lt;summary&gt;标题&lt;/summary&gt;<br>隐藏的内容!<br>&lt;/details&gt;</p>
-</blockquote>
-<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a><b>效果如下：</b></h5> <details>
- <summary>标题</summary>
- 隐藏的内容!
- </details>
-
-]]></content>
-      <categories>
-        <category>基础</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mathjax的使用</title>
     <url>/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述:"></a><b>概述:</b></h4><blockquote>
@@ -1405,6 +1080,68 @@
       </tags>
   </entry>
   <entry>
+    <title>HTML(一)</title>
+    <url>/2021/04/06/HTML%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="HTML介绍"><a href="#HTML介绍" class="headerlink" title="HTML介绍"></a><b>HTML介绍</b></h4><blockquote>
+<p>HTML全称为<b>超文本标记语言</b>，是一种用于创建网页的标准标记语言。HTML可以创建属于自己的Web站点，并且一般由浏览器负责解析。</p>
+</blockquote>
+<h5 id="HTML简介"><a href="#HTML简介" class="headerlink" title="HTML简介"></a><b>HTML简介</b></h5><blockquote>
+<p><b>例如：</b></p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">title</span>&gt;</span>这是网站标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是第一个标题！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是第一个段落！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是第二级标题！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是第二个段落！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>HTML实例解析：</b></p>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code>声明该文件是一个HTML文件。</li>
+<li><code>&lt;html&gt;</code>元素是HTML的根元素。</li>
+<li><code>&lt;head&gt;</code>元素包含了文档的元数据，<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>就标指了网页的编码格式为<code>utf-8</code></li>
+<li><code>&lt;title&gt;</code>元素定义了网页的标题。</li>
+<li><code>&lt;body&gt;</code>元素包括了网页的可见内容。</li>
+<li><code>&lt;h1&gt;</code>元素定义了一个一级标题。</li>
+<li><code>&lt;p&gt;</code>元素定义了一个段落。</li>
+</ul>
+</blockquote>
+<h5 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a><b>HTML标签</b></h5><blockquote>
+<ul>
+<li>HTML标签是由尖括号包围的关键字，如<code>&lt;head&gt;</code></li>
+<li>HTML标签分为<b>开放标签</b>和<b>闭合标签</b></li>
+<li>HTML标签一般成对出现，如<code>&lt;head&gt;&lt;/head&gt;</code></li>
+<li><b>HTML元素</b>与<b>HTML标签</b>通常是相同的意思，不过HTML元素特指<b>开始与结束的两个标签</b>。</li>
+</ul>
+</blockquote>
+<h4 id="HTML基础"><a href="#HTML基础" class="headerlink" title="HTML基础"></a><b>HTML基础</b></h4><h5 id="标题"><a href="#标题" class="headerlink" title="标题"></a><b>标题</b></h5><blockquote>
+<p>在HTML中标题有六级，<code>&lt;h1&gt;～&lt;h6&gt;</code>如：</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一级标题！<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是二级标题！<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>这是三级标题！<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>这是四级标题！<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h5</span>&gt;</span>这是五级标题！<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h6</span>&gt;</span>这是六级标题！<span class="tag">&lt;/<span class="name">h6</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><b>效果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/HTML/HTML%E6%A0%87%E9%A2%98.jpg" alt="HTML标题" title="标题"></p>
+</blockquote>
+</blockquote>
+<h5 id="HTML段落"><a href="#HTML段落" class="headerlink" title="HTML段落"></a><b>HTML段落</b></h5><blockquote>
+<p>在HTML中，段落可以用<code>&lt;p&gt;  &lt;/p&gt;</code>来定义，如：</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="HTML链接"><a href="#HTML链接" class="headerlink" title="HTML链接"></a><b>HTML链接</b></h5><blockquote>
+<p>在HTML中，链接可以用<code>&lt;a&gt;  &lt;/a&gt;</code>来定义，如：</p>
+<blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span>&gt;</span>这是一个链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>补充：</b>上述元素只是稍微提及，后面会有更详细的描述。 </p>
+</blockquote>
+<hr>
+<blockquote>
+<p><b>补充：</b><br><a href="/blog/public/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/index.html">常用元素</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网页设计</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab绘图语法</title>
     <url>/2021/03/05/Matlab%E7%BB%98%E5%9B%BE%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h4 id="二维平面绘图"><a href="#二维平面绘图" class="headerlink" title="二维平面绘图"></a><b>二维平面绘图</b></h4><blockquote>
@@ -1453,6 +1190,250 @@
       </categories>
       <tags>
         <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的语法（1）</title>
+    <url>/2020/12/20/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="什么是Markdown："><a href="#什么是Markdown：" class="headerlink" title="什么是Markdown："></a><b>什么是Markdown：</b></h3><blockquote>
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。<br>Markdown 编写的文档后缀为 .md或 .markdown。</p>
+</blockquote>
+<h3 id="Markdown的应用"><a href="#Markdown的应用" class="headerlink" title="Markdown的应用"></a><b>Markdown的应用</b></h3><blockquote>
+<p>Markdown 能被使用来撰写电子书，如：Gitbook。<br>当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。<br>例如：GitHub、简书、reddit、Diaspora、Stack Exchange、OpenStreetMap 、SourceForge等。<br><del>(没错我就是复制过来的)</del></p>
+</blockquote>
+<h2 id="一、Markdown的标题"><a href="#一、Markdown的标题" class="headerlink" title="一、Markdown的标题"></a><b>一、Markdown的标题</b></h2><h4 id="1、使用-来表示不同的标题"><a href="#1、使用-来表示不同的标题" class="headerlink" title="1、使用#来表示不同的标题"></a>1、使用<code>#</code>来表示不同的标题</h4><h5 id="语法如下：（注意-后面有空格）"><a href="#语法如下：（注意-后面有空格）" class="headerlink" title="语法如下：（注意#后面有空格）"></a>语法如下：（注意#后面有空格）</h5><blockquote>
+<p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>##### 五级标题<br><del>(好像有六级标题，但第六级标题与第五级标题差不多，所以就懒得写了)</del></p>
+</blockquote>
+<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5></blockquote>
+<h4 id="2、使用-和-来表示不同的标题"><a href="#2、使用-和-来表示不同的标题" class="headerlink" title="2、使用=和-来表示不同的标题"></a>2、使用<code>=</code>和<code>-</code>来表示不同的标题</h4><h5 id="语法如下："><a href="#语法如下：" class="headerlink" title="语法如下："></a>语法如下：</h5><blockquote>
+<p>这是一级标题<br>=========<br>这是二级标题<br>-——–</p>
+</blockquote>
+<h5 id="效果如下：-1"><a href="#效果如下：-1" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2></blockquote>
+<h2 id="二、Markdown的段落格式"><a href="#二、Markdown的段落格式" class="headerlink" title="二、Markdown的段落格式"></a><b>二、Markdown的段落格式</b></h2><h4 id="1、字体"><a href="#1、字体" class="headerlink" title="1、字体"></a>1、字体</h4><p>用<code>-</code>或<code>*</code>包裹要标注的文字<br>一个表示斜体<br>两个表示粗体<br>三个表示斜粗体</p>
+<h5 id="具体语法如下："><a href="#具体语法如下：" class="headerlink" title="具体语法如下："></a>具体语法如下：</h5><blockquote>
+<p>*文字* 或 _文字_<br>**文字** 或 __文字__<br>***文字*** 或 ___文字___</p>
+</blockquote>
+<h5 id="效果如下：-2"><a href="#效果如下：-2" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong>  <del>（说好的粗体字呢？？）</del><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
+</blockquote>
+<h4 id="2、分割线"><a href="#2、分割线" class="headerlink" title="2、分割线"></a>2、分割线</h4><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<h5 id="具体语法："><a href="#具体语法：" class="headerlink" title="具体语法："></a>具体语法：</h5><blockquote>
+<p>***<br>* * *<br>******<br>- - -<br>-——–</p>
+</blockquote>
+<h5 id="效果如下：-3"><a href="#效果如下：-3" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<hr>
+<hr>
+<hr>
+<hr>
+</blockquote>
+<h3 id="3、删除线"><a href="#3、删除线" class="headerlink" title="3、删除线"></a>3、删除线</h3><p>在文字两端加上两个波浪线<code>~~</code>即可</p>
+<h5 id="具体语法：-1"><a href="#具体语法：-1" class="headerlink" title="具体语法："></a>具体语法：</h5><blockquote>
+<p>啥东西都没有<br>~~啥东西都没有~~</p>
+</blockquote>
+<h5 id="效果如下：-4"><a href="#效果如下：-4" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<p>啥东西都没有<br><del>啥东西都没有</del></p>
+</blockquote>
+<h3 id="4、下划线"><a href="#4、下划线" class="headerlink" title="4、下划线"></a>4、下划线</h3><p>下划线可以通过HTML的<code>&lt;u&gt;</code>标签来实现：</p>
+<blockquote>
+<p>&lt;u&gt;带下划线&lt;/u&gt;</p>
+</blockquote>
+<h5 id="效果如下：-5"><a href="#效果如下：-5" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<p><u>带下划线</u></p>
+</blockquote>
+<h3 id="5、脚注"><a href="#5、脚注" class="headerlink" title="5、脚注"></a>5、脚注</h3><p>Markdown 脚注的格式如下：</p>
+<blockquote>
+<p>创建一个[^脚注]<br>[^脚注]: 这是一个脚注</p>
+</blockquote>
+<h5 id="效果如下：-6"><a href="#效果如下：-6" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<p>创建一个[^脚注]<br>[^脚注]: 这是一个脚注    <del>（可惜Hexo不支持脚注的实现）</del></p>
+</blockquote>
+<h2 id="三、Markdown列表"><a href="#三、Markdown列表" class="headerlink" title="三、Markdown列表"></a><b>三、Markdown列表</b></h2><h4 id="1、无序表"><a href="#1、无序表" class="headerlink" title="1、无序表"></a>1、无序表</h4><p>无序表使用星号<code>*</code>、加号<code>+</code>或者是减号<code>-</code>作为标记<b>（符号后面一定要有空格！）</b></p>
+<h4 id="具体语法"><a href="#具体语法" class="headerlink" title="具体语法"></a>具体语法</h4><blockquote>
+<p>* 第一项<br>* 第二项<br>* 第三项</p>
+<p>+ 第一项<br>+ 第二项<br>+ 第三项</p>
+<p>- 第一项<br>- 第二项<br>- 第三项</p>
+</blockquote>
+<h5 id="效果如下：-7"><a href="#效果如下：-7" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<h4 id="2、有序列表"><a href="#2、有序列表" class="headerlink" title="2、有序列表"></a>2、有序列表</h4><p>有序列表使用数字加<code>.</code>来表示，如</p>
+<blockquote>
+<p>1. 第一项<br>2. 第二项<br>3. 第三项</p>
+</blockquote>
+<h5 id="效果如下：-8"><a href="#效果如下：-8" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+</blockquote>
+<h2 id="四、Markdown区块"><a href="#四、Markdown区块" class="headerlink" title="四、Markdown区块"></a><b>四、Markdown区块</b></h2><p>Markdown区块是在开头使用<code>&gt;</code>符号，然后紧跟一个空格，如：</p>
+<blockquote>
+<p>&gt; 区块引用<br>&gt; Markdown学习<br>&gt; 一直摸鱼</p>
+</blockquote>
+<h5 id="结果如下："><a href="#结果如下：" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
+<p>区块引用<br>Markdown学习<br>一直摸鱼</p>
+</blockquote>
+<p>当然，区块也是可以嵌套的，<br>一个<code>&gt;</code>是最外层，两个为第一层嵌套，以此类推：</p>
+<blockquote>
+<p>&gt;最外层<br>&gt;&gt;第一层嵌套<br>&gt;&gt;&gt;第二层嵌套</p>
+</blockquote>
+<h5 id="结果如下：-1"><a href="#结果如下：-1" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
+<p>最外层</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="五、Markdown代码"><a href="#五、Markdown代码" class="headerlink" title="五、Markdown代码"></a><b>五、Markdown代码</b></h2><p>如果是段落上的一个函数或片段的代码，可以用反引号（`）将其包起来，如</p>
+<blockquote>
+<p>`printf()`函数</p>
+</blockquote>
+<h5 id="结果如下：-2"><a href="#结果如下：-2" class="headerlink" title="结果如下："></a>结果如下：</h5><blockquote>
+<p><code>printf()</code>函数</p>
+</blockquote>
+<h5 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h5><p><del>代码区块可以使用<b>4个空格</b>或者一个<b>制表符(Tab键)</b>来表示:</del>    (太麻烦了)<br>(顺带提一下，这里加粗部分都是是直接用了html的语法)</p>
+<p>当然也可以用(```)包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<blockquote>
+<p>```c++<br>int main()<br>{<br>  cout&lt;&lt;”Hello World!”&lt;&lt;endl;<br>}<br>```</p>
+</blockquote>
+<h5 id="效果如下：-9"><a href="#效果如下：-9" class="headerlink" title="效果如下："></a>效果如下：</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   cout&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、Markdown链接"><a href="#六、Markdown链接" class="headerlink" title="六、Markdown链接"></a><b>六、Markdown链接</b></h2><p>链接使用方法如下：</p>
+<blockquote>
+<p>[链接名称](链接地址)<br>或者<br>&lt;链接地址&gt;</p>
+</blockquote>
+<p>用<code>[]()</code>来表示：</p>
+<blockquote>
+<p><b>例如：</b>这是一个链接[百度](<code>https://www.baidu.com</code>)<br><b>效果：</b>这是一个链接<a href="https://www.baidu.com/">百度</a></p>
+</blockquote>
+<p>直接使用链接地址：</p>
+<blockquote>
+<p><b>例如：</b><code>&lt;https://www.baidu.com&gt;</code><br><b>效果：</b><a href="https://www.baidu.com/">https://www.baidu.com</a></p>
+</blockquote>
+<p>当然也可以博客内文章之间的链接：</p>
+<blockquote>
+<p><b>例如：</b>转去另一篇[博客](/blog/public/2021/01/01/Markdown的学习（2）/index.html)<br><b>效果：</b>转去另一篇<a href="/blog/public/2021/01/01/Markdown%E7%9A%84%E5%AD%A6%E4%B9%A0%EF%BC%882%EF%BC%89/index.html">博客</a></p>
+</blockquote>
+<h4 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a><del><b>高级链接</b></del></h4><p>(我不会！)    <del>(理直气壮)</del></p>
+<h2 id="七、Markdown图片"><a href="#七、Markdown图片" class="headerlink" title="七、Markdown图片"></a><b>七、Markdown图片</b></h2><p>Markdown图片语法格式如下：</p>
+<blockquote>
+<p>![alt 属性文本](图片地址)<br>![alt 属性文本](图片地址 “可选标题”)<br><b>（这个图片地址是要从服务器最开始的地址开始写起）</b></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>开头一个感叹号 !</li>
+<li>接着一个方括号，里面放上图片的替代文字</li>
+<li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。</li>
+</ul>
+</blockquote>
+<h5 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[kano 的图片](/blog/public/img/blog-background.jpg)</span><br><span class="line">![kano 的图片](/blog/public/img/blog-background.jpg &quot;鹿乃！&quot;)</span><br></pre></td></tr></table></figure>
+<p><a href="/blog/public/img/blog-background.jpg">kano 的图片</a><br><img src="/blog/public/img/blog-background.jpg" alt="kano 的图片" title="鹿乃！"></p>
+<h2 id="八、Markdown表格"><a href="#八、Markdown表格" class="headerlink" title="八、Markdown表格"></a><b>八、Markdown表格</b></h2><p>Markdown 制作表格使用 <code>|</code> 来分隔不同的单元格，使用 <code>-</code> 来分隔表头和其他行。<br>语法格式如下：</p>
+<blockquote>
+<p>| 表头 | 表头 |<br>| --- | --- |<br>| 单元格 | 单元格 |<br>| 单元格 | 单元格 |</p>
+</blockquote>
+<h5 id="效果如下：-10"><a href="#效果如下：-10" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>当然也可以设置表格的<b>对齐方式</b>：</p>
+<ul>
+<li><code>-:</code>设置内容和标题栏居右对齐。</li>
+<li><code>:-</code>设置内容和标题栏居左对齐。</li>
+<li><code>:-:</code> 设置内容和标题栏居中对齐。<h5 id="语法如下：-1"><a href="#语法如下：-1" class="headerlink" title="语法如下："></a>语法如下：</h5><blockquote>
+<p>| 左对齐 | 右对齐 | 居中对齐 |<br>| :-----| ----: | :----: |<br>| 单元格 | 单元格 | 单元格 |<br>| 单元格 | 单元格 | 单元格 |</p>
+</blockquote>
+<h5 id="效果如下：-11"><a href="#效果如下：-11" class="headerlink" title="效果如下："></a>效果如下：</h5><blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+<p><b>注意:</b>文字和表格最好隔开一行不然表格可能会失效。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="九、拓展的东西"><a href="#九、拓展的东西" class="headerlink" title="九、拓展的东西"></a><b>九、拓展的东西</b></h2><h4 id="支持的-HTML-元素"><a href="#支持的-HTML-元素" class="headerlink" title="支持的 HTML 元素"></a><b>支持的 HTML 元素</b></h4><blockquote>
+<p>目前支持的HTML元素有：&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;等</p>
+</blockquote>
+<h4 id="转义"><a href="#转义" class="headerlink" title="转义"></a><b>转义</b></h4><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<blockquote>
+<p>\  反斜杠<br>`  反引号<br>*  星号<br>_   下划线<br>{}  花括号<br>[]  方括号<br>()  小括号<br>#   井字号<br>+   加号<br>-   减号<br>.   英文句点<br>!   感叹号</p>
+</blockquote>
+<h4 id="改文字颜色与字体"><a href="#改文字颜色与字体" class="headerlink" title="改文字颜色与字体"></a><b>改文字颜色与字体</b></h4><p>要改变字体和颜色可以使用<b><font></b>标签<br>要改变字体大小可以用<b>size</b>属性<br>改变颜色的化要用<b>color</b>属性(支持十六进制)<br>改颜色的例子：</p>
+<blockquote>
+<p>&lt;font color=blue&gt;我是蓝色&lt;/font&gt;<br>&lt;font color=#3366FF&gt;我是蓝色&lt;/font&gt;</p>
+</blockquote>
+<p>样例如下：</p>
+<blockquote>
+<p><font color=blue>我是蓝色</font><br><font color=#3366FF>我是蓝色</font></p>
+</blockquote>
+<p>改字体大小的例子：</p>
+<blockquote>
+<p>&lt;font size=5&gt;我是5号字体/<font><br>&lt;font size=6&gt;我是6号字体/<font><br>&lt;font size=7&gt;我是7号字体/<font></p>
+</blockquote>
+<p>样例如下：</p>
+<blockquote>
+<p><font size=5>我是5号字体</font><br><font size=6>我是6号字体</font><br><font size=7>我是7号字体</font></p>
+</blockquote>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a><b>公式</b></h4><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax(这玩意要手动开) 对数学公式进行渲染。如：<br>(详细情况见<a href="/blog/public/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">Mathjax的使用</a>这篇文章)</p>
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1614,6 +1595,25 @@
       </categories>
       <tags>
         <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown的语法-续</title>
+    <url>/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
+    <content><![CDATA[<h3 id="Markdown的拓展学习"><a href="#Markdown的拓展学习" class="headerlink" title="Markdown的拓展学习"></a><b>Markdown的拓展学习</b></h3><h4 id="1、实现内容的折叠"><a href="#1、实现内容的折叠" class="headerlink" title="1、实现内容的折叠"></a><b>1、实现内容的折叠</b></h4><h5 id="语法如下"><a href="#语法如下" class="headerlink" title="语法如下:"></a><b>语法如下:</b></h5><blockquote>
+<p>&lt;details&gt;<br>&lt;summary&gt;标题&lt;/summary&gt;<br>隐藏的内容!<br>&lt;/details&gt;</p>
+</blockquote>
+<h5 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a><b>效果如下：</b></h5> <details>
+ <summary>标题</summary>
+ 隐藏的内容!
+ </details>
+
+]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1895,6 +1895,18 @@
       </tags>
   </entry>
   <entry>
+    <title>SMO算法</title>
+    <url>/2021/03/03/SMO%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>深渊巨坑</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SVM算法</title>
     <url>/2021/02/18/SVM%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h4 id="SVM的介绍"><a href="#SVM的介绍" class="headerlink" title="SVM的介绍"></a><b>SVM的介绍</b></h4><blockquote>
@@ -2074,55 +2086,6 @@
         <tag>机器学习</tag>
         <tag>深渊巨坑</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SMO算法</title>
-    <url>/2021/03/03/SMO%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>深渊巨坑</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>k近邻算法代码实现</title>
-    <url>/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h4 id="k近邻一般算法的实现"><a href="#k近邻一般算法的实现" class="headerlink" title="k近邻一般算法的实现"></a><b>k近邻一般算法的实现</b></h4><blockquote>
-<p>一般的方法指的是直接计算训练集中每个点到测试点的距离，然后根据排序结果进行判断。<br><b>思路：</b></p>
-<blockquote>
-<ul>
-<li>创建一个矩阵用来容纳每个训练点到测试点的距离</li>
-<li>计算每个训练点到测试点的距离</li>
-<li>对距离进行排序</li>
-<li>根据排序结果，对前k个训练点进行统计</li>
-<li>对统计结果进行排序，并且输出统计最多的标签</li>
-<li>以统计最多的标签的结果为测试点的预测结果</li>
-</ul>
-</blockquote>
-<p><b>代码(主要为分类器的那一块)：</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">   </span><br><span class="line">   classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>代码（完整版）：</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span>():</span></span><br><span class="line">   group = np.array([[<span class="number">1</span>, <span class="number">101</span>], [<span class="number">5</span>, <span class="number">89</span>], [<span class="number">108</span>, <span class="number">5</span>], [<span class="number">115</span>, <span class="number">8</span>]])   <span class="comment"># 数据第一个变量为打斗次数，第二个变量为接吻次数</span></span><br><span class="line">   labels = [<span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>]</span><br><span class="line">   <span class="keyword">return</span> group, labels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">       classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line"></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   group,labels = createDataSet()</span><br><span class="line"></span><br><span class="line">   test = [<span class="number">50</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">   test_class = classify(test, group, labels, <span class="number">3</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;分类结果为&quot;</span>,test_class)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><b>输出：</b></p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">分类结果为 动作片</span><br></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>深渊巨坑</tag>
       </tags>
   </entry>
   <entry>
@@ -2353,6 +2316,43 @@
       </tags>
   </entry>
   <entry>
+    <title>k近邻算法代码实现</title>
+    <url>/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h4 id="k近邻一般算法的实现"><a href="#k近邻一般算法的实现" class="headerlink" title="k近邻一般算法的实现"></a><b>k近邻一般算法的实现</b></h4><blockquote>
+<p>一般的方法指的是直接计算训练集中每个点到测试点的距离，然后根据排序结果进行判断。<br><b>思路：</b></p>
+<blockquote>
+<ul>
+<li>创建一个矩阵用来容纳每个训练点到测试点的距离</li>
+<li>计算每个训练点到测试点的距离</li>
+<li>对距离进行排序</li>
+<li>根据排序结果，对前k个训练点进行统计</li>
+<li>对统计结果进行排序，并且输出统计最多的标签</li>
+<li>以统计最多的标签的结果为测试点的预测结果</li>
+</ul>
+</blockquote>
+<p><b>代码(主要为分类器的那一块)：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">   </span><br><span class="line">   classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>代码（完整版）：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span>():</span></span><br><span class="line">   group = np.array([[<span class="number">1</span>, <span class="number">101</span>], [<span class="number">5</span>, <span class="number">89</span>], [<span class="number">108</span>, <span class="number">5</span>], [<span class="number">115</span>, <span class="number">8</span>]])   <span class="comment"># 数据第一个变量为打斗次数，第二个变量为接吻次数</span></span><br><span class="line">   labels = [<span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;爱情片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>, <span class="string">&#x27;动作片&#x27;</span>]</span><br><span class="line">   <span class="keyword">return</span> group, labels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify</span>(<span class="params">inX, dataSet, labels, k</span>):</span>              <span class="comment"># inX为测试集，dataSet为训练集，labels，为训练集的标签,k为k近邻的k值</span></span><br><span class="line">   dataSetSize = dataSet.shape[<span class="number">0</span>]                  <span class="comment"># 获取训练集的个数</span></span><br><span class="line">   inX_EX = np.tile(inX, (dataSetSize, <span class="number">1</span>))         <span class="comment"># 创建一个inX_EX记录每个训练集点到测试点的距离，参数带1则代表扩展方向为纵向</span></span><br><span class="line"></span><br><span class="line">   sqDifMat = (inX_EX - dataSet)**<span class="number">2</span></span><br><span class="line">   sqDis = sqDifMat.<span class="built_in">sum</span>(axis=<span class="number">1</span>)                    <span class="comment"># 计算每个训练集点到测试集点的距离的平方</span></span><br><span class="line">   Dis = sqDis**<span class="number">0.5</span>                                <span class="comment"># 开方计算每个训练集点到测试集点的距离</span></span><br><span class="line"></span><br><span class="line">   sorted_Dis_index = Dis.argsort()                <span class="comment"># 根据每个训练点到测试点的距离，将其索引值按从大到小的排序进行排序</span></span><br><span class="line"></span><br><span class="line">   classCount = &#123;&#125;                                 <span class="comment"># 创建一个记录类别出现次数的字典（所有次数加起来等于k）</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">       voteIlabel = labels[sorted_Dis_index[i]]    <span class="comment"># 获取前k个距离最近的标签</span></span><br><span class="line">       classCount[voteIlabel] = classCount.get(voteIlabel, <span class="number">0</span>) + <span class="number">1</span>      <span class="comment"># 统计前k个距离最近的标签各出现的次数</span></span><br><span class="line"></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)     <span class="comment"># key=operator.itemgetter(1)根据字典的值进行排序,0的话是根据字典的键进行排序</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]               <span class="comment"># 返回出现次数最多的标签</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   group,labels = createDataSet()</span><br><span class="line"></span><br><span class="line">   test = [<span class="number">50</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">   test_class = classify(test, group, labels, <span class="number">3</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;分类结果为&quot;</span>,test_class)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>输出：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">分类结果为 动作片</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>深渊巨坑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>优化理论</title>
     <url>/2021/02/19/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[<h3 id="优化理论"><a href="#优化理论" class="headerlink" title="优化理论"></a><b>优化理论</b></h3><h4 id="原问题："><a href="#原问题：" class="headerlink" title="原问题："></a><b>原问题：</b></h4><blockquote>
@@ -2502,7 +2502,7 @@
 </blockquote>
 <hr>
 <blockquote>
-<p><b>写在后面的话：</b>这篇东西与其说是博客，更多的是读书笔记。这里面的内容绝大多数都出自<b>李航老师的《统计学习方法》</b>。<br><b>补充：</b>感知机其实是一个基础算法，后面SVM和神经网络都会用到感知机的基础。所以就不代码实现了<del>(其实就是懒）</del><br><b>下一个坑：</b><a href="/2021/04/12/k%E9%82%BB%E8%BF%91%E6%B3%95/index.html">k邻近法</a></p>
+<p><b>写在后面的话：</b>这篇东西与其说是博客，更多的是读书笔记。这里面的内容绝大多数都出自<b>李航老师的《统计学习方法》</b>。<br><b>补充：</b>感知机其实是一个基础算法，后面SVM和神经网络都会用到感知机的基础。所以就不代码实现了<del>(其实就是懒）</del><br><b>下一个坑：</b><a href="/public/2021/04/12/k%E9%82%BB%E8%BF%91%E6%B3%95/index.html">k邻近法</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2905,6 +2905,173 @@
       </tags>
   </entry>
   <entry>
+    <title>概率论与数理统计（四）</title>
+    <url>/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="常见的概率分布"><a href="#常见的概率分布" class="headerlink" title="常见的概率分布"></a><b>常见的概率分布</b></h3><p><b>离散型分布：</b></p>
+<h4 id="0-1分布："><a href="#0-1分布：" class="headerlink" title="0-1分布："></a><b>0-1分布：</b></h4><blockquote>
+<p><b>定义：</b>$P(X=k)=p^k(1-p)^{1-k}$<br><b>特性：</b>实验只有两种结果，且实验只做一次。</p>
+</blockquote>
+<h4 id="几何分布："><a href="#几何分布：" class="headerlink" title="几何分布："></a><b>几何分布：</b></h4><blockquote>
+<p><b>定义：</b>$P(X=k)=(1-p)^{k-1}p$，其中P(A)=p，第k次是首次发生，前k-1次不发生。记作$G～B(p)$</p>
+</blockquote>
+<h4 id="二项分布："><a href="#二项分布：" class="headerlink" title="二项分布："></a><b>二项分布：</b></h4><blockquote>
+<p><b>定义：</b>A为某事件发生的情况，一共做了n次实验，其中A发生的次数是k次。记作$X～B(n,p)$<br>$$P(X=k)=C_{n}^{k}p^k(1-p)^{n-k}$$其中，$k=0,1,2,…,n$<br><b>特性：</b></p>
+<blockquote>
+<ul>
+<li>$(n+1)p$不为整数时，$(n+1)p$取整时达到最大值。</li>
+<li>$(n+1)p$为整数时，$(n+1)p$和$(n+1)p-1$是最大值。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="泊松分布："><a href="#泊松分布：" class="headerlink" title="泊松分布："></a><b>泊松分布：</b></h4><blockquote>
+<p><b>定义：</b>$$P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$$其中$\lambda$为单位时间内随机事件的平均<b>发生率</b>，$k=0,1,2,…$<br><b>注：</b>在一些情况下二项分布可以用泊松分布近似表示。<br><b>泊松分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83.png" alt="泊松分布" title="泊松分布"></p>
+</blockquote>
+<h4 id="超几何分布："><a href="#超几何分布：" class="headerlink" title="超几何分布："></a><b>超几何分布：</b></h4><blockquote>
+<p><b>定义：</b>N个元素，$N_1$个元素属于第一类，$N_2$个元素属于第二类，在其中取n个元素，X：这n个元素中属于第一类的个数。<br>$$P(X=k)=\frac{C_{N_1}^kC_{N_2}^{n-k}}{C_N^n}$$<br>其中k=0,1,2,…,min(n,$N_1$)<br><b>注：</b>当N很大，n相对于N小得很的时候，超几何分布可以近似看成二项分布。</p>
+</blockquote>
+<p><b>连续型分布</b></p>
+<h4 id="均匀分布："><a href="#均匀分布：" class="headerlink" title="均匀分布："></a><b>均匀分布：</b></h4><blockquote>
+<p><b>密度分布函数：</b><br>$$\begin{cases}<br>\frac{1}{b-a}\quad \quad (a&lt;=x&lt;=b)\\<br>\\<br>0\quad \quad(x属于其他)\\<br>\end{cases}$$</p>
+<p><b>分布函数：</b><br>$$\begin{cases}<br>0 \quad \quad x&lt;0 \\<br>\frac{x-a}{b-a} \quad \quad (a&lt;=x&lt;b)\\<br>1 \quad \quad \\<br>\end{cases}$$<br>记作$X～U[a,b]$<br><b>均匀分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83.png" alt="均匀分布" title="均匀分布"></p>
+</blockquote>
+<h4 id="指数分布："><a href="#指数分布：" class="headerlink" title="指数分布："></a><b>指数分布：</b></h4><blockquote>
+<p><b>密度分布函数：</b><br>$$\begin{cases}<br>{\lambda}e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br>一般记作$X～E_{XP}(\lambda)$<br><b>分布函数：</b><br>$$\begin{cases}<br>1-e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83.png" alt="指数分布" title="指数分布"><br><b>性质：无记忆性</b>，当$s,t&gt;=0$时，有$P(x&gt;s+t|x&gt;s)=p(x&gt;t)$<br>例如，x是一个灯泡的使用寿命，一个已经使用了s小时的灯泡，它能再使用t小时的概率与一个新灯泡使用t小时的概率是一样的。</p>
+</blockquote>
+<h4 id="正态分布："><a href="#正态分布：" class="headerlink" title="正态分布："></a><b>正态分布：</b></h4><blockquote>
+<p><b>密度函数：</b><br>$$\phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$<br><b>分布函数：</b><br>$$\Phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2{\sigma}^2}}$$<br>一般记作：$X～N(\mu,{\sigma}^2)$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83.png" alt="正态分布" title="正态分布"><br><b>性质：</b></p>
+<ul>
+<li>$y=\phi(x)$以$x=\mu$为对称轴，当$x=\mu$时，$\phi(x)$最大值$\frac{1}{\sqrt[]{2\pi}\sigma}$</li>
+<li>$y=\phi(x)$以x轴为渐近线，$x=\mu$土$\sigma$处有拐点</li>
+<li>$\sigma$固定，$\mu$变化时，图像左/右移动。</li>
+<li>$\mu$固定，$\sigma$变小时，最高点上移，反之最高点下降</li>
+</ul>
+</blockquote>
+<p><a href="/blog/public/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/index.html">上一篇</a></p>
+]]></content>
+      <categories>
+        <category>数学基础</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+        <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数</title>
+    <url>/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
+</blockquote>
+<h5 id="二、线性变换及系数矩阵"><a href="#二、线性变换及系数矩阵" class="headerlink" title="二、线性变换及系数矩阵"></a><b>二、线性变换及系数矩阵</b></h5><blockquote>
+<p><b>定义：</b><br><b>线性变换：</b> 变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的关系式，<br>$$\begin{cases}y_1=a_{11}x_1+a_{12}x_2+{\cdots}+a_{1n}x_n,\\<br>y_2=a_{21}x_1+a_{22}x_2+{\cdots}+a_{2n}x_n,\\<br>              \cdots \\<br>y_m=a_{m1}x_1+a_{m2}x_2+{\cdots}+a_{mn}x_n\\<br>\end{cases}$$<br>称为变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的<b>线性变换&lt;\b&gt;<br><b>系数矩阵：&lt;\b&gt;由线性变换的系数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成<b>m行n列</b>的矩阵。<br><b>性质：</b><br>(1)、分配律：$(A+B)x=Ax+Bx$<br>(2)、结合律：$(kA)x=k(Ax)$<br>(3)、结合律：$(AB)x=A(Bx)$</p>
+</blockquote>
+<h5 id="三、矩阵及其线性运算"><a href="#三、矩阵及其线性运算" class="headerlink" title="三、矩阵及其线性运算"></a><b>三、矩阵及其线性运算</b></h5><blockquote>
+<p><b>定义：</b><br>由mXn个数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成的m行n列的矩阵数表，<br>$$\begin{matrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{nm}}\\<br>\end{matrix}$$<br>称为一个mXn<b>矩阵</b>，其中每一个$a_{ij}$都是该矩阵的元素。<br><b>方阵：</b>行数与列数相等的矩阵称为方阵。<br><b>同型矩阵：</b>两个矩阵的<b>行数和列数相同</b>的两个矩阵。<br><b>矩阵相同：</b>两个矩阵的对应位元素相同的同型矩阵。<br><b>矩阵的加法：</b>设$A=(a_{ij})$与$B=(b_{ij})$都是mXn矩阵，记<br>$c_{ij}=a_{ij}+b_{ij},(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$<br>称mXn矩阵$C=(c_{ij})$为矩阵A与矩阵B的和，记作$C=A+B$<br><b>矩阵的乘数：</b></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数学基础</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模型选择与模型优化</title>
+    <url>/2021/03/25/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h4 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a><b>训练误差与测试误差</b></h4><blockquote>
+<p>显然对于一个训练模型来说，它都有两种策略可供选择：</p>
+<blockquote>
+<ul>
+<li><b>训练误差:</b>$R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))$(其中N为训练样本集)</li>
+<li><b>测试误差:</b>$e_{test}(f)=\frac{1}{M}\sum^M_{i=1}L(y_i,f(x_i))$(其中M为测试样本集)</li>
+</ul>
+</blockquote>
+<p><b>两者的区别：</b></p>
+<ul>
+<li><b>训练误差</b>的大小,只能决定给定的问题是不是一个容易学习的问题,本质上并不重要。而<b>测试误差</b>则反映了该模型对未知训练集的预测能力。因此对于这两种策略，明显选择降低测试误差更要有意义。</li>
+<li>我们通常将对未知数据的预测能力称为<b>泛化能力</b>。</li>
+</ul>
+</blockquote>
+<h4 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a><b>过拟合</b></h4><blockquote>
+<p><b>定义:</b><br>过拟合是指学习时选择的模型所包含的参数过多,模型的复杂度过高,导致这一模型对<b>已知数据</b>的预测效果很好,但对<b>未知数据</b>预测效果很差的现象。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/%E8%BF%87%E6%8B%9F%E5%90%88.png" alt="过拟合" title="过拟合"></p>
+<ul>
+<li>上图中第三幅就是一个过拟合的例子。<br>那么为了避免过拟合问题，选出最佳模型，通常有<b>正则化</b>与<b>交叉验证</b>两种方案。</li>
+</ul>
+</blockquote>
+<h4 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a><b>正则化</b></h4><blockquote>
+<ul>
+<li>正则化是结构风险最小化策略的实现，它实际上是在<b>损失函数</b>上加一个<b>正则化项(有时也叫惩罚项)</b>。</li>
+<li>正则化项一般是模型复杂度的单调递增函数，即模型复杂度越大，正则化项就越大。</li>
+<li>正则化项可以是（一般也是）参数向量的<b>范数</b>。<br>正则化一般形式为：<br>$$min\ \frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))+{\lambda}J(f)$$</li>
+</ul>
+<p><b>注：</b>其中$L(y_i,f(x_i))$为损失函数，${\lambda}J(f)$为正则化项，${\lambda}$为超参数，需要自己人工调节。<br>正则化可以取不同的形式，例如，在回归问题中，损失函数为<b>平方损失</b>，正则化分为：</p>
+<blockquote>
+<ul>
+<li><p><b>Lasso回归</b>：<br>$$L(\omega)=\frac{1}{N}\sum^N_{i=1}(f(x_i,\omega)-y_i)^2+{\lambda}\lVert{\omega}\rVert$$</p>
+</li>
+<li><p><b>Ridge回归</b>：<br>$$L(\omega)=\frac{1}{N}\sum^N_{i=1}(f(x_i,\omega)-y_i)^2+\frac{\lambda}{2}\lVert{\omega}\rVert^2$$</p>
+</li>
+</ul>
+</blockquote>
+<p><b>两者区别：</b></p>
+<blockquote>
+<ul>
+<li>Lasso回归加的是向量$\omega$的$L_1$范数，Ridge回归加的是向量$\omega$的$L_2$范数。</li>
+<li>Lasso回归可以更好地进行特征值的选择，Ridge回归性能优于Lasso回归。</li>
+</ul>
+</blockquote>
+<p><b>范数的定义：</b></p>
+<blockquote>
+<ul>
+<li>它定义在赋范线性空间中，并满足一定的条件，即①非负性；②齐次性；③三角不等式。它常常被用来度量某个向量空间（或矩阵）中的每个向量的长度或大小。</li>
+<li>$L_1$范数：$L_1=(|\omega_1|+|\omega_2|+…+\omega_n)$</li>
+<li>$L_2$范数：$L_2=(|\omega_1|^2+|\omega_2|^2+…+|\omega_n|^2)^{\frac{1}{2}}$</li>
+<li>$L_n$范数：$L_n=(|\omega_1|^n+|\omega_2|^n+…+|\omega_n|^n)^{\frac{1}{n}}$</li>
+</ul>
+</blockquote>
+<p><b>正则项的作用：</b></p>
+<blockquote>
+<ul>
+<li>众所周知，过拟合出现的最大原因是出现了<b>无关参数</b>，<b>如</b>通过回归预测人的身高时，<b>有效的参数</b>应该是<b>人的年龄</b>，<b>人的骨骼生长情况</b>等，但是如果在模型中<b>多加一项财富</b>作为参数<b>（这很明显是无关参数）</b>，那么此时很可能会出现过拟合的现象。</li>
+<li>正则项的大小与参数有关，在加入了无关参数之后，正则项会因此变大。但是我们的策略是求损失函数的最小值，那么正则项也应该随之减小。正则项减小，那么无关参数也会迫使趋近于零，从而减少无关参数的影响，减弱过拟合现象。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a><b>交叉验证</b></h4><blockquote>
+<ul>
+<li><p>另一种常用的模型选择方法是交叉验证。</p>
+</li>
+<li><p>如果样本数据充足，进行<b>模型选择</b>的一种简单方法是<b>将数据分为三部分</b>，分别为<b>训练集</b>、<b>验证集</b>和<b>测试集</b>。训练集用于模型的训练、验证集用于模型的选择、测试集用于最终对学习方法的评估。</p>
+</li>
+<li><p>实际上数据是不充足的，此时可以采用交叉验证方法，即重复使用数据;把给定的数据进行切分，将切分的数据分为<b>训练集</b>和<b>测试集</b>。<br><b>交叉验证的分类：</b></p>
+</li>
+<li><p><b>简单交叉验证：</b></p>
+<blockquote>
+<p>随机地将数据分为两部分，一部分作为<b>训练集</b>，另一部分作为<b>测试集</b>，然后用测试集在各种条件下（如不同参数个数）训练模型，从而得到不同模型。在测试集上评价各个模型的<b>测试误差</b>，选出测试误差最小的模型。</p>
+</blockquote>
+</li>
+<li><p><b>S折交叉验证</b></p>
+<blockquote>
+<p>首先随机地将已知的数据集切分为S个互不相交、大小相同的子集;然后利用S-1个子集的数据训练模型，利用剩下的子集测试模型;将这一过程对可能的S种选择重复进行，最后选出S次评测中平均测试误差最小的模型。</p>
+</blockquote>
+</li>
+<li><p><b>留一交叉验证</b></p>
+<blockquote>
+<p>S折交叉验证的特殊情况是S=N，称为留一交叉验证，往往在数据缺乏的情况下使用。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>概率论与数理统计（二）</title>
     <url>/2021/01/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h3 id="1-3-事件概率"><a href="#1-3-事件概率" class="headerlink" title="1.3 事件概率"></a><b>1.3 事件概率</b></h3><h4 id="1-3-1-概率的定义："><a href="#1-3-1-概率的定义：" class="headerlink" title="1.3.1 概率的定义："></a><b>1.3.1 概率的定义：</b></h4><blockquote>
@@ -3027,173 +3194,6 @@
       <tags>
         <tag>数学</tag>
         <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>概率论与数理统计（四）</title>
-    <url>/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="常见的概率分布"><a href="#常见的概率分布" class="headerlink" title="常见的概率分布"></a><b>常见的概率分布</b></h3><p><b>离散型分布：</b></p>
-<h4 id="0-1分布："><a href="#0-1分布：" class="headerlink" title="0-1分布："></a><b>0-1分布：</b></h4><blockquote>
-<p><b>定义：</b>$P(X=k)=p^k(1-p)^{1-k}$<br><b>特性：</b>实验只有两种结果，且实验只做一次。</p>
-</blockquote>
-<h4 id="几何分布："><a href="#几何分布：" class="headerlink" title="几何分布："></a><b>几何分布：</b></h4><blockquote>
-<p><b>定义：</b>$P(X=k)=(1-p)^{k-1}p$，其中P(A)=p，第k次是首次发生，前k-1次不发生。记作$G～B(p)$</p>
-</blockquote>
-<h4 id="二项分布："><a href="#二项分布：" class="headerlink" title="二项分布："></a><b>二项分布：</b></h4><blockquote>
-<p><b>定义：</b>A为某事件发生的情况，一共做了n次实验，其中A发生的次数是k次。记作$X～B(n,p)$<br>$$P(X=k)=C_{n}^{k}p^k(1-p)^{n-k}$$其中，$k=0,1,2,…,n$<br><b>特性：</b></p>
-<blockquote>
-<ul>
-<li>$(n+1)p$不为整数时，$(n+1)p$取整时达到最大值。</li>
-<li>$(n+1)p$为整数时，$(n+1)p$和$(n+1)p-1$是最大值。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h4 id="泊松分布："><a href="#泊松分布：" class="headerlink" title="泊松分布："></a><b>泊松分布：</b></h4><blockquote>
-<p><b>定义：</b>$$P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$$其中$\lambda$为单位时间内随机事件的平均<b>发生率</b>，$k=0,1,2,…$<br><b>注：</b>在一些情况下二项分布可以用泊松分布近似表示。<br><b>泊松分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83.png" alt="泊松分布" title="泊松分布"></p>
-</blockquote>
-<h4 id="超几何分布："><a href="#超几何分布：" class="headerlink" title="超几何分布："></a><b>超几何分布：</b></h4><blockquote>
-<p><b>定义：</b>N个元素，$N_1$个元素属于第一类，$N_2$个元素属于第二类，在其中取n个元素，X：这n个元素中属于第一类的个数。<br>$$P(X=k)=\frac{C_{N_1}^kC_{N_2}^{n-k}}{C_N^n}$$<br>其中k=0,1,2,…,min(n,$N_1$)<br><b>注：</b>当N很大，n相对于N小得很的时候，超几何分布可以近似看成二项分布。</p>
-</blockquote>
-<p><b>连续型分布</b></p>
-<h4 id="均匀分布："><a href="#均匀分布：" class="headerlink" title="均匀分布："></a><b>均匀分布：</b></h4><blockquote>
-<p><b>密度分布函数：</b><br>$$\begin{cases}<br>\frac{1}{b-a}\quad \quad (a&lt;=x&lt;=b)\\<br>\\<br>0\quad \quad(x属于其他)\\<br>\end{cases}$$</p>
-<p><b>分布函数：</b><br>$$\begin{cases}<br>0 \quad \quad x&lt;0 \\<br>\frac{x-a}{b-a} \quad \quad (a&lt;=x&lt;b)\\<br>1 \quad \quad \\<br>\end{cases}$$<br>记作$X～U[a,b]$<br><b>均匀分布的概率密度分布图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83.png" alt="均匀分布" title="均匀分布"></p>
-</blockquote>
-<h4 id="指数分布："><a href="#指数分布：" class="headerlink" title="指数分布："></a><b>指数分布：</b></h4><blockquote>
-<p><b>密度分布函数：</b><br>$$\begin{cases}<br>{\lambda}e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br>一般记作$X～E_{XP}(\lambda)$<br><b>分布函数：</b><br>$$\begin{cases}<br>1-e^{-{\lambda}x}\quad \quad (x&gt;0)\\<br>\\<br>0 \quad \quad (x&lt;=0)\\<br>\end{cases}$$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83.png" alt="指数分布" title="指数分布"><br><b>性质：无记忆性</b>，当$s,t&gt;=0$时，有$P(x&gt;s+t|x&gt;s)=p(x&gt;t)$<br>例如，x是一个灯泡的使用寿命，一个已经使用了s小时的灯泡，它能再使用t小时的概率与一个新灯泡使用t小时的概率是一样的。</p>
-</blockquote>
-<h4 id="正态分布："><a href="#正态分布：" class="headerlink" title="正态分布："></a><b>正态分布：</b></h4><blockquote>
-<p><b>密度函数：</b><br>$$\phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2{\sigma}^2}}$$<br><b>分布函数：</b><br>$$\Phi(x)=\frac{1}{\sqrt[]{2\pi}\sigma}\int_{-\infty}^xe^{-\frac{(t-\mu)^2}{2{\sigma}^2}}$$<br>一般记作：$X～N(\mu,{\sigma}^2)$<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83.png" alt="正态分布" title="正态分布"><br><b>性质：</b></p>
-<ul>
-<li>$y=\phi(x)$以$x=\mu$为对称轴，当$x=\mu$时，$\phi(x)$最大值$\frac{1}{\sqrt[]{2\pi}\sigma}$</li>
-<li>$y=\phi(x)$以x轴为渐近线，$x=\mu$土$\sigma$处有拐点</li>
-<li>$\sigma$固定，$\mu$变化时，图像左/右移动。</li>
-<li>$\mu$固定，$\sigma$变小时，最高点上移，反之最高点下降</li>
-</ul>
-</blockquote>
-<p><a href="/blog/public/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/index.html">上一篇</a></p>
-]]></content>
-      <categories>
-        <category>数学基础</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模型选择与模型优化</title>
-    <url>/2021/03/25/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h4 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a><b>训练误差与测试误差</b></h4><blockquote>
-<p>显然对于一个训练模型来说，它都有两种策略可供选择：</p>
-<blockquote>
-<ul>
-<li><b>训练误差:</b>$R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))$(其中N为训练样本集)</li>
-<li><b>测试误差:</b>$e_{test}(f)=\frac{1}{M}\sum^M_{i=1}L(y_i,f(x_i))$(其中M为测试样本集)</li>
-</ul>
-</blockquote>
-<p><b>两者的区别：</b></p>
-<ul>
-<li><b>训练误差</b>的大小,只能决定给定的问题是不是一个容易学习的问题,本质上并不重要。而<b>测试误差</b>则反映了该模型对未知训练集的预测能力。因此对于这两种策略，明显选择降低测试误差更要有意义。</li>
-<li>我们通常将对未知数据的预测能力称为<b>泛化能力</b>。</li>
-</ul>
-</blockquote>
-<h4 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a><b>过拟合</b></h4><blockquote>
-<p><b>定义:</b><br>过拟合是指学习时选择的模型所包含的参数过多,模型的复杂度过高,导致这一模型对<b>已知数据</b>的预测效果很好,但对<b>未知数据</b>预测效果很差的现象。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/%E8%BF%87%E6%8B%9F%E5%90%88.png" alt="过拟合" title="过拟合"></p>
-<ul>
-<li>上图中第三幅就是一个过拟合的例子。<br>那么为了避免过拟合问题，选出最佳模型，通常有<b>正则化</b>与<b>交叉验证</b>两种方案。</li>
-</ul>
-</blockquote>
-<h4 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a><b>正则化</b></h4><blockquote>
-<ul>
-<li>正则化是结构风险最小化策略的实现，它实际上是在<b>损失函数</b>上加一个<b>正则化项(有时也叫惩罚项)</b>。</li>
-<li>正则化项一般是模型复杂度的单调递增函数，即模型复杂度越大，正则化项就越大。</li>
-<li>正则化项可以是（一般也是）参数向量的<b>范数</b>。<br>正则化一般形式为：<br>$$min\ \frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))+{\lambda}J(f)$$</li>
-</ul>
-<p><b>注：</b>其中$L(y_i,f(x_i))$为损失函数，${\lambda}J(f)$为正则化项，${\lambda}$为超参数，需要自己人工调节。<br>正则化可以取不同的形式，例如，在回归问题中，损失函数为<b>平方损失</b>，正则化分为：</p>
-<blockquote>
-<ul>
-<li><p><b>Lasso回归</b>：<br>$$L(\omega)=\frac{1}{N}\sum^N_{i=1}(f(x_i,\omega)-y_i)^2+{\lambda}\lVert{\omega}\rVert$$</p>
-</li>
-<li><p><b>Ridge回归</b>：<br>$$L(\omega)=\frac{1}{N}\sum^N_{i=1}(f(x_i,\omega)-y_i)^2+\frac{\lambda}{2}\lVert{\omega}\rVert^2$$</p>
-</li>
-</ul>
-</blockquote>
-<p><b>两者区别：</b></p>
-<blockquote>
-<ul>
-<li>Lasso回归加的是向量$\omega$的$L_1$范数，Ridge回归加的是向量$\omega$的$L_2$范数。</li>
-<li>Lasso回归可以更好地进行特征值的选择，Ridge回归性能优于Lasso回归。</li>
-</ul>
-</blockquote>
-<p><b>范数的定义：</b></p>
-<blockquote>
-<ul>
-<li>它定义在赋范线性空间中，并满足一定的条件，即①非负性；②齐次性；③三角不等式。它常常被用来度量某个向量空间（或矩阵）中的每个向量的长度或大小。</li>
-<li>$L_1$范数：$L_1=(|\omega_1|+|\omega_2|+…+\omega_n)$</li>
-<li>$L_2$范数：$L_2=(|\omega_1|^2+|\omega_2|^2+…+|\omega_n|^2)^{\frac{1}{2}}$</li>
-<li>$L_n$范数：$L_n=(|\omega_1|^n+|\omega_2|^n+…+|\omega_n|^n)^{\frac{1}{n}}$</li>
-</ul>
-</blockquote>
-<p><b>正则项的作用：</b></p>
-<blockquote>
-<ul>
-<li>众所周知，过拟合出现的最大原因是出现了<b>无关参数</b>，<b>如</b>通过回归预测人的身高时，<b>有效的参数</b>应该是<b>人的年龄</b>，<b>人的骨骼生长情况</b>等，但是如果在模型中<b>多加一项财富</b>作为参数<b>（这很明显是无关参数）</b>，那么此时很可能会出现过拟合的现象。</li>
-<li>正则项的大小与参数有关，在加入了无关参数之后，正则项会因此变大。但是我们的策略是求损失函数的最小值，那么正则项也应该随之减小。正则项减小，那么无关参数也会迫使趋近于零，从而减少无关参数的影响，减弱过拟合现象。</li>
-</ul>
-</blockquote>
-</blockquote>
-<h4 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a><b>交叉验证</b></h4><blockquote>
-<ul>
-<li><p>另一种常用的模型选择方法是交叉验证。</p>
-</li>
-<li><p>如果样本数据充足，进行<b>模型选择</b>的一种简单方法是<b>将数据分为三部分</b>，分别为<b>训练集</b>、<b>验证集</b>和<b>测试集</b>。训练集用于模型的训练、验证集用于模型的选择、测试集用于最终对学习方法的评估。</p>
-</li>
-<li><p>实际上数据是不充足的，此时可以采用交叉验证方法，即重复使用数据;把给定的数据进行切分，将切分的数据分为<b>训练集</b>和<b>测试集</b>。<br><b>交叉验证的分类：</b></p>
-</li>
-<li><p><b>简单交叉验证：</b></p>
-<blockquote>
-<p>随机地将数据分为两部分，一部分作为<b>训练集</b>，另一部分作为<b>测试集</b>，然后用测试集在各种条件下（如不同参数个数）训练模型，从而得到不同模型。在测试集上评价各个模型的<b>测试误差</b>，选出测试误差最小的模型。</p>
-</blockquote>
-</li>
-<li><p><b>S折交叉验证</b></p>
-<blockquote>
-<p>首先随机地将已知的数据集切分为S个互不相交、大小相同的子集;然后利用S-1个子集的数据训练模型，利用剩下的子集测试模型;将这一过程对可能的S种选择重复进行，最后选出S次评测中平均测试误差最小的模型。</p>
-</blockquote>
-</li>
-<li><p><b>留一交叉验证</b></p>
-<blockquote>
-<p>S折交叉验证的特殊情况是S=N，称为留一交叉验证，往往在数据缺乏的情况下使用。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>线性代数</title>
-    <url>/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
-    <content><![CDATA[<h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
-<p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
-</blockquote>
-<h5 id="二、线性变换及系数矩阵"><a href="#二、线性变换及系数矩阵" class="headerlink" title="二、线性变换及系数矩阵"></a><b>二、线性变换及系数矩阵</b></h5><blockquote>
-<p><b>定义：</b><br><b>线性变换：</b> 变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的关系式，<br>$$\begin{cases}y_1=a_{11}x_1+a_{12}x_2+{\cdots}+a_{1n}x_n,\\<br>y_2=a_{21}x_1+a_{22}x_2+{\cdots}+a_{2n}x_n,\\<br>              \cdots \\<br>y_m=a_{m1}x_1+a_{m2}x_2+{\cdots}+a_{mn}x_n\\<br>\end{cases}$$<br>称为变元$x_1,x_2,{\cdots},x_n$与变元$y_1,y_2,{\cdots},y_m$之间的<b>线性变换&lt;\b&gt;<br><b>系数矩阵：&lt;\b&gt;由线性变换的系数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成<b>m行n列</b>的矩阵。<br><b>性质：</b><br>(1)、分配律：$(A+B)x=Ax+Bx$<br>(2)、结合律：$(kA)x=k(Ax)$<br>(3)、结合律：$(AB)x=A(Bx)$</p>
-</blockquote>
-<h5 id="三、矩阵及其线性运算"><a href="#三、矩阵及其线性运算" class="headerlink" title="三、矩阵及其线性运算"></a><b>三、矩阵及其线性运算</b></h5><blockquote>
-<p><b>定义：</b><br>由mXn个数$a_{ij}(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$排成的m行n列的矩阵数表，<br>$$\begin{matrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{nm}}\\<br>\end{matrix}$$<br>称为一个mXn<b>矩阵</b>，其中每一个$a_{ij}$都是该矩阵的元素。<br><b>方阵：</b>行数与列数相等的矩阵称为方阵。<br><b>同型矩阵：</b>两个矩阵的<b>行数和列数相同</b>的两个矩阵。<br><b>矩阵相同：</b>两个矩阵的对应位元素相同的同型矩阵。<br><b>矩阵的加法：</b>设$A=(a_{ij})$与$B=(b_{ij})$都是mXn矩阵，记<br>$c_{ij}=a_{ij}+b_{ij},(i=1,2,{\cdots},m;j=1,2,{\cdots},n)$<br>称mXn矩阵$C=(c_{ij})$为矩阵A与矩阵B的和，记作$C=A+B$<br><b>矩阵的乘数：</b></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数学基础</category>
-      </categories>
-      <tags>
-        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
