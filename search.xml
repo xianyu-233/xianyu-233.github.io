@@ -2059,7 +2059,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<p>这个凸函数可以用<a href="/blog/public/2021/03/03/SMO%E7%AE%97%E6%B3%95/index.html">SMO算法</a>求解出$\alpha$</p>
+<p>这个凸函数可以用<a href="/2021/03/03/SMO%E7%AE%97%E6%B3%95/index.html">SMO算法</a>求解出$\alpha$</p>
 </blockquote>
 <blockquote>
 <p><b>求解$\omega$与$b$</b><br><b>求$\omega$</b></p>
@@ -2282,7 +2282,7 @@
 </blockquote>
 <hr>
 <blockquote>
-<p><b>后记：</b>学了k近邻算法后，当然要实践一下啦，<a href="/blog/public/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/index.html">代码实现</a><br>坑填得好慢啊！！</p>
+<p><b>后记：</b>学了k近邻算法后，当然要实践一下啦，<a href="/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/index.html">代码实现</a><br>坑填得好慢啊！！</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -2502,7 +2502,7 @@
 </blockquote>
 <hr>
 <blockquote>
-<p><b>写在后面的话：</b>这篇东西与其说是博客，更多的是读书笔记。这里面的内容绝大多数都出自<b>李航老师的《统计学习方法》</b>。<br><b>补充：</b>感知机其实是一个基础算法，后面SVM和神经网络都会用到感知机的基础。所以就不代码实现了<del>(其实就是懒）</del><br><b>下一个坑：</b><a href="/public/2021/04/12/k%E9%82%BB%E8%BF%91%E6%B3%95/index.html">k邻近法</a></p>
+<p><b>写在后面的话：</b>这篇东西与其说是博客，更多的是读书笔记。这里面的内容绝大多数都出自<b>李航老师的《统计学习方法》</b>。<br><b>补充：</b>感知机其实是一个基础算法，后面SVM和神经网络都会用到感知机的基础。所以就不代码实现了<del>(其实就是懒）</del><br><b>下一个坑：</b><a href="/2021/04/12/k%E9%82%BB%E8%BF%91%E6%B3%95/index.html">k邻近法</a></p>
 </blockquote>
 ]]></content>
       <categories>
