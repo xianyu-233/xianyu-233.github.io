@@ -541,7 +541,7 @@
 </blockquote>
 <hr>
 <blockquote>
-<p><b>补充：</b><br><a href="/blog/public/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/index.html">常用元素</a></p>
+<p><b>补充：</b><br><a href="/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/index.html">常用元素</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -805,7 +805,7 @@
 <blockquote>
 <p><font size=5>我是5号字体</font><br><font size=6>我是6号字体</font><br><font size=7>我是7号字体</font></p>
 </blockquote>
-<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a><b>公式</b></h4><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax(这玩意要手动开) 对数学公式进行渲染。如：<br>(详细情况见<a href="/blog/public/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">Mathjax的使用</a>这篇文章)</p>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a><b>公式</b></h4><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax(这玩意要手动开) 对数学公式进行渲染。如：<br>(详细情况见<a href="/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">Mathjax的使用</a>这篇文章)</p>
 ]]></content>
       <categories>
         <category>基础</category>
@@ -4038,6 +4038,11 @@
 <blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createIrisDataSet</span>():</span></span><br><span class="line">   data = load_iris()</span><br><span class="line">   tt = data.data</span><br><span class="line">   dt = pd.DataFrame(data=data.data, columns=data.feature_names)</span><br><span class="line">   dt[<span class="string">&#x27;species&#x27;</span>] = data.target</span><br><span class="line">   data = dt</span><br><span class="line">   data.rename(columns=&#123;<span class="string">&#x27;sepal length (cm)&#x27;</span>: <span class="string">&quot;萼片长&quot;</span>, <span class="string">&#x27;sepal width (cm)&#x27;</span>: <span class="string">&quot;萼片宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;petal length (cm)&#x27;</span>: <span class="string">&quot;花瓣长&quot;</span>, <span class="string">&#x27;petal width (cm)&#x27;</span>: <span class="string">&quot;花瓣宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;species&#x27;</span>: <span class="string">&quot;种类&quot;</span>&#125;, inplace=<span class="literal">True</span>)</span><br><span class="line">  <span class="comment"># kind_dict = &#123;0: &quot;山鸢尾&quot;, 1: &quot;杂色鸢尾&quot;, 2: &quot;维吉尼亚鸢尾&quot;&#125;</span></span><br><span class="line">  <span class="comment"># data[&quot;种类&quot;] = data[&quot;种类&quot;].map(kind_dict)</span></span><br><span class="line">   <span class="keyword">return</span> data, tt  <span class="comment"># 返回一个带标签的数据集和一个不带标签的数据集</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 原始形式</span></span><br><span class="line"><span class="comment"># dataSet为数据集，loop_max为循环最大次数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">perceptron</span>(<span class="params">dataSet, loop_max</span>):</span></span><br><span class="line">   eta = <span class="number">1</span>   <span class="comment"># 学习率</span></span><br><span class="line">   features = dataSet.shape[<span class="number">1</span>] - <span class="number">1</span>     <span class="comment"># x特征数量</span></span><br><span class="line">   w = np.array([x*<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,features)])</span><br><span class="line">   b = <span class="number">0</span></span><br><span class="line">   <span class="keyword">for</span> times <span class="keyword">in</span> <span class="built_in">range</span>(loop_max):</span><br><span class="line">       <span class="keyword">for</span> d <span class="keyword">in</span> dataSet:</span><br><span class="line">           x = d[:-<span class="number">1</span>]</span><br><span class="line">           y = d[-<span class="number">1</span>]</span><br><span class="line">           <span class="keyword">if</span> y*(w@x+b) &lt;= <span class="number">0</span>:    <span class="comment"># 判断这是否是一个误分类点,@为矩阵之间的点乘</span></span><br><span class="line">               w = w + eta*y*x</span><br><span class="line">               b = b + eta*y</span><br><span class="line">   <span class="keyword">return</span> w, b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plot</span>(<span class="params">data, slope, intercept</span>):</span></span><br><span class="line">   <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   @description: 画出点和超平面（直线）</span></span><br><span class="line"><span class="string">   @param data: 点的坐标</span></span><br><span class="line"><span class="string">   @param label: 点的标签</span></span><br><span class="line"><span class="string">   @param slope: 直线的斜率</span></span><br><span class="line"><span class="string">   @param intercept: 直线的纵截距</span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>] <span class="comment"># 设置字体</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br><span class="line">   plt.xlabel(<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">   plt.ylabel(<span class="string">&#x27;Y&#x27;</span>)</span><br><span class="line">   area = np.pi * <span class="number">2</span> ** <span class="number">2</span> <span class="comment"># 点的面积</span></span><br><span class="line"></span><br><span class="line">   data_mat = np.array(data)</span><br><span class="line">   X = data_mat[:, <span class="number">0</span>]</span><br><span class="line">   Y = data_mat[:, <span class="number">1</span>]</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(data_mat.shape[<span class="number">0</span>]):</span><br><span class="line">       <span class="keyword">if</span> data_mat[i][<span class="number">2</span>] &gt; <span class="number">0</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;red&#x27;</span>)  <span class="comment"># 画点</span></span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">   <span class="comment"># 根据斜率和截距画出直线</span></span><br><span class="line">   axes = plt.gca()</span><br><span class="line">   x_vals = np.array(axes.get_xlim())</span><br><span class="line">   y_vals = intercept + slope * x_vals</span><br><span class="line">   plt.plot(x_vals, y_vals)</span><br><span class="line">   plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   dataSet, tt = createIrisDataSet()</span><br><span class="line">   dataSet = dataSet[<span class="number">0</span>:<span class="number">100</span>]</span><br><span class="line">   dataSet = dataSet.drop([<span class="string">&#x27;花瓣长&#x27;</span>, <span class="string">&#x27;萼片宽&#x27;</span>], axis=<span class="number">1</span>)</span><br><span class="line">   dataSet = np.array(dataSet)</span><br><span class="line">   <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(dataSet.shape[<span class="number">0</span>]):</span><br><span class="line">       <span class="keyword">if</span> dataSet[a][<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">           dataSet[a][<span class="number">2</span>] = -<span class="number">1</span></span><br><span class="line">   loop_max = <span class="number">1000</span></span><br><span class="line">   w,b=perceptron(dataSet,loop_max)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;感知机学习算法的原始形态，计算结果如下：&#x27;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;w:&#x27;</span>,w,<span class="string">&#x27;b:&#x27;</span>,b)</span><br><span class="line">   <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line">   slope = -w[<span class="number">0</span>] / w[<span class="number">1</span>]  <span class="comment"># 斜率</span></span><br><span class="line">   intercept = -b / w[<span class="number">1</span>]  <span class="comment"># 截距</span></span><br><span class="line"></span><br><span class="line">   plot(dataSet, slope, intercept)</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p><b>结果：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">感知机学习算法的原始形态，计算结果如下：</span><br><span class="line">w: [-0.5  5.6] b: -2.0</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C.png" alt="感知机代码结果"></p>
+</blockquote>
 </blockquote>
 <h4 id="感知机的优缺点："><a href="#感知机的优缺点：" class="headerlink" title="感知机的优缺点："></a><b>感知机的优缺点：</b></h4><blockquote>
 <p><b>优点：</b></p>
@@ -4063,14 +4068,128 @@
     <content><![CDATA[<h4 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a><b>决策树模型</b></h4><blockquote>
 <ul>
 <li><b>决策树</b>是一种常见的机器学习方法，有<b>回归</b>和<b>分类</b>这两种方法。</li>
-<li>决策树模型呈树形结构，可以认为是if-then规则的集合。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B.png" alt="决策树模型" title="决策树模型"></li>
+<li>决策树模型呈树形结构，可以认为是if-then规则的集合。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B.png" alt="决策树模型" title="决策树模型"></li>
 <li>决策树模型由<b>结点(node)</b>和<b>有向边(directed edge)</b>组成。结点有可以分为<b>内部结点</b>和<b>叶结点</b>。其中内部结点表示一个特征或属性，叶结点则代表一类数据。</li>
 <li>决策树学习本质上是从训练数据集中归纳出一组分类规则。</li>
 <li>与训练集不矛盾的决策树可以有很多个（当然也有可能一个也没有），我们需要通过一些参数来找到一个与训练集矛盾最小的树，同时还要保证拥有一定的泛化能力。</li>
 <li>决策树学习算法包括：<b>特征选择、决策树的生成</b>和<b>决策树的剪枝</b>。</li>
 </ul>
 </blockquote>
-<h4 id="决策树的特征选择"><a href="#决策树的特征选择" class="headerlink" title="决策树的特征选择"></a><b>决策树的特征选择</b></h4><h4 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a><b>决策树的生成</b></h4><h5 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a><b>ID3算法</b></h5><h5 id="C4-5算法"><a href="#C4-5算法" class="headerlink" title="C4.5算法"></a><b>C4.5算法</b></h5><h4 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a><b>决策树的剪枝</b></h4><h4 id="CART算法"><a href="#CART算法" class="headerlink" title="CART算法"></a><b>CART算法</b></h4><h5 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a><b>回归树</b></h5><h5 id="分类树"><a href="#分类树" class="headerlink" title="分类树"></a><b>分类树</b></h5><h5 id="CART剪枝"><a href="#CART剪枝" class="headerlink" title="CART剪枝"></a><b>CART剪枝</b></h5>]]></content>
+<h4 id="决策树的特征选择"><a href="#决策树的特征选择" class="headerlink" title="决策树的特征选择"></a><b>决策树的特征选择</b></h4><blockquote>
+<p>特征选择指的是：在训练数据中选取有利于划分数据集的特征。通常特征选择的标准参数是<b>信息增益</b>和<b>信息增益比</b>。<br>这有个案例：</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%A0%B7%E4%BE%8B.png" alt="样例图" title="样例"><br>上面的<b>年龄</b>、<b>有工作</b>、<b>有自己的房子</b>和<b>信贷情况</b>都是特征。<br>假如选择了年龄为划分数据集的特征后，那么数据集会被划分为<b>青年</b>、<b>中年</b>和<b>老年</b>三部分，然后在对每个子数据判断是否要继续划分，要则继续，不用则产生叶子结点。</p>
+</blockquote>
+<p>当然，在没有任何要求条件下，这颗决策树是有多种划分方法的，如</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%A0%B7%E4%BE%8B2.png" alt="样例图" title="不同划分"><br>对此，我们需要引入一些参数来作为我们划分的标准。</p>
+</blockquote>
+<ul>
+<li><p><b>信息增益</b></p>
+<blockquote>
+<p>为了说明信息增益，先要给出<b>香农熵</b>的定义：<br>熵是表示随机变量不确定性的度量，设X是一个取有限个值得离散型随机变量，其概率分布为：<br>$$P(X=x_i)=p_i \quad (i=1,2,3,…,n)$$<br>则随机变量X得熵定义为：<br>$$H(X) = -\sum_{i=1}^n{p_ilog \ p_i}$$<br>可以证明得，<br>$$0 \le H(p) \le log \ n$$<br>其中熵越大，随机变量得不确定性就越大<br><b>注意：</b>当出现0概率时，令$0log0=0$<br><b>经验条件熵：</b><br>条件经验熵$H(Y|X)$表示在已知随机变量X得条件下随机变量Y得不确定性，定义为：<br>$$H(Y|X)=\sum_{i=1}^n p_i H(Y|X=x_i)$$<br>其中$p_i=P(X=x_i) \quad i=1,2,…,n$<br><b>信息增益：</b>表示得知特征X得信息而使类Y得信息不确定度减少的程度。定义为，<br>集合D的经验熵H(D)与特征A给定条件下D的经验条件熵H(D|A)之差，即<br>$$g(D,A)=H(D)-H(D|A)$$<br>信息增益表示信息不确定度减少的程度，所以固定的数据集D<b>信息增益越大的特征就越好</b>。</p>
+</blockquote>
+</li>
+<li><p><b>信息增益算法</b><br>输入：训练数据集D与特征A；<br>输出：特征A对训练数据集D的信息增益g(D,A)</p>
+<blockquote>
+<ul>
+<li>计算数据集D的经验熵H(D)<br>$$H(D)=-\sum_{k=1}^k \frac{|C_k|}{|D|} log_2 \frac{|C_k|}{|D|}$$</li>
+<li>计算特征A对数据集D的经验条件熵H(D|A)<br>$$H(D|A)=\sum_{i=1}^n H(D_i)$$</li>
+<li>计算信息增益<br>$$g(D,A)=H(D)-H(D|A)$$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>其中D：数据集，|D|：样本容量，$C_k$：第k个类，$|C_k|$：第k个类的样本数<br>$D_i$：特征A将D划分开的各个数据子集，$|D_i|$：$D_i$的样本数</p>
+<ul>
+<li><b>信息增益比</b><br>在信息增益中，对于可取值数目较多的属性会有所偏好，即可取值数目较多的属性的信息增益会较大<br>为了避免这种情况，又增加了信息增益比这一概念，即特征A对训练数据集D的信息增益比为：<br>$$g_R(D,A)=\frac{g(D,A)}{H(D)}$$</li>
+</ul>
+<p><b>注意：</b>信息增益比与信息增益的特性刚好相反，即可取值数目较少的属性的信息增益比会较大</p>
+</blockquote>
+<h4 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a><b>决策树的生成</b></h4><h5 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a><b>ID3算法</b></h5><blockquote>
+<p>ID3算法的核心在与决策树上的每个结点都是用信息增益作为标准来选择特征。<br>具体步骤大致为：从根结点开始，对结点计算所有可能特征的信息增益，选择信息增益最大的特征作为结点特征，根据该特征的划分建立子结点，再对子结点递归调用以上方法，直到没有特征可选择或者所有信息增益都很小为止。<br><b>算法描述：</b></p>
+<blockquote>
+<p>输入：训练数据集D，特征集A，（阈值$\epsilon$）<br>输出：决策树T</p>
+<ul>
+<li>若D中所有实例属于同一类$C_k$，则T为单结点树，并将类$C_k$作为该结点的类标记，返回T</li>
+<li>若A为空集，则T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，计算A中各特征对D的信息增益，选择信息增益最大的特征$A_g$</li>
+<li>如果$A_g$的信息增益小于阈值$\epsilon$，则置T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，对$A_g$的每一个可能值$a_i$，按照$A_g=a_i$将D分割为若干非空子集$D_i$，将$D_i$中实例数最多的类作为标记，构建子结点，由结点及其子结点构建树T，返回T</li>
+<li>对第i个子结点，以$D_i$为训练集，以$A-A_g$为特征集，递归调用上述步骤，得到子树$T_i$，最终返回T</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="C4-5算法"><a href="#C4-5算法" class="headerlink" title="C4.5算法"></a><b>C4.5算法</b></h5><blockquote>
+<p>C4.5算法与ID3算法相类似，C4.5算法在生成过程中，用的是信息增益比作为特征选择的标准。其他与ID3算法一致<br><b>算法描述：</b></p>
+<blockquote>
+<p>输入：训练数据集D，特征集A，（阈值$\epsilon$）<br>输出：决策树T</p>
+<ul>
+<li>若D中所有实例属于同一类$C_k$，则T为单结点树，并将类$C_k$作为该结点的类标记，返回T</li>
+<li>若A为空集，则T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，计算A中各特征对D的信息增益比，选择信息增益比最大的特征$A_g$</li>
+<li>如果$A_g$的信息增益比小于阈值$\epsilon$，则置T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，对$A_g$的每一个可能值$a_i$，按照$A_g=a_i$将D分割为若干非空子集$D_i$，将$D_i$中实例数最多的类作为标记，构建子结点，由结点及其子结点构建树T，返回T</li>
+<li>对第i个子结点，以$D_i$为训练集，以$A-A_g$为特征集，递归调用上述步骤，得到子树$T_i$，最终返回T</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a><b>决策树的剪枝</b></h4><blockquote>
+<p>$\quad$决策树是递归产生决策树的，这样的方法往往会出现过拟合的现象。出现这个问题往往是因为决策树的复杂度太高了，因此需要对决策树进行简化。<br>$\quad$剪枝就是简化决策树的方法。具体地，剪枝就是在已经生成的树上剪掉一些子树或者叶结点，并将其根结点或父结点作为新的叶结点。<br>$\quad$决策树的剪枝算法有很多种，但是主要分为两大类：<b>预剪枝</b>、<b>后剪枝</b></p>
+<ul>
+<li><p><b>预剪枝：</b></p>
+<blockquote>
+<p>预剪枝的思想就是在生成决策树的过程中就进行剪枝，例如在生成划分结点时，计算划分前与划分后的验证集精度，然后比较它们，如果划分后的验证集精度小于划分前的验证集精度，那么就剪枝，否则就不剪枝。<br>需要注意的是，这种方法是采用一种贪心策略，仅仅寻找局部的最优解，容易产生欠拟合的现象。</p>
+</blockquote>
+</li>
+<li><p><b>后剪枝：</b></p>
+<blockquote>
+<p>与预剪枝类似，在决策树生成完成后，进行剪枝时，计算剪枝前与剪枝后的验证集精度，然后比较它们，如果剪枝后的验证集精度高于剪枝前的，那么就剪枝，否则不剪。</p>
+</blockquote>
+</li>
+</ul>
+<p>对于剪枝，这里只写一下思路，实际上有许许多多的算法可以对决策树进行剪枝（可以自己百度）。</p>
+</blockquote>
+<h4 id="CART算法"><a href="#CART算法" class="headerlink" title="CART算法"></a><b>CART算法</b></h4><blockquote>
+<p>$\quad$分类与回归树（CART）模型与1984年被提出，CART同样由<b>特征选择</b>、<b>树的生成</b>和<b>树的剪枝</b>三部分组成<br>$\quad$CART假定决策树为二叉树，并且内部结点特征取值只有<b>是</b>和<b>否</b>，并且左分支为“是”，右分支为“否”。<br>$\quad$决策树的生成就是递归构建二叉决策树的过程，对<b>回归树</b>用平方误差最小化准则，对<b>分类树</b>用基尼指数最小化准则进行特征选择。</p>
+</blockquote>
+<h5 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a><b>回归树</b></h5><blockquote>
+<p>$\quad$回归树就是通过训练集划分区间，而每个区间都会有一个取值，当输入变量x时开始寻找这个点所在的区间，然后将对应区间的取值输出。<br>$\quad$回归树的生成主要考虑两个问题：<b>怎么划分</b>和<b>输出值怎么确定</b><br>$\quad$首先回答比较简单的<b>输出值怎么确定</b></p>
+<blockquote>
+<p>当划分好区间后，将区间内所有取值的<b>平均值</b>作为输出，即<br>$$c=ave(y_i|x_i \in R_1(j,s))$$</p>
+</blockquote>
+<p><b>怎么划分</b>： </p>
+<blockquote>
+<p>回归树利用<b>平方误差最小化</b>作为划分准则，即<br>采用启发式的方法，选择第j个变量$x^{(j)}$与它的取值s，作为切分变量和切分点，从而得到两个区域<br>$$R_1(j,s)=(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)=(x|x^{(j)} &gt; s )$$<br>然后在所有的切分点中寻找最优的切分点，即<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>其中，$c_1=ave(y_i|x_i \in R_1(j,s)) \quad \quad \quad c_1=ave(y_i|x_i \in R_1(j,s))$<br>遍历所有输入变量，找到最优的切分变量j，构成一对(j,s)。根据这个点将空间划分两个区域，接着对每个区域重复上述划分过程，直到满足条件为止。</p>
+</blockquote>
+<p><b>具体算法如下：</b></p>
+<blockquote>
+<p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)=(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)=(x|x^{(j)} &gt; s )$$<br>$c_m=ave(y_i|x_i \in R_m(j,s))<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
+</blockquote>
+</blockquote>
+<h5 id="分类树"><a href="#分类树" class="headerlink" title="分类树"></a><b>分类树</b></h5><blockquote>
+<p>分类树的算法与前面的ID3和C4.5算法大致类似。都是根据某一个特征选择的标准参数来进行特征选择，然后构造决策树。CART中的分类树则是根据<b>基尼指数</b>进行选择。</p>
+<ul>
+<li><b>基尼指数</b>：<blockquote>
+<p>基尼指数指的是样本集合中一个随机选中的样本被分错的概率，即基尼指数越小那么样本中被分错的概率就越小。<br>基尼指数（基尼不纯度）=样本被选中的概率 * 样本被分错的概率<br><b>定义：</b></p>
+<ul>
+<li>设有K个类，样本点属于第k类的概率为$p_k$，则概率分布的基尼指数定义为：<br>$$Gini(p)=\sum_{k=1}^K p_k(1-p_k)=1- \sum_{k=1}^K p_k ^2$$</li>
+<li>如果是二分类问题设第一类的概率为p，那么其基尼指数为：<br>$$Gini(p)=2p(1-p)$$</li>
+<li>对于指定的样本集合D，其基尼指数为(其中$C_k$是D中属于第k类的样本子集，K是类的个数)：<br>$$Gini(D)=1-\sum_{k=1}^K(\frac{|C_k|}{|D|})^2$$</li>
+<li>在特征A的条件下，集合D的基尼指数定义为：<br>$$Gini(D,A)=\frac{|D_1|}{|D|}Gini(D_1)+\frac{|D_2|}{|D|}Gini(D_2)$$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p> <b>算法描述：</b></p>
+<blockquote>
+<p><b>输入：</b>训练数据集D，停止计算的条件<br><b>输出：</b>CART决策树<br>(1) 设结点的训练数据集为D，计算现有特征对该数据集的基尼指数。此时，对每一个特征A，对其可能取的每一个值a，根据样本点对A=a的测试为“是”或“否”将D分为$D_1$和$D_2$两部分，并计算A=a的基尼指数。<br>(2) 在所有可能的特征A及其它们所有可能的切分点a中，<b>选择基尼指数最小的特征</b>及其对应的切分点作为最优特征与最优切分点，根据这个从现结点生成两个子结点，并将训练数据集依照特征分配到两个子结点中去。<br>(3) 对两个子结点递归调用(1),(2)，直到满足条件为止。<br>(4) 生成CART决策树<br><b>补充：</b>停止条件一般为结点中样本个数小于预定的阈值，或样本中的基尼指数小于阈值，或者没有更多特征了。</p>
+</blockquote>
+</blockquote>
+<h5 id="CART剪枝"><a href="#CART剪枝" class="headerlink" title="CART剪枝"></a><b>CART剪枝</b></h5><blockquote>
+<p>在CART中决策树的剪枝遵循着一个算法，但是我…<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E6%88%91%E6%91%B8%E5%88%B0%E4%BA%86.jpg" alt="摸鱼" title="摸鱼"></p>
+</blockquote>
+]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
