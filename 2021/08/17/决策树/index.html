@@ -165,7 +165,7 @@
 </blockquote>
 <p><b>具体算法如下：</b></p>
 <blockquote>
-<p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)=(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)=(x|x^{(j)} &gt; s )$$<br>$c_m=ave(y_i|x_i \in R_m(j,s))<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
+<p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)=(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)=(x|x^{(j)} &gt; s )$$<br>$$c_m=ave(y_i|x_i \in R_m(j,s))$$<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
 </blockquote>
 </blockquote>
 <h5 id="分类树"><a href="#分类树" class="headerlink" title="分类树"></a><b>分类树</b></h5><blockquote>
