@@ -4281,4 +4281,42 @@
         <tag>深渊巨坑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣的愉快之旅-Day1</title>
+    <url>/2021/08/23/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day1/</url>
+    <content><![CDATA[<h4 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a><b>前情提要</b></h4><blockquote>
+<p> 本篇主要记录我每天肝算法题的进度，有时可能会一天一道，可能几天一道，也可能一天几道。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E8%90%8C%E6%96%B0.jpg" alt="萌新" title="老萌新了"></p>
+</blockquote>
+<h4 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a><b>题目描述：</b></h4><blockquote>
+<p>给定一个整数数组nums和一个整数目标值 target，请你在该数组中找出 和为目标值target的那两个整数，并返回它们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。<br>你可以按任意顺序返回答案。<br><b>示例：</b></p>
+<blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E5%8A%9B%E6%89%A3/%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E7%9A%84%E7%A4%BA%E4%BE%8B.png" alt="示例" title="示例"></p>
+</blockquote>
+<p><b>提示：</b></p>
+<blockquote>
+<ul>
+<li>2 &lt;= nums.length &lt;= 104</li>
+<li>-109 &lt;= nums[i] &lt;= 109</li>
+<li>-109 &lt;= target &lt;= 109</li>
+<li>只会存在一个有效答案<br><b>进阶：</b>你可以想出一个时间复杂度小于$ O(n^2)$ 的算法吗？</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a><b>解题代码</b></h4><blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> index[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> a, b;</span><br><span class="line"><span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	a = nums[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)</span><br><span class="line">	&#123;</span><br><span class="line">		b = nums[j];</span><br><span class="line">		<span class="keyword">if</span> (a + b == target)</span><br><span class="line">		&#123;</span><br><span class="line">			index[<span class="number">0</span>] = i;</span><br><span class="line">			index[<span class="number">1</span>] = j;</span><br><span class="line">			flag = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (flag == <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">idx</span><span class="params">(index, index + <span class="number">2</span>)</span></span>;</span><br><span class="line"><span class="keyword">return</span> idx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><b>简单说明：</b><br>没什么好说的，不在乎时间复杂度暴力循环就完事了<del>(其实我的也没n^2的复杂度啊)</del>，在乎时间复杂度就用hash表来解。<del>(如果有空再填)</del><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E6%88%91%E5%A5%BD%E8%8F%9C.jpg" alt="我好菜" title="我好菜"></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>具体<a href="https://leetcode-cn.com/problems/two-sum/">链接</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>力扣例题</category>
+      </categories>
+      <tags>
+        <tag>每日打卡</tag>
+      </tags>
+  </entry>
 </search>
