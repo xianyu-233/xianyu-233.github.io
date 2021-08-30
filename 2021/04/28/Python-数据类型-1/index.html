@@ -5,19 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Python-数据类型 - Hexo</title>
+    <title>Python-数据类型(1) - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="xainyu-233,"> 
-    <meta name="description" content="目录由于某种bug跑到了网页中间
-
-数据类型概述
+    <meta name="description" content="数据类型概述
 在Python$ \ $3.x的版本中，主要有7种数据类型：
 
 
 数值型（整型int、浮点型float、复数complex、布尔型bool）
-字符串,"> 
+字符串（string）
+字节（bytes）,"> 
     <meta name="author" content="xianyu"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/%E5%96%B7.jfif"> 
@@ -45,7 +44,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Python-数据类型</h3>
+    <h3 class="subtitle">Python-数据类型(1)</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -60,7 +59,7 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Python-数据类型</h1>
+        <h1 class="title">Python-数据类型(1)</h1>
         <div class="stuff">
             <span>四月 28, 2021</span>
             
@@ -69,9 +68,7 @@
 
         </div>
         <div class="content markdown">
-            <p>目录由于某种bug跑到了网页中间</p>
-<hr>
-<h4 id="数据类型概述"><a href="#数据类型概述" class="headerlink" title="数据类型概述"></a><b>数据类型概述</b></h4><blockquote>
+            <h4 id="数据类型概述"><a href="#数据类型概述" class="headerlink" title="数据类型概述"></a><b>数据类型概述</b></h4><blockquote>
 <p>在Python$ \ $3.x的版本中，主要有7种数据类型：</p>
 <blockquote>
 <ul>
@@ -449,123 +446,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a><b>元组</b></h4><blockquote>
-<p>元组与列表定义方式相似，列表用<code>[]</code>而元组用<code>()</code>：</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (<span class="number">100</span>, <span class="number">200</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(100, 200)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>值得注意的是，元组不能修改，甚至想删除其中的元素也不行。<br>不过可以重新定义或者<code>del</code>直接整个元组删掉。</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="number">1</span>] = <span class="number">300</span>;</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> a</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line"> File &quot;D:/学习用的/pyex/ML/ML/normal_ex.py&quot;, line 71, in &lt;module&gt;</span><br><span class="line">   a[1] = 300;</span><br><span class="line">TypeError: &#x27;tuple&#x27; object does not support item assignment</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line"> File &quot;D:/学习用的/pyex/ML/ML/normal_ex.py&quot;, line 74, in &lt;module&gt;</span><br><span class="line">   print(a)</span><br><span class="line">NameError: name &#x27;a&#x27; is not defined</span><br></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
-<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a><b>集合</b></h4><h5 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a><b>集合的定义</b></h5><blockquote>
-<p>集合可以用<code>&#123;&#125;</code>和<code>set()</code>两种方法定义：</p>
-<ul>
-<li><p></b>直接使用大括号定义：<b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;have&#x27;, &#x27;a&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p><b>用set()函数来定义：</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>(<span class="string">&#x27;apple&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;e&#x27;, &#x27;p&#x27;, &#x27;a&#x27;, &#x27;l&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p>值得注意的是，用<code>set</code>如果只放一对单引号的话只能定义出单子符的集合。<br>想要定义字符串集合可以：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;have&#x27;, &#x27;I&#x27;, &#x27;a&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure></blockquote>
-</li>
-</ul>
-<p><b>补充：</b>集合与列表不同，集合中不会出现重复的元素，且集合的输出标记为<code>&#123;&#125;</code>。</p>
-</blockquote>
-<h5 id="集合的添加"><a href="#集合的添加" class="headerlink" title="集合的添加"></a><b>集合的添加</b></h5><blockquote>
-<ul>
-<li><b>.add()</b><blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.add(<span class="string">&#x27;pen&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;pen&#x27;, &#x27;have&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;, &#x27;a&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p>集合添加元素是使用集合内的函数来实现的，<b>值得注意的是</b>，如果元素已经存在，那么集合不会进行任何操作。</p>
-</blockquote>
-</li>
-</ul>
-<p><b>注意：</b>要创建空集合只能用<code>set()</code>，直接用大括号会创建出一个空字典。</p>
-<ul>
-<li><b>.update()</b><blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.update([<span class="number">1</span>, <span class="number">3</span>],[<span class="number">2</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;1, 2, &#x27;have&#x27;, 3, 5, &#x27;a&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p><code>update()</code>也是集合添加元素的一个函数，这个函数可以同时添加多个元素，且可以是其他类型的数据，如数组，元组等。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h5 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a><b>删除元素</b></h5><blockquote>
-<ul>
-<li><p><b>remove()</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.remove(<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;have&#x27;, &#x27;a&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p>删除时注意元素是否存在，不存在的话会发生错误。</p>
-</blockquote>
-</li>
-<li><p><b>discard()</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.discard(<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line">a.discard(<span class="string">&#x27;adsa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;apple&#x27;, &#x27;have&#x27;, &#x27;a&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p>使用<code>discard()</code>同样可以删除集合中的元素，且删除不存在的元素时不会报错。</p>
-</blockquote>
-</li>
-<li><p><b>pop()</b></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.pop()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;apple&#x27;, &#x27;I&#x27;, &#x27;have&#x27;&#125;</span><br></pre></td></tr></table></figure>
-<p><b>注意：</b>这个删除的随机删除的。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h5 id="清空集合"><a href="#清空集合" class="headerlink" title="清空集合"></a><b>清空集合</b></h5><blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.clear()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set()</span><br></pre></td></tr></table></figure>
-<p><code>clear()</code>这个函数可以将集合一键清空，留下一个空集合。</p>
-</blockquote>
-</blockquote>
-<h5 id="判断元素是否存在于集合中"><a href="#判断元素是否存在于集合中" class="headerlink" title="判断元素是否存在于集合中"></a><b>判断元素是否存在于集合中</b></h5><blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">test1 = <span class="string">&#x27;have&#x27;</span> <span class="keyword">in</span> a</span><br><span class="line">test2 = <span class="string">&#x27;pen&#x27;</span> <span class="keyword">in</span> a</span><br><span class="line"><span class="built_in">print</span>(test1)</span><br><span class="line"><span class="built_in">print</span>(test2)</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">True</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
-</blockquote>
-</blockquote>
-<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a><b>字典</b></h4><h5 id="字典的定义"><a href="#字典的定义" class="headerlink" title="字典的定义"></a><b>字典的定义</b></h5><blockquote>
-<p>python最后一种数据类型就是字典了，字典类型分为两部分：键 - 值</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="string">&#x27;x&#x27;</span>: <span class="string">&#x27;x1&#x27;</span>, <span class="string">&#x27;y&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&#x27;x&#x27;</span>])</span><br></pre></td></tr></table></figure>
-<p><b>效果：</b></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;x&#x27;: &#x27;x1&#x27;, &#x27;y&#x27;: &#x27;123&#x27;&#125;</span><br><span class="line">x1</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>字典中每个<b>键值对</b>用<code>:</code>分割，每个对之间用<code>，</code>分割</li>
-<li>字典中冒号<code>：</code>左边的称为键，右边称为值，其中键、值的数据类型可以不一致。</li>
-<li>键的值必须是唯一的，但是值不需要。</li>
-<li>直接用<code>a=&#123;&#125;</code>就可以创建一个空字典了<br>字典的一个特征是大括号、冒号。</li>
-</ul>
-</blockquote>
-<h5 id=""><a href="#" class="headerlink" title=""></a><b></b></h5>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -600,7 +481,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">数据类型概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">数值</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">浮点型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%8D%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">复数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">布尔型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.5.</span> <span class="toc-text">常用数值运算符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">字符串的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">3.2.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">字符串的常用函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">3.4.</span> <span class="toc-text">转义字符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bytes%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">bytes数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bytes"><span class="toc-number">4.1.</span> <span class="toc-text">bytes</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">列表的创建：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E6%B7%BB%E5%8A%A0"><span class="toc-number">5.2.</span> <span class="toc-text">列表元素的添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">5.3.</span> <span class="toc-text">列表元素的删除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">5.4.</span> <span class="toc-text">列表元素的修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-number">5.5.</span> <span class="toc-text">列表的一些其他操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%BB%84"><span class="toc-number">6.</span> <span class="toc-text">元组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">7.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">7.1.</span> <span class="toc-text">集合的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%B7%BB%E5%8A%A0"><span class="toc-number">7.2.</span> <span class="toc-text">集合的添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">7.3.</span> <span class="toc-text">删除元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B8%85%E7%A9%BA%E9%9B%86%E5%90%88"><span class="toc-number">7.4.</span> <span class="toc-text">清空集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E4%BA%8E%E9%9B%86%E5%90%88%E4%B8%AD"><span class="toc-number">7.5.</span> <span class="toc-text">判断元素是否存在于集合中</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%85%B8"><span class="toc-number">8.</span> <span class="toc-text">字典</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">8.1.</span> <span class="toc-text">字典的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">8.2.</span> <span class="toc-text"></span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">数据类型概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">数值</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B4%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">整型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">浮点型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%8D%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">复数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B"><span class="toc-number">2.4.</span> <span class="toc-text">布尔型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.5.</span> <span class="toc-text">常用数值运算符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">字符串的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">3.2.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">字符串的常用函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-number">3.4.</span> <span class="toc-text">转义字符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bytes%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">bytes数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bytes"><span class="toc-number">4.1.</span> <span class="toc-text">bytes</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%EF%BC%9A"><span class="toc-number">5.1.</span> <span class="toc-text">列表的创建：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E6%B7%BB%E5%8A%A0"><span class="toc-number">5.2.</span> <span class="toc-text">列表元素的添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">5.3.</span> <span class="toc-text">列表元素的删除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">5.4.</span> <span class="toc-text">列表元素的修改</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-number">5.5.</span> <span class="toc-text">列表的一些其他操作</span></a></li></ol></li></ol>	
         </div>
     
 </div>
