@@ -4578,4 +4578,68 @@
         <tag>编程语言基础</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python-用户输入和循环语句</title>
+    <url>/2021/08/30/Python-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%92%8C%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</url>
+    <content><![CDATA[<h4 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a><b>用户输入</b></h4><blockquote>
+<p>在Python中用户输入的功能是由<code>input()</code>函数提供的。<br>input函数可以让程序暂停运行，等待用户输入一些文本，获取的文本都会存储在变量中。</p>
+<ul>
+<li><b>input函数的形式</b><blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">c = <span class="built_in">input</span>(<span class="string">&#x27;name:&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">name:Alex</span><br><span class="line">Alex</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><b>补充：</b></p>
+<blockquote>
+<ul>
+<li>input()中的括号可以放字符串，放进去后的效果就是相当于多了一个不换行的print()函数</li>
+<li>input()中的括号还可以放入变量，然后input()会默认输出变量后要求用户输入。</li>
+<li>值得注意的是，<code>input()</code>输入的任何东西都是字符串类型的数据，如果要输入数字类型，需要进行数字类型的转换。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a><b>for循环</b></h4><blockquote>
+<p>基本形式：<code>for i in x:</code></p>
+<ul>
+<li>其中x是一个一维的线性表(可以是列表、字典、集合等等)，如果是二维数据a[m][n]，x就会是一个a[m]的数组，其中每一个元素都是a中一行的数据。</li>
+<li>i则是x中的一个个的元素，如果x是二维表，那么i就是x中一整行的数据。<br><b>例子：</b><blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a=[[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;s&#x27;</span>],[<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;r&#x27;</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a :</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;x=&#x27;</span>,i)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x= [&#x27;a&#x27;, &#x27;1&#x27;, &#x27;s&#x27;]</span><br><span class="line">x= [&#x27;c&#x27;, &#x27;e&#x27;, &#x27;r&#x27;]</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><b>补充：</b><code>range(start,end,step)</code>函数在循环中用得很多,其中start为起始值，默认从0开始，end为结束值需要自己设置，step为步长，默认为1。这个函数可以生成一个[start,end)的数组。</p>
+</blockquote>
+<h4 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a><b>while循环</b></h4><blockquote>
+<p>基本形式：<code>while xxxxxx:</code><br>其中xxxxxx为循环结束的条件，只要它为真，循环就会一直持续下去，<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">5</span></span><br><span class="line"><span class="keyword">while</span> a&gt;<span class="number">0</span>:</span><br><span class="line">   a -= <span class="number">1</span></span><br><span class="line">   <span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><code>while</code>相较于<code>for</code>来说更容易陷入死循环，因此我们有时需要用到两个关键字:<code>break</code>和<code>continue</code></p>
+<ul>
+<li><p><b>break</b></p>
+<blockquote>
+<p><code>break</code>会强制退出当前的<b>一个</b>循环。</p>
+</blockquote>
+</li>
+<li><p><b>continue</b></p>
+<blockquote>
+<p>用法与<code>break</code>相似，在每次循环中跳过<code>continue</code>后面的代码<b>一次</b></p>
+</blockquote>
+</li>
+</ul>
+<p><b>注意：</b><code>break</code>和<code>continue</code>同样使用与<code>while</code>和<code>for</code>循环中。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程语言基础</tag>
+      </tags>
+  </entry>
 </search>
