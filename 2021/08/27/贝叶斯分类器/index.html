@@ -64,7 +64,7 @@
         </div>
         <div class="content markdown">
             <h4 id="贝叶斯分类器简介"><a href="#贝叶斯分类器简介" class="headerlink" title="贝叶斯分类器简介"></a><b>贝叶斯分类器简介</b></h4><blockquote>
-<p>贝叶斯分类器是基于概率框架下的一种分类器，它与决策树等模型不一样。<br>决策树是直接对后验概率$P(y|x)$进行建模的<b>判别式模型</b><br>贝叶斯分类器则是先对联合概率分布$P(x,y)$建模，之后再对条件概率公式得出后验概率的<b>生成模型</b><br>其中贝叶斯分类器的核心部件就是<b>贝叶斯定理</b>。</p>
+<p>贝叶斯分类器是基于概率框架下的一种分类器，它与决策树等模型不一样。<br>决策树是直接对后验概率$P(y|x)$进行建模的<b>判别式模型</b><br>贝叶斯分类器则是先对联合概率分布$P(x,y)$建模，之后再对条件概率公式得出后验概率的<b>生成模型</b><br>其中贝叶斯分类器的核心部件就是<b>贝叶斯定理</b>。<br><b>补充：</b>贝叶斯分类器不仅可以分类，还能计算出对应类的概率。</p>
 </blockquote>
 <h4 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a><b>贝叶斯定理</b></h4><blockquote>
 <p><b>定义：</b></p>
@@ -87,7 +87,14 @@
 <li>最后计算P(y=好瓜|x)和P(y=坏瓜|x)，即<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C.png" alt="例子" title="例子"></li>
 </ul>
 </blockquote>
-<p>得到P(y=好瓜)P(y=好瓜|x) $&gt;$ P(y=坏瓜)P(y=坏瓜|x)，所以这个瓜是个好瓜。</p>
+<p>得到P(y=好瓜)P(y=好瓜|x) $&gt;$ P(y=坏瓜)P(y=坏瓜|x)，所以这个瓜是个好瓜。<br><b>注意：</b>有时如果数据集较小，计算似然概率时容易出现结果为0。这个时候需要利用<b>拉普拉斯平滑</b>来对模型进行改进，防止过拟合。</p>
+</blockquote>
+<h4 id="拉普拉斯平滑"><a href="#拉普拉斯平滑" class="headerlink" title="拉普拉斯平滑"></a><b>拉普拉斯平滑</b></h4><blockquote>
+<p>拉普拉斯平滑的思想很简单，即对每个类别下所有划分的计数加1。<br>公式如下：</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91%E5%85%AC%E5%BC%8F.png" alt="例子" title="公式"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91%E5%85%AC%E5%BC%8F_1.png" alt="例子" title="公式"><br>其中$ajl$，代表第j个特征的第l个选择，$S_j$代表第j个特征的个数，K代表种类的个数，$\lambda$为1.</p>
+</blockquote>
+<p>通过拉普拉斯平滑的改进，可以有效避免过多出现零概率的现象。</p>
 </blockquote>
 <h4 id="半朴素贝叶斯"><a href="#半朴素贝叶斯" class="headerlink" title="半朴素贝叶斯"></a><b>半朴素贝叶斯</b></h4><blockquote>
 <p>实际上，属性全部完全独立是不现实的，但考虑所有属性之间都有联系的话，计算又不方便。<br>因此平衡一下，假设部分属性之间存在联系。根据不同的策略可以得到不同联系算法。</p>
@@ -168,7 +175,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">贝叶斯分类器简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">贝叶斯定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">3.</span> <span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">4.</span> <span class="toc-text">半朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">贝叶斯网络</span></a></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">贝叶斯分类器简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">贝叶斯定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">3.</span> <span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91"><span class="toc-number">4.</span> <span class="toc-text">拉普拉斯平滑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">5.</span> <span class="toc-text">半朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C"><span class="toc-number">6.</span> <span class="toc-text">贝叶斯网络</span></a></li></ol>	
         </div>
     
 </div>
