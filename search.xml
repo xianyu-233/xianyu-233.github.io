@@ -4775,4 +4775,92 @@
         <tag>编程语言基础</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python-文件处理</title>
+    <url>/2021/09/02/Python-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h4 id="从文件中读取数据"><a href="#从文件中读取数据" class="headerlink" title="从文件中读取数据"></a><b>从文件中读取数据</b></h4><blockquote>
+<p>使用文本文件中的信息，首先需要将其读取到内存中，读取方式又包括<b>一次性读取所有文件</b>和<b>每次一行的方式</b>逐步读取。</p>
+</blockquote>
+<h5 id="读取整个文件"><a href="#读取整个文件" class="headerlink" title="读取整个文件"></a><b>读取整个文件</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   line = file_data.read()</span><br><span class="line"></span><br><span class="line">   <span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279        </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>打开文件的操作有点类似于导入包，<code>with</code>是关键字，<code>open()</code>是函数，<code>file_data</code>是一个文件信息的对象，具体输出：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;_io.TextIOWrapper name=&#x27;data.txt&#x27; mode=&#x27;r&#x27; encoding=&#x27;cp936&#x27;&gt;</span><br></pre></td></tr></table></figure>
+<p>第一个<b>大概</b>是文件地址，第二个是文件打开方式，r代表只读，第三个<b>大概</b>是编码方式。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>关键字<code>with</code>在不需要访问文件后将其关闭，但是python非常贴心，它会自动选择合适的时机自动将其关闭。</p>
+</li>
+<li><p>另外，如果读取出来的的数据有空格，而你想去掉它，可以直接调用<code>strip()</code>函数来去除多余的空格，如</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   line = file_data.read()</span><br><span class="line"></span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">len</span>(line))</span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">len</span>(line.rstrip()))</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">48</span><br><span class="line">40</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>这个函数可以对任何字符串数据使用，并且<code>rstrip</code>或<code>lstrip</code>指的是删除右边的或左边的空格，<code>strip</code>则是两边空格都删掉。</p>
+</blockquote>
+</li>
+<li><p>关于文件的路径（即上例中<code>open</code>的参数），路径分为<b>绝对路径</b>和<b>相对路径</b></p>
+<blockquote>
+<ul>
+<li><b>相对路径：</b>从程序开始到文件位置的路径，一般开头没有<code>\</code>或<code>/</code></li>
+<li><b>绝对路径：</b>从基本盘的位置开始到文件所在的位置，一般开头为<code>/</code>或’X:&#39;（X代表盘号）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="逐行读取"><a href="#逐行读取" class="headerlink" title="逐行读取"></a><b>逐行读取</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> file_data:</span><br><span class="line">       <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3.141592</span><br><span class="line"></span><br><span class="line">6535897</span><br><span class="line"></span><br><span class="line">9323846</span><br><span class="line"></span><br><span class="line">2643383</span><br><span class="line"></span><br><span class="line">279 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>如果想要消去多余的空行，可以使用<code>strip()</code>进行操作。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a) <span class="keyword">as</span> file_data:</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> file_data:</span><br><span class="line">       <span class="built_in">print</span>(i.rstrip())</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="创建一个包括文件各行的列表"><a href="#创建一个包括文件各行的列表" class="headerlink" title="创建一个包括文件各行的列表"></a><b>创建一个包括文件各行的列表</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a) <span class="keyword">as</span> file_data:</span><br><span class="line">   lines = file_data.readlines()</span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">type</span>(lines))</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> lines:</span><br><span class="line">       <span class="built_in">print</span>(i.rstrip())</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>直接读的数据是字符串型的数据。</p>
+</blockquote>
+</blockquote>
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a><b>写入文件</b></h4><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   a = <span class="string">&#x27;This is a data&#x27;</span></span><br><span class="line">   file_data.write(a)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6.png" alt="图片" title="写入文件！"></p>
+</blockquote>
+<ul>
+<li><code>open</code>函数中的第二个参数可以指定打开文件的方式，其中默认为<code>r</code>读取文件，<code>w</code>为写入文件（覆盖地写入），<code>a</code>为附加模式（可以在原来的基础上继续追加数据），<code>r+</code>是同时允许读取和写入文件。<br><b>多行写入：</b><blockquote>
+<p>多行写入只需多次调用<code>file_data.write(a)</code>即可。<br><b>注意：</b>多行写入也是覆盖式写入，而且需要换行的话要自行在每行末尾追加<code>\n</code></p>
+</blockquote>
+</li>
+</ul>
+<p><b>附加写入</b></p>
+<blockquote>
+<p>将<code>open()</code>中第二个参数改为<code>a</code>后，python不会在返回文件对象前清空文件。<br>你写入到文件的行都将追加到文件末尾。<br><b>注意：</b>如果文件不存在，python将为你创建一个空文件。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ad = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(ad, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">       a = <span class="string">&#x27;This is a data\n&#x27;</span></span><br><span class="line">       file_data.write(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">   <span class="keyword">with</span> <span class="built_in">open</span>(ad, <span class="string">&#x27;a&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">       a = <span class="string">&#x27;wryyyyyyyyyyyyyyyyy\n&#x27;</span></span><br><span class="line">       file_data.write(a)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6_1.png" alt="图片" title="写入文件！"></p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程语言基础</tag>
+      </tags>
+  </entry>
 </search>
