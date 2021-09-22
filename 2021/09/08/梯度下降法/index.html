@@ -80,23 +80,41 @@
 <h4 id="梯度下降的数学推导"><a href="#梯度下降的数学推导" class="headerlink" title="梯度下降的数学推导"></a><b>梯度下降的数学推导</b></h4><blockquote>
 <p><b>一般线性模型的梯度下降：</b></p>
 <blockquote>
-<p>先假设模型为$h_{\theta} = \theta^T·X$</p>
-<p>现在拥有数据集$[(x^1,y^1),(x^2,y^2),…,(x^n,y^n)]$<br>那么可以得到一个<del>(损失)</del>函数$J(\theta) = \frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$<br>现在要利用梯度下降来求解$J(\theta)$最小时的$\theta$.<br>先计算梯度$\nabla J(\theta)$</p>
+<p>先假设模型为$h_{\theta} = \theta^T·X$（$\theta$和$X$都是向量）</p>
+<ul>
+<li>现在拥有数据集$[(x^1,y^1),(x^2,y^2),…,(x^n,y^n)]$</li>
+<li>那么可以得到一个<del>(损失)</del>函数$J(\theta) = \frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$</li>
+<li>现在要利用梯度下降来求解$J(\theta)$最小时的$\theta$.</li>
+<li>先计算梯度$\nabla J(\theta)$</li>
+</ul>
 <p>$\nabla J(\theta_j) = \frac{\partial}{\partial \theta_j}J(\theta) = (h_{\theta}(x) - y)x_j $</p>
-<p>然后对每一个$\theta_j$都减去它的梯度：$\theta_j:=\theta_j - \alpha \nabla J(\theta_j)$</p>
+<ul>
+<li>然后对每一个$\theta_j$都减去它的梯度：$\theta_j:=\theta_j - \alpha \nabla J(\theta_j)$<br><b>补充：</b>$\alpha$为学习率，根据个人来定义的，一般在$10^{-3}~10^{-5}$的量级</li>
+</ul>
 </blockquote>
 <p><b>$J(\theta)$的由来：</b></p>
 <blockquote>
-<p>假定误差$\epsilon$服从正态分布（根据直观感觉确实符合）<br>那么有$p(\epsilon) = \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{\epsilon^2}{2\sigma^2})$其中$\epsilon = |y^i-\theta^T x|$<br>所以可以获得似然函数$L_{\theta}(Y|x)= \prod^n_{i=1}  \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{(y^i-\theta^T x)^2}{2\sigma^2})$<br>现在我们要求$L_{\theta}(Y|x)$最大时的$\theta$就等价于求其对数的最大值时的$\theta$（极大似然估计）。<br>$log L_{\theta}(Y|x)= log\prod^n_{i=1}  \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{(y^i-\theta^T x)^2}{2\sigma^2})$</p>
-<p>所以 $log L_{\theta}(Y|x)=m \ log\frac{1}{\sqrt[]{2\pi} \sigma}-\frac{1}{\sigma^2} \frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$</p>
-<p>由于$m \ log\frac{1}{\sqrt[]{2\pi} \sigma}$和$\frac{1}{\sigma^2}$是常数，所以要最大化$log L_{\theta}(Y|x)$就要最小化$\frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$</p>
+<ul>
+<li><p>假定误差$\epsilon$服从正态分布（根据直观感觉确实符合）</p>
+</li>
+<li><p>那么有$p(\epsilon) = \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{\epsilon^2}{2\sigma^2})$其中$\epsilon = |y^i-\theta^T x|$</p>
+</li>
+<li><p>所以可以获得似然函数$L_{\theta}(Y|x)= \prod^n_{i=1}  \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{(y^i-\theta^T x)^2}{2\sigma^2})$</p>
+</li>
+<li><p>现在我们要求$L_{\theta}(Y|x)$最大时的$\theta$就等价于求其对数的最大值时的$\theta$（极大似然估计）。<br>$log L_{\theta}(Y|x)= log\prod^n_{i=1}  \frac{1}{\sqrt[]{2\pi} \sigma}exp(-\frac{(y^i-\theta^T x)^2}{2\sigma^2})$</p>
+</li>
+<li><p>所以 $log L_{\theta}(Y|x)=m \ log\frac{1}{\sqrt[]{2\pi} \sigma}-\frac{1}{\sigma^2} \frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$</p>
+</li>
+<li><p>由于$m \ log\frac{1}{\sqrt[]{2\pi} \sigma}$和$\frac{1}{\sigma^2}$是常数，所以要最大化$log L_{\theta}(Y|x)$就要最小化$\frac{1}{2} \sum^m_{i=1}(h_{\theta}(x)-y^i)^2$</p>
+</li>
+</ul>
 </blockquote>
 </blockquote>
 <h4 id="通过梯度下降来找函数最小值时的x"><a href="#通过梯度下降来找函数最小值时的x" class="headerlink" title="通过梯度下降来找函数最小值时的x"></a><b>通过梯度下降来找函数最小值时的x</b></h4><blockquote>
 <p><b>代码：</b></p>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span>(<span class="params">x</span>):</span></span><br><span class="line">   <span class="keyword">return</span> x**<span class="number">2</span> + x</span><br><span class="line"><span class="comment"># 函数的梯度</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient</span>(<span class="params">x</span>):</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 梯度下降法求最小值</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">cul_x：当前的x值</span></span><br><span class="line"><span class="string">learning_rate：学习率</span></span><br><span class="line"><span class="string">loop_times：循环的次数</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GradientDescent</span>(<span class="params">cul_x, learning_rate, loop_times</span>):</span></span><br><span class="line">   xx = cul_x</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(loop_times):</span><br><span class="line">       xx = xx - learning_rate*gradient(xx)</span><br><span class="line">   <span class="keyword">return</span> xx</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   cul_x = <span class="number">3</span></span><br><span class="line">   rate = <span class="number">0.001</span></span><br><span class="line">   xx = GradientDescent(cul_x, rate, loop_times=<span class="number">10000</span>)</span><br><span class="line">   x = np.linspace(-<span class="number">10</span>, <span class="number">10</span>, <span class="number">1000</span>)</span><br><span class="line">   plt.plot(cul_x,fun(cul_x), <span class="string">&#x27;g*&#x27;</span>)    <span class="comment"># 画起始点</span></span><br><span class="line">   plt.plot(xx,fun(xx),<span class="string">&#x27;r*&#x27;</span>)           <span class="comment"># 画出最低点</span></span><br><span class="line">   plt.plot(x, fun(x))                 <span class="comment"># 绘制曲线</span></span><br><span class="line">   plt.grid()                          <span class="comment"># 给图加上网格</span></span><br><span class="line">   plt.show()</span><br></pre></td></tr></table></figure>
-<p><b>结果：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E5%88%A9%E7%94%A8%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%89%BE%E6%9C%80%E5%B0%8F%E5%80%BC.png" alt="例子" title="结果"><br><b>补充：</b>绿色的点是起始点，红色点是找到的最小值点。</p>
+<p><b>结果：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/%E4%BA%8C%E6%AC%A1%E5%87%BD%E6%95%B0%E5%88%A9%E7%94%A8%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%89%BE%E6%9C%80%E5%B0%8F%E5%80%BC.png" alt="例子" title="结果"><br><b>补充：</b>绿色的点是起始点，红色点是找到的最小值点。<br><b>补充：</b>将梯度下降反向操作就可以变成梯度上升算法了。</p>
 </blockquote>
 </blockquote>
 
