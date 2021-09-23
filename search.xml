@@ -5072,4 +5072,23 @@
         <tag>深渊巨坑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>牛顿法</title>
+    <url>/2021/09/23/%E7%89%9B%E9%A1%BF%E6%B3%95/</url>
+    <content><![CDATA[<h4 id="牛顿法介绍"><a href="#牛顿法介绍" class="headerlink" title="牛顿法介绍"></a><b>牛顿法介绍</b></h4><blockquote>
+<p>牛顿法是求解<b>无约束最优化问题</b>的常用方法之一，有收敛速度快的优点。<br>牛顿法属于迭代算法，每一步都需要求解目标函数的二阶导数（hessian矩阵）<br>具体实现过程：</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%89%9B%E9%A1%BF%E6%B3%95/%E7%89%9B%E9%A1%BF%E6%B3%95%E7%A4%BA%E6%84%8F%E5%9B%BE.gif" alt="牛顿法" title="牛顿法"></p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>深渊巨坑</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
