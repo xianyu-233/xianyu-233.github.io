@@ -106,9 +106,9 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
 <p><b>推导:</b></p>
 <blockquote>
 <ul>
-<li>由事实1可得到<b>向量$X_0$</b>到<b>超平面$\omega^TX+b=0$</b>的距离为：(注：$X_0$为支持向量)<br>$d=\frac{|\omega^TX_0+b|}{||\omega||}$(其中$||\omega||$为$\omega$的模)</li>
+<li>由事实1可得到<b>向量$X_0$</b>到<b>超平面$\omega^TX+b=0$</b>的距离为：(注：$X_0$为支持向量)<br>$d=\frac{|\omega^TX_0+b|}{||\omega||}$(其中$||\omega||$为$\omega$的$L_2$范数)</li>
 <li>然后，根据事实2，<b>用a来缩放</b>$(\omega,b)$,使得$(\omega,b)—&gt;(a\omega,ab)$<br>最终使在支持向量$X_0$上有：$|\omega^TX_0+b|=1$<br>即，$d=\frac{1}{||\omega||}$</li>
-<li>要求$d=\frac{1}{||\omega||}$的<b>最大值</b>，所以此时目标变为<b>求$||\omega||$的最小值</b>，因为$||\omega||$带绝对值不好求，所以就转变为求$|\omega|^2$的最小值</li>
+<li>要求$d=\frac{1}{||\omega||}$的<b>最大值</b>，所以此时目标变为<b>求$||\omega||$的最小值</b>（带个$\frac{1}{2}$是为了以后好计算）</li>
 <li>同样，限制条件$y_i[{\omega}^TX_i+b]&gt;=1$(i=1～N)中大于等于1的原因：<br>因为离线段最近的<b>支持向量</b>$X_0$的$|\omega^TX_0+b|=1$,所以对于其他点来说，$\omega$不能变，那么只能$|\omega^TX_0+b|&gt;1$了<br>所以就有了限制条件$|\omega^TX_0+b|&gt;=1$</li>
 </ul>
 </blockquote>
