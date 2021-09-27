@@ -2265,7 +2265,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2122/12/20/hello-world/</url>
+    <url>/2020/12/20/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -5114,6 +5114,12 @@
 </blockquote>
 <p>在向量形式的牛顿法中，计算量最大在于<b>求出hessian矩阵的逆($H^{-1}$)</b>，对此拟牛顿法就是找一个同为n阶的方阵$G_k$来近似代替$H^{-1}$，从而减少计算量。</p>
 </blockquote>
+<h5 id="牛顿法的下降保证"><a href="#牛顿法的下降保证" class="headerlink" title="牛顿法的下降保证"></a><b>牛顿法的下降保证</b></h5><blockquote>
+<p>如果$H_k$是正定的（$H_k^{-1}$也是），那么可以保证牛顿法搜索方向$p_k$是下降方向。<br><b>原因：</b></p>
+<blockquote>
+<p>由$X^{k+1} = X^k - H_k^{-1}g_k$可得下降的方向$p_k=-g_k$<br>所以$f(X)$在$X^{k}$处进行泰勒展开（展开一项）得，<br>$$f(X) = f(X^k)+g_k(X-X^k)$$<br>化简成，<br>$$f(X) = f(X^k)-g^T_k H^{-1}_k g_k)$$<br>因为$H^{-1}_k$是正定的，所以$g^T_k H^{-1}_k g_k$恒大于0，所以$f(X) &lt; f(X^k)$<br>所以牛顿法是下降的。</p>
+</blockquote>
+</blockquote>
 <h4 id="用牛顿法找二元函数的极值"><a href="#用牛顿法找二元函数的极值" class="headerlink" title="用牛顿法找二元函数的极值"></a><b>用牛顿法找二元函数的极值</b></h4><blockquote>
 <p><b>代码：</b></p>
 <blockquote>
@@ -5123,7 +5129,14 @@
 </blockquote>
 <p><b>补充：</b>上面的是梯度下降与牛顿法的比较，事实证明，牛顿法下降的速度是真的快。</p>
 </blockquote>
-<h4 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a><b>拟牛顿法</b></h4>]]></content>
+<h4 id="拟牛顿法"><a href="#拟牛顿法" class="headerlink" title="拟牛顿法"></a><b>拟牛顿法</b></h4><blockquote>
+<p>在牛顿法中，每一次迭代都需要重新计算一个$n \times n$的hessian矩阵的逆，因此在特征值较大时会造成很大的计算量，而且hessian阵还必须是正定矩阵。因此在牛顿法的技术上加以改进，利用一个同为$n \times n$的正定矩阵$G_k$或$B_k$来替代hessian矩阵。<br>首先，先来看拟牛顿法的hessian矩阵在迭代过程所满足的条件：</p>
+<blockquote>
+<p>$$\nabla f(X) = g_k + H_k(X-X^{k})$$<br>令$X = X^{k+1}$<br>$$g_{k+1} - g_k + H_k(X^{k+1}-X^k)$$<br>令$g_{k+1} - g_k=y_k$,$X^{k+1}-X^{k} = \delta$，则$H_k$满足以下条件<br>$$y_k=H_k \delta_k$$<br>或<br>$$H_k^{-1}y_k = \delta_k$$</p>
+</blockquote>
+<p>以上的称为拟牛顿条件。<br>拟牛顿法是将$G_k$近似代替$H_k^{-1}$或将$B_k$近似代替$H_k$<br>按照牛顿法条件，我们在每次迭代中选择更新$G_{k+1}$，<br>$$G_{k+1}=G_k+\Delta G_k$$</p>
+</blockquote>
+<h5 id="DFP算法"><a href="#DFP算法" class="headerlink" title="DFP算法"></a><b>DFP算法</b></h5>]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
