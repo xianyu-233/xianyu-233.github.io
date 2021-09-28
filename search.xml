@@ -1852,7 +1852,7 @@
 </blockquote>
 </li>
 </ul>
-<p><b>推导:</b></p>
+<p>（下面的改一下）<br><b>推导:</b></p>
 <blockquote>
 <ul>
 <li>由事实1可得到<b>向量$X_0$</b>到<b>超平面$\omega^TX+b=0$</b>的距离为：(注：$X_0$为支持向量)<br>$d=\frac{|\omega^TX_0+b|}{||\omega||}$(其中$||\omega||$为$\omega$的$L_2$范数)</li>
@@ -5136,7 +5136,16 @@
 </blockquote>
 <p>以上的称为拟牛顿条件。<br>拟牛顿法是将$G_k$近似代替$H_k^{-1}$或将$B_k$近似代替$H_k$<br>按照牛顿法条件，我们在每次迭代中选择更新$G_{k+1}$，<br>$$G_{k+1}=G_k+\Delta G_k$$</p>
 </blockquote>
-<h5 id="DFP算法"><a href="#DFP算法" class="headerlink" title="DFP算法"></a><b>DFP算法</b></h5>]]></content>
+<h5 id="DFP算法"><a href="#DFP算法" class="headerlink" title="DFP算法"></a><b>DFP算法</b></h5><blockquote>
+<p>根据拟牛顿法要满足的条件，$G_{k+1}$应该满足：$G_{k+1}y_k = \delta_k$<br>DFP算法中，$G_{k+1}$的迭代是由$G_k$加上两个附加矩阵$P_k$和$Q_k$，即<br>$$G_{k+1}=G_k+P_k+Q_k$$<br>两边乘上$y_k$<br>$$G_{k+1}y_k=G_k y_k+P_k y_k+Q_k y_k$$<br>为了让$G_{k+1}$满足拟牛顿的条件，所以可以使$P_k$和$Q_k$满足，<br>$P_k y_k = \delta_k$和$Q_k y_k = -G_k y_k$<br>所以$P_k$和$Q_k$可以写成，<br>$$P_k = \frac{\delta_k \delta_k^T}{\delta^T_k y_k}$$<br>$$Q_k = -\frac{G_k y_k y_k^T G_k}{y_k^T G_k y_k}$$<br>所以$G_{k+1}$的迭代公式为：</p>
+<blockquote>
+<p>$$G_{k+1} = G_k + \frac{\delta_k \delta_k^T}{\delta^T_k y_k} - \frac{G_k y_k y_k^T G_k}{y_k^T G_k y_k}$$</p>
+</blockquote>
+<p><b>可以被证明的：</b>如果初始的$G_0$（自己设的矩阵）是正定矩阵，那么经过迭代后的$G_n$也是正定矩阵。<br><b>算法描述：</b></p>
+<blockquote>
+</blockquote>
+</blockquote>
+]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
@@ -5145,5 +5154,10 @@
         <tag>深渊巨坑</tag>
         <tag>算法</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>函数映射</title>
+    <url>/2021/09/28/%E5%87%BD%E6%95%B0%E6%98%A0%E5%B0%84/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
