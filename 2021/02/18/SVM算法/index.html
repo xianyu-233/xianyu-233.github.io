@@ -99,11 +99,13 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
 </blockquote>
 </li>
 <li><b>事实2：</b><blockquote>
-<p>$\omega^TX+b=0$与$a\omega^TX+ab=0$是同一个平面。（$a{\in}R^+$）<br>$({\omega},b)$满足公式：$y_i[{\omega}^TX_i+b]&gt;=1$,那么$(a\omega,ab)$也满足该公式。</p>
+<p>$\omega^TX+b=0$与$a\omega^TX+ab=0$是同一个平面。（$a{\in}R^+$）<br>$({\omega},b)$满足公式：$y_i[{\omega}^TX_i+b]&gt;=1$,那么$(a\omega,ab)$也满足该公式。<br>还有两个定义：<br><b>函数距离：</b><br>$$y_i(\omega^T X + b)$$<br><b>集合距离：</b><br>$$\frac{\omega^TX+b}{||\omega||}$$</p>
 </blockquote>
 </li>
 </ul>
-<p>（下面的改一下）<br><b>推导:</b></p>
+</blockquote>
+<blockquote>
+<p><b>推导:</b></p>
 <blockquote>
 <ul>
 <li>由事实1可得到<b>向量$X_0$</b>到<b>超平面$\omega^TX+b=0$</b>的距离为：(注：$X_0$为支持向量)<br>$d=\frac{|\omega^TX_0+b|}{||\omega||}$(其中$||\omega||$为$\omega$的$L_2$范数)</li>

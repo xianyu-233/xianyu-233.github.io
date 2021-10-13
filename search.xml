@@ -1848,11 +1848,13 @@
 </blockquote>
 </li>
 <li><b>事实2：</b><blockquote>
-<p>$\omega^TX+b=0$与$a\omega^TX+ab=0$是同一个平面。（$a{\in}R^+$）<br>$({\omega},b)$满足公式：$y_i[{\omega}^TX_i+b]&gt;=1$,那么$(a\omega,ab)$也满足该公式。</p>
+<p>$\omega^TX+b=0$与$a\omega^TX+ab=0$是同一个平面。（$a{\in}R^+$）<br>$({\omega},b)$满足公式：$y_i[{\omega}^TX_i+b]&gt;=1$,那么$(a\omega,ab)$也满足该公式。<br>还有两个定义：<br><b>函数距离：</b><br>$$y_i(\omega^T X + b)$$<br><b>集合距离：</b><br>$$\frac{\omega^TX+b}{||\omega||}$$</p>
 </blockquote>
 </li>
 </ul>
-<p>（下面的改一下）<br><b>推导:</b></p>
+</blockquote>
+<blockquote>
+<p><b>推导:</b></p>
 <blockquote>
 <ul>
 <li>由事实1可得到<b>向量$X_0$</b>到<b>超平面$\omega^TX+b=0$</b>的距离为：(注：$X_0$为支持向量)<br>$d=\frac{|\omega^TX_0+b|}{||\omega||}$(其中$||\omega||$为$\omega$的$L_2$范数)</li>
@@ -2346,10 +2348,10 @@
 <p><b>目标函数：</b><br>最小化：$f(\omega)$<br><b>限制条件：</b><br>$g_i(\omega)&lt;=0 (i=1～K)$<br>$h_i(\omega)=0(i=i～M)$</p>
 </blockquote>
 <h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><blockquote>
-<p>首先定义一个$L(\omega,\alpha,\beta)$函数：<br>$$L(\omega,\alpha,\beta)=f(\omega)+\sum^K_{i=1}{\alpha}{g_i(\omega)}+{\sum}^M_{i=1}\beta_ih_i(\omega)$$            </p>
+<p>首先定义一个$L(\omega,\alpha,\beta)$函数：<br>$$L(\omega,\alpha,\beta)=f(\omega)+\sum^K_{i=1}{\alpha}{g_i(\omega)}+{\sum}^M_{i=1}\beta_ih_i(\omega)$$<br><b>补充：</b><br>这样定义的一个好处是为了方便找目标函数的最优解（因为消去了限制条件）。<br>而且可使满足限制条件的等于$f(\omega)$，不满足限制条件的等于$\infty$</p>
 </blockquote>
 <h4 id="对偶问题的定义："><a href="#对偶问题的定义：" class="headerlink" title="对偶问题的定义："></a><b>对偶问题的定义：</b></h4><blockquote>
-<p><b>目标函数：</b><br>最大化：$\theta(\alpha,\beta)=inf_{对所有\omega}[L(\omega,\alpha,\beta)]$(inf(f(x))表示求f(x)中的最小值)<br><b>限制条件：</b><br>$\alpha_i&gt;=0$(i=1～K)<br>($\theta(\alpha,\beta)$表示每次固定$\alpha,\beta$然后遍历所有$\omega$，最后找出最小值)</p>
+<p><b>目标函数：</b><br>最大化：$\theta(\alpha,\beta)=inf_{对所有\omega}[L(\omega,\alpha,\beta)]\quad\quad$(inf(f(x))表示求f(x)中的最小值)<br><b>限制条件：</b><br>$\alpha_i&gt;=0$(i=1～K)<br>($\theta(\alpha,\beta)$表示每次固定$\alpha,\beta$然后遍历所有$\omega$，最后找出最小值)</p>
 </blockquote>
 <h4 id="原问题与对偶问题之间的关系："><a href="#原问题与对偶问题之间的关系：" class="headerlink" title="原问题与对偶问题之间的关系："></a><b>原问题与对偶问题之间的关系：</b></h4><blockquote>
 <p><b>定理：</b>若$\omega^*$是原问题的解，而$\alpha^*,\beta^*$是对偶问题的解，<br>则有，<br>$$f(\omega^*)&gt;=\theta(\alpha^*,\beta^*)$$<br><b>证明：</b></p>
@@ -5156,8 +5158,97 @@
       </tags>
   </entry>
   <entry>
-    <title>函数映射</title>
-    <url>/2021/09/28/%E5%87%BD%E6%95%B0%E6%98%A0%E5%B0%84/</url>
-    <content><![CDATA[]]></content>
+    <title>支持向量机（SVM）</title>
+    <url>/2021/10/10/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88SVM%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="SVM的介绍"><a href="#SVM的介绍" class="headerlink" title="SVM的介绍"></a><b>SVM的介绍</b></h4><blockquote>
+<ul>
+<li>SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督学习的算法。</li>
+<li>在机器学习中，SVM算法说白了就是通过训练样本与算法划出一些可以分类的线，然后找到间隔最大的一条线。</li>
+<li>SVM算法的最大优点是可以应用在训练样本点较少的训练集上。<br><b>支持向量机的结构图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/SVM%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" alt="SVM的结构" title="结构图"><br><b>支持向量机由简至繁可以分为：</b><blockquote>
+<ul>
+<li><b>线性可分支持向量机</b>（类似与感知机，数据严格线性可分，其中的间隔叫做<b>硬间隔</b>）</li>
+<li><b>线性支持向量机</b>（条件放宽了，除去一些误差点，大部分数据都是线性可分的，其中的间隔叫做<b>软间隔</b>）</li>
+<li><b>线性不可分支持向量机</b>（这个需要用到核技巧，后面会细讲）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a><b>线性可分支持向量机</b></h4><blockquote>
+<p>首先先通过图来直观感受<b>线性可分支持向量机</b>。</p>
+<blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E7%BA%BF%E6%80%A7SVM.jpg" alt="线性SVM" title="线性SVM"><br><b>注释：</b></p>
+<ul>
+<li>SVM就是要找中间这样的一条线（超平面）来将样本点分开。</li>
+<li>中间这条线（或平面、超平面）上下移动时，接触到的第一个样本点称为<b>支持向量</b>。</li>
+<li>两个支持向量之间的距离d称为<b>间隔</b>。硬间隔软间隔就是这个东西。</li>
+<li>SVM的最终目的就是要求d最大时的参数值。</li>
+</ul>
+</blockquote>
+<p>假设一个特征空间上的训练数据集（为线性可分的）<br>$$T = (x_1,y_1),(x_2,y_2),…,(x_n,y_n)$$<br>其中$y_i \in (+1,-1)$，$x_i$为第i个特征向量，称为示例。<br>$y_i$为$x_i$的类标记，当$y_i=+1$时，$x_i$为正例，当$y_i=-1$时，$x_i$为反例。<br>$(x_i,y_i)$称为样本点。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>深渊巨坑</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>串</title>
+    <url>/2021/10/13/%E4%B8%B2/</url>
+    <content><![CDATA[<h4 id="串的介绍"><a href="#串的介绍" class="headerlink" title="串的介绍"></a><b>串的介绍</b></h4><blockquote>
+<ul>
+<li><p><b>串</b>是由零个或多个字符组成的有限序列，一般记为：</p>
+<blockquote>
+<p>$$S=”a_1a_2…a_n”$$</p>
+<ul>
+<li>其中S称为串名，引号内的字符序列称为串的内容；</li>
+<li>a可以是数字、字母、文字甚至其他字符；</li>
+<li>串中的个数n代表了串的长度，称为串长，当n=0时的串称为<b>空串</b>。<br><b>注意：</b>空格串指的是串里全是空格字符的串，这与空串不相等。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>串中任意多个<b>连续的字符</b>组成的子序列称为S的子串，空串是任何串的<b>子串</b>（可以类比与子集）。相对的，包含任何子串的就称为<b>主串</b>。</p>
+</li>
+<li><p><b>子串的位置：</b>特指子串在主串中第一个字符的位置。</p>
+</li>
+<li><p><b>串与线性表的区别：</b></p>
+<blockquote>
+<ul>
+<li>串的数据对象仅限于字符集。</li>
+<li>线性表的操作对象称为元素，<b>串的操作对象为子串。</b>（这是串和全是字符的线性表的最大区别）</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>Ascii编码表：</b></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/ascii%E8%A1%A8.jpg" alt="ascii表" title="ascii表"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="串的存储结构"><a href="#串的存储结构" class="headerlink" title="串的存储结构"></a><b>串的存储结构</b></h4><h5 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a><b>定长顺序存储结构</b></h5><blockquote>
+<p>类似与线性表的顺序存储结构，用了一组连续的存储单元存储串值得字符序列。在串中每个串变量分配一个固定长度得存储区，即定长数组。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXLEN 255</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SString</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">char</span> ch[MAXLEN];</span><br><span class="line">   <span class="keyword">int</span> length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>对于串长的记录有两种方法：</p>
+<blockquote>
+<ul>
+<li>第一种就是像上面那样用一个<code>length</code>来记录串长</li>
+<li>第二种则是在每个串后面加入一个不计入串长的结束标记字符<code>&#39;\0&#39;</code>,此时串长是一个隐含值。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id=""><a href="#" class="headerlink" title=""></a><b></b></h5><h4 id="串的基本操作"><a href="#串的基本操作" class="headerlink" title="串的基本操作"></a><b>串的基本操作</b></h4><h4 id="串的匹配算法"><a href="#串的匹配算法" class="headerlink" title="串的匹配算法"></a><b>串的匹配算法</b></h4><h5 id="暴力匹配法"><a href="#暴力匹配法" class="headerlink" title="暴力匹配法"></a><b>暴力匹配法</b></h5><h5 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a><b>KMP算法</b></h5><h5 id="KMP算法的改进"><a href="#KMP算法的改进" class="headerlink" title="KMP算法的改进"></a><b>KMP算法的改进</b></h5>]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>基础学科</tag>
+        <tag>数据结构</tag>
+      </tags>
   </entry>
 </search>
