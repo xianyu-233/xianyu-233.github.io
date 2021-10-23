@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>HTML常用元素</title>
-    <url>//xianyu-233.github.io/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/</url>
+    <url>/2021/04/06/HTML%E5%B8%B8%E7%94%A8%E5%85%83%E7%B4%A0/</url>
     <content><![CDATA[<h4 id="HTML参考标签"><a href="#HTML参考标签" class="headerlink" title="HTML参考标签"></a><b>HTML参考标签</b></h4><blockquote>
 <table>
 <thead>
@@ -491,7 +491,7 @@
   </entry>
   <entry>
     <title>HTML(一)</title>
-    <url>//xianyu-233.github.io/2021/04/06/HTML%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <url>/2021/04/06/HTML%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h4 id="HTML介绍"><a href="#HTML介绍" class="headerlink" title="HTML介绍"></a><b>HTML介绍</b></h4><blockquote>
 <p>HTML全称为<b>超文本标记语言</b>，是一种用于创建网页的标准标记语言。HTML可以创建属于自己的Web站点，并且一般由浏览器负责解析。</p>
 </blockquote>
@@ -553,7 +553,7 @@
   </entry>
   <entry>
     <title>Markdown的语法-续</title>
-    <url>//xianyu-233.github.io/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
+    <url>/2021/01/01/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95-%E7%BB%AD/</url>
     <content><![CDATA[<h3 id="Markdown的拓展学习"><a href="#Markdown的拓展学习" class="headerlink" title="Markdown的拓展学习"></a><b>Markdown的拓展学习</b></h3><h4 id="1、实现内容的折叠"><a href="#1、实现内容的折叠" class="headerlink" title="1、实现内容的折叠"></a><b>1、实现内容的折叠</b></h4><h5 id="语法如下"><a href="#语法如下" class="headerlink" title="语法如下:"></a><b>语法如下:</b></h5><blockquote>
 <p>&lt;details&gt;<br>&lt;summary&gt;标题&lt;/summary&gt;<br>隐藏的内容!<br>&lt;/details&gt;</p>
 </blockquote>
@@ -572,7 +572,7 @@
   </entry>
   <entry>
     <title>Markdown的语法（1）</title>
-    <url>//xianyu-233.github.io/2020/12/20/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</url>
+    <url>/2020/12/20/Markdown%E7%9A%84%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h3 id="什么是Markdown："><a href="#什么是Markdown：" class="headerlink" title="什么是Markdown："></a><b>什么是Markdown：</b></h3><blockquote>
 <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。<br>Markdown 编写的文档后缀为 .md或 .markdown。</p>
 </blockquote>
@@ -816,7 +816,7 @@
   </entry>
   <entry>
     <title>Mathjax的使用</title>
-    <url>//xianyu-233.github.io/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
+    <url>/2021/01/01/Mathjax%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述:"></a><b>概述:</b></h4><blockquote>
 <p>在Markdown中输入数学公式需要LaTeX语法的支持，这篇文章就是记录LaTeX语法的。</p>
 </blockquote>
@@ -1406,7 +1406,7 @@
   </entry>
   <entry>
     <title>Matlab绘图语法</title>
-    <url>//xianyu-233.github.io/2021/03/05/Matlab%E7%BB%98%E5%9B%BE%E8%AF%AD%E6%B3%95/</url>
+    <url>/2021/03/05/Matlab%E7%BB%98%E5%9B%BE%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h4 id="二维平面绘图"><a href="#二维平面绘图" class="headerlink" title="二维平面绘图"></a><b>二维平面绘图</b></h4><blockquote>
 <p><b>过程</b></p>
 <blockquote>
@@ -1457,7 +1457,7 @@
   </entry>
   <entry>
     <title>Matlab语法</title>
-    <url>//xianyu-233.github.io/2021/03/04/Matlab%E8%AF%AD%E6%B3%95/</url>
+    <url>/2021/03/04/Matlab%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h4 id="一、界面介绍"><a href="#一、界面介绍" class="headerlink" title="一、界面介绍"></a><b>一、界面介绍</b></h4><blockquote>
 <p><b>matlab软件界面：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/matlab%E7%95%8C%E9%9D%A2.png" alt="Matlab" title="界面"></p>
 <ul>
@@ -1618,7 +1618,7 @@
   </entry>
   <entry>
     <title>Numpy包</title>
-    <url>//xianyu-233.github.io/2021/04/19/Numpy%E5%8C%85/</url>
+    <url>/2021/04/19/Numpy%E5%8C%85/</url>
     <content><![CDATA[<h4 id="Numpy介绍"><a href="#Numpy介绍" class="headerlink" title="Numpy介绍"></a><b>Numpy介绍</b></h4><blockquote>
 <ul>
 <li>Numpy(Numerical Python)是Python语言的一个扩展程序库。</li>
@@ -1813,7 +1813,7 @@
   </entry>
   <entry>
     <title>SVM算法</title>
-    <url>//xianyu-233.github.io/2021/02/18/SVM%E7%AE%97%E6%B3%95/</url>
+    <url>/2021/02/18/SVM%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h4 id="SVM的介绍"><a href="#SVM的介绍" class="headerlink" title="SVM的介绍"></a><b>SVM的介绍</b></h4><blockquote>
 <ul>
 <li>SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督学习的算法。</li>
@@ -1997,7 +1997,7 @@
   </entry>
   <entry>
     <title>Python-变量</title>
-    <url>//xianyu-233.github.io/2021/03/26/Python-%E5%8F%98%E9%87%8F/</url>
+    <url>/2021/03/26/Python-%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h4 id="Python的变量"><a href="#Python的变量" class="headerlink" title="Python的变量"></a><b>Python的变量</b></h4><blockquote>
 <p>在Python中，变量没有特定的标识符，即定义变量时不需要用特定的标识符来修饰变量。</p>
 </blockquote>
@@ -2080,7 +2080,7 @@
   </entry>
   <entry>
     <title>k近邻法</title>
-    <url>//xianyu-233.github.io/2021/04/12/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</url>
+    <url>/2021/04/12/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h4 id="k近邻法的介绍"><a href="#k近邻法的介绍" class="headerlink" title="k近邻法的介绍"></a><b>k近邻法的介绍</b></h4><blockquote>
 <ul>
 <li>k近邻法假设给定一个训练数据集，其中实例类别已定。分类时，对新的实例，根据其k个最近邻的训练实例的类别，通过多数表决等方式进行预测。</li>
@@ -2267,7 +2267,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>//xianyu-233.github.io/2020/12/20/hello-world/</url>
+    <url>/2020/12/20/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -2285,7 +2285,7 @@
   </entry>
   <entry>
     <title>k近邻算法代码实现</title>
-    <url>//xianyu-233.github.io/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
+    <url>/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h4 id="k近邻一般算法的实现"><a href="#k近邻一般算法的实现" class="headerlink" title="k近邻一般算法的实现"></a><b>k近邻一般算法的实现</b></h4><blockquote>
 <p>一般的方法指的是直接计算训练集中每个点到测试点的距离，然后根据排序结果进行判断。<br><b>思路：</b></p>
 <blockquote>
@@ -2343,7 +2343,7 @@
   </entry>
   <entry>
     <title>优化理论</title>
-    <url>//xianyu-233.github.io/2021/02/19/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/</url>
+    <url>/2021/02/19/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/</url>
     <content><![CDATA[<h3 id="优化理论"><a href="#优化理论" class="headerlink" title="优化理论"></a><b>优化理论</b></h3><h4 id="原问题："><a href="#原问题：" class="headerlink" title="原问题："></a><b>原问题：</b></h4><blockquote>
 <p><b>目标函数：</b><br>最小化：$f(\omega)$<br><b>限制条件：</b><br>$g_i(\omega)&lt;=0 (i=1～K)$<br>$h_i(\omega)=0(i=i～M)$</p>
 </blockquote>
@@ -2380,7 +2380,7 @@
   </entry>
   <entry>
     <title>中心极限定理</title>
-    <url>//xianyu-233.github.io/2021/03/14/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</url>
+    <url>/2021/03/14/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<h4 id="中心极限定理的客观背景："><a href="#中心极限定理的客观背景：" class="headerlink" title="中心极限定理的客观背景："></a><b>中心极限定理的客观背景：</b></h4><blockquote>
 <p>在客观现实中有许多随机变量，它们都是由大量相互独立的<b>随机因素</b>的综合影响形成的，其中一些个别因素所起的作用都是微小的。这种随机变量往往服从<b>正态分布</b>。</p>
 </blockquote>
@@ -2402,7 +2402,7 @@
   </entry>
   <entry>
     <title>排序算法</title>
-    <url>//xianyu-233.github.io/2020/12/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <url>/2020/12/28/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -2415,7 +2415,7 @@
   </entry>
   <entry>
     <title>感知机</title>
-    <url>//xianyu-233.github.io/2021/04/10/%E6%84%9F%E7%9F%A5%E6%9C%BA/</url>
+    <url>/2021/04/10/%E6%84%9F%E7%9F%A5%E6%9C%BA/</url>
     <content><![CDATA[<h4 id="感知机的介绍"><a href="#感知机的介绍" class="headerlink" title="感知机的介绍"></a><b>感知机的介绍</b></h4><blockquote>
 <ul>
 <li>感知机是二分类的<b>线性分类模型</b>，其输入为实例的<b>特征向量</b>，输出为<b>实例的类别，取+1和-1二值</b>。</li>
@@ -2528,7 +2528,7 @@
   </entry>
   <entry>
     <title>极大似然估计与贝叶斯估计</title>
-    <url>//xianyu-233.github.io/2021/03/14/%E6%9E%81%E5%A4%A7%E6%96%AF%E7%84%B6%E4%BC%B0%E8%AE%A1%E4%B8%8E%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1/</url>
+    <url>/2021/03/14/%E6%9E%81%E5%A4%A7%E6%96%AF%E7%84%B6%E4%BC%B0%E8%AE%A1%E4%B8%8E%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1/</url>
     <content><![CDATA[<h4 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a><b>极大似然估计</b></h4><blockquote>
 <p><b>极大似然估计的思想：</b></p>
 <blockquote>
@@ -2587,7 +2587,7 @@
   </entry>
   <entry>
     <title>查找算法</title>
-    <url>//xianyu-233.github.io/2020/12/28/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</url>
+    <url>/2020/12/28/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<h3 id="1、顺序查找"><a href="#1、顺序查找" class="headerlink" title="1、顺序查找"></a>1、顺序查找</h3><blockquote>
 <p><b>顺序查找</b>是最简单的查找算法，它思路是直接从表的一端开始向另一端和待查元素k作比较，如果匹<br>配则直接输出查找结果，不匹配则继续向下查找，直到查找完毕。</p>
 </blockquote>
@@ -2619,7 +2619,7 @@
   </entry>
   <entry>
     <title>栈和队列</title>
-    <url>//xianyu-233.github.io/2021/01/28/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</url>
+    <url>/2021/01/28/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/</url>
     <content><![CDATA[<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a><b>栈</b></h3><p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/%E6%A0%88.gif" alt="栈的结构" title="栈"></p>
 <blockquote>
 <ul>
@@ -2665,7 +2665,7 @@
   </entry>
   <entry>
     <title>树与二叉树</title>
-    <url>//xianyu-233.github.io/2021/01/30/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <url>/2021/01/30/%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h3 id="树"><a href="#树" class="headerlink" title="树"></a><b>树</b></h3><h4 id="树的定义："><a href="#树的定义：" class="headerlink" title="树的定义："></a><b>树的定义：</b></h4><blockquote>
 <p><b>树</b>是n(n&gt;=0)个结点的有限集合，它或为空树(n=0),或为非空树，对于非空树：</p>
 <blockquote>
@@ -2723,7 +2723,7 @@
   </entry>
   <entry>
     <title>概率论与数理统计（一）</title>
-    <url>//xianyu-233.github.io/2021/01/23/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <url>/2021/01/23/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a><b>1.1 一些概念</b></h3><blockquote>
 <p><b>事件的概率:</b>一个事件发生的概率</p>
 <ul>
@@ -2843,7 +2843,7 @@
   </entry>
   <entry>
     <title>概率论与数理统计（三）</title>
-    <url>//xianyu-233.github.io/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <url>/2021/01/30/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     <content><![CDATA[<h3 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a><b>随机变量</b></h3><blockquote>
 <p>主要分<b>离散型随机变量</b>和<b>非离散型随机变量</b>（主要为连续型随机变量）。</p>
 </blockquote>
@@ -2906,7 +2906,7 @@
   </entry>
   <entry>
     <title>概率论与数理统计（二）</title>
-    <url>//xianyu-233.github.io/2021/01/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <url>/2021/01/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h3 id="1-3-事件概率"><a href="#1-3-事件概率" class="headerlink" title="1.3 事件概率"></a><b>1.3 事件概率</b></h3><h4 id="1-3-1-概率的定义："><a href="#1-3-1-概率的定义：" class="headerlink" title="1.3.1 概率的定义："></a><b>1.3.1 概率的定义：</b></h4><blockquote>
 <p>描述事件发生的可能大小，用P(A)来表示。<br><b>性质：</b></p>
 <blockquote>
@@ -3031,7 +3031,7 @@
   </entry>
   <entry>
     <title>概率论与数理统计（四）</title>
-    <url>//xianyu-233.github.io/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <url>/2021/02/03/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<h3 id="常见的概率分布"><a href="#常见的概率分布" class="headerlink" title="常见的概率分布"></a><b>常见的概率分布</b></h3><p><b>离散型分布：</b></p>
 <h4 id="0-1分布："><a href="#0-1分布：" class="headerlink" title="0-1分布："></a><b>0-1分布：</b></h4><blockquote>
 <p><b>定义：</b>$P(X=k)=p^k(1-p)^{1-k}$<br><b>特性：</b>实验只有两种结果，且实验只做一次。</p>
@@ -3083,7 +3083,7 @@
   </entry>
   <entry>
     <title>模型选择与模型优化</title>
-    <url>//xianyu-233.github.io/2021/03/25/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/</url>
+    <url>/2021/03/25/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E4%B8%8E%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h4 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a><b>训练误差与测试误差</b></h4><blockquote>
 <p>显然对于一个训练模型来说，它都有两种策略可供选择：</p>
 <blockquote>
@@ -3178,7 +3178,7 @@
   </entry>
   <entry>
     <title>线性代数</title>
-    <url>//xianyu-233.github.io/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
+    <url>/2021/01/01/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</url>
     <content><![CDATA[<h3 id="第一章-矩阵与行列式"><a href="#第一章-矩阵与行列式" class="headerlink" title="第一章 矩阵与行列式"></a><b>第一章 矩阵与行列式</b></h3><h4 id="第一节-矩阵及其运算"><a href="#第一节-矩阵及其运算" class="headerlink" title="第一节 矩阵及其运算"></a><b>第一节 矩阵及其运算</b></h4><h5 id="一、n维向量及其线性运算"><a href="#一、n维向量及其线性运算" class="headerlink" title="一、n维向量及其线性运算"></a><b>一、n维向量及其线性运算</b></h5><blockquote>
 <p><b>定义：</b><br><b>n维向量：</b>$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$<br><b>n维向量空间：</b>${R^n}=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}{|a_i{\in}R,i=1,2,\cdots,n}$<br><b>零向量：</b>分量全为零，用0记之。<br><b>两个向量相等：</b>设向量$a=\begin{pmatrix}a_1&amp;a_2&amp;a_3&amp;\cdots&amp;a_n\end{pmatrix}$,向量$b=\begin{pmatrix}b_1&amp;b_2&amp;b_3&amp;\cdots&amp;b_n\end{pmatrix}$<br>如果，$a_i=b_i(i=1,2,{\cdots},n)$,那么我们说向量a与向量b相等，记作$a=b$。<br><b>向量的线性运算：</b><br>(1) 加法运算：$a+b={\begin{pmatrix}a_1+b_1,a_2+b_2,{\cdots},a_n+b_n\end{pmatrix}}$<br>(2) 乘法运算：$ka={\begin{pmatrix}k{a_1},k{a_2},{\cdots},k{a_n}\end{pmatrix}}$</p>
 </blockquote>
@@ -3198,7 +3198,7 @@
   </entry>
   <entry>
     <title>链表</title>
-    <url>//xianyu-233.github.io/2021/01/24/%E9%93%BE%E8%A1%A8/</url>
+    <url>/2021/01/24/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h3 id="链表的定义和表示："><a href="#链表的定义和表示：" class="headerlink" title="链表的定义和表示："></a><b>链表的定义和表示：</b></h3><p>（<b>声明：</b>这里的链表都是线性表的链式结构。）</p>
 <h4 id="链表的定义："><a href="#链表的定义：" class="headerlink" title="链表的定义："></a><b>链表的定义：</b></h4><blockquote>
 <p>链表是一种物理存储结构上非连续、非顺序的存储结构（物理结构与逻辑结构不一致）。</p>
@@ -3260,7 +3260,7 @@
   </entry>
   <entry>
     <title>Pandas包</title>
-    <url>//xianyu-233.github.io/2021/04/24/Pandas%E5%8C%85/</url>
+    <url>/2021/04/24/Pandas%E5%8C%85/</url>
     <content><![CDATA[<h4 id="Pandas介绍"><a href="#Pandas介绍" class="headerlink" title="Pandas介绍"></a><b>Pandas介绍</b></h4><blockquote>
 <ul>
 <li>Pandas库主要是面向二位数据分析的第三方库。</li>
@@ -3503,7 +3503,7 @@
   </entry>
   <entry>
     <title>感知机代码实现</title>
-    <url>//xianyu-233.github.io/2021/08/16/%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
+    <url>/2021/08/16/%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h4 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a><b>算法描述：</b></h4><blockquote>
 <blockquote>
 <ul>
@@ -3565,7 +3565,7 @@
   </entry>
   <entry>
     <title>决策树</title>
-    <url>//xianyu-233.github.io/2021/08/17/%E5%86%B3%E7%AD%96%E6%A0%91/</url>
+    <url>/2021/08/17/%E5%86%B3%E7%AD%96%E6%A0%91/</url>
     <content><![CDATA[<h4 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a><b>决策树模型</b></h4><blockquote>
 <ul>
 <li><b>决策树</b>是一种常见的机器学习方法，有<b>回归</b>和<b>分类</b>这两种方法。</li>
@@ -3701,7 +3701,7 @@
   </entry>
   <entry>
     <title>决策树实例代码</title>
-    <url>//xianyu-233.github.io/2021/08/21/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81/</url>
+    <url>/2021/08/21/%E5%86%B3%E7%AD%96%E6%A0%91%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h4 id="基本算法："><a href="#基本算法：" class="headerlink" title="基本算法："></a><b>基本算法：</b></h4><blockquote>
 <p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)=(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)=(x|x^{(j)} &gt; s )$$<br>$$c_m=ave(y_i|x_i \in R_m(j,s))$$<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
 </blockquote>
@@ -3777,7 +3777,7 @@
   </entry>
   <entry>
     <title>力扣的愉快之旅-Day1</title>
-    <url>//xianyu-233.github.io/2021/08/23/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day1/</url>
+    <url>/2021/08/23/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day1/</url>
     <content><![CDATA[<h4 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a><b>前情提要</b></h4><blockquote>
 <p> 本篇主要记录我每天肝算法题的进度，有时可能会一天一道，可能几天一道，也可能一天几道。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E8%90%8C%E6%96%B0.jpg" alt="萌新" title="老萌新了"></p>
 </blockquote>
@@ -3815,7 +3815,7 @@
   </entry>
   <entry>
     <title>力扣的愉快之旅-Day2</title>
-    <url>//xianyu-233.github.io/2021/08/24/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day2/</url>
+    <url>/2021/08/24/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day2/</url>
     <content><![CDATA[<h4 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a><b>前情提要</b></h4><blockquote>
 <p> 本篇主要记录我每天肝算法题的进度，有时可能会一天一道，可能几天一道，也可能一天几道。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E8%90%8C%E6%96%B0.jpg" alt="萌新" title="老萌新了"></p>
 </blockquote>
@@ -3852,7 +3852,7 @@
   </entry>
   <entry>
     <title>贝叶斯分类器</title>
-    <url>//xianyu-233.github.io/2021/08/27/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/</url>
+    <url>/2021/08/27/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/</url>
     <content><![CDATA[<h4 id="贝叶斯分类器简介"><a href="#贝叶斯分类器简介" class="headerlink" title="贝叶斯分类器简介"></a><b>贝叶斯分类器简介</b></h4><blockquote>
 <p>贝叶斯分类器是基于概率框架下的一种分类器，它与决策树等模型不一样。<br>决策树是直接对后验概率$P(y|x)$进行建模的<b>判别式模型</b><br>贝叶斯分类器则是先对联合概率分布$P(x,y)$建模，之后再对条件概率公式得出后验概率的<b>生成模型</b><br>其中贝叶斯分类器的核心部件就是<b>贝叶斯定理</b>。<br><b>补充：</b>贝叶斯分类器不仅可以分类，还能计算出对应类的概率。</p>
 </blockquote>
@@ -3942,7 +3942,7 @@
   </entry>
   <entry>
     <title>朴素贝叶斯分类器代码实现</title>
-    <url>//xianyu-233.github.io/2021/08/30/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
+    <url>/2021/08/30/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h4 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a><b>算法描述</b></h4><blockquote>
 <p>贝叶斯公式：<br>$$P(Y|X)=\frac{P(X|Y)P(Y)}{P(X)}$$<br>根据公式可以得到以下算法：</p>
 <blockquote>
@@ -4003,7 +4003,7 @@
   </entry>
   <entry>
     <title>Python-数据类型(1)</title>
-    <url>//xianyu-233.github.io/2021/04/28/Python-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</url>
+    <url>/2021/04/28/Python-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1/</url>
     <content><![CDATA[<h4 id="数据类型概述"><a href="#数据类型概述" class="headerlink" title="数据类型概述"></a><b>数据类型概述</b></h4><blockquote>
 <p>在Python$ \ $3.x的版本中，主要有7种数据类型：</p>
 <blockquote>
@@ -4393,7 +4393,7 @@
   </entry>
   <entry>
     <title>Python-数据类型(2)</title>
-    <url>//xianyu-233.github.io/2021/08/30/Python-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-2/</url>
+    <url>/2021/08/30/Python-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-2/</url>
     <content><![CDATA[<h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a><b>元组</b></h4><blockquote>
 <p>元组与列表定义方式相似，列表用<code>[]</code>而元组用<code>()</code>：</p>
 <blockquote>
@@ -4584,7 +4584,7 @@
   </entry>
   <entry>
     <title>Python-用户输入和循环语句</title>
-    <url>//xianyu-233.github.io/2021/08/30/Python-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%92%8C%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</url>
+    <url>/2021/08/30/Python-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%92%8C%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5/</url>
     <content><![CDATA[<h4 id="用户输入"><a href="#用户输入" class="headerlink" title="用户输入"></a><b>用户输入</b></h4><blockquote>
 <p>在Python中用户输入的功能是由<code>input()</code>函数提供的。<br>input函数可以让程序暂停运行，等待用户输入一些文本，获取的文本都会存储在变量中。</p>
 <ul>
@@ -4648,7 +4648,7 @@
   </entry>
   <entry>
     <title>Python-函数</title>
-    <url>//xianyu-233.github.io/2021/08/31/Python-%E5%87%BD%E6%95%B0/</url>
+    <url>/2021/08/31/Python-%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h4 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a><b>函数的定义</b></h4><blockquote>
 <p>在Python中函数的定义需要<code>def</code>关键字，并且函数名末尾需要跟一个冒号。<br><b>例子：</b></p>
 <blockquote>
@@ -4715,7 +4715,7 @@
   </entry>
   <entry>
     <title>Python-类</title>
-    <url>//xianyu-233.github.io/2021/09/01/Python-%E7%B1%BB/</url>
+    <url>/2021/09/01/Python-%E7%B1%BB/</url>
     <content><![CDATA[<h4 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a><b>类的定义</b></h4><blockquote>
 <p>类在Python中与在C++一样，几乎可以模拟任何东西，同时也是用关键字<code>class</code>来定义：</p>
 <blockquote>
@@ -4782,7 +4782,7 @@
   </entry>
   <entry>
     <title>Python-文件处理</title>
-    <url>//xianyu-233.github.io/2021/09/02/Python-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</url>
+    <url>/2021/09/02/Python-%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h4 id="从文件中读取数据"><a href="#从文件中读取数据" class="headerlink" title="从文件中读取数据"></a><b>从文件中读取数据</b></h4><blockquote>
 <p>使用文本文件中的信息，首先需要将其读取到内存中，读取方式又包括<b>一次性读取所有文件</b>和<b>每次一行的方式</b>逐步读取。</p>
 </blockquote>
@@ -4870,7 +4870,7 @@
   </entry>
   <entry>
     <title>力扣的愉快之旅-Day3</title>
-    <url>//xianyu-233.github.io/2021/09/08/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day3/</url>
+    <url>/2021/09/08/%E5%8A%9B%E6%89%A3%E7%9A%84%E6%84%89%E5%BF%AB%E4%B9%8B%E6%97%85-Day3/</url>
     <content><![CDATA[<h4 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a><b>前情提要</b></h4><blockquote>
 <p> 本篇主要记录我每天肝算法题的进度，有时可能会一天一道，可能几天一道，也可能一天几道。<br>一个不小心就摸了两个星期了，不过今天也肝了两道使用贪心策略的题。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E8%90%8C%E6%96%B0.jpg" alt="萌新" title="老萌新了"></p>
 </blockquote>
@@ -4938,7 +4938,7 @@
   </entry>
   <entry>
     <title>梯度下降法</title>
-    <url>//xianyu-233.github.io/2021/09/08/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/</url>
+    <url>/2021/09/08/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/</url>
     <content><![CDATA[<h4 id="梯度下降的介绍"><a href="#梯度下降的介绍" class="headerlink" title="梯度下降的介绍"></a><b>梯度下降的介绍</b></h4><blockquote>
 <p>梯度下降是一种在机器学习，甚至深度学习里都很常用的优化算法。<br>首先我们可以将<b>梯度下降</b>拆分为<b>梯度</b>和<b>下降</b>。</p>
 <blockquote>
@@ -4999,7 +4999,7 @@
   </entry>
   <entry>
     <title>线性回归</title>
-    <url>//xianyu-233.github.io/2021/09/18/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
+    <url>/2021/09/18/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
     <content><![CDATA[<h4 id="线性回归的介绍"><a href="#线性回归的介绍" class="headerlink" title="线性回归的介绍"></a><b>线性回归的介绍</b></h4><blockquote>
 <p>线性回归是机器学习中最经典的回归算法之一。<br>线性回归实际上就是在一堆线性的点中找到一条直线，使得所有点离这条线最近。<br>首先设点$x_0$的值为$y_0$，我们通过模型的到它的值为$y$，那么我们设它们的误差值为$y-y_0$<del>（别问，问就是容易计算）</del><br>那么由此可以所有点的误差值之和为：$J(\theta)=\frac{1}{2} \sum^n_{i=1}(\theta ^T X - y^i_0)^2$<br>（为什么是这个式子详见<a href="/2021/09/08/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95/index.html">这里</a>）<br>那么我们现在的目的就是通过缩小$J$来找到最合适的$\theta$<br>对此有三种方法可以求出最合适的$\theta$</p>
 <blockquote>
@@ -5030,7 +5030,7 @@
   </entry>
   <entry>
     <title>线性回归代码实现</title>
-    <url>//xianyu-233.github.io/2021/09/21/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
+    <url>/2021/09/21/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h4 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a><b>梯度下降</b></h4><blockquote>
 <p><b>算法描述：</b></p>
 <blockquote>
@@ -5076,7 +5076,7 @@
   </entry>
   <entry>
     <title>牛顿法</title>
-    <url>//xianyu-233.github.io/2021/09/23/%E7%89%9B%E9%A1%BF%E6%B3%95/</url>
+    <url>/2021/09/23/%E7%89%9B%E9%A1%BF%E6%B3%95/</url>
     <content><![CDATA[<h4 id="牛顿法介绍"><a href="#牛顿法介绍" class="headerlink" title="牛顿法介绍"></a><b>牛顿法介绍</b></h4><blockquote>
 <p>牛顿法是求解<b>无约束最优化问题</b>的常用方法之一，有收敛速度快的优点。<br>牛顿法属于迭代算法，每一步都需要求解目标函数的二阶导数（hessian矩阵）<br>具体实现过程：</p>
 <blockquote>
@@ -5159,7 +5159,7 @@
   </entry>
   <entry>
     <title>支持向量机（SVM）</title>
-    <url>//xianyu-233.github.io/2021/10/10/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88SVM%EF%BC%89/</url>
+    <url>/2021/10/10/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%EF%BC%88SVM%EF%BC%89/</url>
     <content><![CDATA[<h4 id="SVM的介绍"><a href="#SVM的介绍" class="headerlink" title="SVM的介绍"></a><b>SVM的介绍</b></h4><blockquote>
 <ul>
 <li>SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督学习的算法。</li>
@@ -5261,7 +5261,7 @@
   </entry>
   <entry>
     <title>串</title>
-    <url>//xianyu-233.github.io/2021/10/13/%E4%B8%B2/</url>
+    <url>/2021/10/13/%E4%B8%B2/</url>
     <content><![CDATA[<h4 id="串的介绍"><a href="#串的介绍" class="headerlink" title="串的介绍"></a><b>串的介绍</b></h4><blockquote>
 <ul>
 <li><p><b>串</b>是由零个或多个字符组成的有限序列，一般记为：</p>
@@ -5462,7 +5462,7 @@
   </entry>
   <entry>
     <title>拉格朗日乘子法</title>
-    <url>//xianyu-233.github.io/2021/10/21/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/</url>
+    <url>/2021/10/21/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/</url>
     <content><![CDATA[]]></content>
   </entry>
 </search>
