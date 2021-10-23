@@ -5190,7 +5190,7 @@
 <h5 id="函数距离与几何距离"><a href="#函数距离与几何距离" class="headerlink" title="函数距离与几何距离"></a><b>函数距离与几何距离</b></h5><blockquote>
 <p>一般来说,当分离超平面$w^{<em>T}x+b^</em>=0$确定后，$|wx_i+b|$能相对地确定该点到超平面的远近，而$y_i(wx_i+b)$的值可以确定分类的确定性以及可信度。</p>
 <ul>
-<li><p><b>函数距离</b></p>
+<li><p><b>函数距离（函数间隔）</b></p>
 <blockquote>
 <p>$$\gamma_i=y_i(w^T x_i+b)$$<br>那么我们取上述的最小值作为函数距离，即<br>$$\gamma = min_{i=1…m}y_i(w^T x_i+b)$$</p>
 <p><b>示意图：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E5%87%BD%E6%95%B0%E8%B7%9D%E7%A6%BB.png" alt="函数距离" title="函数距离"></p>
@@ -5200,7 +5200,7 @@
 <p>仅仅只知道函数距离并不足以让我们描述间距的大小，所以我们还需要引入几何距离。</p>
 </blockquote>
 </li>
-<li><p><b>几何距离</b></p>
+<li><p><b>几何距离（几何间隔）</b></p>
 <blockquote>
 <p>在函数距离中，我们知道如果将$w$和$b$等比例放大或缩小，都不会对超平面造成影响。那么我们令$w$和$b$同时除以$||w||$，那么可以得到$\frac{w^Tx_i}{||w||}+\frac{b}{||w||}$，那么我们就得到了几何距离定义的雏形了。</p>
 <p>因此我们可以将几何距离定义为：<br>$$d_i=\frac{y_i(w^Tx_i+b)}{||w||}\quad \quad y_i \in (-1,1)$$<br>那么我们取上述的最小值作为几何距离，即<br>$$d = min_{i=1…m}\frac{y_i(w^Tx_i+b)}{||w||}\quad \quad y_i \in (-1,1)$$<br><b>示意图：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E5%87%A0%E4%BD%95%E8%B7%9D%E7%A6%BB.png" alt="几何距离" title="几何距离"> </p>
@@ -5224,6 +5224,17 @@
 </blockquote>
 </li>
 <li><p><b>最大间隔分离超平面</b></p>
+<blockquote>
+<p>我们的目的是找到一个几何间隔最大的分离超平面，那么我们可以定义成：<br>$$max_{w,b}\ d$$</p>
+<p>$$s.t. \quad y_i(\frac{w^Tx_i+b}{||w||})\ge d_i \quad i=1,2,…,N$$</p>
+<p>根据几何间隔与函数间隔之间的关系，可以将上式转化成函数间隔形式：<br>$$max_{w,b}\ \frac{\gamma}{||w||}$$</p>
+<p>$$s.t. \quad y_i(w^Tx_i+b)\ge \gamma_i \quad i=1,2,…,N$$</p>
+<p>实际上，我们已知函数间隔$\gamma_i$并不影响几何间隔，那么求解$max_{w,b}\ \frac{\gamma}{||w||}$可以转化成求解$max_{w,b}\ \frac{1}{||w||}$，也就等价于求解$min_{w,b}\ ||w||$</p>
+<p>甚至$\gamma_i$可以进行伸缩变化成1，那么约束条件$y_i(w^Tx_i+b)\ge \gamma_i$可以转化为$y_i(w^Tx_i+b)\ge 1$</p>
+<p>所以这个最大间隔优化问题可以转化为：<br>$$min_{w,b}\ \frac{1}{2}||w||^2$$</p>
+<p>$$s.t. \quad y_i(w^Tx_i+b)-1 \ge 0 \quad i=1,2,…,N$$</p>
+<p><b>补充：</b>$min_{w,b}\ \frac{1}{2}||w||^2$与$min_{w,b}\ ||w||$的解是一样的，因为式子里要求的是最小值下的$w$和$b$，而不是求它们的最小值。</p>
+</blockquote>
 </li>
 </ul>
 </blockquote>
