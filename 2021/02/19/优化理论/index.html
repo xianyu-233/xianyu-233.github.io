@@ -70,7 +70,7 @@
 <p><b>目标函数：</b><br>最小化：$f(\omega)$<br><b>限制条件：</b><br>$g_i(\omega)&lt;=0 (i=1～K)$<br>$h_i(\omega)=0(i=i～M)$</p>
 </blockquote>
 <h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><blockquote>
-<p>首先定义一个$L(\omega,\alpha,\beta)$函数：<br>$$L(\omega,\alpha,\beta)=f(\omega)+\sum^K_{i=1}{\alpha}{g_i(\omega)}+{\sum}^M_{i=1}\beta_ih_i(\omega)$$<br><b>补充：</b><br>这样定义的一个好处是为了方便找目标函数的最优解（因为消去了限制条件）。<br>而且可使满足限制条件的等于$f(\omega)$，不满足限制条件的等于$\infty$</p>
+<p>首先定义一个$L(\omega,\alpha,\beta)$函数：<br>$$L(x,\alpha,\beta)=f(x)+\sum^K_{i=1}{\alpha}{g_i(x)}+{\sum}^M_{i=1}\beta_ih_i(x)$$<br><b>补充：</b><br>这样定义的一个好处是为了方便找目标函数的最优解（因为消去了限制条件）。<br>而且可使满足限制条件的等于$f(\omega)$，不满足限制条件的等于$\infty$</p>
 </blockquote>
 <h4 id="对偶问题的定义："><a href="#对偶问题的定义：" class="headerlink" title="对偶问题的定义："></a><b>对偶问题的定义：</b></h4><blockquote>
 <p><b>目标函数：</b><br>最大化：$\theta(\alpha,\beta)=inf_{对所有\omega}[L(\omega,\alpha,\beta)]\quad\quad$(inf(f(x))表示求f(x)中的最小值)<br><b>限制条件：</b><br>$\alpha_i&gt;=0$(i=1～K)<br>($\theta(\alpha,\beta)$表示每次固定$\alpha,\beta$然后遍历所有$\omega$，最后找出最小值)</p>

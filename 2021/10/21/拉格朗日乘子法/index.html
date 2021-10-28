@@ -10,7 +10,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="xainyu-233,"> 
-    
+    <meta name="description" content="拉格朗日对偶性介绍
+在求解有约束的最优化问题时，经常使用的方法是：利用拉格朗日对偶性将原始问题转化为对偶问题，通过求解对偶问题从而得到原始问题的解。
+
+原始问题
+定义：
+
+假设$f(x),c_i(x,"> 
     <meta name="author" content="xianyu"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/%E5%96%B7.jfif"> 
@@ -60,7 +66,46 @@
 
         </div>
         <div class="content markdown">
-            
+            <h4 id="拉格朗日对偶性介绍"><a href="#拉格朗日对偶性介绍" class="headerlink" title="拉格朗日对偶性介绍"></a><b>拉格朗日对偶性介绍</b></h4><blockquote>
+<p>在求解有约束的最优化问题时，经常使用的方法是：利用拉格朗日对偶性将原始问题转化为对偶问题，通过求解对偶问题从而得到原始问题的解。</p>
+</blockquote>
+<h4 id="原始问题"><a href="#原始问题" class="headerlink" title="原始问题"></a><b>原始问题</b></h4><blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，约束最优化问题为：<br>$$min_{x \in R^n} \ \ f(x)$$</p>
+<p>$$s.t. \quad c_i(x) \le 0, \quad i=1,2,…,k$$</p>
+<p>$$\quad h_j(x)=0,\quad j=1,2,…,l$$</p>
+</blockquote>
+<ul>
+<li><p>首先，我们引入<b>拉格朗日函数</b>：</p>
+<blockquote>
+<p>$$L(x,\alpha,\beta)=f(x)+\sum^K_{i=1}{\alpha_i}{c_i(x)}+{\sum}^M_{j=1}\beta_jh_j(x)$$</p>
+<p>其中，$x=(x^{(1)},x^{(2)},…,x^{(n)})^T \in R^n$，$\alpha_i,\beta_j$是拉格朗日乘子，$\alpha_i \ge 0$。考虑x的函数：<br>$$\theta_P(x)=max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$<br>这里，$\theta_P(x)$表示原始问题$f(x)$+约束条件。</p>
+</blockquote>
+</li>
+<li><p>引入拉格朗日函数的作用：</p>
+<blockquote>
+<p>我们知道，要求解带约束的优化问题，梯度下降，牛顿法这类方法都是不能解决的，因此我们可以通过拉格朗日函数，将约束条件融入到问题上，即将约束条件塞到$f(x)$里，构成一条式子。<br>当x不满足约束条件时，即某个i使得$c_i(w) &gt; 0$或者是某个j使得$h_j(w) \neq 0$,那么就有<br>$$\theta_P(x)=max_{\alpha,\beta;\alpha_i \ge 0} \ \ [f(x)+\sum^K_{i=1}{\alpha_i}{c_i(x)}+{\sum}^M_{j=1}\beta_jh_j(x)]=+\infty$$<br><b>原因：</b></p>
+<blockquote>
+<ul>
+<li>当$c_i(w) &gt; 0$时，函数的目的是取到最大值，那么我们可以直接令这个i对应的$\alpha_i = +\infty$，这里取最大值的结果会变成$+\infty$。</li>
+<li>同理，如果$h_j(w) \neq 0$，函数的目的是取到最大值，那么j对应的$\beta_j= +\infty$，这里取最大值的结果会变成$+\infty$。</li>
+</ul>
+<p>因为这里的目的是取最大值，而且$c_i(w) \le 0,\alpha_i \ge 0$（负数乘一个正数，结果还是负数）且$h_j(w) = 0$，那么$\theta_P(x)$的最大值就等于$f(x)$，所以可得，<br>$$\theta_P(x)=\begin{cases}f(x) \quad \quad x满足约束 \\+\infty \quad \quad 其他 \\\end{cases}$$</p>
+<p><b>因此原问题的定义域就扩展到了整个实数域，不过只有满足约束条件的才等于$f(x)$，不满足的那一部分都等于正无穷。</b></p>
+</blockquote>
+<p>如果考虑求原问题的最小化，那么可以得到：<br>$$min_x \ \theta_P(x)=min_x \ max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$<br>到此，我们已经将原问题的形式，从<br>$$min_{x \in R^n} \ \ f(x)$$</p>
+<p>$$s.t. \quad c_i(x) \le 0, \quad i=1,2,…,k$$</p>
+<p>$$\quad h_j(x)=0,\quad j=1,2,…,l$$<br>变成了<br>$$min_x \ \theta_P(x)=min_x \ max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>这样一来，求出$min_x \ \theta_P(x)$的解就等于求出了$min_{x \in R^n} \ \ f(x)$的解。<br>设原始问题的最优值为：$p^*=min_x \ \theta_P(x)$</li>
+</ul>
+<p><b>补充：</b>后面一直在提的原始问题也是$min_x \ \theta_P(x)$这个形式。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><h5 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a><b>KKT条件</b></h5>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -95,7 +140,7 @@
     </div>
     
         <div class='side'>
-				
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日对偶性介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">原始问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">对偶问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">原始问题与对偶问题的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#KKT%E6%9D%A1%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">KKT条件</span></a></li></ol></li></ol>	
         </div>
     
 </div>
