@@ -100,12 +100,32 @@
 <ul>
 <li>这样一来，求出$min_x \ \theta_P(x)$的解就等于求出了$min_{x \in R^n} \ \ f(x)$的解。<br>设原始问题的最优值为：$p^*=min_x \ \theta_P(x)$</li>
 </ul>
-<p><b>补充：</b>后面一直在提的原始问题也是$min_x \ \theta_P(x)$这个形式。</p>
+<p><b>补充：</b></p>
+<ul>
+<li>后面一直在提的原始问题也是$min_x \ \theta_P(x)$这个形式。</li>
+<li>这个问题又称为广义拉格朗日函数的极小极大问题。</li>
+</ul>
 </blockquote>
 </li>
 </ul>
 </blockquote>
-<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><h5 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a><b>KKT条件</b></h5>
+<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>$$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$$</p>
+<p>再考虑极大化$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$，即</p>
+<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$<br>该问题又称为广义拉格朗日函数的极大极小问题。</p>
+</blockquote>
+<p>此时我们可以将广义拉格朗日函数的极大极小问题表示为约束最优化问题：</p>
+<blockquote>
+<p>$$max_{\alpha,\beta} \ \ min_x \ L(x,\alpha,\beta)$$<br>$$s.t. \quad \alpha_i \ge 0, \quad i=1,2,…,k$$</p>
+</blockquote>
+<p>同时我们也可以将其称为原始问题的对偶问题，定义对偶问题的最优值：</p>
+<blockquote>
+<p>$$d^*=max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta)$$</p>
+</blockquote>
+</blockquote>
+<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><h5 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a><b>KKT条件</b></h5>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
