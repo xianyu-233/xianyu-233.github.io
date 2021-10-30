@@ -198,7 +198,8 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
 </ul>
 <p>根据上面对偶问题的公式，我们需要先对$w,b$求$L(w,b,\alpha)$的最小值，再对$\alpha$求L(w,b,\alpha)$的最大值。</p>
 <ul>
-<li>求$min_{w,b} \ L(w,b,\alpha)$<blockquote>
+<li><p>求$min_{w,b} \ L(w,b,\alpha)$</p>
+<blockquote>
 <ul>
 <li>将拉格朗日函数$L(w,b,\alpha)$分别对$w,b$求偏导，并令其等于0。<blockquote>
 <p>$$\nabla_w \ L(w,b,\alpha) = w - \sum_{i=1}^N \alpha_i y_i x_i = 0$$</p>
@@ -228,20 +229,103 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
 <p>最终我们求出了$min_{w,b} \ L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$</p>
 </blockquote>
 </li>
-</ul>
-</blockquote>
-<h4 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a><b>SMO算法</b></h4><h4 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a><b>非线性支持向量机</b></h4><h5 id="高维映射"><a href="#高维映射" class="headerlink" title="高维映射"></a><b>高维映射</b></h5><blockquote>
+<li><p>求$min_{w,b}L(w,b,\alpha)$对$\alpha$的极大，即</p>
+<blockquote>
+<p>$$max_{\alpha} \ \  -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$$</p>
+<p>$$s.t. \quad \sum^N_{i=1} \alpha_iy_i=0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i=1,2,…,N$$</p>
 <ul>
-<li>$X$(低维)$—&gt;\phi(x)$(高维)</li>
-<li>当在SVM问题中划不出一条直线将样本分开时，可以将样本的特征维数升高，从而在高维处用超平面将样本分开。<br><b>例如：异或问题</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/SVM%E5%BC%82%E6%88%96%E9%97%AE%E9%A2%98.jpg" alt="异或问题" title="异或问题"><br>A=$\begin{bmatrix}{0}\\{1}\end{bmatrix}$，B=$\begin{bmatrix}{1}\\{1}\end{bmatrix}$，C=$\begin{bmatrix}{0}\\{0}\end{bmatrix}$，D=$\begin{bmatrix}{1}\\{0}\end{bmatrix}$<br><b>设一个高维映射</b>$X—&gt;\phi(x)$=&gt;$\begin{bmatrix}{a}\\{b}\end{bmatrix}$—&gt;$\begin{bmatrix}{a^2}\\{b^2}\\{a}\\{b}\\{ab}\end{bmatrix}$<br>A=$\begin{bmatrix}{0}\\{1}\end{bmatrix}$—&gt;$\phi(A)$=$\begin{bmatrix}{0}\\{1}\\{0}\\{1}\\{0}\end{bmatrix}$，B=$\begin{bmatrix}{1}\\{1}\end{bmatrix}$—&gt;$\phi(B)=\begin{bmatrix}{1}\\{1}\\{1}\\{1}\\{1}\end{bmatrix}$<br>C=$\begin{bmatrix}{0}\\{0}\end{bmatrix}$—&gt;$\phi(C)$=$\begin{bmatrix}{0}\\{0}\\{0}\\{0}\\{0}\end{bmatrix}$，D=$\begin{bmatrix}{1}\\{0}\end{bmatrix}$—&gt;$\phi(B)=\begin{bmatrix}{1}\\{0}\\{1}\\{0}\\{0}\end{bmatrix}$<br><b>目的：</b>找出一个$\omega$和b来使$A,D$和$,C$分开。（此时的$\omega$的维度升高了，b依旧是一个常数）<br>使下式得以满足，$y_i[\omega^TX_i+b]&gt;=1-\xi_i$—&gt;$y_i[\omega^T\phi(X_i)+b]&gt;=1-\xi_i$<br>解出一个答案，$\omega=\begin{bmatrix}{-1}\\{-1}\\{-1}\\{-1}\\{6}\end{bmatrix}$和$b=1$</li>
-<li>$\omega^T\phi(A)+b=-1$</li>
-<li>$\omega^T\phi(B)+b=3$</li>
-<li>$\omega^T\phi(C)+b=1$</li>
-<li>$\omega^T\phi(D)+b=-1$<br>明显A，D是一类，而B，C又是另一类，所以在高维上就解出了这个分类问题。</li>
+<li>将最大化问题转化成求最小化问题得，<br>$$min_{\alpha} \ \  \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i=1}^N \alpha_i$$</li>
 </ul>
-<p><b>特点：</b>在高维映射中，维度越高，数据分开的概率就越高。</p>
+<p>$$s.t. \quad \sum^N_{i=1} \alpha_iy_i=0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i=1,2,…,N$$</p>
+<ul>
+<li>考虑原始最优化问题：<br>$$min_{w,b}\ \frac{1}{2}||w||^2$$</li>
+</ul>
+<p>$$s.t. \quad 1 - y_i(w^Tx_i+b) \le 0 \quad i=1,2,…,N$$</p>
+<ul>
+<li>满足对偶问题中<b>定理一</b>：<blockquote>
+<p>若$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数(这没$h_j(x)$)，$c_i(x)$是严格可行的，即存在x对于所有i都有$c_i(x)&lt;0$,那么存在$x^∗,α^∗,β^∗$，$x^∗$是原始问题的解，$\alpha^∗,\beta^∗$是对偶问题的解，<b>那么求解原始问题可以转化成求解对偶问题的解了</b>。 </p>
 </blockquote>
-<h5 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a><b>核方法</b></h5>
+</li>
+</ul>
+<p><b>补充：</b>为什么$c_i(x)$是严格可行的？因为满足条件$1 - y_i(w^Tx_i+b) = 0 \quad i=1,2,…,N$的只有支持向量，其他计算出来的结果一定小于0的，所以说存在x使得$c_i(x)$严格可行。</p>
+<ul>
+<li>设$\alpha^*=(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$是对偶最优化问题的解，那么可以由此求得原始问题对$(w,b)$的解$w^*,b^*$,有以下定理：<blockquote>
+<p>设$\alpha^*=(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$是对偶最优化问题的解，则存在下标j，使得$\alpha_j^* &gt; 0$，使得$w^*,b^*$满足以下式子：<br>$$w^* =\sum_{i=1}^N \alpha_i^* y_i x_i$$</p>
+<p>$$b^* = y_j - \sum_{i=1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+</blockquote>
+</li>
+</ul>
+<p><b>补充：</b>以上式子可以根据KKT条件进行证明。</p>
+</blockquote>
+</li>
+</ul>
+<p>因此分离超平面可以写成：</p>
+<blockquote>
+<p>$$\sum^N_{i=1}\alpha^*_i y_i(x x_i)+b^*=0$$</p>
+</blockquote>
+<p>分类决策函数可以写成：</p>
+<blockquote>
+<p>$$f(x)=sign(\sum^N_{i=1}\alpha^*_i y_i(x x_i)+b^*)$$</p>
+</blockquote>
+<p><b>补充：</b></p>
+<blockquote>
+<ul>
+<li>由上式可知，分类决策函数只依赖于输入x和训练样本输入的内积。</li>
+<li>而且$\alpha$的维度与训练集的个数相关，训练集有多少个，那么$\alpha$就有多少维。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a><b>算法描述</b></h5><blockquote>
+<ul>
+<li><b>线性可分支持向量机学习算法：</b><blockquote>
+<p><b>输入：</b>线性可分训练集$T=[(x_1,y_1),(x_2,y_2),…,(x_N,y_N)]$，其中$x_i \in R^n,y_i \in (-1,1), \quad i=1,2,…,N$<br><b>输出：</b>分离超平面和分类决策函数。</p>
+<ul>
+<li><p>构造并求解约束最优化问题</p>
+<blockquote>
+<p>$$min_{\alpha} \ \  \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i=1}^N \alpha_i$$</p>
+<p>$$s.t. \quad \sum^N_{i=1} \alpha_iy_i=0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i=1,2,…,N$$</p>
+<p>利用SMO算法求出最优解$\alpha^*=(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$。</p>
+</blockquote>
+</li>
+<li><p>计算</p>
+<blockquote>
+<p>$$w^* = \sum^N_{i=1}\alpha^*_i y_i x_i$$ </p>
+<p>选择$\alpha^*$的一个正分量$\alpha_j^* &gt; 0$，计算<br>$$b^* = y_j - \sum_{i=1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+<p><b>补充：</b>计算$b^*$时的$(x_j,y_j)$是一个随机的一个支持向量。</p>
+</blockquote>
+</li>
+<li><p>求得分离超平面</p>
+<blockquote>
+<p>$$\sum^N_{i=1}\alpha_i^* y_i(x x_i)+b^*=0$$<br>分类决策函数：<br>$$f(x)=sign(\sum^N_{i=1}\alpha_i^* y_i(x x_i)+b^*)$$</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a><b>支持向量</b></h5><blockquote>
+<p>由</p>
+<blockquote>
+<p>$$w^* = \sum^N_{i=1}\alpha^*_i y_i x_i$$ </p>
+<p>$$b^* = y_j - \sum_{i=1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+</blockquote>
+<p>可知，$w^*$和$b^*$只依赖于训练数据中对应$\alpha_i^* &gt; 0$的样本点（在SMO算法中我们可以算出只有少数的一些点的$\alpha_i^*$大于0），而其他样本点对$w^*$和$b^*$基本没影响。<br>我们将训练集中对应$\alpha_i^* &gt; 0$的样本点称之为<b>支持向量</b>。<br><b>定义：</b></p>
+<blockquote>
+<p>考虑原始最优化问题及对偶最优化问题，将训练数据集中对应$\alpha_i^* &gt; 0$的样本点$(x_i,y_i)$的实例$x_i \in R^n$称为<b>支持向量</b>。</p>
+</blockquote>
+<p><b>补充：</b><br>根据该定义，支持向量一定在间隔边界上。由KKT互补条件：</p>
+<blockquote>
+<p>$$\alpha_i^*(y_i(w^* x_i +b^*)-1)=0, \quad i=1,2,…,N$$</p>
+<p>对应于$\alpha_i^* &gt; 0$的实例$x_i$，有</p>
+<p>$$y_i(w^* x_i +b^*)-1 = 0$$<br>或<br>$$w^* x_i +b^* = \pm 1$$</p>
+</blockquote>
+<p>即它的函数距离一定等于1，那么$x_i$一定在间隔边界上。（根据这个特性，证明只有少数的点都可以训练出一个分离超平面。）</p>
+</blockquote>
+<h4 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a><b>SMO算法</b></h4><h4 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a><b>非线性支持向量机</b></h4><h5 id="高维映射"><a href="#高维映射" class="headerlink" title="高维映射"></a><b>高维映射</b></h5><h5 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a><b>核方法</b></h5>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -276,7 +360,7 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#SVM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">SVM的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">线性可分支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%87%A0%E4%BD%95%E8%B7%9D%E7%A6%BB"><span class="toc-number">2.1.</span> <span class="toc-text">函数距离与几何距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">学习的对偶算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SMO%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">SMO算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">非线性支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E7%BB%B4%E6%98%A0%E5%B0%84"><span class="toc-number">4.1.</span> <span class="toc-text">高维映射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">核方法</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#SVM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">SVM的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">线性可分支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%87%A0%E4%BD%95%E8%B7%9D%E7%A6%BB"><span class="toc-number">2.1.</span> <span class="toc-text">函数距离与几何距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">学习的对偶算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.3.</span> <span class="toc-text">算法描述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-number">2.4.</span> <span class="toc-text">支持向量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SMO%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">SMO算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">非线性支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E7%BB%B4%E6%98%A0%E5%B0%84"><span class="toc-number">4.1.</span> <span class="toc-text">高维映射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">核方法</span></a></li></ol></li></ol>	
         </div>
     
 </div>
