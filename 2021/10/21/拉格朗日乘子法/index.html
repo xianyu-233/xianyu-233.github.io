@@ -113,8 +113,13 @@
 <p><b>定义：</b></p>
 <blockquote>
 <p>$$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$$</p>
-<p>再考虑极大化$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$，即</p>
-<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$<br>该问题又称为广义拉格朗日函数的极大极小问题。</p>
+<ul>
+<li>再考虑极大化$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$，即</li>
+</ul>
+<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>该问题又称为广义拉格朗日函数的极大极小问题。</li>
+</ul>
 </blockquote>
 <p>此时我们可以将广义拉格朗日函数的极大极小问题表示为约束最优化问题：</p>
 <blockquote>
@@ -125,7 +130,42 @@
 <p>$$d^*=max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta)$$</p>
 </blockquote>
 </blockquote>
-<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><h5 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a><b>KKT条件</b></h5>
+<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><blockquote>
+<p><b>定理：</b><br>如果原问题和对偶问题都有最优解$p^*$和$d^*$。<br>那么它们满足：</p>
+<blockquote>
+<p>$$d^* = max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta) \le min_x \ \theta_P(x)=p^*$$<br><b>证明：</b></p>
+<blockquote>
+<ul>
+<li>因为$\theta_D(\alpha,\beta)=min_x \ L(x,\alpha,\beta)$而$\theta_P(x)=max_{\alpha,\beta:\alpha_i \ge 0} \ L(x,\alpha,\beta)$</li>
+<li>所以对于任意变量恒有，$\theta_D(\alpha,\beta) \le theta_P(x)$</li>
+<li>那么容易得到，$max_{\alpha,\beta:\alpha_i \ge 0} \ \theta_D(x,\alpha,\beta) \le min_x \ theta_P(x,\alpha,\beta)$</li>
+<li>(对于任何x，恒有$f(x) \ge g(x)$，那么在$g(x)$中取得的最大值也会小于等于$f(x)$中取得的最小值)，这就是<b>极大值中的极小值</b>恒大于<b>极小值中的极大值</b>。</li>
+<li>所以有$d^* \le p^*$</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>设$x^*,\alpha^*,\beta^*$分别是对偶问题$\theta_D$和原始问题$\theta_P$的可行解，且$d^* = p^*$，那么$x^*,\alpha^*,\beta^*$就是原始问题与对偶问题的最优解。<br>在某些条件下，原始问题与对偶问题的解是相等的，即$d^* = p^*$。那么就可以利用对偶问题的解来代替原始问题的解了。</p>
+<ul>
+<li><p><b>定理一：</b>、</p>
+<blockquote>
+<p>若$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数，$c_i(x)$是严格可行的，即存在x对于所有i都有$c_i(x)&lt;0$,那么存在$x^*,\alpha^*,\beta^*$，$x^*$是原始问题的解，$\alpha^*,\beta^*$是对偶问题的解，并且<br>$$p^*=d^*=L(x^*,\alpha^*,\beta^*)$$</p>
+</blockquote>
+</li>
+<li><p><b>定理二（KKT条件）：</b><br>在满足定理一的基础上，$x^*,\alpha^*,\beta^*$，$x^*$分别是原始问题和对偶问题的解的充分必要条件是，$x^*,\alpha^*,\beta^*$，$x^*$满足以下条件：</p>
+<blockquote>
+<ul>
+<li>$\nabla_x L(x^*,\alpha^*,\beta^*)=0$</li>
+<li>$a_i^* c_i(x^*)=0, \quad \quad i=1,2,…,k$</li>
+<li>$c_i(x^*) \le 0, \quad \quad i=1,2,…,k$</li>
+<li>$a_i^* \ge 0, \quad \quad i=1,2,…,k$</li>
+<li>$h_j(x^*)=0  \quad \quad j=1,2,…,l$</li>
+</ul>
+<p>其中根据$a_i^* c_i(x^*)=0, \quad \quad i=1,2,…,k$可以得到：若$a_i^* \ge 0$，则$c_i(x^*) = 0$。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -160,7 +200,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日对偶性介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">原始问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">对偶问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">原始问题与对偶问题的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#KKT%E6%9D%A1%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">KKT条件</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日对偶性介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">原始问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">对偶问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">原始问题与对偶问题的关系</span></a></li></ol>	
         </div>
     
 </div>

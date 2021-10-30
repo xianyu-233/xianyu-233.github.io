@@ -2342,43 +2342,6 @@
       </tags>
   </entry>
   <entry>
-    <title>优化理论</title>
-    <url>/2021/02/19/%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/</url>
-    <content><![CDATA[<h3 id="优化理论"><a href="#优化理论" class="headerlink" title="优化理论"></a><b>优化理论</b></h3><h4 id="原问题："><a href="#原问题：" class="headerlink" title="原问题："></a><b>原问题：</b></h4><blockquote>
-<p><b>目标函数：</b><br>最小化：$f(\omega)$<br><b>限制条件：</b><br>$g_i(\omega)&lt;=0 (i=1～K)$<br>$h_i(\omega)=0(i=i～M)$</p>
-</blockquote>
-<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><blockquote>
-<p>首先定义一个$L(\omega,\alpha,\beta)$函数：<br>$$L(x,\alpha,\beta)=f(x)+\sum^K_{i=1}{\alpha}{g_i(x)}+{\sum}^M_{i=1}\beta_ih_i(x)$$<br><b>补充：</b><br>这样定义的一个好处是为了方便找目标函数的最优解（因为消去了限制条件）。<br>而且可使满足限制条件的等于$f(\omega)$，不满足限制条件的等于$\infty$</p>
-</blockquote>
-<h4 id="对偶问题的定义："><a href="#对偶问题的定义：" class="headerlink" title="对偶问题的定义："></a><b>对偶问题的定义：</b></h4><blockquote>
-<p><b>目标函数：</b><br>最大化：$\theta(\alpha,\beta)=inf_{对所有\omega}[L(\omega,\alpha,\beta)]\quad\quad$(inf(f(x))表示求f(x)中的最小值)<br><b>限制条件：</b><br>$\alpha_i&gt;=0$(i=1～K)<br>($\theta(\alpha,\beta)$表示每次固定$\alpha,\beta$然后遍历所有$\omega$，最后找出最小值)</p>
-</blockquote>
-<h4 id="原问题与对偶问题之间的关系："><a href="#原问题与对偶问题之间的关系：" class="headerlink" title="原问题与对偶问题之间的关系："></a><b>原问题与对偶问题之间的关系：</b></h4><blockquote>
-<p><b>定理：</b>若$\omega^*$是原问题的解，而$\alpha^*,\beta^*$是对偶问题的解，<br>则有，<br>$$f(\omega^*)&gt;=\theta(\alpha^*,\beta^*)$$<br><b>证明：</b></p>
-<ul>
-<li><b>因为</b>，$\theta(\alpha^*,\beta^*)=inf[L(\omega,\alpha^*,\beta^*)]$</li>
-<li>$inf[L(\omega,\alpha^*,\beta^*)]&lt;=L(\omega^*,\alpha^*,\beta^*)$</li>
-<li>$L(\omega,\alpha,\beta)=f(\omega)+\sum^K{\alpha}_i{g_i(\omega)}+{\sum}^M\beta_ih_i(\omega)$</li>
-<li>已知$g_i(\omega)&lt;=0,h_i(\omega)=0,\alpha_i&gt;=0$</li>
-<li>所以上式可化简成：$L(\omega,\alpha,\beta)=f(\omega)-\sum^K{\alpha}_i{g_i(\omega)}$</li>
-<li><b>所以</b>,$L(\omega,\alpha,\beta)&lt;=f(\omega^*)$</li>
-<li><b>所以</b>,$f(\omega^*)&gt;=\theta(\alpha^*,\beta^*)$</li>
-</ul>
-</blockquote>
-<h4 id="强对偶定理"><a href="#强对偶定理" class="headerlink" title="强对偶定理"></a><b>强对偶定理</b></h4><blockquote>
-<p><b>原问题与对偶问题的间距:</b><br><b>定义：</b>$G=f(\omega^*)-\theta(\alpha^*,\beta^*)&gt;=0$</p>
-<p><b>强对偶定理</b><br>若$f(\omega)$为凸函数，且$g(\omega)=A\omega+b,h(\omega)=C\omega+d$则此优化问题中的原问题与对偶问题的间距为0,即<br>$f(\omega^*)=\theta(\alpha^*,\beta^*)$<br><b>KKT条件：</b>(挺重要的)<br>由上定理的结果可以得到，<br>对于${\forall}i=1～K$<br>或$\alpha^*=0$<br>或$g_i^*(\omega^*)=0$</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>深渊巨坑</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>中心极限定理</title>
     <url>/2021/03/14/%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/</url>
     <content><![CDATA[<h4 id="中心极限定理的客观背景："><a href="#中心极限定理的客观背景：" class="headerlink" title="中心极限定理的客观背景："></a><b>中心极限定理的客观背景：</b></h4><blockquote>
@@ -5273,6 +5236,57 @@
 <li>容易引入核函数，从而推广到非线性可分的支持向量机。</li>
 </ul>
 </blockquote>
+<ul>
+<li><p>首先将原始问题改造成标准形式：</p>
+<blockquote>
+<p>$$min_{w,b}\ \frac{1}{2}||w||^2$$</p>
+<p>$$s.t. \quad 1 - y_i(w^Tx_i+b) \le 0 \quad i=1,2,…,N$$</p>
+</blockquote>
+</li>
+<li><p>然后构建拉格朗日函数，即对每一个不等式约束引进一个拉格朗日乘子$\alpha_i \ge 0, \ \ i=1,2,…,N$，定义的拉格朗日函数为：</p>
+<blockquote>
+<p>$$L(w,b,\alpha)=\frac{1}{2}||w||^2 - \sum^N_{i=1} \alpha_i y_i(w x_i +b)+\sum^N_{i=1} \alpha_i$$<br>其中，$\alpha = (\alpha_1,\alpha_2,…,\alpha_N)^T$为拉格朗日乘子向量。</p>
+</blockquote>
+</li>
+<li><p>根据此拉格朗日函数我们可得原问题的对偶问题为：</p>
+<blockquote>
+<p>$$max_{\alpha} \ min_{w,b} \ L(w,b,\alpha)$$</p>
+</blockquote>
+</li>
+</ul>
+<p>根据上面对偶问题的公式，我们需要先对$w,b$求$L(w,b,\alpha)$的最小值，再对$\alpha$求L(w,b,\alpha)$的最大值。</p>
+<ul>
+<li>求$min_{w,b} \ L(w,b,\alpha)$<blockquote>
+<ul>
+<li>将拉格朗日函数$L(w,b,\alpha)$分别对$w,b$求偏导，并令其等于0。<blockquote>
+<p>$$\nabla_w \ L(w,b,\alpha) = w - \sum_{i=1}^N \alpha_i y_i x_i = 0$$</p>
+<p>（其中$\frac{1}{2}||w||^2$的求导思路是，将其范数形式写出来，然后对每一项的$w_i$求偏导，最终得到一个向量。）</p>
+<p>$$\nabla_b \ L(w,b,\alpha) = -\sum^N_{i=1} \alpha_i y_i=0$$</p>
+</blockquote>
+</li>
+</ul>
+<p>得到，</p>
+<blockquote>
+<p>$$\sum_{i=1}^N \alpha_i y_i x_i = w$$</p>
+<p>$$\sum^N_{i=1} \alpha_i y_i=0$$</p>
+</blockquote>
+<ul>
+<li>将上面得到的结果代会拉格朗日函数$L(w,b,\alpha)$中得，<blockquote>
+<p>$$L(w,b,\alpha) = \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum^N_{i=1} \alpha_i y_i((\sum_{j=1}^N \alpha_j y_j x_j)x_i +b)+ \sum_{i=1}^N \alpha_i$$</p>
+<ul>
+<li><p>化简亿下得到：<br>$$L(w,b,\alpha) = \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) -\sum_{i=1}^N \alpha_iy_ib + \sum_{i=1}^N \alpha_i$$</p>
+</li>
+<li><p>其中$\sum^N_{i=1} \alpha_i y_i=0$，所以$\sum_{i=1}^N \alpha_iy_ib=0$，最终得到：<br>$$L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$$</p>
+</li>
+</ul>
+<p><b>补充：</b>在这补充一下为什么有$\sum^N_{i=1} \alpha_i y_i=0$，所以$\sum_{i=1}^N \alpha_iy_ib=0$，而$\sum_{j=1}^N \alpha_j y_j x_j \neq 0$。<br>首先，$\sum^N_{i=1} \alpha_i y_i=0$指的是它的总和为0，但是每一项不一定为0，所以如果每一项都乘以一个不同得数，那么最终的求和结果有极大概率会改变，即$\sum_{j=1}^N \alpha_j y_j x_j \neq 0$。<br>但是如果它每一项都乘以一个相同的数，那么它最终的结果还是0，即$\sum_{i=1}^N \alpha_iy_ib=0$，也可以理解为$b\sum_{i=1}^N \alpha_iy_i=0$。</p>
+</blockquote>
+</li>
+</ul>
+<p>最终我们求出了$min_{w,b} \ L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$</p>
+</blockquote>
+</li>
+</ul>
 </blockquote>
 <h4 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a><b>SMO算法</b></h4><h4 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a><b>非线性支持向量机</b></h4><h5 id="高维映射"><a href="#高维映射" class="headerlink" title="高维映射"></a><b>高维映射</b></h5><blockquote>
 <ul>
@@ -5546,8 +5560,13 @@
 <p><b>定义：</b></p>
 <blockquote>
 <p>$$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$$</p>
-<p>再考虑极大化$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$，即</p>
-<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$<br>该问题又称为广义拉格朗日函数的极大极小问题。</p>
+<ul>
+<li>再考虑极大化$\theta_D(\alpha,\beta)=min_x \ \ L(x,\alpha,\beta)$，即</li>
+</ul>
+<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>该问题又称为广义拉格朗日函数的极大极小问题。</li>
+</ul>
 </blockquote>
 <p>此时我们可以将广义拉格朗日函数的极大极小问题表示为约束最优化问题：</p>
 <blockquote>
@@ -5558,6 +5577,41 @@
 <p>$$d^*=max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta)$$</p>
 </blockquote>
 </blockquote>
-<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><h5 id="KKT条件"><a href="#KKT条件" class="headerlink" title="KKT条件"></a><b>KKT条件</b></h5>]]></content>
+<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><blockquote>
+<p><b>定理：</b><br>如果原问题和对偶问题都有最优解$p^*$和$d^*$。<br>那么它们满足：</p>
+<blockquote>
+<p>$$d^* = max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta) \le min_x \ \theta_P(x)=p^*$$<br><b>证明：</b></p>
+<blockquote>
+<ul>
+<li>因为$\theta_D(\alpha,\beta)=min_x \ L(x,\alpha,\beta)$而$\theta_P(x)=max_{\alpha,\beta:\alpha_i \ge 0} \ L(x,\alpha,\beta)$</li>
+<li>所以对于任意变量恒有，$\theta_D(\alpha,\beta) \le theta_P(x)$</li>
+<li>那么容易得到，$max_{\alpha,\beta:\alpha_i \ge 0} \ \theta_D(x,\alpha,\beta) \le min_x \ theta_P(x,\alpha,\beta)$</li>
+<li>(对于任何x，恒有$f(x) \ge g(x)$，那么在$g(x)$中取得的最大值也会小于等于$f(x)$中取得的最小值)，这就是<b>极大值中的极小值</b>恒大于<b>极小值中的极大值</b>。</li>
+<li>所以有$d^* \le p^*$</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>设$x^*,\alpha^*,\beta^*$分别是对偶问题$\theta_D$和原始问题$\theta_P$的可行解，且$d^* = p^*$，那么$x^*,\alpha^*,\beta^*$就是原始问题与对偶问题的最优解。<br>在某些条件下，原始问题与对偶问题的解是相等的，即$d^* = p^*$。那么就可以利用对偶问题的解来代替原始问题的解了。</p>
+<ul>
+<li><p><b>定理一：</b>、</p>
+<blockquote>
+<p>若$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数，$c_i(x)$是严格可行的，即存在x对于所有i都有$c_i(x)&lt;0$,那么存在$x^*,\alpha^*,\beta^*$，$x^*$是原始问题的解，$\alpha^*,\beta^*$是对偶问题的解，并且<br>$$p^*=d^*=L(x^*,\alpha^*,\beta^*)$$</p>
+</blockquote>
+</li>
+<li><p><b>定理二（KKT条件）：</b><br>在满足定理一的基础上，$x^*,\alpha^*,\beta^*$，$x^*$分别是原始问题和对偶问题的解的充分必要条件是，$x^*,\alpha^*,\beta^*$，$x^*$满足以下条件：</p>
+<blockquote>
+<ul>
+<li>$\nabla_x L(x^*,\alpha^*,\beta^*)=0$</li>
+<li>$a_i^* c_i(x^*)=0, \quad \quad i=1,2,…,k$</li>
+<li>$c_i(x^*) \le 0, \quad \quad i=1,2,…,k$</li>
+<li>$a_i^* \ge 0, \quad \quad i=1,2,…,k$</li>
+<li>$h_j(x^*)=0  \quad \quad j=1,2,…,l$</li>
+</ul>
+<p>其中根据$a_i^* c_i(x^*)=0, \quad \quad i=1,2,…,k$可以得到：若$a_i^* \ge 0$，则$c_i(x^*) = 0$。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+]]></content>
   </entry>
 </search>

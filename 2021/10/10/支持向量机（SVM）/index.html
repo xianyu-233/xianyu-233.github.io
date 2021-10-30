@@ -178,6 +178,57 @@ SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督
 <li>容易引入核函数，从而推广到非线性可分的支持向量机。</li>
 </ul>
 </blockquote>
+<ul>
+<li><p>首先将原始问题改造成标准形式：</p>
+<blockquote>
+<p>$$min_{w,b}\ \frac{1}{2}||w||^2$$</p>
+<p>$$s.t. \quad 1 - y_i(w^Tx_i+b) \le 0 \quad i=1,2,…,N$$</p>
+</blockquote>
+</li>
+<li><p>然后构建拉格朗日函数，即对每一个不等式约束引进一个拉格朗日乘子$\alpha_i \ge 0, \ \ i=1,2,…,N$，定义的拉格朗日函数为：</p>
+<blockquote>
+<p>$$L(w,b,\alpha)=\frac{1}{2}||w||^2 - \sum^N_{i=1} \alpha_i y_i(w x_i +b)+\sum^N_{i=1} \alpha_i$$<br>其中，$\alpha = (\alpha_1,\alpha_2,…,\alpha_N)^T$为拉格朗日乘子向量。</p>
+</blockquote>
+</li>
+<li><p>根据此拉格朗日函数我们可得原问题的对偶问题为：</p>
+<blockquote>
+<p>$$max_{\alpha} \ min_{w,b} \ L(w,b,\alpha)$$</p>
+</blockquote>
+</li>
+</ul>
+<p>根据上面对偶问题的公式，我们需要先对$w,b$求$L(w,b,\alpha)$的最小值，再对$\alpha$求L(w,b,\alpha)$的最大值。</p>
+<ul>
+<li>求$min_{w,b} \ L(w,b,\alpha)$<blockquote>
+<ul>
+<li>将拉格朗日函数$L(w,b,\alpha)$分别对$w,b$求偏导，并令其等于0。<blockquote>
+<p>$$\nabla_w \ L(w,b,\alpha) = w - \sum_{i=1}^N \alpha_i y_i x_i = 0$$</p>
+<p>（其中$\frac{1}{2}||w||^2$的求导思路是，将其范数形式写出来，然后对每一项的$w_i$求偏导，最终得到一个向量。）</p>
+<p>$$\nabla_b \ L(w,b,\alpha) = -\sum^N_{i=1} \alpha_i y_i=0$$</p>
+</blockquote>
+</li>
+</ul>
+<p>得到，</p>
+<blockquote>
+<p>$$\sum_{i=1}^N \alpha_i y_i x_i = w$$</p>
+<p>$$\sum^N_{i=1} \alpha_i y_i=0$$</p>
+</blockquote>
+<ul>
+<li>将上面得到的结果代会拉格朗日函数$L(w,b,\alpha)$中得，<blockquote>
+<p>$$L(w,b,\alpha) = \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum^N_{i=1} \alpha_i y_i((\sum_{j=1}^N \alpha_j y_j x_j)x_i +b)+ \sum_{i=1}^N \alpha_i$$</p>
+<ul>
+<li><p>化简亿下得到：<br>$$L(w,b,\alpha) = \frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) -\sum_{i=1}^N \alpha_iy_ib + \sum_{i=1}^N \alpha_i$$</p>
+</li>
+<li><p>其中$\sum^N_{i=1} \alpha_i y_i=0$，所以$\sum_{i=1}^N \alpha_iy_ib=0$，最终得到：<br>$$L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$$</p>
+</li>
+</ul>
+<p><b>补充：</b>在这补充一下为什么有$\sum^N_{i=1} \alpha_i y_i=0$，所以$\sum_{i=1}^N \alpha_iy_ib=0$，而$\sum_{j=1}^N \alpha_j y_j x_j \neq 0$。<br>首先，$\sum^N_{i=1} \alpha_i y_i=0$指的是它的总和为0，但是每一项不一定为0，所以如果每一项都乘以一个不同得数，那么最终的求和结果有极大概率会改变，即$\sum_{j=1}^N \alpha_j y_j x_j \neq 0$。<br>但是如果它每一项都乘以一个相同的数，那么它最终的结果还是0，即$\sum_{i=1}^N \alpha_iy_ib=0$，也可以理解为$b\sum_{i=1}^N \alpha_iy_i=0$。</p>
+</blockquote>
+</li>
+</ul>
+<p>最终我们求出了$min_{w,b} \ L(w,b,\alpha) = -\frac{1}{2}\sum_{i=1}^N \sum_{j=1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i=1}^N \alpha_i$</p>
+</blockquote>
+</li>
+</ul>
 </blockquote>
 <h4 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a><b>SMO算法</b></h4><h4 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a><b>非线性支持向量机</b></h4><h5 id="高维映射"><a href="#高维映射" class="headerlink" title="高维映射"></a><b>高维映射</b></h5><blockquote>
 <ul>
