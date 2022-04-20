@@ -10,9 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="xainyu-233,"> 
-    <meta name="description" content="一、数据链路层的功能：
+    <meta name="description" content="数据链路层的功能：
 数据链路层在物理层提供服务的基础上向网络层提供服务，主要作用是加强物理层传输原始比特流的功能，将物理层提供的可能出错的物理连接改造为逻辑上无差错的数据链路。
-所以我们可以近似,"> 
+所以我们可以近似认为,"> 
     <meta name="author" content="xianyu"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/%E5%96%B7.jfif"> 
@@ -64,12 +64,12 @@
 
         </div>
         <div class="content markdown">
-            <h1 id="一、数据链路层的功能："><a href="#一、数据链路层的功能：" class="headerlink" title="一、数据链路层的功能："></a>一、数据链路层的功能：</h1><blockquote>
+            <h1 id="数据链路层的功能："><a href="#数据链路层的功能：" class="headerlink" title="数据链路层的功能："></a>数据链路层的功能：</h1><blockquote>
 <p>数据链路层在<strong>物理层</strong>提供服务的基础上向<strong>网络层</strong>提供服务，主要作用是加强物理层传输原始比特流的功能，将物理层提供的可能出错的物理连接改造为<strong>逻辑上无差错的数据链路</strong>。</p>
 <p>所以我们可以近似认为：<strong>数据链路层接收的帧均无差错</strong>。</p>
 <p>数据链路层的传输单元为<strong>数据帧</strong>。</p>
 </blockquote>
-<h2 id="1、为网络层提供服务"><a href="#1、为网络层提供服务" class="headerlink" title="1、为网络层提供服务"></a>1、为网络层提供服务</h2><blockquote>
+<h2 id="为网络层提供服务"><a href="#为网络层提供服务" class="headerlink" title="为网络层提供服务"></a>为网络层提供服务</h2><blockquote>
 <p>对于网络层来说，数据链路层的基本任务是将原机器中的网络层数据传输到目标机器的网络层之中。因此数据链路层为网络层提供以下服务：</p>
 <ul>
 <li><strong>无确定的无连接服务：</strong>源机器发送数据帧时<strong>不需要建立链路连接</strong>，目的机器在收到数据后也<strong>不用发送确认信息</strong>。常用于实时通信或质量较好的信道通信。</li>
@@ -77,11 +77,11 @@
 <li><strong>有确认的有链接服务：</strong>帧传输过程分为三个阶段：<strong>建立数据链路、传输帧、释放数据链路</strong>。且目的机器对收到的每一个帧都要给出确认，源机器收到后才发送下一个帧。</li>
 </ul>
 </blockquote>
-<h2 id="2、链路管理"><a href="#2、链路管理" class="headerlink" title="2、链路管理"></a>2、链路管理</h2><blockquote>
+<h2 id="链路管理"><a href="#链路管理" class="headerlink" title="链路管理"></a>链路管理</h2><blockquote>
 <p><strong>定义：</strong>数据链路层连接的<strong>建立、维持和释放</strong>过程。</p>
 <p><strong>主要内容：</strong>它主要用于面向连接的服务。链路两端的结点要进行有链接的通信，必须首先确认对方已经处于就绪状态，并交换一些必要的信息以对帧序号的初始化，然后才开始建立连接。在传输过程中则要能维持连接，在传输完毕后要释放连接。</p>
 </blockquote>
-<h2 id="3、数据链路层的基本问题"><a href="#3、数据链路层的基本问题" class="headerlink" title="3、数据链路层的基本问题"></a>3、数据链路层的基本问题</h2><h3 id="3-1、封（组）装成帧"><a href="#3-1、封（组）装成帧" class="headerlink" title="3.1、封（组）装成帧"></a>3.1、封（组）装成帧</h3><blockquote>
+<h2 id="数据链路层的基本问题"><a href="#数据链路层的基本问题" class="headerlink" title="数据链路层的基本问题"></a>数据链路层的基本问题</h2><h3 id="封（组）装成帧"><a href="#封（组）装成帧" class="headerlink" title="封（组）装成帧"></a>封（组）装成帧</h3><blockquote>
 <p><strong>帧的结构：</strong>将一段数据的前后分别添加首部和尾部，就构成了帧。其中帧的首部和尾部包含许多控制信息，其中一个重要的作用就是确定<strong>帧的界限</strong>，也称为<strong>帧定界</strong>。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%B8%A7%E7%9A%84%E7%BB%93%E6%9E%84.png" alt="帧的结构"></p>
 <p><strong>帧同步：</strong>指接收方能从接收到的二进制比特流中区分出帧的起始与终止。</p>
@@ -121,11 +121,11 @@
 </ul>
 <p><strong>补充：</strong>比较普遍使用的帧同步法是<strong>零比特填充</strong>和<strong>违规编码法</strong>。</p>
 </blockquote>
-<h3 id="3-2、透明传输"><a href="#3-2、透明传输" class="headerlink" title="3.2、透明传输"></a>3.2、透明传输</h3><blockquote>
+<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><blockquote>
 <p><strong>定义：</strong>指不管所传输的数据是什么样的比特组合，都应当能在链路上传送。</p>
 <p><strong>要求：</strong>当所传数据中的比特组合与某一段控制信息完全一样是，应当采取适当的措施，使得接收方不会将该数据误认为是某种控制信息。</p>
 </blockquote>
-<h3 id="3-3、差错检测"><a href="#3-3、差错检测" class="headerlink" title="3.3、差错检测"></a>3.3、差错检测</h3><blockquote>
+<h3 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h3><blockquote>
 <p>概括来说，传输的差错是由于噪声引起的，</p>
 <p><strong>全局性的噪声：</strong>由于线路本身电气特性所产生的<strong>随机噪声</strong>，这是信道固有的，且随机存在的。<strong>解决方法：</strong>提高信噪比或避免干扰。</p>
 <p><strong>局部性的噪声：</strong>外界特定的短暂原因造成的<strong>冲击噪声</strong>，是产生差错的主要原因。</p>
@@ -135,7 +135,7 @@
 <li><strong>帧错：</strong>又分为<strong>帧丢失、帧重复</strong>和<strong>帧失序</strong>。</li>
 </ul>
 </blockquote>
-<h4 id="3-3-1、检错编码"><a href="#3-3-1、检错编码" class="headerlink" title="3.3.1、检错编码"></a>3.3.1、检错编码</h4><blockquote>
+<h4 id="检错编码"><a href="#检错编码" class="headerlink" title="检错编码"></a>检错编码</h4><blockquote>
 <p>只能检查出帧是否出错，无法定位和纠正错误。</p>
 <p>检错编码又分为：<strong>奇偶检验码</strong>和<strong>循环冗余码</strong>。</p>
 <ul>
@@ -174,7 +174,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="3-3-2、纠错编码"><a href="#3-3-2、纠错编码" class="headerlink" title="3.3.2、纠错编码"></a>3.3.2、纠错编码</h4><blockquote>
+<h4 id="纠错编码"><a href="#纠错编码" class="headerlink" title="纠错编码"></a>纠错编码</h4><blockquote>
 <p><strong>海明码：</strong></p>
 <p><strong>特点：</strong>发现双比特错，纠正单比特错。</p>
 <p><strong>过程：</strong></p>
@@ -211,7 +211,7 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="4、流量控制与可靠传输机制"><a href="#4、流量控制与可靠传输机制" class="headerlink" title="4、流量控制与可靠传输机制"></a>4、流量控制与可靠传输机制</h2><blockquote>
+<h2 id="流量控制与可靠传输机制"><a href="#流量控制与可靠传输机制" class="headerlink" title="流量控制与可靠传输机制"></a>流量控制与可靠传输机制</h2><blockquote>
 <p><strong>前请补充：</strong></p>
 <blockquote>
 <ul>
@@ -223,13 +223,13 @@
 <p><strong>可靠传输：</strong>发送端发送什么，接收端就接收什么（帧的内容，帧的数量，帧组的序列等）。</p>
 <p><strong>流量控制：</strong>控制发送方的发送速率，使得接收方有足够的能力接收发送的每一个帧。</p>
 </blockquote>
-<h3 id="4-1、可靠传输机制"><a href="#4-1、可靠传输机制" class="headerlink" title="4.1、可靠传输机制"></a>4.1、可靠传输机制</h3><blockquote>
+<h3 id="可靠传输机制"><a href="#可靠传输机制" class="headerlink" title="可靠传输机制"></a>可靠传输机制</h3><blockquote>
 <p>数据链路层使用<strong>确认</strong>和<strong>超时重传</strong>这两种机制来完成可靠传输。</p>
 <p>确认是一种<strong>无数据的控制帧</strong>，它可以让发送方知道哪些帧被正确接收；有时确认还会捎带在一个回复帧里面，成为<strong>捎带确认</strong>。</p>
 <p><strong>超时重传</strong>指在发送方中每发送完一个帧都会启用一个计时器，在计时器计时结束后仍未收到接收方的确认帧，那么就自动将数据再次重传。</p>
 <p>在数据链路层中，可靠传输与流量控制有一定程度的相交。</p>
 </blockquote>
-<h3 id="4-2、流量控制"><a href="#4-2、流量控制" class="headerlink" title="4.2、流量控制"></a>4.2、流量控制</h3><blockquote>
+<h3 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h3><blockquote>
 <p>当发送方的发送速率大于接收方的接受速率时就会出现传输出错，因此就需要流量控制进行调整。</p>
 <p>流量控制的基本手段是：<strong>由接收方控制发送方的发送速率</strong>。</p>
 <p><strong>数据链路层流量控制与传输层流量控制的区别</strong>：</p>
@@ -261,7 +261,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h4 id="4-2-1、停止-等待协议"><a href="#4-2-1、停止-等待协议" class="headerlink" title="4.2.1、停止-等待协议"></a>4.2.1、停止-等待协议</h4><blockquote>
+<h4 id="停止-等待协议"><a href="#停止-等待协议" class="headerlink" title="停止-等待协议"></a>停止-等待协议</h4><blockquote>
 <p><strong>工作原理：</strong>发送端每发送完一个分组就停止发送，等待接收方确认，只有在收到确认后才发送下一个分组。</p>
 <p><strong>无差错的情况：</strong></p>
 <blockquote>
@@ -304,7 +304,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h4 id="4-2-2、反退N帧协议-GBN"><a href="#4-2-2、反退N帧协议-GBN" class="headerlink" title="4.2.2、反退N帧协议(GBN)"></a>4.2.2、反退N帧协议(GBN)</h4><blockquote>
+<h4 id="反退N帧协议-GBN"><a href="#反退N帧协议-GBN" class="headerlink" title="反退N帧协议(GBN)"></a>反退N帧协议(GBN)</h4><blockquote>
 <p>与停止-等待协议不同，反退N帧协议的发送方有n个发送窗口，因此相较于停止-等待协议，反退N帧协议的信道利用率更高。</p>
 <p><strong>协议运行过程：</strong></p>
 <blockquote>
@@ -358,7 +358,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h4 id="4-2-3、选择重传协议-SR"><a href="#4-2-3、选择重传协议-SR" class="headerlink" title="4.2.3、选择重传协议(SR)"></a>4.2.3、选择重传协议(SR)</h4><blockquote>
+<h4 id="选择重传协议-SR"><a href="#选择重传协议-SR" class="headerlink" title="选择重传协议(SR)"></a>选择重传协议(SR)</h4><blockquote>
 <p>GBN协议虽然解决了信道利用率较低的问题，但是它会出现过多的重传帧，因此会造成网络传输资源的浪费，为了解决这个问题，后来又提出了选择重传协议。</p>
 <p><strong>协议运行过程：</strong></p>
 <blockquote>
@@ -412,7 +412,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h2 id="5、介质访问控制"><a href="#5、介质访问控制" class="headerlink" title="5、介质访问控制"></a>5、介质访问控制</h2><blockquote>
+<h2 id="介质访问控制"><a href="#介质访问控制" class="headerlink" title="介质访问控制"></a>介质访问控制</h2><blockquote>
 <p><strong>介质访问控制的任务：</strong>为使用介质的每一个结点隔离来自同一信道上其他结点的信号，已协调活动结点的传输，同时又增强数据的传输效率。</p>
 <p><strong>分类：</strong></p>
 <blockquote>
@@ -448,18 +448,18 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="5-1、信道划分介质访问控制"><a href="#5-1、信道划分介质访问控制" class="headerlink" title="5.1、信道划分介质访问控制"></a>5.1、信道划分介质访问控制</h3><blockquote>
+<h3 id="信道划分介质访问控制"><a href="#信道划分介质访问控制" class="headerlink" title="信道划分介质访问控制"></a>信道划分介质访问控制</h3><blockquote>
 <p><strong>定义：</strong>将使用介质的每个设备与在同一介质上的其他设备隔离开，把<strong>时域</strong>和<strong>频域</strong>合理地分配给网络上的设备。</p>
 <p><strong>分类：</strong> **时分复用(TDM)、频分复用(FDM)、波分复用(WDM)、码分复用(CDM)**。</p>
 <p><strong>多路复用：</strong>把多个信号组合在一条物理信道上进行传输，使得多个设备能够<strong>共享信道资源</strong>，提高信道利用率。</p>
 </blockquote>
-<h4 id="5-1-1、频分多路复用"><a href="#5-1-1、频分多路复用" class="headerlink" title="5.1.1、频分多路复用"></a>5.1.1、频分多路复用</h4><blockquote>
+<h4 id="频分多路复用"><a href="#频分多路复用" class="headerlink" title="频分多路复用"></a>频分多路复用</h4><blockquote>
 <p><strong>描述：</strong>在物理信道的可用带宽（可用频率）的范围里将物理信道的总带宽划分为若干个子信道的频带。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8.png" alt="频分复用"></p>
 <p><strong>注意：</strong>在实际应用中还会在每个子信道之中加入“<strong>保护频带</strong>”，防止各信道之间产生干扰。</p>
 <p><strong>优点：</strong>充分利用了传输介质的带宽；系统传输效率较高；技术比较成熟，容易实现。</p>
 </blockquote>
-<h4 id="5-1-2、时分多路复用"><a href="#5-1-2、时分多路复用" class="headerlink" title="5.1.2、时分多路复用"></a>5.1.2、时分多路复用</h4><blockquote>
+<h4 id="时分多路复用"><a href="#时分多路复用" class="headerlink" title="时分多路复用"></a>时分多路复用</h4><blockquote>
 <ul>
 <li><p><strong>时分多路复用：</strong></p>
 <blockquote>
@@ -480,10 +480,10 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="5-1-3、波分多路复用"><a href="#5-1-3、波分多路复用" class="headerlink" title="5.1.3、波分多路复用"></a>5.1.3、波分多路复用</h4><blockquote>
+<h4 id="波分多路复用"><a href="#波分多路复用" class="headerlink" title="波分多路复用"></a>波分多路复用</h4><blockquote>
 <p><strong>定义：</strong>波分多路复用就是光的频分多路复用，指的是在<strong>光纤中传输多种不同波长的光信号</strong>，从而使得各路光信号互不干扰。</p>
 </blockquote>
-<h4 id="5-1-4、码分多路复用"><a href="#5-1-4、码分多路复用" class="headerlink" title="5.1.4、码分多路复用"></a>5.1.4、码分多路复用</h4><blockquote>
+<h4 id="码分多路复用"><a href="#码分多路复用" class="headerlink" title="码分多路复用"></a>码分多路复用</h4><blockquote>
 <p> <strong>定义：</strong>码分多路复用是<strong>采用不同编码</strong>来区分各路原始信号的一种复用方式。它<strong>既共享时间，又共享频率</strong>。</p>
 <p> <strong>原理：</strong>每个比特时间再划分成m个短的时间槽，称为<strong>码片</strong>，通常m的值为64或128。（下面的例子只是方便起见）</p>
 <p> <strong>例子：</strong></p>
@@ -505,12 +505,12 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="5-2、随机访问介质访问控制"><a href="#5-2、随机访问介质访问控制" class="headerlink" title="5.2、随机访问介质访问控制"></a>5.2、随机访问介质访问控制</h3><blockquote>
+<h3 id="随机访问介质访问控制"><a href="#随机访问介质访问控制" class="headerlink" title="随机访问介质访问控制"></a>随机访问介质访问控制</h3><blockquote>
 <p><strong>定义：</strong>不采用集中控制方式解决发送信息的次序问题，所有用户根据自身情况随机发送信息，占用介质的全部速率。</p>
 <p><strong>实现特点：</strong>当两个或多个用户发生碰撞时，每个用户按照一定<strong>规则（协议）</strong>来重复重传帧，直到帧无碰撞通过。</p>
 <p><strong>常用协议：</strong>ALOHA协议、CSMA协议、CSMA/CD协议、CSMA/CA协议</p>
 </blockquote>
-<h4 id="5-2-1、ALOHA协议"><a href="#5-2-1、ALOHA协议" class="headerlink" title="5.2.1、ALOHA协议"></a>5.2.1、ALOHA协议</h4><blockquote>
+<h4 id="ALOHA协议"><a href="#ALOHA协议" class="headerlink" title="ALOHA协议"></a>ALOHA协议</h4><blockquote>
 <p><strong>基本思想：</strong>不监听信道，各用户随时发送信息。</p>
 <p>ALOHA协议又分<strong>纯ALOHA协议</strong>与<strong>时隙ALOHA协议</strong>。</p>
 <ul>
@@ -538,7 +538,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="5-2-2、CSMA协议"><a href="#5-2-2、CSMA协议" class="headerlink" title="5.2.2、CSMA协议"></a>5.2.2、CSMA协议</h4><blockquote>
+<h4 id="CSMA协议"><a href="#CSMA协议" class="headerlink" title="CSMA协议"></a>CSMA协议</h4><blockquote>
 <p>CSMA协议全称为<strong>载波监听多路访问协议</strong>。</p>
 <p><strong>基本思想：</strong>每个站点在发送数据前都先监听一下共用信道，发现信道为空之后再发送数据。</p>
 <p>根据监听方式和监听到信道繁忙后的处理方式不同可以将CSMA协议分成三类：<strong>1-坚持CSMA、非坚持CSMA</strong>和<strong>p-坚持CSMA</strong>。</p>
@@ -610,7 +610,7 @@
 </tbody></table>
 </blockquote>
 </blockquote>
-<h4 id="5-2-3、CSMA-CD协议"><a href="#5-2-3、CSMA-CD协议" class="headerlink" title="5.2.3、CSMA/CD协议"></a>5.2.3、CSMA/CD协议</h4><blockquote>
+<h4 id="CSMA-CD协议"><a href="#CSMA-CD协议" class="headerlink" title="CSMA/CD协议"></a>CSMA/CD协议</h4><blockquote>
 <p><strong>全称：载波监听多点接入/碰撞检测协议</strong>，其中各部分为：</p>
 <blockquote>
 <ul>
@@ -650,7 +650,7 @@
 <p><strong>最小帧长</strong>=<strong>总线传输时延</strong> * <strong>数据传输速率</strong> * 2</p>
 </blockquote>
 </blockquote>
-<h4 id="5-2-4、CSMA-CA协议"><a href="#5-2-4、CSMA-CA协议" class="headerlink" title="5.2.4、CSMA/CA协议"></a>5.2.4、CSMA/CA协议</h4><blockquote>
+<h4 id="CSMA-CA协议"><a href="#CSMA-CA协议" class="headerlink" title="CSMA/CA协议"></a>CSMA/CA协议</h4><blockquote>
 <p>CSMA/CD协议多用于<strong>总线型的有线</strong>局域网，而对于无线的局域网，CSMA/CD协议并不容易实现。</p>
 <p>因此对于无线的局域网，CSMA将碰撞检测改成了碰撞避免，所以就出现了CSMA/CA。</p>
 <p><strong>基本思路：</strong></p>
@@ -675,7 +675,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="5-3、轮询访问介质访问控制"><a href="#5-3、轮询访问介质访问控制" class="headerlink" title="5.3、轮询访问介质访问控制"></a>5.3、轮询访问介质访问控制</h3><blockquote>
+<h3 id="轮询访问介质访问控制"><a href="#轮询访问介质访问控制" class="headerlink" title="轮询访问介质访问控制"></a>轮询访问介质访问控制</h3><blockquote>
 <p><strong>轮询协议：</strong></p>
 <blockquote>
 <p><strong>思路：</strong>在网络中有一台主机作为控制主机，该主机<strong>按一定顺序询问网络中其他主机是否发送数据</strong>。只有<strong>收到询问帧</strong>的主机才能发送数据。</p>
@@ -688,13 +688,13 @@
 </blockquote>
 <p><strong>特点：</strong>轮询访问介质访问控制<strong>适合用于负载较高的信道</strong>。</p>
 </blockquote>
-<h2 id="6、广域网："><a href="#6、广域网：" class="headerlink" title="6、广域网："></a>6、广域网：</h2><h3 id="6-1、广域网的定义"><a href="#6-1、广域网的定义" class="headerlink" title="6.1、广域网的定义"></a>6.1、广域网的定义</h3><blockquote>
+<h2 id="广域网："><a href="#广域网：" class="headerlink" title="广域网："></a>广域网：</h2><h3 id="广域网的定义"><a href="#广域网的定义" class="headerlink" title="广域网的定义"></a>广域网的定义</h3><blockquote>
 <p><strong>定义：</strong>通常跨界很大的物理范围，覆盖范围从几十公里到几千公里。可以连接多个城市或国家，甚至横跨几个洲并能提供远距离通信，形成国际性的远程网络。</p>
 <p><strong>特点：</strong>广域网的通信子网主要使用<strong>分组交换</strong>技术，该通信子网利用各类公用交换网将分布在<strong>不同地区的局域网或计算机系统</strong>互连起来，实现<strong>资源共享</strong>的目的。（因特网是世界范围内最大的广域网）</p>
 <p><strong>广域网结构图：</strong></p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%B9%BF%E5%9F%9F%E7%BD%91%E7%BB%93%E6%9E%84.png" alt="广域网结构"></p>
 </blockquote>
-<h3 id="6-2、PPP协议特点"><a href="#6-2、PPP协议特点" class="headerlink" title="6.2、PPP协议特点"></a>6.2、PPP协议特点</h3><blockquote>
+<h3 id="PPP协议特点"><a href="#PPP协议特点" class="headerlink" title="PPP协议特点"></a>PPP协议特点</h3><blockquote>
 <p><strong>特点：</strong>PPP协议又称<strong>点对点协议</strong>（Point-to-Point），是目前使用最广泛的链路层协议。在用户计算机和ISP进行通信时所使用的数据链路层协议。（<strong>PPP协议只支持全双工链路</strong>）</p>
 <p><strong>PPP协议需满足的要求：</strong></p>
 <blockquote>
@@ -721,7 +721,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="6-3、PPP协议的组成"><a href="#6-3、PPP协议的组成" class="headerlink" title="6.3、PPP协议的组成"></a>6.3、PPP协议的组成</h3><blockquote>
+<h3 id="PPP协议的组成"><a href="#PPP协议的组成" class="headerlink" title="PPP协议的组成"></a>PPP协议的组成</h3><blockquote>
 <ul>
 <li><strong>将IP数据报封装到串行链路（同步串行/异步串行）的方法</strong></li>
 <li><strong>链路控制协议：</strong>建立并维护数据链路连接（实际上就是进行身份验证）</li>
@@ -748,7 +748,7 @@
 <p><strong>补充：</strong>由PPP协议的帧格式可以看出，PPP协议面向的是<strong>字节传输</strong>的数据链路层协议。</p>
 </blockquote>
 </blockquote>
-<h3 id="6-4、HDLC协议"><a href="#6-4、HDLC协议" class="headerlink" title="6.4、HDLC协议"></a>6.4、HDLC协议</h3><blockquote>
+<h3 id="HDLC协议"><a href="#HDLC协议" class="headerlink" title="HDLC协议"></a>HDLC协议</h3><blockquote>
 <p><strong>介绍：</strong>HDLC协议全称<strong>高级数据链路控制</strong>，该协议是ISO的面向<strong>比特</strong>的数据链路层协议（<strong>PPP协议是面向字节的</strong>）</p>
 <p><strong>特点：</strong></p>
 <blockquote>
@@ -810,7 +810,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h2 id="7、局域网"><a href="#7、局域网" class="headerlink" title="7、局域网"></a>7、局域网</h2><blockquote>
+<h2 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h2><blockquote>
 <p><strong>定义：</strong>局域网，简称LAN(Local Area Network)，指在<strong>某一区域内</strong>由多台计算机互联成的计算机组，使用<strong>广播信道</strong>。</p>
 <p><strong>分类：</strong> <strong>以太网</strong>、令牌环网、FDDI网、ATM网和<strong>无线局域网</strong>。</p>
 <p><strong>特点：</strong></p>
@@ -825,7 +825,7 @@
 </blockquote>
 <p><strong>决定局域网的主要要素：</strong> <strong>网络拓扑</strong>、<strong>传输介质</strong>和<strong>介质访问控制方法</strong>。</p>
 </blockquote>
-<h3 id="7-1、局域网的拓扑结构"><a href="#7-1、局域网的拓扑结构" class="headerlink" title="7.1、局域网的拓扑结构"></a>7.1、局域网的拓扑结构</h3><blockquote>
+<h3 id="局域网的拓扑结构"><a href="#局域网的拓扑结构" class="headerlink" title="局域网的拓扑结构"></a>局域网的拓扑结构</h3><blockquote>
 <ul>
 <li><p><strong>星型拓扑：</strong></p>
 <blockquote>
@@ -847,14 +847,14 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="7-2、局域网介质访问控制方法"><a href="#7-2、局域网介质访问控制方法" class="headerlink" title="7.2、局域网介质访问控制方法"></a>7.2、局域网介质访问控制方法</h3><blockquote>
+<h3 id="局域网介质访问控制方法"><a href="#局域网介质访问控制方法" class="headerlink" title="局域网介质访问控制方法"></a>局域网介质访问控制方法</h3><blockquote>
 <ul>
 <li><strong>CSMA/CD：</strong>常用于<strong>总线型局域网</strong>，也用于树型网络。</li>
 <li><strong>令牌总线：</strong>常用于<strong>总线型局域网</strong>。它把总线型网络中的各个工作站按一定顺序形成一个逻辑环。只有令牌持有者才能控制总线，才能发送信息。</li>
 <li><strong>令牌环：</strong>用于环型局域网。</li>
 </ul>
 </blockquote>
-<h3 id="7-4、局域网中数据链路的两个子层"><a href="#7-4、局域网中数据链路的两个子层" class="headerlink" title="7.4、局域网中数据链路的两个子层"></a>7.4、局域网中数据链路的两个子层</h3><blockquote>
+<h3 id="局域网中数据链路的两个子层"><a href="#局域网中数据链路的两个子层" class="headerlink" title="局域网中数据链路的两个子层"></a>局域网中数据链路的两个子层</h3><blockquote>
 <p>IEEE802委员会把局域网数据链路层拆分为两个子层：<strong>逻辑链路控制LLC</strong>子层和<strong>媒体接入控制MAC</strong>子层。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AD%90%E5%B1%82.png" alt="局域网中的两个子层"></p>
 <ul>
@@ -870,7 +870,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="7-5、以太网"><a href="#7-5、以太网" class="headerlink" title="7.5、以太网"></a>7.5、以太网</h3><blockquote>
+<h3 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h3><blockquote>
 <p>以太网是当今现有局域网采用最通用的通信协议标准，是一种<strong>基带总线局域网规范</strong>。以太网使用<strong>CSMA/CD技术</strong>。</p>
 <p><strong>以太网两个标准：</strong></p>
 <blockquote>
@@ -944,7 +944,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="7-5、无线局域网"><a href="#7-5、无线局域网" class="headerlink" title="7.5、无线局域网"></a>7.5、无线局域网</h3><blockquote>
+<h3 id="无线局域网"><a href="#无线局域网" class="headerlink" title="无线局域网"></a>无线局域网</h3><blockquote>
 <p><strong>IEEE 802.11标准：</strong>是<strong>无线局域网</strong>通用的标准，它有多个衍生标准都是对无线局域网的规定。</p>
 <p><strong>MAC帧头格式：</strong></p>
 <blockquote>
@@ -977,7 +977,7 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="8、拓展的以太网"><a href="#8、拓展的以太网" class="headerlink" title="8、拓展的以太网"></a>8、拓展的以太网</h2><h3 id="8-1、物理层拓展以太网"><a href="#8-1、物理层拓展以太网" class="headerlink" title="8.1、物理层拓展以太网"></a>8.1、物理层拓展以太网</h3><blockquote>
+<h2 id="拓展的以太网"><a href="#拓展的以太网" class="headerlink" title="拓展的以太网"></a>拓展的以太网</h2><h3 id="物理层拓展以太网"><a href="#物理层拓展以太网" class="headerlink" title="物理层拓展以太网"></a>物理层拓展以太网</h3><blockquote>
 <p>已知传统的以太网的覆盖距离都非常短，否则主机之间的通信信号会衰弱到CSMA/CD协议都无法识别。以此提出了对以太网进行拓展的想法。</p>
 <ul>
 <li><p>第一种想法就是利用光纤对以太网进行拓展。</p>
@@ -993,7 +993,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="8-2、链路层拓展以太网"><a href="#8-2、链路层拓展以太网" class="headerlink" title="8.2、链路层拓展以太网"></a>8.2、链路层拓展以太网</h3><blockquote>
+<h3 id="链路层拓展以太网"><a href="#链路层拓展以太网" class="headerlink" title="链路层拓展以太网"></a>链路层拓展以太网</h3><blockquote>
 <p><strong>网桥：</strong>对收到的帧根据其MAC的目的地址进行<strong>转发</strong>和<strong>过滤</strong>。当网桥收到一个帧时，并不会向所有接口转发，而是根据转发表确定该帧转发到哪一个接口，或者把它丢弃（即过滤）。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%BD%91%E6%A1%A5.png" alt="网桥"><br><strong>网桥的优点：</strong></p>
 <blockquote>
@@ -1060,7 +1060,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">一、数据链路层的功能：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%B8%BA%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">1、为网络层提供服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E9%93%BE%E8%B7%AF%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2、链路管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">3、数据链路层的基本问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81%E5%B0%81%EF%BC%88%E7%BB%84%EF%BC%89%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1、封（组）装成帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2、透明传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3、差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1%E3%80%81%E6%A3%80%E9%94%99%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">3.3.1、检错编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2%E3%80%81%E7%BA%A0%E9%94%99%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">3.3.2、纠错编码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4、流量控制与可靠传输机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1、可靠传输机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2、流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1%E3%80%81%E5%81%9C%E6%AD%A2-%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1、停止-等待协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2%E3%80%81%E5%8F%8D%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE-GBN"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">4.2.2、反退N帧协议(GBN)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3%E3%80%81%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE-SR"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">4.2.3、选择重传协议(SR)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%95%BF%E5%BA%A6%EF%BC%9A"><span class="toc-number">1.4.2.3.0.1.</span> <span class="toc-text">滑动窗口长度：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.</span> <span class="toc-text">5、介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1%E3%80%81%E4%BF%A1%E9%81%93%E5%88%92%E5%88%86%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.1.</span> <span class="toc-text">5.1、信道划分介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-1%E3%80%81%E9%A2%91%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">5.1.1、频分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-2%E3%80%81%E6%97%B6%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">5.1.2、时分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-3%E3%80%81%E6%B3%A2%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">5.1.3、波分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-4%E3%80%81%E7%A0%81%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">5.1.4、码分多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2%E3%80%81%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">5.2、随机访问介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1%E3%80%81ALOHA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">5.2.1、ALOHA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2%E3%80%81CSMA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">5.2.2、CSMA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3%E3%80%81CSMA-CD%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">5.2.3、CSMA&#x2F;CD协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4%E3%80%81CSMA-CA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">5.2.4、CSMA&#x2F;CA协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3%E3%80%81%E8%BD%AE%E8%AF%A2%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.3.</span> <span class="toc-text">5.3、轮询访问介质访问控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81%E5%B9%BF%E5%9F%9F%E7%BD%91%EF%BC%9A"><span class="toc-number">1.6.</span> <span class="toc-text">6、广域网：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1%E3%80%81%E5%B9%BF%E5%9F%9F%E7%BD%91%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1、广域网的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2%E3%80%81PPP%E5%8D%8F%E8%AE%AE%E7%89%B9%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2、PPP协议特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3%E3%80%81PPP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3、PPP协议的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4%E3%80%81HDLC%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.6.4.</span> <span class="toc-text">6.4、HDLC协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.7.</span> <span class="toc-text">7、局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1%E3%80%81%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.1.</span> <span class="toc-text">7.1、局域网的拓扑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2%E3%80%81%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.7.2.</span> <span class="toc-text">7.2、局域网介质访问控制方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4%E3%80%81%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AD%90%E5%B1%82"><span class="toc-number">1.7.3.</span> <span class="toc-text">7.4、局域网中数据链路的两个子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5%E3%80%81%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.7.4.</span> <span class="toc-text">7.5、以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5%E3%80%81%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.7.5.</span> <span class="toc-text">7.5、无线局域网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E3%80%81%E6%8B%93%E5%B1%95%E7%9A%84%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.</span> <span class="toc-text">8、拓展的以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-1%E3%80%81%E7%89%A9%E7%90%86%E5%B1%82%E6%8B%93%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.1.</span> <span class="toc-text">8.1、物理层拓展以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-2%E3%80%81%E9%93%BE%E8%B7%AF%E5%B1%82%E6%8B%93%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.2.</span> <span class="toc-text">8.2、链路层拓展以太网</span></a></li></ol></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">数据链路层的功能：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E7%BD%91%E7%BB%9C%E5%B1%82%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">为网络层提供服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">链路管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">数据链路层的基本问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%EF%BC%88%E7%BB%84%EF%BC%89%E8%A3%85%E6%88%90%E5%B8%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">封（组）装成帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">透明传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E9%94%99%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">检错编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A0%E9%94%99%E7%BC%96%E7%A0%81"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">纠错编码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">流量控制与可靠传输机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">可靠传输机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">1.4.2.</span> <span class="toc-text">流量控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2-%E7%AD%89%E5%BE%85%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">停止-等待协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E9%80%80N%E5%B8%A7%E5%8D%8F%E8%AE%AE-GBN"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">反退N帧协议(GBN)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E9%87%8D%E4%BC%A0%E5%8D%8F%E8%AE%AE-SR"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">选择重传协议(SR)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E9%95%BF%E5%BA%A6%EF%BC%9A"><span class="toc-number">1.4.2.3.0.1.</span> <span class="toc-text">滑动窗口长度：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.</span> <span class="toc-text">介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E9%81%93%E5%88%92%E5%88%86%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.1.</span> <span class="toc-text">信道划分介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">频分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">时分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A2%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.3.</span> <span class="toc-text">波分多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A0%81%E5%88%86%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">1.5.1.4.</span> <span class="toc-text">码分多路复用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">随机访问介质访问控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ALOHA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">ALOHA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">CSMA协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CD%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.3.</span> <span class="toc-text">CSMA&#x2F;CD协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSMA-CA%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.2.4.</span> <span class="toc-text">CSMA&#x2F;CA协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E8%AF%A2%E8%AE%BF%E9%97%AE%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6"><span class="toc-number">1.5.3.</span> <span class="toc-text">轮询访问介质访问控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91%EF%BC%9A"><span class="toc-number">1.6.</span> <span class="toc-text">广域网：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E5%9F%9F%E7%BD%91%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">广域网的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP%E5%8D%8F%E8%AE%AE%E7%89%B9%E7%82%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">PPP协议特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PPP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.6.3.</span> <span class="toc-text">PPP协议的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HDLC%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.6.4.</span> <span class="toc-text">HDLC协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.7.</span> <span class="toc-text">局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9A%84%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.1.</span> <span class="toc-text">局域网的拓扑结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.7.2.</span> <span class="toc-text">局域网介质访问控制方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E4%B8%AD%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%AD%90%E5%B1%82"><span class="toc-number">1.7.3.</span> <span class="toc-text">局域网中数据链路的两个子层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.7.4.</span> <span class="toc-text">以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.7.5.</span> <span class="toc-text">无线局域网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E5%B1%95%E7%9A%84%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.</span> <span class="toc-text">拓展的以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E6%8B%93%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.1.</span> <span class="toc-text">物理层拓展以太网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E5%B1%82%E6%8B%93%E5%B1%95%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">1.8.2.</span> <span class="toc-text">链路层拓展以太网</span></a></li></ol></li></ol></li></ol>	
         </div>
     
 </div>

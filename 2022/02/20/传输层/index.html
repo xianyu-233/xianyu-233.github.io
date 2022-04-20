@@ -10,13 +10,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="xainyu-233,"> 
-    <meta name="description" content="1、传输层提供的服务1.1、传输层的功能
+    <meta name="description" content="传输层提供的服务传输层的功能
 传输层向上面的应用层提供服务，它属于用户主机端才有的一个层次，也是用户主机中最低层。
 传输层使用的传输单元：报文段
 传输层的功能：
 
 
-传输层提供应用进程之,"> 
+传输层提供应用进程之间的逻辑通信,"> 
     <meta name="author" content="xianyu"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/%E5%96%B7.jfif"> 
@@ -68,7 +68,7 @@
 
         </div>
         <div class="content markdown">
-            <h2 id="1、传输层提供的服务"><a href="#1、传输层提供的服务" class="headerlink" title="1、传输层提供的服务"></a>1、传输层提供的服务</h2><h3 id="1-1、传输层的功能"><a href="#1-1、传输层的功能" class="headerlink" title="1.1、传输层的功能"></a>1.1、传输层的功能</h3><blockquote>
+            <h2 id="传输层提供的服务"><a href="#传输层提供的服务" class="headerlink" title="传输层提供的服务"></a>传输层提供的服务</h2><h3 id="传输层的功能"><a href="#传输层的功能" class="headerlink" title="传输层的功能"></a>传输层的功能</h3><blockquote>
 <p>传输层向上面的应用层提供服务，它属于用户主机端才有的一个层次，也是用户主机中最低层。</p>
 <p>传输层使用的传输单元：<strong>报文段</strong></p>
 <p><strong>传输层的功能：</strong></p>
@@ -90,7 +90,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="1-2、传输层的寻址和端口"><a href="#1-2、传输层的寻址和端口" class="headerlink" title="1.2、传输层的寻址和端口"></a>1.2、传输层的寻址和端口</h3><h4 id="1-2-1、端口"><a href="#1-2-1、端口" class="headerlink" title="1.2.1、端口"></a>1.2.1、端口</h4><blockquote>
+<h3 id="传输层的寻址和端口"><a href="#传输层的寻址和端口" class="headerlink" title="传输层的寻址和端口"></a>传输层的寻址和端口</h3><h4 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h4><blockquote>
 <p>在一台主机上可以运行许多的进程。这里面又有相当多的进程会与其他主机上的进程进行通信，这时候就需要一个标识符进行区分不同的进程了。在传输层中，这个标识符就是端口号。</p>
 <p><strong>注意：</strong>传输层使用的是<strong>软件端口</strong>，即应用层的各种协议进程与传输实体进行层间的一种地址（可以类比于网络层中的IP地址，数据链路层的MAC地址）；而路由器、交换机上的<strong>硬件端口</strong>与软件端口概念完全不一样。</p>
 <p><strong>端口号：</strong></p>
@@ -139,10 +139,10 @@
 </ul>
 </blockquote>
 </blockquote>
-<h4 id="1-2-2、套接字"><a href="#1-2-2、套接字" class="headerlink" title="1.2.2、套接字"></a>1.2.2、套接字</h4><blockquote>
+<h4 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h4><blockquote>
 <p>在网络中通过IP地址来标识和区别不同的主机，通过端口号来标识和区分一台主机上不同过的进程。因此将<strong>端口号拼接到IP地址上</strong>就可以构成<strong>套接字Socket</strong>，套接字实际上是一个通信端点，即<br>$$<br>套接字Socket = (IP地址:端口号)<br>$$<br>套接字可以唯一标识网络中一台主机和其中的一个应用进程。</p>
 </blockquote>
-<h3 id="1-3、无连接服务与面向连接服务"><a href="#1-3、无连接服务与面向连接服务" class="headerlink" title="1.3、无连接服务与面向连接服务"></a>1.3、无连接服务与面向连接服务</h3><blockquote>
+<h3 id="无连接服务与面向连接服务"><a href="#无连接服务与面向连接服务" class="headerlink" title="无连接服务与面向连接服务"></a>无连接服务与面向连接服务</h3><blockquote>
 <p><strong>面向连接服务：</strong></p>
 <blockquote>
 <p>在通信双方进行通信之前，<strong>必须先建立连接</strong>，在通信过程中，整个连接的情况一直被<strong>实时地监控和管理</strong>，通信结束之后，主动<strong>释放这个连接</strong>。</p>
@@ -180,7 +180,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="2、UDP协议"><a href="#2、UDP协议" class="headerlink" title="2、UDP协议"></a>2、UDP协议</h2><h3 id="2-1、UDP数据报"><a href="#2-1、UDP数据报" class="headerlink" title="2.1、UDP数据报"></a>2.1、UDP数据报</h3><blockquote>
+<h2 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h2><h3 id="UDP数据报"><a href="#UDP数据报" class="headerlink" title="UDP数据报"></a>UDP数据报</h3><blockquote>
 <p><strong>UDP概述：</strong></p>
 <blockquote>
 <p>UDP仅在IP数据报服务之上增加了两个基本服务：<strong>分用复用</strong>和<strong>差错检测</strong>。使用UDP的话，应用程序几乎直接与IP打交道。</p>
@@ -203,7 +203,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="2-2、UDP的首部格式"><a href="#2-2、UDP的首部格式" class="headerlink" title="2.2、UDP的首部格式"></a>2.2、UDP的首部格式</h3><blockquote>
+<h3 id="UDP的首部格式"><a href="#UDP的首部格式" class="headerlink" title="UDP的首部格式"></a>UDP的首部格式</h3><blockquote>
 <p>UDP数据报包含两部分：<strong>UDP首部</strong>和<strong>用户数据</strong>。UDP首部有<strong>8B</strong>，由4个字段组成，每个字段长度都是2B。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F.png" alt="UDP首部格式"></p>
 <ul>
@@ -220,7 +220,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="2-3、UDP校验"><a href="#2-3、UDP校验" class="headerlink" title="2.3、UDP校验"></a>2.3、UDP校验</h3><blockquote>
+<h3 id="UDP校验"><a href="#UDP校验" class="headerlink" title="UDP校验"></a>UDP校验</h3><blockquote>
 <p>在计算校验和的时候，需要在UDP数据报之前加入<strong>12B的伪首部</strong>，伪首部并不是UDP的真正首部，只是在计算校验和时，临时添加在UDP数据报前面。</p>
 <p>UDP的校验和同时校验<strong>首部</strong>和<strong>数据部分</strong>。</p>
 <p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP%E6%95%B0%E6%8D%AE%E6%8A%A5%E7%9A%84%E4%BC%AA%E9%A6%96%E9%83%A8.png" alt="UDP数据报的伪首部"></p>
@@ -264,7 +264,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h2 id="3、TCP协议"><a href="#3、TCP协议" class="headerlink" title="3、TCP协议"></a>3、TCP协议</h2><h3 id="3-1、TCP协议的特点"><a href="#3-1、TCP协议的特点" class="headerlink" title="3.1、TCP协议的特点"></a>3.1、TCP协议的特点</h3><blockquote>
+<h2 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h2><h3 id="TCP协议的特点"><a href="#TCP协议的特点" class="headerlink" title="TCP协议的特点"></a>TCP协议的特点</h3><blockquote>
 <ul>
 <li><p>TCP是<strong>面向连接</strong>的传输层协议</p>
 </li>
@@ -284,7 +284,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="3-2、TCP报文段"><a href="#3-2、TCP报文段" class="headerlink" title="3.2、TCP报文段"></a>3.2、TCP报文段</h3><blockquote>
+<h3 id="TCP报文段"><a href="#TCP报文段" class="headerlink" title="TCP报文段"></a>TCP报文段</h3><blockquote>
 <p>TCP传输的数据单元称为<strong>报文段</strong>。TCP报文段既可以用来运载数据，又可以用来<strong>建立连接、释放连接</strong>和<strong>应答</strong>。</p>
 <p>整个TCP报文可以分成两个部分：<strong>首部</strong>、数据部分。其中首部中又有<strong>20B的固定部分</strong>，且<strong>首部的大小通常为4B的整数倍</strong>。</p>
 <p><strong>TCP报文段：</strong></p>
@@ -311,7 +311,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="3-3、TCP连接管理"><a href="#3-3、TCP连接管理" class="headerlink" title="3.3、TCP连接管理"></a>3.3、TCP连接管理</h3><blockquote>
+<h3 id="TCP连接管理"><a href="#TCP连接管理" class="headerlink" title="TCP连接管理"></a>TCP连接管理</h3><blockquote>
 <p>TCP是面向连接的协议，因此每个TCP连接都有三个阶段：<strong>连接建立</strong>、<strong>数据传送</strong>和<strong>连接释放</strong>。</p>
 <p>TCP连接管理就是是运输连接的建立和释放都能正常进行。</p>
 <p>在TCP连接建立的过程中，都要解决以下问题：</p>
@@ -380,7 +380,7 @@
 </ul>
 </blockquote>
 </blockquote>
-<h3 id="3-4、TCP可靠传输"><a href="#3-4、TCP可靠传输" class="headerlink" title="3.4、TCP可靠传输"></a>3.4、TCP可靠传输</h3><blockquote>
+<h3 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h3><blockquote>
 <p>TCP的任务是在IP层的不可靠的基础上建立一种可靠的传输服务。</p>
 <p>TCP的可靠传输：<strong>保证接收方接收到的数据与发送方发出的数据完全一致</strong>。</p>
 <p>TCP使用<strong>检验、序号、确认</strong>和<strong>重传</strong>来确保可靠传输的实现，其中检验与UDP的校验一致。</p>
@@ -401,7 +401,7 @@
 <p><strong>冗余ACK：</strong>指再次确认某个报文段的ACK，而发送方先前已经收到该报文段的确认。例如，发送方A向B发送数据报1，2，3，4，5，其中2号数据报丢失了。此时接收方B在接收完1号数据报后期待收到2号数据报，但实际上收到的是3，4，5号数据报，那么它就会向A连续发送<strong>3个1号数据报的冗余ACK</strong>，A在收到三个冗余ACK后就知道2号数据报丢失了，立即进行重传。这种技术也称为<strong>快速重传技术</strong>。</p>
 </blockquote>
 </blockquote>
-<h3 id="3-5、TCP流量控制"><a href="#3-5、TCP流量控制" class="headerlink" title="3.5、TCP流量控制"></a>3.5、TCP流量控制</h3><blockquote>
+<h3 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h3><blockquote>
 <p>TCP流量控制是一个速度匹配服务，它用于消除发送方发送速率过快而导致接收方缓存区溢出的问题。</p>
 <p><strong>过程：</strong></p>
 <blockquote>
@@ -417,7 +417,7 @@
 <p>传输层和数据链路层都存在流量控制，<strong>传输层的流量控制</strong>是<strong>端到端</strong>之间的流量控制，<strong>数据链路层的流量控制</strong>是<strong>两个相邻结点</strong>（路由器等）之间的流量控制。<strong>数据链路层</strong>的<strong>滑动窗口大小不能改变</strong>，而<strong>传输层</strong>的滑动窗口是<strong>动态变化</strong>的。</p>
 </blockquote>
 </blockquote>
-<h3 id="3-6、TCP拥塞控制"><a href="#3-6、TCP拥塞控制" class="headerlink" title="3.6、TCP拥塞控制"></a>3.6、TCP拥塞控制</h3><blockquote>
+<h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><blockquote>
 <p>拥塞控制是指防止过多的数据进入网络，保证网络中的路由器或链路不过载。</p>
 <p>对通信连接来说，拥塞往往表现为<strong>通信时延的增加</strong>。</p>
 <p><strong>拥塞控制与流量控制的区别：</strong></p>
@@ -529,7 +529,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">1、传输层提供的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">1.1、传输层的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81%E4%BC%A0%E8%BE%93%E5%B1%82%E7%9A%84%E5%AF%BB%E5%9D%80%E5%92%8C%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.2.</span> <span class="toc-text">1.2、传输层的寻址和端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1%E3%80%81%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1、端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2%E3%80%81%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2、套接字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">1.3、无连接服务与面向连接服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">2、UDP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81UDP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-number">2.1.</span> <span class="toc-text">2.1、UDP数据报</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81UDP%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2、UDP的首部格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81UDP%E6%A0%A1%E9%AA%8C"><span class="toc-number">2.3.</span> <span class="toc-text">2.3、UDP校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81TCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">3、TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E3%80%81TCP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">3.1、TCP协议的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E3%80%81TCP%E6%8A%A5%E6%96%87%E6%AE%B5"><span class="toc-number">3.2.</span> <span class="toc-text">3.2、TCP报文段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E3%80%81TCP%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">3.3、TCP连接管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4%E3%80%81TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="toc-number">3.4.</span> <span class="toc-text">3.4、TCP可靠传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5%E3%80%81TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.5.</span> <span class="toc-text">3.5、TCP流量控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E3%80%81TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">3.6.</span> <span class="toc-text">3.6、TCP拥塞控制</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E6%8F%90%E4%BE%9B%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">传输层提供的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">传输层的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%E7%9A%84%E5%AF%BB%E5%9D%80%E5%92%8C%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.2.</span> <span class="toc-text">传输层的寻址和端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.2.1.</span> <span class="toc-text">端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">1.2.2.</span> <span class="toc-text">套接字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">无连接服务与面向连接服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">UDP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-number">2.1.</span> <span class="toc-text">UDP数据报</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">UDP的首部格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP%E6%A0%A1%E9%AA%8C"><span class="toc-number">2.3.</span> <span class="toc-text">UDP校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">TCP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">3.1.</span> <span class="toc-text">TCP协议的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E6%8A%A5%E6%96%87%E6%AE%B5"><span class="toc-number">3.2.</span> <span class="toc-text">TCP报文段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">TCP连接管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="toc-number">3.4.</span> <span class="toc-text">TCP可靠传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.5.</span> <span class="toc-text">TCP流量控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">3.6.</span> <span class="toc-text">TCP拥塞控制</span></a></li></ol></li></ol>	
         </div>
     
 </div>
