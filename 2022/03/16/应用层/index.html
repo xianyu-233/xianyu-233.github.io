@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>应用层 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="网络应用模型客户&amp;#x2F;服务器模型
+客户&amp;#x2F;服务器模型（Client&amp;#x2F;Server，C&amp;#x2F;S）模型中，有一个总是打开的主机称为服务器，它服务于许多来自其他称为客户机的主,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">应用层</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">应用层</h1>
+        <div class="stuff">
+            <span>三月 16, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="网络应用模型"><a href="#网络应用模型" class="headerlink" title="网络应用模型"></a>网络应用模型</h2><h3 id="客户-服务器模型"><a href="#客户-服务器模型" class="headerlink" title="客户&#x2F;服务器模型"></a>客户&#x2F;服务器模型</h3><blockquote>
+<p>客户&#x2F;服务器模型（Client&#x2F;Server，C&#x2F;S）模型中，有一个总是打开的主机称为<strong>服务器</strong>，它服务于许多来自其他称为<strong>客户机</strong>的主机请求。</p>
+<p><strong>图例：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/CS%E6%A8%A1%E5%9E%8B.png" alt="CS模型"></p>
+<p><strong>服务器：</strong></p>
+<blockquote>
+<ul>
+<li>永久提供服务</li>
+<li>永久性访问地址&#x2F;域名</li>
+</ul>
+</blockquote>
+<p><strong>客户机：</strong></p>
+<blockquote>
+<ul>
+<li>与服务器通信，使用服务器提供的服务</li>
+<li>间歇性接入网络</li>
+<li>可能使用动态IP地址</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>工作流程：</strong></p>
+<blockquote>
+<ul>
+<li>服务器处于接收请求的状态</li>
+<li>客户机发出服务请求，并等待接收结果</li>
+<li>服务器收到请求后，分析请求，进行必要的处理，并将得到的结果发回给客户机</li>
+</ul>
+</blockquote>
+<p><strong>常见的CS模型应用：</strong> <strong>Web应用</strong>、<strong>文件传输协议（FTP）</strong>、<strong>远程登录</strong>和<strong>电子邮件</strong></p>
+<p><strong>主要特点：</strong></p>
+<blockquote>
+<ul>
+<li>网络中各计算机的地位不平等，服务器可以通过对客户机设置用户权限来达到管理目的。</li>
+<li>整个网络由少数服务器进行管理</li>
+<li>客户机之间不能之间通信，只能通过服务器进行间接通信</li>
+<li>受服务器硬件和网络的影响，服务器支持的客户机数量有限</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="P2P模型"><a href="#P2P模型" class="headerlink" title="P2P模型"></a>P2P模型</h3><blockquote>
+<p>在P2P模型中，各计算机没有固定的客户和服务器划分，任意的一台主机之间都是对等的。</p>
+<p><strong>图例：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/P2P%E6%A8%A1%E5%9E%8B.png" alt="P2P模型"></p>
+</blockquote>
+<p><strong>特点：</strong></p>
+<blockquote>
+<ul>
+<li>不存在服务器</li>
+<li>其中每一台主机<strong>既可以提供服务</strong>，<strong>也可以请求服务</strong></li>
+<li>任意两台主机之间可以<strong>直接通信</strong></li>
+<li>结点可能会间歇性接入网络</li>
+<li>结点可能改变ip地址</li>
+<li>可拓展性好，即该模型可以大量添加主机，无需担心带宽和硬件性能的影响</li>
+</ul>
+</blockquote>
+<p><strong>缺点：</strong>P2P模型在获得服务的同时，也需要给其他结点提供服务，因此会占用较多的内存。</p>
+</blockquote>
+<h2 id="DNS服务器"><a href="#DNS服务器" class="headerlink" title="DNS服务器"></a>DNS服务器</h2><blockquote>
+<p><strong>域名系统</strong>是因特网使用的命名系统，用来<strong>把便于记忆的主机名</strong>转换成<strong>IP地址</strong>。</p>
+<p>DNS系统采用<strong>客户&#x2F;服务器模型</strong>，其协议运行在<strong>UDP</strong>之上，<strong>使用53号端口</strong>。</p>
+<p>DNS可以分成三部分：<strong>层次域名空间</strong>、<strong>域名服务器</strong>和<strong>解析器</strong></p>
+</blockquote>
+<h3 id="层次域名空间"><a href="#层次域名空间" class="headerlink" title="层次域名空间"></a>层次域名空间</h3><blockquote>
+<p>因特网采用层次树状结构的命名方式，即一个域名由多部分组成如：<a target="_blank" rel="noopener" href="http://www.baidu.com,这就是一个域名,它由三部分组成,www称为三级域名,baidu称为二级域名,com称为顶级域名.各级之间又由.分隔./">www.baidu.com，这就是一个域名，它由三部分组成，www称为三级域名，baidu称为二级域名，com称为顶级域名。各级之间又由.分隔。</a></p>
+<p><strong>域名树状图：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E5%9F%9F%E5%90%8D%E6%A0%91.png" alt="域名树"></p>
+<p><strong>顶级域名：</strong></p>
+<blockquote>
+<ul>
+<li>国家级顶级域名：.cn，.us，.uk等</li>
+<li>通用顶级域名：.com（公司），.net（网络服务机构），.gov（国家或政府部门）</li>
+<li>基础结构域名：arpa，用于<strong>反向域名解析</strong>，即将IP地址传化成域名</li>
+</ul>
+</blockquote>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>域名中可以出现英文字母与数字</strong></li>
+<li><strong>域名中的英文不区分大小写</strong></li>
+<li><strong>域名中只能使用符号（-），其他都为非法符号</strong></li>
+<li><strong>每一级域名不超过63个字符，完整的域名不超过255个字符</strong></li>
+<li><strong>级别最低的域名写在最左边，级别最高的域名写在最右边</strong></li>
+<li><strong>相同的域名可能出现在不同的等级中，如com</strong></li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h3><blockquote>
+<p>因特网的域名系统被设计为一个<strong>联机分布式</strong>的数据库系统，并采用<strong>客户&#x2F;服务器</strong>模型。</p>
+<p>DNS采用了大量的域名服务器，它们使用的是层次方式组织</p>
+<p><strong>根域名服务器：</strong></p>
+<blockquote>
+<p>根域名服务器是最高级的域名服务器，<strong>所有的根域名服务器都知道所有顶级域名服务器的IP地址</strong>。</p>
+<p>根域名服务器负责管理顶级域（如.com）</p>
+<p>根域名服务器通常不直接将待查询的域名转化成IP地址，而是告诉<strong>本地域名服务器</strong>下一步应当找哪个顶级域名服务器进行查询。</p>
+</blockquote>
+<p><strong>顶级域名服务器：</strong></p>
+<blockquote>
+<p>这些域名服务器负责管理<strong>在该顶级域名服务器注册的所有二级域名</strong>。</p>
+<p>收到DNS查询请求时，要么给出结果（IP地址），要么下一步应当查找的域名服务器的IP地址</p>
+</blockquote>
+<p><strong>授权域名服务器（权限域名服务器）：</strong></p>
+<blockquote>
+<p>DNS层次结构的最底层，总是可以将所管辖的主机名转换成该主机的IP地址。</p>
+<p>许多授权域名服务器同时充当<strong>本地域名服务器</strong>和<strong>授权域名服务器</strong>。</p>
+</blockquote>
+<p><strong>本地域名服务器：</strong></p>
+<blockquote>
+<p><strong>不属于域名服务器的层次结构</strong></p>
+<p>主机发出DNS查询请求时，该报文就发给该主机的本地域名服务器代其查询。</p>
+</blockquote>
+<p><strong>DNS的层次结构图：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="域名服务器"></p>
+</blockquote>
+</blockquote>
+<h3 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h3><blockquote>
+<p>域名解析是指把<strong>域名映射为IP地址</strong>或<strong>把IP地址映射为域名</strong>的过程。前者称为<strong>正向解析</strong>，后者称为<strong>反向解析</strong>。</p>
+<p>当客户端需要解析域名时，主机会通过本机的DNS客户端构造一个DNS请求报文，以UDP的方式发往本地域名服务器。</p>
+<p>域名解析的两种方式：<strong>递归查询</strong>和<strong>递归与迭代相结合的查询</strong></p>
+<p><strong>递归查询：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2.png" alt="递归查询"></p>
+<p>类似于递归调用，让高级的服务器为主机查询，找到以后又层层上交，直到交给主机。</p>
+<p>缺点很明显，对根服务器的负荷要求过大，如果过多的主机查询域名，那么就会使根服务器负荷过大。</p>
+</blockquote>
+<p><strong>递归与迭代相结合的查询：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E9%80%92%E5%BD%92%E4%B8%8E%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2%E7%9B%B8%E7%BB%93%E5%90%88.png" alt="递归与迭代查询相结合"></p>
+<p><strong>过程：</strong></p>
+<blockquote>
+<ul>
+<li>客户机向本地服务器发出DNS请求报文</li>
+<li>本地服务器接收到报文以后，查询本地缓存，如果没找到，则以DNS客户的身份向根域名服务器发出请求报文</li>
+<li>根域名服务器收到请求报文后，判断该域名中顶级域的所属，并将对于所属的顶级域名服务器的IP地址发送回本地域名服务器</li>
+<li>本地域名服务器又向得到的顶级域名服务器进行DNS查询请求</li>
+<li>顶级域名服务器收到请求报文后，判断该域名中域的所属，并将对于所属的授权域名服务器的IP地址发送回本地域名服务器</li>
+<li>本地域名服务器收到以后又向该授权域名服务器发送DNS请求报文</li>
+<li>授权域名服务器收到请求报文后进行查询，并返回结果给本地域名服务器</li>
+<li>本地域名服务器收到结果后又将结果交给主机</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>注意：</strong>每个DNS服务器中都会存在高速缓存，以此降低DNS查询请求的数量。但是该高速缓存在一定事件内也会被清除。</p>
+</blockquote>
+<h2 id="文件传输协议-FTP"><a href="#文件传输协议-FTP" class="headerlink" title="文件传输协议(FTP)"></a>文件传输协议(FTP)</h2><blockquote>
+<p>文件传输协议（FTP）是因特网上使用得最广泛得文件传输协议。它适合于<strong>异构网络中任意两台计算机之间传输文件</strong>。</p>
+<p>FTP采用<strong>客户&#x2F;服务器（CS）</strong>的工作方式，使用<strong>TCP可靠传输</strong>，一个FTP服务器进程可以为多个客户进程提供服务。</p>
+<p><strong>功能：</strong></p>
+<blockquote>
+<ul>
+<li>提供不同种类主机系统之间得文件传输能力</li>
+<li>以用户权限管理得方式对远程FTP服务器上得文件进行管理（如新建，删除，重命名等）</li>
+<li>以<strong>匿名FTP方式</strong>提供公用文件共享能力。</li>
+</ul>
+</blockquote>
+<p><strong>匿名登录：</strong></p>
+<blockquote>
+<p>即“匿名（Anonymous）”FTP服务器，这类服务器向公众提供文件拷贝服务，无需用户事先进行<strong>登记注册</strong>，也不需要取得FTP服务器的授权。</p>
+<p><strong>用户使用特殊的用户名“anonymous”登录FTP服务器</strong>，就可以访问远程主机上的公开文件。</p>
+</blockquote>
+<p>FTP的服务器进程由两部分组成：<strong>一个主进程</strong>和<strong>若干个从属进程</strong></p>
+<blockquote>
+<p>主进程负责接收新的请求，从属进程负责处理单个请求</p>
+<p><strong>FTP进程的执行步骤：</strong></p>
+<blockquote>
+<ul>
+<li>打开熟知端口21，使客户进程连接上</li>
+<li>等待客户进程发送连接请求</li>
+<li>启动从属进程来处理用户进程发来的请求。主进程和从属进程并发执行，从属进程对用户进程的请求处理完成后即终止。</li>
+<li>回到等待状态，继续接收其他客户进程的请求</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>控制连接和数据连接：</strong></p>
+<blockquote>
+<p>FTP在工作时使用两个并行的TCP连接：<strong>控制连接（端口号21）</strong>，<strong>数据连接（端口号20）</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E6%8E%A7%E5%88%B6%E8%BF%9E%E6%8E%A5%E5%92%8C%E6%95%B0%E6%8D%AE%E8%BF%9E%E6%8E%A5.png" alt="控制连接和数据连接"></p>
+<p><strong>控制连接：</strong></p>
+<blockquote>
+<p><strong>控制连接占用21号端口</strong>，用来传输<strong>7位ASCII格式</strong>的传输控制信息（如连接请求、发送请求等）</p>
+<p>控制连接不进行传输文件，仅用于控制连接状态</p>
+<p><strong>控制连接在整个会话期一直保持打开状态</strong>，直到连接断开。</p>
+</blockquote>
+<p><strong>数据连接：</strong></p>
+<blockquote>
+<p>在服务器端的控制进程接收到FTP客户发来的文件传输请求后，就创建<strong>“数据传送进程”</strong>和<strong>“数据连接”</strong>。数据传送进程实际完成文件的传送，在文件传送完毕后关闭“数据传送连接”并结束运行。</p>
+<p>数据连接的两种传输模式：<strong>主动模式（PORT）</strong>和<strong>被动模式（PASV）</strong></p>
+<p><strong>主动模式（PORT）：</strong></p>
+<blockquote>
+<p>在客户端成功登录后要读取数据时，<strong>客户端随机开放一个端口（&gt;1024）</strong>，并告知服务器，服务器收到PORT命令和端口后，通过20端口与客户端开放的端口进行连接。（客户端随机，服务器20）</p>
+</blockquote>
+<p><strong>被动模式（PASV）：</strong></p>
+<blockquote>
+<p>客户端要读取数据时，发送PASV命令到服务器，<strong>服务器在本地随机开放一个端口（&gt;1024）</strong>，并告知客户端，客户端再得到端口号后利用20端口与服务端开放的端口进行连接。（客户端20，服务器随机）</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>FTP传输模式：</strong></p>
+<blockquote>
+<ul>
+<li><strong>文本模式：</strong>ASCII模式，以文本序列传输数据</li>
+<li><strong>二进制模式：</strong>Binary模式，以二进制序列传输数据</li>
+</ul>
+</blockquote>
+</blockquote>
+<h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><h3 id="电子邮件系统的组成"><a href="#电子邮件系统的组成" class="headerlink" title="电子邮件系统的组成"></a>电子邮件系统的组成</h3><blockquote>
+<p>电子邮件是一种<strong>异步通信</strong>方式，即通信时不需要双方同时在场。电子邮件把邮件发送到收件人使用的邮件服务器，并放在其中的收件人邮箱中，收件人可以随时上网到自己使用的邮件服务器进行读取。</p>
+<p>一个电子邮件服务器主要由三部分组成：<strong>用户代理、邮件服务器</strong>和<strong>电子邮件使用的协议</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F.png" alt="电子邮件系统"></p>
+<ul>
+<li><strong>用户代理（User Agent）：</strong>用户与电子邮件的接口。用户代理实际上就是一个应用程序，具备<strong>撰写、显示</strong>和<strong>邮件处理</strong>的功能。</li>
+<li><strong>邮件服务器：</strong>功能是<strong>发送</strong>和<strong>接收邮件</strong>，同时还要向发信人报告邮件传送情况（已交付、被拒绝、丢失等）。邮件服务器采用<strong>客户&#x2F;服务器</strong>方式工作，但它能同时充当客户和服务器。</li>
+<li><strong>邮件发送协议和读取协议：</strong>邮件<strong>发送协议</strong>用于<strong>用户代理向邮件服务器递交邮件</strong>或在<strong>邮件服务器之间发送邮件</strong>，如SMTP；邮件<strong>读取协议</strong>用于<strong>用户代理在邮件服务器中读取邮件</strong>，如POP3。</li>
+</ul>
+<p><strong>电子邮件格式：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E6%A0%BC%E5%BC%8F.png" alt="电子邮件格式"></p>
+<ul>
+<li><strong>信封：</strong>电子邮件会自动将信封所需的信息提取到信封上。</li>
+<li><strong>首部：</strong>最基本的是To字段（收信人地址）和Subject字段（主题），当然也可能有From字段（发送人地址）和Date字段（时间）等等</li>
+<li><strong>主体：</strong>邮件的主要内容，由发送方自己编写。</li>
+</ul>
+</blockquote>
+<p><strong>电子邮件收发过程：</strong></p>
+<blockquote>
+<ul>
+<li>发信人调用<strong>用户代理</strong>来撰写要发送的邮件。<strong>用户代理使用SMTP把邮件递交给发送端邮件服务器</strong></li>
+<li>发送端邮件服务器将邮件放入邮件缓存队列中，等待发送</li>
+<li>发送端邮件服务器发现缓存中有待发送的邮件，就向待接收的服务器<strong>发起TCP建立请求</strong></li>
+<li>TCP连接建立完成后，<strong>SMTP客户进程就向SMTP服务器进程发送邮件</strong>。当所有邮件发送完毕以后，SMTP关闭TCP连接。</li>
+<li>接收端的SMTP服务器进程将接收到的邮件放入收信人的用户邮箱，等待收信人在方便时进行读取。</li>
+<li>收信人打算收信时，调用用户代理，<strong>使用POP3或IMAP协议</strong>将邮件从接收端邮件服务器的用户邮箱中取回。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="SMTP和POP3"><a href="#SMTP和POP3" class="headerlink" title="SMTP和POP3"></a>SMTP和POP3</h3><blockquote>
+<p><strong>SMTP：</strong></p>
+<blockquote>
+<p><strong>简单邮件传输协议（SMTP）</strong>是一种提供<strong>可靠</strong>且有效的电子邮件传输协议，它控制两个相互通信的SMTP进程交换信息。</p>
+<p>SMTP使用<strong>TCP连接</strong>，<strong>端口号为25</strong>。SMTP通信有三个阶段：<strong>连接建立</strong>、<strong>邮件传送</strong>和<strong>连接释放</strong>。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/SMTP%E4%BC%A0%E9%80%81.png" alt="SMTP传送"></p>
+<p><strong>MIME：</strong></p>
+<blockquote>
+<p>传统的<strong>SMTP只能传送一定长度的ASCII码邮件</strong>，无法传送其他国家的文字以及图像、音频等。</p>
+<p>因此提出了<strong>多用途网络邮件扩充（MIME）</strong></p>
+<p>MIME并没有改变电子邮件系统的构造，只是在此基础上添加了一部分内容。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/SMTP%E4%B8%8EMIME%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="SMTP与MIME的关系"></p>
+<p>即在用户与SMTP进程之间加入了MIME，使得ASCII码以外的编码都可以转化为ASCII码，然后通过SMTP进程发送。</p>
+</blockquote>
+</blockquote>
+<p><strong>POP3：</strong></p>
+<blockquote>
+<p>POP也使用<strong>客户&#x2F;服务器</strong>的工作方式，在传输层<strong>使用TCP</strong>，<strong>端口号为110</strong>。</p>
+<p>POP有两种工作方式：<strong>下载并保留</strong>、<strong>下载并删除</strong></p>
+<ul>
+<li><strong>下载并保留：</strong>用户从邮件服务器上读取邮件后，邮件依旧会保留在服务器上，用户可以再次从服务器上读取邮件。</li>
+<li><strong>下载并删除：</strong>用户从邮件服务器上读取邮件后，服务器就会删除该邮件。</li>
+</ul>
+<p><strong>IMAP：</strong>功能比POP3更多更复杂。如允许用户只读取邮件的一部分，允许用户在有条件的情况下才下载邮件中的附件，可以直接读取文本内容。</p>
+</blockquote>
+</blockquote>
+<h3 id="基于万维网的电子邮件"><a href="#基于万维网的电子邮件" class="headerlink" title="基于万维网的电子邮件"></a>基于万维网的电子邮件</h3><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E5%9F%BA%E4%BA%8E%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6.png" alt="基于万维网的电子邮件"></p>
+<p><strong>与传统电子邮件系统的区别：</strong>用户代理部分不再使用SMTP或POP协议，而是转而使用HTTP协议。</p>
+</blockquote>
+<h2 id="万维网与HTTP协议"><a href="#万维网与HTTP协议" class="headerlink" title="万维网与HTTP协议"></a>万维网与HTTP协议</h2><h3 id="万维网"><a href="#万维网" class="headerlink" title="万维网"></a>万维网</h3><blockquote>
+<p><strong>定义：</strong>万维网是一个<strong>分布式</strong>、<strong>联机式</strong>的信息存储空间。</p>
+<p>在万维网中每一样有用的事物称为一样”资源“，并由一个全域“<strong>统一资源定位符（URL）</strong>”标识。这些资源通过<strong>超文本协议（HTTP）</strong>传输给使用者，后者通过单击链接来获取资源。</p>
+<p>万维网是以<strong>客户&#x2F;服务器方式</strong>工作的。</p>
+<p><strong>万维网内核的三个标准：</strong></p>
+<blockquote>
+<ul>
+<li><strong>统一资源定位符（URL）：</strong>负责标识万维网上的各种文档，并使每个文档在万维网中都有唯一的标识符。</li>
+<li><strong>超文本传输协议（HTTP）：</strong>一个应用层协议，它使用<strong>TCP连接</strong>进行可靠传输，是<strong>万维网应用程序（如浏览器）</strong>和<strong>服务程序</strong>之间交互的协议。</li>
+<li><strong>超文本标记语言（HTML）：</strong>一种文档结构的标记语言。</li>
+</ul>
+</blockquote>
+<p><strong>URL的一般形式：</strong></p>
+<blockquote>
+<p>$$<br>&lt;协议&gt;:&#x2F;&#x2F;&lt;主机名&gt;:&lt;端口&gt;&#x2F;&lt;路径&gt;<br>$$</p>
+<ul>
+<li><strong>协议：</strong>指用什么协议来获取万维网文档</li>
+<li><strong>主机名：</strong>是存放资源的主机在因特网中的<strong>域名</strong>或<strong>IP地址</strong></li>
+<li><strong>端口&amp;路径：</strong>有时可以省略</li>
+</ul>
+<p><strong>注意：</strong>URL中不区分大小写。</p>
+</blockquote>
+<p><strong>万维网应用程序（浏览器）工作流程：</strong></p>
+<blockquote>
+<ul>
+<li>用户使用浏览器与Web服务器建立连接，并发送浏览请求</li>
+<li>Web服务器把URL转换成文件路径，并返回信息给浏览器</li>
+<li>通信完成，关闭连接</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="超文本传输协议（HTTP）"><a href="#超文本传输协议（HTTP）" class="headerlink" title="超文本传输协议（HTTP）"></a>超文本传输协议（HTTP）</h3><blockquote>
+<p>HTTP定义了浏览器怎么向万维网服务器请求万维网文档，以及服务器怎样把文档传送给浏览器，即规定了浏览器和服务器之间的请求和响应的格式和规则。</p>
+<p>HTTP报文格式：<strong>请求报文</strong>（浏览器向服务发送请求服务的报文），<strong>响应报文</strong>（服务器对浏览器请求的回应）</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>用户点击网站链接后所发生的事件：</p>
+<ul>
+<li>浏览器分析链接指向页面的URL</li>
+<li>浏览器向DNS请求解析URL中域名的IP地址</li>
+<li>DNS向浏览器返回解析出来的IP地址</li>
+<li>浏览器和该IP地址的服务器建立TCP连接（默认端口为80）</li>
+<li>浏览器发出HTTP请求：GET&#x2F;…&#x2F;index.htm</li>
+<li>服务器通过HTTP响应把文件index.htm发送给服务器</li>
+<li>释放TCP连接</li>
+<li>浏览器解析文件index.htm，并显示给用户看</li>
+</ul>
+</blockquote>
+<p><strong>HTTP的特点：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>无状态</strong></p>
+<blockquote>
+<p>即同一客户第二次访问同一个服务器上的页面时，服务器的响应时间是一样的。服务器并不记得该客户是否曾经访问过，访问过几次。对此就出现了Cookie技术，即将用户的浏览记录<strong>存储在服务器的一个数据库中，并标识上一个唯一的标识码</strong>，同时用户的主机中也会存储这个标识码，当用户再次访问服务器的时候，服务器可以根据该标识码来找到用户的浏览记录。</p>
+</blockquote>
+</li>
+<li><p><strong>HTTP本身是无连接的</strong></p>
+<blockquote>
+<p>即通信双方在交换HTTP报文之前都不需要先建立HTTP连接。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>HTTP连接：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>非持久连接：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E9%9D%9E%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5.png" alt="非持久连接"></p>
+<p>即每一次HTTP请求都需要建立一次TCP连接，这种连接方式浪费时间过大，效率较低。</p>
+</blockquote>
+</li>
+<li><p><strong>持久连接：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E6%8C%81%E4%B9%85%E8%BF%9E%E6%8E%A5.png" alt="持久连接"></p>
+<p>当传送完一个请求后，TCP连接不会立即断开，可以等待一段时间看是否有更多的请求。在此基础上还引申出了流水线的持久连接，即客户端可以连续发送请求，服务器也连续回应请求。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>HTTP报文结构：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>请求报文：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AF%B7%E6%B1%82%E6%8A%A5%E6%96%87.png" alt="请求报文"></p>
+<ul>
+<li><strong>请求行：</strong>即开始行，用于区分是请求报文还是响应报文。方法：GET（请求读取URL的信息）、HEAD（请求读取URL信息的首部）、POST（给服务器添加信息）、CONNECT（用于代理服务器）</li>
+<li><strong>首部行：</strong>用于说明浏览器、服务器或报文主体的一些信息。</li>
+<li><strong>实体主体：</strong>请求报文一般不用</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>响应报文：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87.png" alt="响应报文"></p>
+<ul>
+<li><strong>状态行：</strong>即开始行，用于区分是请求报文还是响应报文。版本：HTTP的版本号。</li>
+<li><strong>状态码：</strong>1xx：表示通知信息的，如请求收到了或正在处理；2xx：表示成功，如接受或知道了；3xx：表示重定向，如要完成请求还是采取进一步的行动；4xx：表示客户的差错，如请求中的错误语法或不能完成；5xx：表示服务器的差错，如服务器失效无法完成请求。</li>
+<li><strong>首部行：</strong>用于说明浏览器、服务器或报文主体的一些信息。</li>
+<li><strong>实体主体：</strong>响应报文中可能没有该字段。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%BA%94%E7%94%A8%E5%B1%82/%E4%BE%8B%E5%AD%90.png" alt="例子"></p>
+<ul>
+<li>这是一个请求报文，要获取一个页面</li>
+<li>该页面的是index.html</li>
+<li>HTTP使用的版本号为1.1</li>
+<li>服务器地址是：www. test.edu.cn</li>
+<li>使用的是非持续连接</li>
+<li>Cookie标识码为123456（可以看出之前曾经访问过该网站）</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">网络应用模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">客户&#x2F;服务器模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P2P%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">P2P模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">DNS服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%9F%9F%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.</span> <span class="toc-text">层次域名空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">域名服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-number">2.3.</span> <span class="toc-text">域名解析过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE-FTP"><span class="toc-number">3.</span> <span class="toc-text">文件传输协议(FTP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">电子邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">4.1.</span> <span class="toc-text">电子邮件系统的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMTP%E5%92%8CPOP3"><span class="toc-number">4.2.</span> <span class="toc-text">SMTP和POP3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-number">4.3.</span> <span class="toc-text">基于万维网的电子邮件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91%E4%B8%8EHTTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">5.</span> <span class="toc-text">万维网与HTTP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91"><span class="toc-number">5.1.</span> <span class="toc-text">万维网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%EF%BC%88HTTP%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">超文本传输协议（HTTP）</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

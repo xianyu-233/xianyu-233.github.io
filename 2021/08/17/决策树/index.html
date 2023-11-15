@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>决策树 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="决策树模型
+
+决策树是一种常见的机器学习方法，有回归和分类这两种方法。
+决策树模型呈树形结构，可以认为是if-then规则的集合。
+决策树模型由结点(node)和有向边(directed edge),"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">决策树</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">决策树</h1>
+        <div class="stuff">
+            <span>八月 17, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="决策树模型"><a href="#决策树模型" class="headerlink" title="决策树模型"></a><b>决策树模型</b></h4><blockquote>
+<ul>
+<li><b>决策树</b>是一种常见的机器学习方法，有<b>回归</b>和<b>分类</b>这两种方法。</li>
+<li>决策树模型呈树形结构，可以认为是if-then规则的集合。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B.png" alt="决策树模型" title="决策树模型"></li>
+<li>决策树模型由<b>结点(node)</b>和<b>有向边(directed edge)</b>组成。结点有可以分为<b>内部结点</b>和<b>叶结点</b>。其中内部结点表示一个特征或属性，叶结点则代表一类数据。</li>
+<li>决策树学习本质上是从训练数据集中归纳出一组分类规则。</li>
+<li>与训练集不矛盾的决策树可以有很多个（当然也有可能一个也没有），我们需要通过一些参数来找到一个与训练集矛盾最小的树，同时还要保证拥有一定的泛化能力。</li>
+<li>决策树学习算法包括：<b>特征选择、决策树的生成</b>和<b>决策树的剪枝</b>。</li>
+</ul>
+</blockquote>
+<h4 id="决策树的特征选择"><a href="#决策树的特征选择" class="headerlink" title="决策树的特征选择"></a><b>决策树的特征选择</b></h4><blockquote>
+<p>特征选择指的是：在训练数据中选取有利于划分数据集的特征。通常特征选择的标准参数是<b>信息增益</b>和<b>信息增益比</b>。<br>这有个案例：</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%A0%B7%E4%BE%8B.png" alt="样例图" title="样例"><br>上面的<b>年龄</b>、<b>有工作</b>、<b>有自己的房子</b>和<b>信贷情况</b>都是特征。<br>假如选择了年龄为划分数据集的特征后，那么数据集会被划分为<b>青年</b>、<b>中年</b>和<b>老年</b>三部分，然后在对每个子数据判断是否要继续划分，要则继续，不用则产生叶子结点。</p>
+</blockquote>
+<p>当然，在没有任何要求条件下，这颗决策树是有多种划分方法的，如</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%A0%B7%E4%BE%8B2.png" alt="样例图" title="不同划分"><br>对此，我们需要引入一些参数来作为我们划分的标准。</p>
+</blockquote>
+<ul>
+<li><p><b>信息增益</b></p>
+<blockquote>
+<p>为了说明信息增益，先要给出<b>香农熵</b>的定义：<br>熵是表示随机变量不确定性的度量，设X是一个取有限个值得离散型随机变量，其概率分布为：<br>$$P(X&#x3D;x_i)&#x3D;p_i \quad (i&#x3D;1,2,3,…,n)$$<br>则随机变量X得熵定义为：<br>$$H(X) &#x3D; -\sum_{i&#x3D;1}^n{p_ilog \ p_i}$$<br>可以证明得，<br>$$0 \le H(p) \le log \ n$$<br>其中熵越大，随机变量得不确定性就越大<br><b>注意：</b>当出现0概率时，令$0log0&#x3D;0$<br><b>经验条件熵：</b><br>条件经验熵$H(Y|X)$表示在已知随机变量X得条件下随机变量Y得不确定性，定义为：<br>$$H(Y|X)&#x3D;\sum_{i&#x3D;1}^n p_i H(Y|X&#x3D;x_i)$$<br>其中$p_i&#x3D;P(X&#x3D;x_i) \quad i&#x3D;1,2,…,n$<br><b>信息增益：</b>表示得知特征X得信息而使类Y得信息不确定度减少的程度。定义为，<br>集合D的经验熵H(D)与特征A给定条件下D的经验条件熵H(D|A)之差，即<br>$$g(D,A)&#x3D;H(D)-H(D|A)$$<br>信息增益表示信息不确定度减少的程度，所以固定的数据集D<b>信息增益越大的特征就越好</b>。</p>
+</blockquote>
+</li>
+<li><p><b>信息增益算法</b><br>输入：训练数据集D与特征A；<br>输出：特征A对训练数据集D的信息增益g(D,A)</p>
+<blockquote>
+<ul>
+<li>计算数据集D的经验熵H(D)<br>$$H(D)&#x3D;-\sum_{k&#x3D;1}^k \frac{|C_k|}{|D|} log_2 \frac{|C_k|}{|D|}$$</li>
+<li>计算特征A对数据集D的经验条件熵H(D|A)<br>$$H(D|A)&#x3D;\sum_{i&#x3D;1}^n H(D_i)$$</li>
+<li>计算信息增益<br>$$g(D,A)&#x3D;H(D)-H(D|A)$$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>其中D：数据集，|D|：样本容量，$C_k$：第k个类，$|C_k|$：第k个类的样本数<br>$D_i$：特征A将D划分开的各个数据子集，$|D_i|$：$D_i$的样本数</p>
+<ul>
+<li><b>信息增益比</b><br>在信息增益中，对于可取值数目较多的属性会有所偏好，即可取值数目较多的属性的信息增益会较大<br>为了避免这种情况，又增加了信息增益比这一概念，即特征A对训练数据集D的信息增益比为：<br>$$g_R(D,A)&#x3D;\frac{g(D,A)}{H(D)}$$</li>
+</ul>
+<p><b>注意：</b>信息增益比与信息增益的特性刚好相反，即可取值数目较少的属性的信息增益比会较大</p>
+</blockquote>
+<h4 id="决策树的生成"><a href="#决策树的生成" class="headerlink" title="决策树的生成"></a><b>决策树的生成</b></h4><h5 id="ID3算法"><a href="#ID3算法" class="headerlink" title="ID3算法"></a><b>ID3算法</b></h5><blockquote>
+<p>ID3算法的核心在与决策树上的每个结点都是用信息增益作为标准来选择特征。<br>具体步骤大致为：从根结点开始，对结点计算所有可能特征的信息增益，选择信息增益最大的特征作为结点特征，根据该特征的划分建立子结点，再对子结点递归调用以上方法，直到没有特征可选择或者所有信息增益都很小为止。<br><b>算法描述：</b></p>
+<blockquote>
+<p>输入：训练数据集D，特征集A，（阈值$\epsilon$）<br>输出：决策树T</p>
+<ul>
+<li>若D中所有实例属于同一类$C_k$，则T为单结点树，并将类$C_k$作为该结点的类标记，返回T</li>
+<li>若A为空集，则T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，计算A中各特征对D的信息增益，选择信息增益最大的特征$A_g$</li>
+<li>如果$A_g$的信息增益小于阈值$\epsilon$，则置T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，对$A_g$的每一个可能值$a_i$，按照$A_g&#x3D;a_i$将D分割为若干非空子集$D_i$，将$D_i$中实例数最多的类作为标记，构建子结点，由结点及其子结点构建树T，返回T</li>
+<li>对第i个子结点，以$D_i$为训练集，以$A-A_g$为特征集，递归调用上述步骤，得到子树$T_i$，最终返回T</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="C4-5算法"><a href="#C4-5算法" class="headerlink" title="C4.5算法"></a><b>C4.5算法</b></h5><blockquote>
+<p>C4.5算法与ID3算法相类似，C4.5算法在生成过程中，用的是信息增益比作为特征选择的标准。其他与ID3算法一致<br><b>算法描述：</b></p>
+<blockquote>
+<p>输入：训练数据集D，特征集A，（阈值$\epsilon$）<br>输出：决策树T</p>
+<ul>
+<li>若D中所有实例属于同一类$C_k$，则T为单结点树，并将类$C_k$作为该结点的类标记，返回T</li>
+<li>若A为空集，则T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，计算A中各特征对D的信息增益比，选择信息增益比最大的特征$A_g$</li>
+<li>如果$A_g$的信息增益比小于阈值$\epsilon$，则置T为单结点树，并将D中实例数最多的类$C_k$作为该结点的类标记，返回T</li>
+<li>否则，对$A_g$的每一个可能值$a_i$，按照$A_g&#x3D;a_i$将D分割为若干非空子集$D_i$，将$D_i$中实例数最多的类作为标记，构建子结点，由结点及其子结点构建树T，返回T</li>
+<li>对第i个子结点，以$D_i$为训练集，以$A-A_g$为特征集，递归调用上述步骤，得到子树$T_i$，最终返回T</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="决策树的剪枝"><a href="#决策树的剪枝" class="headerlink" title="决策树的剪枝"></a><b>决策树的剪枝</b></h4><blockquote>
+<p>$\quad$决策树是递归产生决策树的，这样的方法往往会出现过拟合的现象。出现这个问题往往是因为决策树的复杂度太高了，因此需要对决策树进行简化。<br>$\quad$剪枝就是简化决策树的方法。具体地，剪枝就是在已经生成的树上剪掉一些子树或者叶结点，并将其根结点或父结点作为新的叶结点。<br>$\quad$决策树的剪枝算法有很多种，但是主要分为两大类：<b>预剪枝</b>、<b>后剪枝</b></p>
+<ul>
+<li><p><b>预剪枝：</b></p>
+<blockquote>
+<p>预剪枝的思想就是在生成决策树的过程中就进行剪枝，例如在生成划分结点时，计算划分前与划分后的验证集精度，然后比较它们，如果划分后的验证集精度小于划分前的验证集精度，那么就剪枝，否则就不剪枝。<br>需要注意的是，这种方法是采用一种贪心策略，仅仅寻找局部的最优解，容易产生欠拟合的现象。</p>
+</blockquote>
+</li>
+<li><p><b>后剪枝：</b></p>
+<blockquote>
+<p>与预剪枝类似，在决策树生成完成后，进行剪枝时，计算剪枝前与剪枝后的验证集精度，然后比较它们，如果剪枝后的验证集精度高于剪枝前的，那么就剪枝，否则不剪。</p>
+</blockquote>
+</li>
+</ul>
+<p>对于剪枝，这里只写一下思路，实际上有许许多多的算法可以对决策树进行剪枝（可以自己百度）。</p>
+</blockquote>
+<h4 id="CART算法"><a href="#CART算法" class="headerlink" title="CART算法"></a><b>CART算法</b></h4><blockquote>
+<p>$\quad$分类与回归树（CART）模型与1984年被提出，CART同样由<b>特征选择</b>、<b>树的生成</b>和<b>树的剪枝</b>三部分组成<br>$\quad$CART假定决策树为二叉树，并且内部结点特征取值只有<b>是</b>和<b>否</b>，并且左分支为“是”，右分支为“否”。<br>$\quad$决策树的生成就是递归构建二叉决策树的过程，对<b>回归树</b>用平方误差最小化准则，对<b>分类树</b>用基尼指数最小化准则进行特征选择。</p>
+</blockquote>
+<h5 id="回归树"><a href="#回归树" class="headerlink" title="回归树"></a><b>回归树</b></h5><blockquote>
+<p>$\quad$回归树就是通过训练集划分区间，而每个区间都会有一个取值，当输入变量x时开始寻找这个点所在的区间，然后将对应区间的取值输出。<br>$\quad$回归树的生成主要考虑两个问题：<b>怎么划分</b>和<b>输出值怎么确定</b><br>$\quad$首先回答比较简单的<b>输出值怎么确定</b></p>
+<blockquote>
+<p>当划分好区间后，将区间内所有取值的<b>平均值</b>作为输出，即<br>$$c&#x3D;ave(y_i|x_i \in R_1(j,s))$$</p>
+</blockquote>
+<p><b>怎么划分</b>： </p>
+<blockquote>
+<p>回归树利用<b>平方误差最小化</b>作为划分准则，即<br>采用启发式的方法，选择第j个变量$x^{(j)}$与它的取值s，作为切分变量和切分点，从而得到两个区域<br>$$R_1(j,s)&#x3D;(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)&#x3D;(x|x^{(j)} &gt; s )$$<br>然后在所有的切分点中寻找最优的切分点，即<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>其中，$c_1&#x3D;ave(y_i|x_i \in R_1(j,s)) \quad \quad \quad c_1&#x3D;ave(y_i|x_i \in R_1(j,s))$<br>遍历所有输入变量，找到最优的切分变量j，构成一对(j,s)。根据这个点将空间划分两个区域，接着对每个区域重复上述划分过程，直到满足条件为止。</p>
+</blockquote>
+<p><b>具体算法如下：</b></p>
+<blockquote>
+<p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)&#x3D;(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)&#x3D;(x|x^{(j)} &gt; s )$$<br>$$c_m&#x3D;ave(y_i|x_i \in R_m(j,s))$$<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
+</blockquote>
+</blockquote>
+<h5 id="分类树"><a href="#分类树" class="headerlink" title="分类树"></a><b>分类树</b></h5><blockquote>
+<p>分类树的算法与前面的ID3和C4.5算法大致类似。都是根据某一个特征选择的标准参数来进行特征选择，然后构造决策树。CART中的分类树则是根据<b>基尼指数</b>进行选择。</p>
+<ul>
+<li><b>基尼指数</b>：<blockquote>
+<p>基尼指数指的是样本集合中一个随机选中的样本被分错的概率，即基尼指数越小那么样本中被分错的概率就越小。<br>基尼指数（基尼不纯度）&#x3D;样本被选中的概率 * 样本被分错的概率<br><b>定义：</b></p>
+<ul>
+<li>设有K个类，样本点属于第k类的概率为$p_k$，则概率分布的基尼指数定义为：<br>$$Gini(p)&#x3D;\sum_{k&#x3D;1}^K p_k(1-p_k)&#x3D;1- \sum_{k&#x3D;1}^K p_k ^2$$</li>
+<li>如果是二分类问题设第一类的概率为p，那么其基尼指数为：<br>$$Gini(p)&#x3D;2p(1-p)$$</li>
+<li>对于指定的样本集合D，其基尼指数为(其中$C_k$是D中属于第k类的样本子集，K是类的个数)：<br>$$Gini(D)&#x3D;1-\sum_{k&#x3D;1}^K(\frac{|C_k|}{|D|})^2$$</li>
+<li>在特征A的条件下，集合D的基尼指数定义为：<br>$$Gini(D,A)&#x3D;\frac{|D_1|}{|D|}Gini(D_1)+\frac{|D_2|}{|D|}Gini(D_2)$$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p> <b>算法描述：</b></p>
+<blockquote>
+<p><b>输入：</b>训练数据集D，停止计算的条件<br><b>输出：</b>CART决策树<br>(1) 设结点的训练数据集为D，计算现有特征对该数据集的基尼指数。此时，对每一个特征A，对其可能取的每一个值a，根据样本点对A&#x3D;a的测试为“是”或“否”将D分为$D_1$和$D_2$两部分，并计算A&#x3D;a的基尼指数。<br>(2) 在所有可能的特征A及其它们所有可能的切分点a中，<b>选择基尼指数最小的特征</b>及其对应的切分点作为最优特征与最优切分点，根据这个从现结点生成两个子结点，并将训练数据集依照特征分配到两个子结点中去。<br>(3) 对两个子结点递归调用(1),(2)，直到满足条件为止。<br>(4) 生成CART决策树<br><b>补充：</b>停止条件一般为结点中样本个数小于预定的阈值，或样本中的基尼指数小于阈值，或者没有更多特征了。</p>
+</blockquote>
+</blockquote>
+<h5 id="CART剪枝"><a href="#CART剪枝" class="headerlink" title="CART剪枝"></a><b>CART剪枝</b></h5><blockquote>
+<p>在CART中决策树的剪枝遵循着一个算法，但是我…<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E6%88%91%E6%91%B8%E5%88%B0%E4%BA%86.jpg" alt="摸鱼" title="摸鱼"></p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">决策树模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">决策树的特征选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">决策树的生成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ID3%E7%AE%97%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">ID3算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#C4-5%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">C4.5算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E5%89%AA%E6%9E%9D"><span class="toc-number">4.</span> <span class="toc-text">决策树的剪枝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CART%E7%AE%97%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">CART算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%A0%91"><span class="toc-number">5.1.</span> <span class="toc-text">回归树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%A0%91"><span class="toc-number">5.2.</span> <span class="toc-text">分类树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CART%E5%89%AA%E6%9E%9D"><span class="toc-number">5.3.</span> <span class="toc-text">CART剪枝</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

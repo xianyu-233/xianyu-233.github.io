@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>感知机代码实现 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="算法描述：
+
+
+输入：训练数据集$T&amp;#x3D;[(x_1,y_1),(x_2,y_2),…,(x_N,y_N)]$,其中$x_i{\in}&amp;#x3D;R^n,y_i{\in}(-1,1),i&amp;#x,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">感知机代码实现</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">感知机代码实现</h1>
+        <div class="stuff">
+            <span>八月 16, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="算法描述："><a href="#算法描述：" class="headerlink" title="算法描述："></a><b>算法描述：</b></h4><blockquote>
+<blockquote>
+<ul>
+<li><b>输入：</b>训练数据集$T&#x3D;[(x_1,y_1),(x_2,y_2),…,(x_N,y_N)]$,其中$x_i{\in}&#x3D;R^n,y_i{\in}(-1,1),i&#x3D;1,2,…,N$;学习率$\eta(0&lt;{\eta}\le1)$</li>
+<li><b>输出：</b>$\alpha,b$;感知机模型$f(x)&#x3D;sign(\sum^N_{j&#x3D;1}\alpha_jy_jx_j{\cdot}x+b)$<br>其中$\alpha&#x3D;(\alpha_1,\alpha_2,…,\alpha_N)^T$<br>(1) $\alpha\to0,b\to0$<br>(2) 在训练集中选取数据$(x_i,y_i)$<br>(3) 如果$y_i(\sum^N_{j&#x3D;1}\alpha_jy_jx_j{\cdot}x+b)\le0$<br>$$\omega+{\eta}y_ix_i{\to}\omega$$</li>
+</ul>
+<p>$$b+{\eta}y_i{\to}b$$<br>(4) 转至第(2)步直到没有误分类点数据（或者达到最大的循环次数）。</p>
+</blockquote>
+</blockquote>
+<h4 id="代码区"><a href="#代码区" class="headerlink" title="代码区"></a><b>代码区</b></h4><blockquote>
+<p><b>导入的包：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>导入数据的函数：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">createIrisDataSet</span>():</span><br><span class="line">   data = load_iris()</span><br><span class="line">   tt = data.data</span><br><span class="line">   dt = pd.DataFrame(data=data.data, columns=data.feature_names)</span><br><span class="line">   dt[<span class="string">&#x27;species&#x27;</span>] = data.target</span><br><span class="line">   data = dt</span><br><span class="line">   data.rename(columns=&#123;<span class="string">&#x27;sepal length (cm)&#x27;</span>: <span class="string">&quot;萼片长&quot;</span>, <span class="string">&#x27;sepal width (cm)&#x27;</span>: <span class="string">&quot;萼片宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;petal length (cm)&#x27;</span>: <span class="string">&quot;花瓣长&quot;</span>, <span class="string">&#x27;petal width (cm)&#x27;</span>: <span class="string">&quot;花瓣宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;species&#x27;</span>: <span class="string">&quot;种类&quot;</span>&#125;, inplace=<span class="literal">True</span>)</span><br><span class="line">  <span class="comment"># kind_dict = &#123;0: &quot;山鸢尾&quot;, 1: &quot;杂色鸢尾&quot;, 2: &quot;维吉尼亚鸢尾&quot;&#125;</span></span><br><span class="line">  <span class="comment"># data[&quot;种类&quot;] = data[&quot;种类&quot;].map(kind_dict)</span></span><br><span class="line">   <span class="keyword">return</span> data, tt  <span class="comment"># 返回一个带标签的数据集和一个不带标签的数据集</span></span><br></pre></td></tr></table></figure>
+<p><b>画图函数：</b></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">plot</span>(<span class="params">data, slope, intercept</span>):</span><br><span class="line">   <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   @description: 画出点和超平面（直线）</span></span><br><span class="line"><span class="string">   @param data: 点的坐标</span></span><br><span class="line"><span class="string">   @param label: 点的标签</span></span><br><span class="line"><span class="string">   @param slope: 直线的斜率</span></span><br><span class="line"><span class="string">   @param intercept: 直线的纵截距</span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>] <span class="comment"># 设置字体</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br><span class="line">   plt.xlabel(<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">   plt.ylabel(<span class="string">&#x27;Y&#x27;</span>)</span><br><span class="line">   area = np.pi * <span class="number">2</span> ** <span class="number">2</span> <span class="comment"># 点的面积</span></span><br><span class="line"></span><br><span class="line">   data_mat = np.array(data)</span><br><span class="line">   X = data_mat[:, <span class="number">0</span>]</span><br><span class="line">   Y = data_mat[:, <span class="number">1</span>]</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(data_mat.shape[<span class="number">0</span>]):</span><br><span class="line">       <span class="keyword">if</span> data_mat[i][<span class="number">2</span>] &gt; <span class="number">0</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;red&#x27;</span>)  <span class="comment"># 画点</span></span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">   <span class="comment"># 根据斜率和截距画出直线</span></span><br><span class="line">   axes = plt.gca()</span><br><span class="line">   x_vals = np.array(axes.get_xlim())</span><br><span class="line">   y_vals = intercept + slope * x_vals</span><br><span class="line">   plt.plot(x_vals, y_vals)</span><br><span class="line">   plt.show()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>感知机原始形式的核心代码：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始形式</span></span><br><span class="line"><span class="comment"># dataSet为数据集，loop_max为循环最大次数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">perceptron</span>(<span class="params">dataSet, loop_max</span>):</span><br><span class="line">   eta = <span class="number">1</span>   <span class="comment"># 学习率</span></span><br><span class="line">   features = dataSet.shape[<span class="number">1</span>] - <span class="number">1</span>     <span class="comment"># x特征数量</span></span><br><span class="line">   w = np.array([x*<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,features)])</span><br><span class="line">   b = <span class="number">0</span></span><br><span class="line">   <span class="keyword">for</span> times <span class="keyword">in</span> <span class="built_in">range</span>(loop_max):</span><br><span class="line">       <span class="keyword">for</span> d <span class="keyword">in</span> dataSet:</span><br><span class="line">           x = d[:-<span class="number">1</span>]</span><br><span class="line">           y = d[-<span class="number">1</span>]</span><br><span class="line">           <span class="keyword">if</span> y*(w@x+b) &lt;= <span class="number">0</span>:    <span class="comment"># 判断这是否是一个误分类点,@为矩阵之间的点乘</span></span><br><span class="line">               w = w + eta*y*x</span><br><span class="line">               b = b + eta*y</span><br><span class="line">   <span class="keyword">return</span> w, b</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>整体代码：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">createIrisDataSet</span>():</span><br><span class="line">   data = load_iris()</span><br><span class="line">   tt = data.data</span><br><span class="line">   dt = pd.DataFrame(data=data.data, columns=data.feature_names)</span><br><span class="line">   dt[<span class="string">&#x27;species&#x27;</span>] = data.target</span><br><span class="line">   data = dt</span><br><span class="line">   data.rename(columns=&#123;<span class="string">&#x27;sepal length (cm)&#x27;</span>: <span class="string">&quot;萼片长&quot;</span>, <span class="string">&#x27;sepal width (cm)&#x27;</span>: <span class="string">&quot;萼片宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;petal length (cm)&#x27;</span>: <span class="string">&quot;花瓣长&quot;</span>, <span class="string">&#x27;petal width (cm)&#x27;</span>: <span class="string">&quot;花瓣宽&quot;</span>,</span><br><span class="line">                        <span class="string">&#x27;species&#x27;</span>: <span class="string">&quot;种类&quot;</span>&#125;, inplace=<span class="literal">True</span>)</span><br><span class="line">  <span class="comment"># kind_dict = &#123;0: &quot;山鸢尾&quot;, 1: &quot;杂色鸢尾&quot;, 2: &quot;维吉尼亚鸢尾&quot;&#125;</span></span><br><span class="line">  <span class="comment"># data[&quot;种类&quot;] = data[&quot;种类&quot;].map(kind_dict)</span></span><br><span class="line">   <span class="keyword">return</span> data, tt  <span class="comment"># 返回一个带标签的数据集和一个不带标签的数据集</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 原始形式</span></span><br><span class="line"><span class="comment"># dataSet为数据集，loop_max为循环最大次数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">perceptron</span>(<span class="params">dataSet, loop_max</span>):</span><br><span class="line">   eta = <span class="number">1</span>   <span class="comment"># 学习率</span></span><br><span class="line">   features = dataSet.shape[<span class="number">1</span>] - <span class="number">1</span>     <span class="comment"># x特征数量</span></span><br><span class="line">   w = np.array([x*<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,features)])</span><br><span class="line">   b = <span class="number">0</span></span><br><span class="line">   <span class="keyword">for</span> times <span class="keyword">in</span> <span class="built_in">range</span>(loop_max):</span><br><span class="line">       <span class="keyword">for</span> d <span class="keyword">in</span> dataSet:</span><br><span class="line">           x = d[:-<span class="number">1</span>]</span><br><span class="line">           y = d[-<span class="number">1</span>]</span><br><span class="line">           <span class="keyword">if</span> y*(w@x+b) &lt;= <span class="number">0</span>:    <span class="comment"># 判断这是否是一个误分类点,@为矩阵之间的点乘</span></span><br><span class="line">               w = w + eta*y*x</span><br><span class="line">               b = b + eta*y</span><br><span class="line">   <span class="keyword">return</span> w, b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot</span>(<span class="params">data, slope, intercept</span>):</span><br><span class="line">   <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">   @description: 画出点和超平面（直线）</span></span><br><span class="line"><span class="string">   @param data: 点的坐标</span></span><br><span class="line"><span class="string">   @param label: 点的标签</span></span><br><span class="line"><span class="string">   @param slope: 直线的斜率</span></span><br><span class="line"><span class="string">   @param intercept: 直线的纵截距</span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>] <span class="comment"># 设置字体</span></span><br><span class="line">   plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br><span class="line">   plt.xlabel(<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">   plt.ylabel(<span class="string">&#x27;Y&#x27;</span>)</span><br><span class="line">   area = np.pi * <span class="number">2</span> ** <span class="number">2</span> <span class="comment"># 点的面积</span></span><br><span class="line"></span><br><span class="line">   data_mat = np.array(data)</span><br><span class="line">   X = data_mat[:, <span class="number">0</span>]</span><br><span class="line">   Y = data_mat[:, <span class="number">1</span>]</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(data_mat.shape[<span class="number">0</span>]):</span><br><span class="line">       <span class="keyword">if</span> data_mat[i][<span class="number">2</span>] &gt; <span class="number">0</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;red&#x27;</span>)  <span class="comment"># 画点</span></span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           plt.scatter(X[i].tolist(), Y[i].tolist(), s=area, color=<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">   <span class="comment"># 根据斜率和截距画出直线</span></span><br><span class="line">   axes = plt.gca()</span><br><span class="line">   x_vals = np.array(axes.get_xlim())</span><br><span class="line">   y_vals = intercept + slope * x_vals</span><br><span class="line">   plt.plot(x_vals, y_vals)</span><br><span class="line">   plt.show()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   dataSet, tt = createIrisDataSet()</span><br><span class="line">   dataSet = dataSet[<span class="number">0</span>:<span class="number">100</span>]</span><br><span class="line">   dataSet = dataSet.drop([<span class="string">&#x27;花瓣长&#x27;</span>, <span class="string">&#x27;萼片宽&#x27;</span>], axis=<span class="number">1</span>)</span><br><span class="line">   dataSet = np.array(dataSet)</span><br><span class="line">   <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(dataSet.shape[<span class="number">0</span>]):</span><br><span class="line">       <span class="keyword">if</span> dataSet[a][<span class="number">2</span>] == <span class="number">0</span>:</span><br><span class="line">           dataSet[a][<span class="number">2</span>] = -<span class="number">1</span></span><br><span class="line">   loop_max = <span class="number">1000</span></span><br><span class="line">   w,b=perceptron(dataSet,loop_max)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;感知机学习算法的原始形态，计算结果如下：&#x27;</span>)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;w:&#x27;</span>,w,<span class="string">&#x27;b:&#x27;</span>,b)</span><br><span class="line">   <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line">   slope = -w[<span class="number">0</span>] / w[<span class="number">1</span>]  <span class="comment"># 斜率</span></span><br><span class="line">   intercept = -b / w[<span class="number">1</span>]  <span class="comment"># 截距</span></span><br><span class="line"></span><br><span class="line">   plot(dataSet, slope, intercept)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>结果：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">感知机学习算法的原始形态，计算结果如下：</span><br><span class="line">w: [-0.5  5.6] b: -2.0</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%84%9F%E7%9F%A5%E6%9C%BA/%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C.png" alt="感知机代码结果"></p>
+</blockquote>
+</blockquote>
+<h4 id="感知机的优缺点："><a href="#感知机的优缺点：" class="headerlink" title="感知机的优缺点："></a><b>感知机的优缺点：</b></h4><blockquote>
+<p><b>优点：</b></p>
+<blockquote>
+<ul>
+<li>理论简单，实现方便</li>
+<li>无论数据集大小如何都可以训练出一个较可靠的模型</li>
+</ul>
+</blockquote>
+<p><b>缺点：</b></p>
+<blockquote>
+<ul>
+<li>要求训练集必须是线性可分的，否则模型难以收敛</li>
+<li>训练出来的模型只是解集中的可行解，不一定是最优解</li>
+</ul>
+</blockquote>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">算法描述：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%8C%BA"><span class="toc-number">2.</span> <span class="toc-text">代码区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">感知机的优缺点：</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

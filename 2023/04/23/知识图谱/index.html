@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>知识图谱 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="知识图谱
+什么是知识图谱：
+知识图谱本质是一个语义网络；它是一个基于图的数据结构，由边和节点构成，节点表示实体，边表示两个节点之间的关系。
+
+知识图谱的表现形式
+知识图谱实际上就是三元组，形式为**,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">知识图谱</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">知识图谱</h1>
+        <div class="stuff">
+            <span>四月 23, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag">自然语言处理</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><ul>
+<li><p><strong>什么是知识图谱：</strong></p>
+<p>知识图谱本质是一个语义网络；它是一个基于图的数据结构，由边和节点构成，节点表示<strong>实体</strong>，边表示两个节点之间的<strong>关系</strong>。</p>
+</li>
+<li><p><strong>知识图谱的表现形式</strong></p>
+<p>知识图谱实际上就是三元组，形式为**&lt;实体，关系，实体&gt;<strong>或</strong>&lt;实体，属性，属性值&gt;**</p>
+</li>
+<li><p><strong>知识图谱的构成：</strong></p>
+<ul>
+<li><p><strong>数据模式（schema）：</strong>一个领域内的数据模型，即包含了这个领域里面有意义的概念类型（type）以及这些类型的属性（property），schema主要是去定义需求。</p>
+</li>
+<li><p><strong>域（domain）：</strong>域的概念是凌驾于所有类型之上，对域的定义尽量抽象，而且域与域之间尽量相互独立。例如，地理位置域，而省份；城市；国家；等则不能作为域（以为它们有所交叉）</p>
+</li>
+<li><p><strong>域的类型（type）：</strong>构建这个schema的核心需求是什么，到底解决用户什么问题。为了满足这些需求，我们需要创造出哪些概念？</p>
+</li>
+<li><p><strong>本体：</strong>用于描述事物的本质，是对于特定领域真实存在的实体的类型、属性，以及它们之间的相互关系的一种定义</p>
+</li>
+<li><p><strong>实体：</strong>客观世界的事物，是构成知识图谱的基本单位。</p>
+</li>
+<li><p><strong>关系：</strong>指两个或多个实体之间的某种联系（如，广州-位于-中国，其中位于就是一种关系）。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>构造知识图谱的方式：</strong></p>
+<ul>
+<li><p><strong>自顶向下（Top-Down）</strong>：即首先为知识图谱定义数据模式，数据模式从最顶层概念构建，逐步向下细化，形成结构良好的分类学层次，然后再添加实体</p>
+</li>
+<li><p><strong>自底向上（Bottom-Up）：</strong>即首先对实体进行归纳组织，形成底层概念，然后逐步向上抽象，形成上层概念。</p>
+</li>
+</ul>
+<p>自底向上的方式适合构建通用领域的知识图谱，以及数据、业务非常复杂某些行业领域知识图谱；而自顶向下的方式适合构建行业垂直领域知识图谱</p>
+</li>
+<li><p><strong>例子：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/%E4%BE%8B%E5%AD%90.png" alt="例子"></p>
+<p>这里将电影名作为实体，将电影类型、时长、语言、别名作为该类型实体的属性；</p>
+<p>将地区定为一个实体，但暂时没有属性</p>
+<p>将人作为一个实体，将性别、出生年月、国籍、职业作为它的属性</p>
+<p>根据这三个实体，可以两两定义出它们之间的关系：执导、出演、上映于；从而得到三元组&lt;人，执导，电影&gt;、&lt;人，出演，电影&gt;、&lt;电影，上映于，地区&gt;</p>
+</li>
+<li><p><strong>知识抽取：</strong>从语句中抽取构造知识图谱所需要的实体、关系、属性和事件；为了进行知识抽取，于是就有了<strong>实体识别</strong>、<strong>关系抽取</strong>、<strong>属性抽取</strong>、事件抽取等技术</p>
+<ul>
+<li><p><strong>实体识别：</strong>实体识别的主要任务就是识别待处理文本中三大类（实体类、时间类、数字类）、七小类（人名、机构名、地名、时间、日期、货币、百分比）命名实体（当然我们也可以自己定义相关的实体类别，不一定仅局限于上述的几类）。<br>例如，在语句”2019年香港演员古天乐有18部电影上映，他可真是电影界劳模“中，”香港演员“、”古天乐“、”他“都表示一个任务的实体，其中”他“是指称实体，”古天乐“是命名实体。</p>
+<p>一般所说的实体识别是指<strong>命名实体识别（NER）</strong>，它包括：判断实体边界位置、区分实体类别两个步骤</p>
+<p><strong>NER的标注方式：</strong>为了训练NER模型，需要先对数据进行标注。常用的标注形式有：BIEOS、BMEOS、BIO（这里每个大写字母为一个含义，不是什么词组缩写）。以BIEOS为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">《  O</span><br><span class="line">影  MOV-S</span><br><span class="line">》  O</span><br><span class="line">是  O</span><br><span class="line">由  O</span><br><span class="line">张  PER-B</span><br><span class="line">艺  PER-I</span><br><span class="line">谋  PER-E</span><br><span class="line">导  O</span><br><span class="line">演  O</span><br><span class="line">，  O</span><br><span class="line">孙  PER-B</span><br><span class="line">俪  PER-E</span><br><span class="line">和  O</span><br><span class="line">邓  PER-B</span><br><span class="line">超  PER-E</span><br><span class="line">主  O</span><br><span class="line">演  O</span><br><span class="line">的  O</span><br><span class="line">一  O</span><br><span class="line">部  O</span><br><span class="line">电  O</span><br><span class="line">影  O</span><br><span class="line">。  O</span><br></pre></td></tr></table></figure>
+
+<p>其中，</p>
+<p>O表示非实体名称字符；</p>
+<p>S表示单个字符的实体名称（MOV-S就表示这是一个电影的单字符实体）</p>
+<p>B表示实体名称的开始位置（PER-B表示这是一个人名实体开始的位置）</p>
+<p>I&#x2F;M表示实体名称的中间位置（PER-I表示这是一个人名实体中间的位置）</p>
+<p>E表示实体名称的结尾位置（PER-E表示这是一个人名实体结尾的位置）</p>
+<p>其中，MOV、PER用于表示电影名、人名这两类实体</p>
+<p><strong>命名实体识别（NER）</strong>要做的工作就是在上述语句中判断张艺谋三个字中”张“是实体开始的位置，”艺“是实体中间的位置，”某“是实体结束的位置。本质上，这是一个序列标注问题，也可以是一个多分类问题。</p>
+<p><strong>NER常用算法：</strong>基于规则模板的算法、基于机器学习的算法、基于神经网络的算法。</p>
+<ul>
+<li><p><strong>基于机器学习的算法：</strong> <strong>隐马尔科夫模型（HMM）</strong>、<strong>条件随机场（CRF）</strong>，其中无论是HMM还是CRF，它们的最终目的就是需要根据观察序列找到一条概率最大的输出序列路径，即将”张艺谋“的预测输出顺序为 ”PER-B、PER-I、PER-E“ ，而不是 ”PER-I、PER-B、PER-E“ 之类的错误路径，也就是B一定在I、E之前，E一定在B之后。</p>
+</li>
+<li><p><strong>基于神经网络的算法：</strong> <strong>BI-LSTM-CRF模型</strong>、<strong>BI-LSTM-softmax 模型</strong>、<strong>bert模型</strong></p>
+</li>
+</ul>
+<p><strong>NER评价指标：</strong>由于NER可以看作多分类任务，所以可以使用多分类的评估指标来评估NER模型效果，如F1值就是常用的评价指标<br>$$<br>正确率&#x3D;\frac{识别出的正确实体数}{识别出的实体数}<br>$$</p>
+<p>$$<br>召回率&#x3D;\frac{识别出的正确实体数}{样本的实体数}<br>$$</p>
+<p>正确率与召回率的取值都在0和1之间。正确率和召回率有时会出现矛盾的情况，这是需要综合考虑它们的<strong>加权调和均值</strong>，即F值，其中最常用的是F1值，<strong>当F1值较高时说明实验方法比较有效</strong>，F1值定义如下：<br>$$<br>F1&#x3D;\frac{2<em>正确率</em>召回率}{正确率+召回率}<br>$$</p>
+</li>
+<li><p><strong>关系抽取</strong></p>
+<p>关系抽取就是自动识别实体之间具有的某种语义关系，这里主要介绍二元关系抽取</p>
+<p><strong>关系抽取分类：</strong></p>
+<ul>
+<li><strong>面向结构化文本的关系抽取：</strong>结构化文本包括表格数据、XML文档以及数据库数据这类具有良好布局，抽取关系比较简单的数据。</li>
+<li><strong>面向非结构化文本的关系抽取：</strong>非结构化文本就是指纯文本，即一句”2019年香港演员古天乐有18部电影上映，他可真是电影界劳模“，文本中没有明确的关系。</li>
+<li><strong>面向半结构化文本的关系抽取：</strong>它不符合关系型数据库或其他数据表的形式关联起来的数据模型结构，但又包含相关标记，数据结构与内容混在一起。如HTML文档，json等</li>
+<li><strong>句子级关系抽取：</strong>也称为句子级关系分类，即从一个句子中抽取关系</li>
+<li><strong>篇章级关系抽取：</strong>该任务旨在判断两个实体之间是否具有语义关系，而不关心两实体之间是否具有上下文关系</li>
+</ul>
+<p>根据抽取的领域，关系抽取又可以分为：</p>
+<ul>
+<li><strong>限定领域关系抽取：</strong>指在一个或多个限定领域内对实体间的语义关系进行抽取。一般来说，在限定领域下，关系都是预先定义好的有限个类别，因此可以采用基于监督学习的方法来处理，即针对每个关系类别标注足够多的样本，然后使用多分类模型来训练关系抽取模型</li>
+<li><strong>开放领域关系抽取：</strong>该任务不限定关系的类别，依据模型对自然语言句子理解的结果从中开放式的抽取实体三元组</li>
+</ul>
+<p><strong>关系抽取的难点：</strong></p>
+<ul>
+<li>同一关系可以用多种不同的词汇进行表达：比如，“张艺谋执导了《影》” 和句子 “张艺谋导演了《影》” 都表达了张艺谋和《影》之间的导演关系。</li>
+<li>同一个短语或者词可能表达了不同的关系。比如：“李梅是我的姑娘”，这个“姑娘”到底指女儿呢还是女朋友呢？</li>
+<li>同一对实体之间可能存在不止一种关系。比如徐峥导演了《人在囧途》，徐峥也主演了《人在囧途》。</li>
+</ul>
+<p><strong>限定领域的非结构化文本的句子级关系抽取的常用算法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//任务</span><br><span class="line">输入：句子“Steve Jobs was the co-founder of Apple Inc”和两个实体 Steve Jobs 和 Apple Inc</span><br><span class="line">要求输出：实体之间的关系：/business/company/founder</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>基于模板的关系抽取方法</strong></p>
+<p>基于模板的关系抽取就是通过人工编辑或总结学习得到模板，然后使用这些模板去文本中匹配，匹配到了就代表着抽取到了指定实体之间的关系。例如，假设X和Y都表示公司实体，那么可以用以下模板表示“收购”关系：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X is acquired by Y</span><br><span class="line">X is purchased by Y</span><br><span class="line">X is bought by Y</span><br></pre></td></tr></table></figure>
+
+<p>当句子中所出现的实体的上下文出现上诉模板时，就可以认为这两个实体具备“收购”的语义关系</p>
+<p>但很明显，缺点在于这是纯人工的模板，都无法穷举所有模板，因此这种关系抽取的方法的召回率都特别低。（当然在此基础上，可以将学习到的模板进行聚类，于是就有了自提升策略的学习方法）</p>
+</li>
+<li><p><strong>基于特征工程的机器学习方法</strong></p>
+<p>基于特征的方法需要显示的将关系实例转化成分类器能够接受的特征向量，然后使用分类器模型进行训练。常见的关系抽取特征有以下几个：</p>
+<ul>
+<li>实体属性特征</li>
+<li>重叠特征</li>
+<li>依存句法特征</li>
+<li>句法树特征</li>
+</ul>
+<p>因为需要使用特征抽取工具来提取上述所列举的特征，所以要用到一些自然语言处理工具，同时特征抽取的过程是一个串联的（Pipeline）过程，前一步的输出要作为后一步的输入，显然，由于自然语言处理工具的性能不能保证百分百的准确，这不可避免的造成错误的累积和传递，导致抽取的特征不精准，当然最终的关系抽取效果就大打折扣了。所以现在都流行端到端（end to end）的模型</p>
+</li>
+<li><p><strong>基于神经网络的方法</strong></p>
+<p><strong>PCNN模型</strong></p>
+<p><strong>CNN+ATT模型</strong></p>
+<p><strong>bert模型</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>属性抽取</strong></p>
+<p>属性抽取可以转变成关系抽取，它们都是三元组，可以使用上述关系抽取模型来做</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"><span class="toc-number">1.</span> <span class="toc-text">知识图谱</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

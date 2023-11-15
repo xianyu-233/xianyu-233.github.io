@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>模型选择与模型优化 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="训练误差与测试误差
+显然对于一个训练模型来说，它都有两种策略可供选择：
+
+
+训练误差:$R_{emp}(f)&amp;#x3D;\frac{1}{N}\sum^N_{i&amp;#x3D;1}L(y_i,f(x_i,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">模型选择与模型优化</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">模型选择与模型优化</h1>
+        <div class="stuff">
+            <span>三月 25, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a><b>训练误差与测试误差</b></h4><blockquote>
+<p>显然对于一个训练模型来说，它都有两种策略可供选择：</p>
+<blockquote>
+<ul>
+<li><b>训练误差:</b>$R_{emp}(f)&#x3D;\frac{1}{N}\sum^N_{i&#x3D;1}L(y_i,f(x_i))$(其中N为训练样本集)</li>
+<li><b>测试误差:</b>$e_{test}(f)&#x3D;\frac{1}{M}\sum^M_{i&#x3D;1}L(y_i,f(x_i))$(其中M为测试样本集)</li>
+</ul>
+</blockquote>
+<p><b>两者的区别：</b></p>
+<ul>
+<li><b>训练误差</b>的大小,只能决定给定的问题是不是一个容易学习的问题,本质上并不重要。而<b>测试误差</b>则反映了该模型对未知训练集的预测能力。因此对于这两种策略，明显选择降低测试误差更要有意义。</li>
+<li>我们通常将对未知数据的预测能力称为<b>泛化能力</b>。</li>
+</ul>
+</blockquote>
+<h4 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a><b>过拟合</b></h4><blockquote>
+<p><b>定义:</b><br>过拟合是指学习时选择的模型所包含的参数过多,模型的复杂度过高,导致这一模型对<b>已知数据</b>的预测效果很好,但对<b>未知数据</b>预测效果很差的现象。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/%E8%BF%87%E6%8B%9F%E5%90%88.png" alt="过拟合" title="过拟合"></p>
+<ul>
+<li>上图中第三幅就是一个过拟合的例子。<br>那么为了避免过拟合问题，选出最佳模型，通常有<b>正则化</b>与<b>交叉验证</b>两种方案。</li>
+</ul>
+</blockquote>
+<h4 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a><b>正则化</b></h4><blockquote>
+<ul>
+<li>正则化是结构风险最小化策略的实现，它实际上是在<b>损失函数</b>上加一个<b>正则化项(有时也叫惩罚项)</b>。</li>
+<li>正则化项一般是模型复杂度的单调递增函数，即模型复杂度越大，正则化项就越大。</li>
+<li>正则化项可以是（一般也是）参数向量的<b>范数</b>。<br>正则化一般形式为：<br>$$min\ \frac{1}{N}\sum^N_{i&#x3D;1}L(y_i,f(x_i))+{\lambda}J(f)$$</li>
+</ul>
+<p><b>注：</b>其中$L(y_i,f(x_i))$为损失函数，${\lambda}J(f)$为正则化项，${\lambda}$为超参数，需要自己人工调节。<br>正则化可以取不同的形式，例如，在回归问题中，损失函数为<b>平方损失</b>，正则化分为：</p>
+<blockquote>
+<ul>
+<li><p><b>Lasso回归</b>：<br>$$L(\omega)&#x3D;\frac{1}{N}\sum^N_{i&#x3D;1}(f(x_i,\omega)-y_i)^2+{\lambda}\lVert{\omega}\rVert$$</p>
+</li>
+<li><p><b>Ridge回归</b>：<br>$$L(\omega)&#x3D;\frac{1}{N}\sum^N_{i&#x3D;1}(f(x_i,\omega)-y_i)^2+\frac{\lambda}{2}\lVert{\omega}\rVert^2$$</p>
+</li>
+</ul>
+</blockquote>
+<p><b>两者区别：</b></p>
+<blockquote>
+<ul>
+<li>Lasso回归加的是向量$\omega$的$L_1$范数，Ridge回归加的是向量$\omega$的$L_2$范数。</li>
+<li>Lasso回归可以更好地进行特征值的选择，Ridge回归性能优于Lasso回归。</li>
+</ul>
+</blockquote>
+<p><b>范数的定义：</b></p>
+<blockquote>
+<ul>
+<li>它定义在赋范线性空间中，并满足一定的条件，即①非负性；②齐次性；③三角不等式。它常常被用来度量某个向量空间（或矩阵）中的每个向量的长度或大小。</li>
+<li>$L_1$范数：$L_1&#x3D;(|\omega_1|+|\omega_2|+…+\omega_n)$</li>
+<li>$L_2$范数：$L_2&#x3D;(|\omega_1|^2+|\omega_2|^2+…+|\omega_n|^2)^{\frac{1}{2}}$</li>
+<li>$L_n$范数：$L_n&#x3D;(|\omega_1|^n+|\omega_2|^n+…+|\omega_n|^n)^{\frac{1}{n}}$</li>
+</ul>
+</blockquote>
+<p><b>正则项的作用：</b></p>
+<blockquote>
+<ul>
+<li>众所周知，过拟合出现的最大原因是出现了<b>无关参数</b>，<b>如</b>通过回归预测人的身高时，<b>有效的参数</b>应该是<b>人的年龄</b>，<b>人的骨骼生长情况</b>等，但是如果在模型中<b>多加一项财富</b>作为参数<b>（这很明显是无关参数）</b>，那么此时很可能会出现过拟合的现象。</li>
+<li>正则项的大小与参数有关，在加入了无关参数之后，正则项会因此变大。但是我们的策略是求损失函数的最小值，那么正则项也应该随之减小。正则项减小，那么无关参数也会迫使趋近于零，从而减少无关参数的影响，减弱过拟合现象。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a><b>交叉验证</b></h4><blockquote>
+<ul>
+<li><p>另一种常用的模型选择方法是交叉验证。</p>
+</li>
+<li><p>如果样本数据充足，进行<b>模型选择</b>的一种简单方法是<b>将数据分为三部分</b>，分别为<b>训练集</b>、<b>验证集</b>和<b>测试集</b>。训练集用于模型的训练、验证集用于模型的选择、测试集用于最终对学习方法的评估。</p>
+</li>
+<li><p>实际上数据是不充足的，此时可以采用交叉验证方法，即重复使用数据;把给定的数据进行切分，将切分的数据分为<b>训练集</b>和<b>测试集</b>。<br><b>交叉验证的分类：</b></p>
+</li>
+<li><p><b>简单交叉验证：</b></p>
+<blockquote>
+<p>随机地将数据分为两部分，一部分作为<b>训练集</b>，另一部分作为<b>测试集</b>，然后用测试集在各种条件下（如不同参数个数）训练模型，从而得到不同模型。在测试集上评价各个模型的<b>测试误差</b>，选出测试误差最小的模型。</p>
+</blockquote>
+</li>
+<li><p><b>S折交叉验证</b></p>
+<blockquote>
+<p>首先随机地将已知的数据集切分为S个互不相交、大小相同的子集;然后利用S-1个子集的数据训练模型，利用剩下的子集测试模型;将这一过程对可能的S种选择重复进行，最后选出S次评测中平均测试误差最小的模型。</p>
+</blockquote>
+</li>
+<li><p><b>留一交叉验证</b></p>
+<blockquote>
+<p>S折交叉验证的特殊情况是S&#x3D;N，称为留一交叉验证，往往在数据缺乏的情况下使用。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E4%B8%8E%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.</span> <span class="toc-text">训练误差与测试误差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">过拟合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">正则化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="toc-number">4.</span> <span class="toc-text">交叉验证</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

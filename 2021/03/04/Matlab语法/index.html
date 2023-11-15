@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Matlab语法 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="一、界面介绍
+matlab软件界面：
+
+matlab一般包括两个窗口，一个是编辑器窗口,另一个是命令行窗口。
+matlab与python一样也分交互式编程和脚本式编程。交互式编程清屏命令：
+
+clc,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Matlab语法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Matlab语法</h1>
+        <div class="stuff">
+            <span>三月 04, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="一、界面介绍"><a href="#一、界面介绍" class="headerlink" title="一、界面介绍"></a><b>一、界面介绍</b></h4><blockquote>
+<p><b>matlab软件界面：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/matlab%E7%95%8C%E9%9D%A2.png" alt="Matlab" title="界面"></p>
+<ul>
+<li>matlab一般包括两个窗口，一个是<b>编辑器窗口</b>,另一个是<b>命令行窗口</b>。</li>
+<li>matlab与python一样也分<b>交互式编程</b>和<b>脚本式编程</b>。<br><b>交互式编程清屏命令：</b><blockquote>
+<ul>
+<li><code>clc</code>,清除命令行窗口的所有东西</li>
+<li><code>clear all</code>,清除工作区中所有的变量</li>
+<li><code>clear a</code>,清除工作区的a变量</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><b>注释</b></p>
+<ul>
+<li><p>大段的注释<code>%% %%</code><br><b>如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%%e=3</span></span><br><span class="line"><span class="comment">%%</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>单行的注释<code>% </code><br><b>如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%这是注释</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h4 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a><b>二、数据类型</b></h4><blockquote>
+<p>Matlab的数据类型包括<b>数字</b>、<b>字符与字符串</b>、<b>矩阵</b>、<b>元胞数组</b>和<b>结构体</b></p>
+<ul>
+<li><p><b>数字:</b></p>
+<blockquote>
+<p>Matlab中数字类型的变量可以类似与python中直接赋值</p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">3</span></span><br><span class="line">b=<span class="number">1.2</span></span><br><span class="line">a+b</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E6%95%B0%E5%AD%97.jpg" alt="数字类型" title="数字"></p>
+</blockquote>
+</li>
+<li><p><b>字符与字符串</b></p>
+<blockquote>
+<p>matlab中字符与字符串与C语言等赋值方法一致。</p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="built_in">abs</span>(s) <span class="comment">% 返回s的ascii值</span></span><br><span class="line">char(<span class="number">65</span>) <span class="comment">% 返回ascii为65的字符串</span></span><br><span class="line"></span><br><span class="line">str=<span class="string">&#x27;这是一条字符串&#x27;</span></span><br><span class="line"><span class="built_in">length</span>(str) <span class="comment">% 返回str的长度（空格也算一个长度）</span></span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%AD%97%E7%AC%A6.jpg" alt="字符类型" title="char"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵</b></p>
+<blockquote>
+<p>在Matlab中可以方便的对矩阵进行各种操作</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B=A&#x27;		<span class="comment">% 对矩阵A求转置</span></span><br><span class="line">A(:)		<span class="comment">% 将矩阵A所有列合成一列</span></span><br><span class="line">D=inv(A)	<span class="comment">% 对方阵A求逆</span></span><br><span class="line">D*A		<span class="comment">% 矩阵相乘</span></span><br><span class="line"></span><br><span class="line">E= <span class="built_in">zeros</span>(<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>)             <span class="comment">% 创建一个3维的5行4列的全0矩阵</span></span><br><span class="line">E(:,:,<span class="number">1</span>) = <span class="built_in">rand</span>(<span class="number">5</span>,<span class="number">4</span>)        <span class="comment">% 创建一个0—1的5行4列的随机矩阵</span></span><br><span class="line">E(:,:,<span class="number">2</span>) = randi(<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>)     <span class="comment">% 创建一个小于6的5行4列的随机均匀分布整数矩阵</span></span><br><span class="line">E(:,:,<span class="number">3</span>) = <span class="built_in">randn</span>(<span class="number">5</span>,<span class="number">4</span>)       <span class="comment">% 创建一个5行4列的标准正态分布随机矩阵</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>元胞数组</b></p>
+<blockquote>
+<p>元胞数组是数组的一种,数据中可以有不同的数据类型，它类似于C语言中的结构体或C++中的对象，关键字为<code>cell</code>。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A = cell(<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line">A&#123;<span class="number">2</span>&#125; = <span class="built_in">eye</span>(<span class="number">3</span>)       <span class="comment">% 生成一个3*3，对角线数值为1的矩阵</span></span><br><span class="line">A&#123;<span class="number">5</span>&#125; = <span class="built_in">magic</span>(<span class="number">5</span>)     <span class="comment">% 生成一个5阶幻方</span></span><br><span class="line">B = A&#123;<span class="number">5</span>&#125;            <span class="comment">% 幻方的行、列和斜线之和都相等</span></span><br></pre></td></tr></table></figure>
+<p><b>运行结果</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E5%85%83%E8%83%9E%E6%95%B0%E7%BB%84.jpg" alt="元胞数组" title="元胞数组"></p>
+</blockquote>
+</li>
+<li><p><b>结构体</b> </p>
+<blockquote>
+<p>类似于python中的字典，关键字为<code>struct</code></p>
+<p><b>如，</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">book = struct(<span class="string">&#x27;name&#x27;</span>,&#123;&#123;<span class="string">&#x27;Machine&#x27;</span>,<span class="string">&#x27;Learning&#x27;</span>&#125;&#125;,<span class="string">&#x27;price&#x27;</span>,[<span class="number">30</span>,<span class="number">40</span>])</span><br><span class="line">book.name           <span class="comment">% 取出结构体中的name项</span></span><br><span class="line">book.price          <span class="comment">% 取出结构体中的price项</span></span><br><span class="line">book.name(<span class="number">1</span>)        <span class="comment">% 取出name项的第一个，数据类型为cell</span></span><br><span class="line">book.name&#123;<span class="number">1</span>&#125;        <span class="comment">% 取出name项的第一个，数据类型为字符串</span></span><br></pre></td></tr></table></figure>
+<p><b>运行结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%BB%93%E6%9E%84%E4%BD%93.jpg" alt="结构体" title="结构体"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="三、矩阵操作"><a href="#三、矩阵操作" class="headerlink" title="三、矩阵操作"></a><b>三、矩阵操作</b></h4><blockquote>
+<ul>
+<li><b>矩阵的创建：</b><blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>; <span class="number">4</span> <span class="number">5</span> <span class="number">6</span>; <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>]	<span class="comment">% 空格分割，分号换行</span></span><br><span class="line">B = <span class="number">1</span>:<span class="number">2</span>:<span class="number">9</span>			<span class="comment">% 创建一个向量，该向量范围为1～9,步长为2</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C.jpg" alt="矩阵创建" title="矩阵创建"></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C = <span class="built_in">repmat</span>(B,<span class="number">3</span>,<span class="number">1</span>)		<span class="comment">%将矩阵B横向重复1次，纵向重复3次 </span></span><br><span class="line">D = <span class="built_in">ones</span>(<span class="number">2</span>, <span class="number">4</span>)		<span class="comment">%创建一个2行4列的全1矩阵</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C-2.jpg" alt="矩阵操作" title="矩阵操作"></p>
+</blockquote>
+<ul>
+<li><p><b>矩阵的转置</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">6</span>]</span><br><span class="line">B = A&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BD%AC%E7%BD%AE.jpg" alt="矩阵的转置" title="矩阵的转置"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的逆</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>;<span class="number">4</span> <span class="number">5</span> <span class="number">2</span>;<span class="number">3</span> <span class="number">2</span> <span class="number">7</span>]</span><br><span class="line">B = inv(A)</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E7%9A%84%E9%80%86.jpg" alt="矩阵的逆" title="矩阵的逆"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的运算</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span>; <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span>]</span><br><span class="line">B = [<span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>; <span class="number">3</span> <span class="number">3</span> <span class="number">4</span> <span class="number">4</span>]</span><br><span class="line">A + B		<span class="comment">%矩阵相加</span></span><br><span class="line">A - B		<span class="comment">%矩阵相减</span></span><br><span class="line">A * B&#x27;		<span class="comment">%矩阵相乘</span></span><br><span class="line">A / B		<span class="comment">%相当于矩阵A乘以矩阵B的逆</span></span><br><span class="line">A .* B		<span class="comment">%矩阵中的对应项相乘</span></span><br><span class="line">A ./ B		<span class="comment">%矩阵中对应项相除</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-1.jpg" alt="矩阵运算" title="矩阵运算"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97-2.jpg" alt="矩阵运算" title="矩阵运算"></p>
+</blockquote>
+</li>
+<li><p><b>矩阵的下标</b></p>
+<blockquote>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = <span class="built_in">magic</span>(<span class="number">5</span>)</span><br><span class="line">B = A(<span class="number">2</span>,<span class="number">3</span>)      <span class="comment">%取矩阵A中第2行第3列的数</span></span><br><span class="line">C = A(<span class="number">3</span>,:)      <span class="comment">%取矩阵A中第三行所有的数</span></span><br><span class="line">D = A(:,<span class="number">4</span>)      <span class="comment">%取矩阵A中第四列所有的数</span></span><br><span class="line">[m,n] = <span class="built_in">find</span>(A&gt;<span class="number">20</span>)      <span class="comment">%在矩阵A中找到大于20的数，并输出它的索引值</span></span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-1.jpg" alt="矩阵的下标" title="矩阵下标"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Matlab/%E7%9F%A9%E9%98%B5%E4%B8%8B%E6%A0%87-2.jpg" alt="矩阵的下标" title="矩阵下标"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="Matlab简单语句"><a href="#Matlab简单语句" class="headerlink" title="Matlab简单语句"></a><b>Matlab简单语句</b></h4><blockquote>
+<ul>
+<li><p><b>循环语句：</b></p>
+<blockquote>
+<ul>
+<li><p><b>for循环</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for 循环变量 = 初值: 步长: 终值（其中步长可以省略，默认为1）</span><br><span class="line">    执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: <span class="number">1</span>: <span class="number">100</span></span><br><span class="line">    a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>while循环</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while 条件表达式</span><br><span class="line">	  执行语句（可以不止一条）</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">10</span></span><br><span class="line">   a=a+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>分支语句：</b></p>
+<blockquote>
+<p><b>if…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p><b>if…else…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if 表达式</span><br><span class="line">     执行语句</span><br><span class="line">else</span><br><span class="line"> 执行语句</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p><b>例如：</b></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">101</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> a&lt;b</span><br><span class="line">    <span class="string">&#x27;成立&#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="string">&#x27;不成立&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>switch…case…end语句</b></p>
+<blockquote>
+<p><b>格式：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch 表达式（数值或字符串）</span><br><span class="line">	   case 数值或字符串1</span><br><span class="line">	执行语句1;</span><br><span class="line">	   case 数值或字符串2</span><br><span class="line">	执行语句2;	   </span><br><span class="line">       ...</span><br><span class="line">       otherwise</span><br><span class="line">		执行语句n</span><br><span class="line">end</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">一、界面介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二、数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">三、矩阵操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Matlab%E7%AE%80%E5%8D%95%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.</span> <span class="toc-text">Matlab简单语句</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

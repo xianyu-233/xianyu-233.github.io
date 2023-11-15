@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BILSTM-CRF模型 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="BILSTM-CRF模型是什么：BILSTM-CRF模型是用于处理自然语言序列中命名实体识别问题，其构成为：双向长短时记忆网络（Bi-LSTM）和条件随机场（CRF）构成。
+模型输入：字符特征；模型,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">BILSTM-CRF模型</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">BILSTM-CRF模型</h1>
+        <div class="stuff">
+            <span>四月 24, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95%E6%A8%A1%E5%9E%8B/" rel="tag">算法模型</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag">自然语言处理</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="BILSTM-CRF模型是什么："><a href="#BILSTM-CRF模型是什么：" class="headerlink" title="BILSTM-CRF模型是什么："></a><strong>BILSTM-CRF模型是什么：</strong></h3><p>BILSTM-CRF模型是用于处理自然语言序列中命名实体识别问题，其构成为：<strong>双向长短时记忆网络（Bi-LSTM）</strong>和<strong>条件随机场（CRF）</strong>构成。</p>
+<p><strong>模型输入</strong>：字符特征；<strong>模型输出</strong>：预测标签</p>
+<img src="/picture/学习/自然语言处理/BILSTM-CRF模型/模型结构.png" alt="模型结构" style="zoom:67%;" />
+
+
+
+<h3 id="BILSTM-CRF的构造："><a href="#BILSTM-CRF的构造：" class="headerlink" title="BILSTM-CRF的构造："></a><strong>BILSTM-CRF的构造：</strong></h3><ul>
+<li><p><strong>模型输入：</strong></p>
+<p>对于输入的自然语言序列，可通过<strong>特征工程</strong>的方法定义序列字符的特征。现在更多的做法是：直接选择句子中每个字符的嵌入或词嵌入向量，可以是事先训练好的或随机初始化。对于中文，可以将字符向量和其所属的词向量进行拼接，词嵌入使用预训练好的，字嵌入随机初始化。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%85%A5.png" alt="模型输入"></p>
+<p>双向LSTM接收每个字符的embdding，并预测每个字符对5个标签的概率。</p>
+<p>LSTM是一种特殊的<strong>循环神经网络</strong>（RNN）</p>
+</li>
+</ul>
+<h3 id="循环神经网络（RNN）"><a href="#循环神经网络（RNN）" class="headerlink" title="循环神经网络（RNN）"></a>循环神经网络（RNN）</h3><p>RNN对具有<strong>序列特性</strong>的数据非常有效，它能挖掘数据中的<strong>时序信息</strong>及<strong>语义信息</strong></p>
+<p><strong>序列特性：</strong>指符合时间顺序、逻辑顺序、或者其他顺序的特性。比如人的自然语言，语音等</p>
+<h4 id="循环神经网络的结构及其原理"><a href="#循环神经网络的结构及其原理" class="headerlink" title="循环神经网络的结构及其原理"></a>循环神经网络的结构及其原理</h4><img src="/picture/学习/自然语言处理/BILSTM-CRF模型/循环神经元.png" alt="循环神经元" style="zoom:50%;" />
+
+<p>其中输入层X是一个向量，即一个字或词的特征向量；U是输入层到隐藏层的参数矩阵；V是隐藏层到输出层的参数矩阵；w是RNN为序列特性所作的一个变化，下面详细阐述</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/w.png" alt="w"></p>
+<p>W表示每个事件点之间的权重矩阵，即通过W记住了每一时刻的信息，<strong>每一时刻的隐藏层不仅由该时刻的输入层决定，还由上一时刻的隐藏层决定</strong>，即<br>$$<br>S_t&#x3D;f(U\cdot X_t+W\cdot S_{t-1})\<br>O_t &#x3D; g(V\cdot S_t)<br>$$<br>例如，我是谁，在使用RNN时，$X_{t-1}$就是”我“的特征向量，$X_t$就是“是”的特征向量 ，$X_{t+1}$就是谁的特征向量。“谁”的输出层明显受“我”和“是”的影响；“是”的输出层受“我”的影响</p>
+<p><strong>注意：</strong>在整个训练过程中，每一时刻所用的W都是相同的</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>假设有一个RNN模型如下图，</p>
+<img src="/picture/学习/自然语言处理/BILSTM-CRF模型/RNN例子.png" alt="RNN例子" style="zoom:75%;" />
+
+<p>$S_t&#x3D;U\cdot X_t+W\cdot S_{t-1}$，$O_t&#x3D;V\cdot S_t$，W默认为$[1\ 1]$，权重U，V都为1</p>
+<p><strong>输入向量</strong>：$[1\ 1],[1\ 1],[2\ 2]$</p>
+<ul>
+<li>$S_1&#x3D;(1<em>1+1</em>1)+(1<em>0+1</em>0)&#x3D;2$</li>
+<li>$O_1&#x3D;2<em>1+2</em>1&#x3D;4$</li>
+<li>输出向量：$[4\ 4]$</li>
+<li>$S_2&#x3D;(1<em>1+1</em>1)+(1<em>2+1</em>2)&#x3D;6$</li>
+<li>$O_2&#x3D;6<em>1+6</em>1&#x3D;12$</li>
+<li>输出向量：$[12\ 12]$</li>
+<li>$S_3&#x3D;(1<em>2+1</em>2)+(1<em>6+1</em>6)&#x3D;16$</li>
+<li>$O_3&#x3D;16<em>1+16</em>1&#x3D;32$</li>
+<li>输出向量：$[32\ 32]$</li>
+</ul>
+<p>很明显，如果输入向量顺序不同，得到的结果也会不同，这就是RNN的特点：可以处理序列数据，同时对序列也很敏感</p>
+</blockquote>
+<h3 id="长短期记忆（LSTM）"><a href="#长短期记忆（LSTM）" class="headerlink" title="长短期记忆（LSTM）"></a>长短期记忆（LSTM）</h3><p>LSTM是RNN的一种，比普通的RNN更加高级，一般情况下LSTM要比RNN效果要好。</p>
+<p>LSTM通过“门控装置“有效地缓解了<strong>梯度消失</strong>与<strong>梯度爆炸</strong>的问题。</p>
+<h4 id="LSTM的结构"><a href="#LSTM的结构" class="headerlink" title="LSTM的结构"></a>LSTM的结构</h4><p>RNN是一个可以记住前面信息的模型，但是它无差别地去记住所有的信息；LSTM则可以在RNN的基础上，有选择地记住之前的信息。设定RNN存储信息的模块叫Memory Cell，那么LSTM比RNN多了三个门，用于选择性遗忘部分信息</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/Memory_Cell.png" alt="Memory_Cell"></p>
+<ul>
+<li><strong>Input Gate：</strong>即<strong>输入门</strong>，从输入层输入的信息都会先经过输入门，输入门的开关会决定信息是否能输入到记忆细胞（Memory Cell）中</li>
+<li><strong>Output Gate：</strong>即<strong>输出门</strong>，输出门决定了是否会有信息从记忆细胞（Memory Cell）中输出</li>
+<li><strong>Forget Gate：</strong>即遗忘门，遗忘门决定了记忆细胞（Memory Cell）里的数据是否要被遗忘，如果选择遗忘，记忆细胞里的数据则会清空</li>
+</ul>
+<p><strong>信息输入顺序：</strong>先经过输入门，看是否有信息输入，再判断遗忘门是否选择遗忘Memory Cell里的信息，最后再经过输出门，判断是否将这一时刻的信息进行输出</p>
+<p>下面的结构是一个时间点上的内部结构，就是整个工作流程中的其中一个时间点，</p>
+<img src="/picture/学习/自然语言处理/BILSTM-CRF模型/LSTM内部结构.png" alt="LSTM内部结构" style="zoom:67%;" />
+
+<ul>
+<li><strong>Cell：</strong>就是记忆细胞，类似于普通RNN的$S_t$，都是存储中间的信息（即隐藏层），而且存储的信息都有可能保存到下一时刻</li>
+<li>$\alpha$：即输出，对应于普通RNN的$O_t$</li>
+<li>$\int_g$：表示的是一个激活函数，LSTM中常用的激活函数有两个：$tanh()$和$sigmoid()$</li>
+<li>$Z$：最普通的输入，$Z&#x3D;tanh(W\cdot[x_t,S_{t-1}])$，即$Z$的激活函数为$tanh()$，而且$Z$是真正的输出，对应于普通RNN的$x_t$</li>
+<li>$Z_i$：输入门的门控装置，$Z_i$同样也是通过该时刻的输入$x_t$和上一时刻的隐藏状态$S_{t-1}$向量拼接再与权重向量$W_i$点积（注意门个门的权重向量都不一样），即$Z_i&#x3D;\sigma(W_i\cdot[x_t,S_{t-1}])$</li>
+<li>$Z_f$：与$Z_i$类似，$Z_f&#x3D;\sigma(W_f\cdot[x_t,S_{t-1}])$</li>
+<li>$Z_o$：与$Z_i$类似，$Z_o&#x3D;\sigma(W_o\cdot[x_t,S_{t-1}])$</li>
+</ul>
+<p><strong>LSTM的计算阶段：</strong></p>
+<blockquote>
+<p><strong>总结构：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/LSTM%E6%80%BB%E4%BD%93%E6%A1%86%E6%9E%B6.png" alt="LSTM总体框架"></p>
+<ul>
+<li><p><strong>计算遗忘门：</strong></p>
+<blockquote>
+<p><strong>输入：</strong>前一时刻的隐藏层状态$h_{t-1}$，当前时刻的输入向量$X_t$</p>
+<p><strong>输出：</strong>遗忘门的值$f_t$</p>
+</blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E8%AE%A1%E7%AE%97%E9%81%97%E5%BF%98%E9%97%A8.png" alt="计算遗忘门"></p>
+</li>
+<li><p><strong>计算记忆门，选择要记忆的信息</strong></p>
+<blockquote>
+<p><strong>输入：</strong>前一时刻的隐藏层状态$h_{t-1}$，当前时刻的输入向量$X_t$</p>
+<p><strong>输出：</strong>记忆门的值$i_t$，临时记忆细胞状态$C’_t$</p>
+</blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E8%AE%A1%E7%AE%97%E8%AE%B0%E5%BF%86%E9%97%A8.png" alt="计算记忆门"></p>
+</li>
+<li><p><strong>计算当前时刻的记忆细胞状态</strong></p>
+<blockquote>
+<p><strong>输入：</strong>记忆门的值$i_t$，遗忘门的值$f_i$，临时记忆细胞状态$C_t’$，上一刻记忆细胞状态$C_{t-1}$</p>
+<p><strong>输出：</strong>当前时刻记忆细胞状态$C_t$</p>
+</blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E7%9A%84%E8%AE%B0%E5%BF%86%E7%BB%86%E8%83%9E%E7%8A%B6%E6%80%81.png" alt="计算当前的记忆细胞状态"></p>
+</li>
+<li><p><strong>计算输出门和当前隐藏层状态</strong></p>
+<blockquote>
+<p><strong>输入：</strong>前一时刻的隐藏层状态$h_{t-1}$，当前时刻的输入向量$X_t$，当前时刻记忆细胞状态$C_t$</p>
+<p><strong>输出：</strong>输出门的值$O_t$，隐藏层状态$h_t$</p>
+</blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E8%AE%A1%E7%AE%97%E8%BE%93%E5%87%BA%E5%B1%82.png" alt="计算输出层"></p>
+</li>
+</ul>
+<p>这样一来就能得到与句子长度相同的隐藏层状态序列$(h_0,h_1,…,h_{n-1})$</p>
+</blockquote>
+<h4 id="BiLSTM（双向长短期记忆）"><a href="#BiLSTM（双向长短期记忆）" class="headerlink" title="BiLSTM（双向长短期记忆）"></a>BiLSTM（双向长短期记忆）</h4><p>由向前的LSTM与向后的LSTM结合形成的BiLSTM，比如，将”我爱中国“</p>
+<p>这句话放进BiLSTM中进行编码</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E5%8F%8C%E5%90%91LSTM%E7%BC%96%E7%A0%81%E5%8F%A5%E5%AD%90.png" alt="双向LSTM编码句子"></p>
+<p>向前的$LSTM_L$依次输入”我“，”爱“，”中国“得到三个向量${h_{L0},h_{L1},h_{L2}}$。向后的$LSTM_R$依次输入”中国“，”爱“，”我“得到三个向量${h_{R0},h_{R1},h_{R2}}$。最后将这两组的隐向量进行拼接得到${[h_{L0},h_{R2}],[h_{L1},h_{R1}],[h_{L2},h_{R0}]}$，即${h_0,h_1,h_2}$</p>
+<h3 id="条件随机场（CRF）"><a href="#条件随机场（CRF）" class="headerlink" title="条件随机场（CRF）"></a>条件随机场（CRF）</h3><p>CRF是一个序列化标注算法，接收一个输入序列如$X&#x3D;(x_1,x_2,…,x_n)$并且输出目标序列$Y&#x3D;(y_1,y_2,…,y_n)$.（即对输入序列进行标注的算法）</p>
+<h4 id="CRF基础"><a href="#CRF基础" class="headerlink" title="CRF基础"></a>CRF基础</h4><ul>
+<li><p><strong>无向图：</strong>指边没有方向的图</p>
+</li>
+<li><p><strong>马尔可夫随机场：</strong>（概率图模型，即图论+概率）</p>
+<ul>
+<li><p><strong>场：</strong>在空间某一区域内，除个别点外，如果对于该区域的每一点P都定义了一个确定的量$f(P)$，该区域就称为$f(P)$的场（与域作区分）</p>
+</li>
+<li><p><strong>随机过程：</strong>设T是一个无限实数集，把依赖于参数$t\in T$的一族（无限多个）随机变量称为随机过程，记作${X(t),t\in T}$（比如随时间变化而变化的随机现象）</p>
+</li>
+<li><p><strong>随机场：</strong>若T是n维空间的某个子集，即t是一个n维向量，此时随机过程又称为随机场（从平面的随机过程到向量空间的随机场）</p>
+</li>
+<li><p><strong>马尔可夫随机场：（概率无向图模型）</strong></p>
+<p>具有马尔可夫性的随机场</p>
+<p>马尔可夫性：<br>$$<br>P(y_v|X,Y_w,w\neq v)&#x3D;P(Y_v|X,Y_w,w\sim v)<br>$$<br>其中：</p>
+<p>$w\sim v$表示在图$G&#x3D;(V,E)$中<strong>与顶点v有边连接</strong>的所有顶点w</p>
+<p>$w\neq v$表示顶点v以外的所有顶点</p>
+<p>$Y_v$与$Y_w$为顶点v与顶点w的随机变量</p>
+</li>
+</ul>
+</li>
+<li><p><strong>最大团</strong></p>
+<ul>
+<li><strong>团：</strong>对于图中结点的一个子集，其中<strong>任意两结点间都有边连接</strong>，则称该结点子集为团</li>
+<li><strong>最大团：</strong>若一个团中加入另外任何其他结点都不再形成团，则称该团为最大团</li>
+</ul>
+</li>
+<li><p><strong>势函数：</strong>定义再变量子集上的非负实函数，用于相乘生成联合概率分布函数，也称为因子记作$\psi(x)$</p>
+</li>
+<li><p><strong>无向图的因子分解（Hammersley-Clifford）：</strong></p>
+<p>给定概率无向图模型，设其无向图为G，C为G上的最大团，$Y_C$表示C对应的随机变量。那么概率无向图模型的联合概率分布$P(Y)$可写作图中<strong>所有最大团C</strong>上的函数$\psi_C(Y_C)$的<strong>乘积形式</strong>，即<br>$$<br>P(Y)&#x3D;\frac{1}{Z}\psi_C(Y_C)\<br>Z&#x3D;\sum \sum_c \psi_C(Y_C)<br>$$<br>其中，$\psi_C(Y_C)$是C上定义的严格正函数，通常取指数函数</p>
+<p>例子，</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%9B%A0%E5%AD%90%E5%88%86%E8%A7%A3.png" alt="无向图的因子分解"></p>
+</li>
+</ul>
+<h4 id="CRF原理"><a href="#CRF原理" class="headerlink" title="CRF原理"></a>CRF原理</h4><p>条件随机场定义如下：</p>
+<blockquote>
+<p>设X与Y是随机变量，$P(Y|X)$是在<strong>给定X的条件下</strong>Y的条件概率分布</p>
+<p>若随机变量Y构成一个由<strong>无向图</strong>$G&#x3D;(V,E)$表示的<strong>马尔可夫随机场</strong>，即<br>$$<br>P(y_v|X,Y_w,w\neq v)&#x3D;P(Y_v|X,Y_w,w\sim v)<br>$$<br>对任意顶点v成立，则称条件概率分布$P(Y|X)$为条件随机场</p>
+<p>其中：</p>
+<ul>
+<li><p>$w\sim v$表示在图$G&#x3D;(V,E)$中<strong>与顶点v有边连接</strong>的所有顶点w</p>
+</li>
+<li><p>$w\neq v$表示顶点v以外的所有顶点</p>
+</li>
+<li><p>$Y_v$与$Y_w$为顶点v与顶点w的随机变量</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>线性链条件随机场</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/BILSTM-CRF%E6%A8%A1%E5%9E%8B/%E7%BA%BF%E6%80%A7%E9%93%BE%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA.png" alt="线性链条件随机场"></p>
+<p><strong>定义：</strong></p>
+<blockquote>
+<p>设$X&#x3D;(X_1,X_2,…,X_n),Y&#x3D;(Y_1,Y_2,…,Y_n)$均为线性表示的随机变量序列</p>
+<p>若在给定随机变量序列X的条件下，</p>
+<p>随机变量序列Y的条件概率分布$P(Y|X)$构成条件随机场，即满足马尔可夫性<br>$$<br>P(Y_i|X,Y_1,…,Y_{i-1},…,Y_n)&#x3D;P(Y_i|X,Y_{i-1},Y_{i+1})<br>$$<br>则称$P(Y|X)$为线性链条件随机场</p>
+<p>其中$i&#x3D;1,2,…,n$，在$i&#x3D;1$和n时只考虑单边</p>
+</blockquote>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BILSTM-CRF%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">BILSTM-CRF模型是什么：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BILSTM-CRF%E7%9A%84%E6%9E%84%E9%80%A0%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">BILSTM-CRF的构造：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88RNN%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">循环神经网络（RNN）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E7%BB%93%E6%9E%84%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">循环神经网络的结构及其原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%EF%BC%88LSTM%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">长短期记忆（LSTM）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LSTM%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">LSTM的结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BiLSTM%EF%BC%88%E5%8F%8C%E5%90%91%E9%95%BF%E7%9F%AD%E6%9C%9F%E8%AE%B0%E5%BF%86%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">BiLSTM（双向长短期记忆）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA%EF%BC%88CRF%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">条件随机场（CRF）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CRF%E5%9F%BA%E7%A1%80"><span class="toc-number">5.1.</span> <span class="toc-text">CRF基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CRF%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.</span> <span class="toc-text">CRF原理</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

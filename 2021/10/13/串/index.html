@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>串 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="串的介绍
+
+串是由零个或多个字符组成的有限序列，一般记为：
+
+$$S&amp;#x3D;”a_1a_2…a_n”$$
+
+其中S称为串名，引号内的字符序列称为串的内容；
+a可以是数字、字母、文字甚至其他字符；,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">串</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">串</h1>
+        <div class="stuff">
+            <span>十月 13, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="串的介绍"><a href="#串的介绍" class="headerlink" title="串的介绍"></a><b>串的介绍</b></h4><blockquote>
+<ul>
+<li><p><b>串</b>是由零个或多个字符组成的有限序列，一般记为：</p>
+<blockquote>
+<p>$$S&#x3D;”a_1a_2…a_n”$$</p>
+<ul>
+<li>其中S称为串名，引号内的字符序列称为串的内容；</li>
+<li>a可以是数字、字母、文字甚至其他字符；</li>
+<li>串中的个数n代表了串的长度，称为串长，当n&#x3D;0时的串称为<b>空串</b>。<br><b>注意：</b>空格串指的是串里全是空格字符的串，这与空串不相等。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>串中任意多个<b>连续的字符</b>组成的子序列称为S的子串，空串是任何串的<b>子串</b>（可以类比与子集）。相对的，包含任何子串的就称为<b>主串</b>。</p>
+</li>
+<li><p><b>子串的位置：</b>特指子串在主串中第一个字符的位置。</p>
+</li>
+<li><p><b>串与线性表的区别：</b></p>
+<blockquote>
+<ul>
+<li>串的数据对象仅限于字符集。</li>
+<li>线性表的操作对象称为元素，<b>串的操作对象为子串。</b>（这是串和全是字符的线性表的最大区别）</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>Ascii编码表：</b></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/ascii%E8%A1%A8.jpg" alt="ascii表" title="ascii表"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="串的存储结构"><a href="#串的存储结构" class="headerlink" title="串的存储结构"></a><b>串的存储结构</b></h4><h5 id="定长顺序存储结构"><a href="#定长顺序存储结构" class="headerlink" title="定长顺序存储结构"></a><b>定长顺序存储结构</b></h5><blockquote>
+<p>类似与线性表的顺序存储结构，用了一组连续的存储单元存储串值得字符序列。在串中每个串变量分配一个固定长度得存储区，即定长数组。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXLEN 255</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SString</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="type">char</span> ch[MAXLEN];</span><br><span class="line">   <span class="type">int</span> length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>对于串长的记录有两种方法：</p>
+<blockquote>
+<ul>
+<li>第一种就是像上面那样用一个<code>length</code>来记录串长</li>
+<li>第二种则是在每个串后面加入一个不计入串长的结束标记字符<code>&#39;\0&#39;</code>,此时串长是一个隐含值。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="堆分配存储表示"><a href="#堆分配存储表示" class="headerlink" title="堆分配存储表示"></a><b>堆分配存储表示</b></h5><blockquote>
+<p>堆分配存储表示仍然以一组地址连续的存储单元存放串值得字符序列，但是他么得存储空间在程序执行过程中动态分配得到的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">HString</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="type">char</span> *ch;</span><br><span class="line">   <span class="type">int</span> length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在C语言中，存在一个称之为“堆”的自由存储区，用<code>malloc()</code>和<code>free()</code>函数来完成动态存储管理。在使用结束后需要使用<code>free()</code>来释放内存空间。</p>
+</blockquote>
+<h5 id="块链存储表示"><a href="#块链存储表示" class="headerlink" title="块链存储表示"></a><b>块链存储表示</b></h5><blockquote>
+<p>类似与线性表中的链式存储结构，也可以采用链表方式存储串值。<br>由于串的特殊性（每一个位置只能存串的一个字符），而在32位系统中指针占4个字节。因此如果每个结点只放一个字符的话会导致存储密度较低。<br>所以可以在一个结点中多放多个字符，每个结点称为<b>块</b>。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/%E5%9D%97%E9%93%BE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA.png" alt="块链" title="块链"><br>当然如果一个块填不满的时候可以用<code>#</code>来填充。</p>
+</blockquote>
+<h4 id="串的基本操作"><a href="#串的基本操作" class="headerlink" title="串的基本操作"></a><b>串的基本操作</b></h4><blockquote>
+<p><b>注：</b>这里的串都为定长顺序存储结构。</p>
+<ul>
+<li><p><b>串的初始化：</b></p>
+<blockquote>
+<p>创建一个字符串数组，并且将字符串的长度置为0。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SString <span class="title">InitStr</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   SString s;</span><br><span class="line">   s.length=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>串的赋值操作</b></p>
+<blockquote>
+<p>将串T（开始或许为非空）赋值为chars。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">StrAssign</span><span class="params">(SString &amp;T, SString chars)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">ClearString</span>(T);</span><br><span class="line">   <span class="keyword">if</span>(!<span class="built_in">StrEmpty</span>(chars))</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=chars.length;i++)</span><br><span class="line">               T.ch[i] = chars.ch[i];</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>判断串是否为空</b></p>
+<blockquote>
+<p>判串是否为空。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">StrEmpty</span><span class="params">(SString S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(S.length==<span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>清空串：</b></p>
+<blockquote>
+<p>清空串，将串初始化。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ClearString</span><span class="params">(SString &amp;S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">StrEmpty</span>(S))</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       &#123;</span><br><span class="line">           S=<span class="built_in">InitStr</span>();</span><br><span class="line">           <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>复制操作</b></p>
+<blockquote>
+<p>将串S复制得到T。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">StrCopy</span><span class="params">(SString &amp;T,SString S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">StrEmpty</span>(S))</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=S.length;i++)</span><br><span class="line">       T.ch[i] = S.ch[i];</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>比较操作</b></p>
+<blockquote>
+<p>按字典的顺序比较串S和串T的大小，当S&gt;T返回1，S&#x3D;T返回0，S&lt;T返回-1。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">StrCompare</span><span class="params">(SString S, SString T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> len = S.length;</span><br><span class="line">   <span class="type">int</span> flag =<span class="number">1</span>;</span><br><span class="line">   <span class="keyword">if</span>(len&lt;T.length)</span><br><span class="line">       &#123;</span><br><span class="line">           len=T.length;</span><br><span class="line">           flag=<span class="number">-1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(len==T.length)</span><br><span class="line">       flag=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=len;i++)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(S.ch[i]==T.ch[i])</span><br><span class="line">           <span class="keyword">continue</span>;</span><br><span class="line">       <span class="keyword">if</span>(S.ch[i]&lt;T.ch[i])</span><br><span class="line">           <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">       <span class="keyword">else</span> <span class="keyword">if</span>(S.ch[i]&gt;T.ch[i])</span><br><span class="line">           <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(flag==<span class="number">0</span>)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(flag==<span class="number">-1</span>)   <span class="comment">//在两者字符比较完都没分出大小时，较长的串排在后面。</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>求子串</b></p>
+<blockquote>
+<p>用Sub返回串S的第pos个字符起长度为len的子串。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">SubString</span><span class="params">(SString &amp;Sub, SString S, <span class="type">int</span> pos, <span class="type">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">StrEmpty</span>(S))</span><br><span class="line">       <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">   <span class="built_in">ClearString</span>(Sub);</span><br><span class="line">   Sub.length=len;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=len;i++)</span><br><span class="line">       Sub.ch[i]=S.ch[pos+i<span class="number">-1</span>];</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>串的拼接</b></p>
+<blockquote>
+<p>将串S1和串S2拼接起来存到T中。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Concat</span><span class="params">(SString &amp;T,SString S1,SString S2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(S1.length+S2.length &gt; MAXLEN)</span><br><span class="line">       cout&lt;&lt;<span class="string">&quot;长度溢出，会导致拼接后丢失一部分字符。&quot;</span>&lt;&lt;endl;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;i&lt;=S1.length+S2.length,j&lt;=S2.length;i++)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(i&lt;=S1.length)</span><br><span class="line">           T.ch[i]=S1.ch[i];</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           &#123;</span><br><span class="line">               T.ch[i]=S2.ch[j];</span><br><span class="line">               j++;</span><br><span class="line">           &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   T.length = S1.length+S2.length;</span><br><span class="line">   <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>定位子串（暴力串的匹配）</b></p>
+<blockquote>
+<p>返回子串T第一次出现在主串S的位置。<br><b>代码示例：</b></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">Index</span><span class="params">(SString S,SString T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(T.length&gt;S.length)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">   SString sub;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=S.length-T.length+<span class="number">1</span>;i++)</span><br><span class="line">   &#123;</span><br><span class="line">       sub.length=T.length;</span><br><span class="line">       <span class="built_in">SubString</span>(sub,S,i,T.length);</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">StrCompare</span>(sub,T)==<span class="number">0</span>)</span><br><span class="line">           <span class="keyword">return</span> i;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="串的匹配算法"><a href="#串的匹配算法" class="headerlink" title="串的匹配算法"></a><b>串的匹配算法</b></h4><blockquote>
+<p>子串的定位操作称为串的<b>模式匹配</b>，它是求子串<b>（也称模式串）</b>在主串的位置。<br>模式串的匹配较多出现在搜索的案例中，例如网络搜索引擎，关键字搜索引擎。<br>比较常见的为<b>BF算法（暴力法）</b>和<b>KMP算法</b>。</p>
+</blockquote>
+<h5 id="暴力匹配法"><a href="#暴力匹配法" class="headerlink" title="暴力匹配法"></a><b>暴力匹配法</b></h5><blockquote>
+<p>顾名思义，暴力法就是简单的将模式串一直和主串进行对比。<br><b>例子：</b></p>
+<blockquote>
+<ul>
+<li>首先，模式串与主串对其，然后一一比较。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/BF1.png" alt="BF算法" title="BF算法"></li>
+<li>由于模式串中第三个字符与主串的比配失败了，所以模式串A向后移一步，继续与主串匹配。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/BF2.png" alt="BF算法" title="BF算法"></li>
+<li>模式串一开始就匹配失败了，所以模式串继续向后移一步，继续和主串匹配。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/BF3.png" alt="BF算法" title="BF算法"></li>
+<li>模式串的最后一个字符匹配失败，此时模式串依旧向后移一步，继续和主串匹配。<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/BF4.png" alt="BF算法" title="BF算法"></li>
+<li>最终模式串与主串完全匹配，输出主串中的i作为模式串的位置。</li>
+</ul>
+</blockquote>
+<p><b>代码：</b></p>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定位子串，返回子串T第一次出现在主串S的位置</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BF</span><span class="params">(SString S,SString T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(T.length&gt;S.length)</span><br><span class="line">       <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">   SString sub;</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=S.length-T.length+<span class="number">1</span>;i++)</span><br><span class="line">   &#123;</span><br><span class="line">       sub.length=T.length;</span><br><span class="line">       <span class="built_in">SubString</span>(sub,S,i,T.length);</span><br><span class="line">       <span class="keyword">if</span>(<span class="built_in">StrCompare</span>(sub,T)==<span class="number">0</span>)</span><br><span class="line">           <span class="keyword">return</span> i;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>总结：</b></p>
+<blockquote>
+<ul>
+<li>BF算法的最大优势是原理简单，实现也简单。</li>
+<li>但缺点是时间复杂度太高。<blockquote>
+<ul>
+<li>假设有一个长度为n的主串B，一个长度为m的模式串A。</li>
+<li>在最好的情况下（即模式串在主串的开头），此时的时间复杂度为$o(m)$</li>
+<li>最坏的情况是模式串在匹配时，总是在最后一个字符中匹配失败，那么主串中的指针i就要一直回退，而且对于主串B中的每一个字符都要重复匹配m次，这使得时间复杂度标为$o(m*n)$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>所以为了解决这一个问题，我们可以使用一种方法来让主串的指针i不回退，从而降低时间复杂度，这就是KMP算法要解决的问题了。</p>
+</blockquote>
+</blockquote>
+<h5 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a><b>KMP算法</b></h5><blockquote>
+<p>在介绍KMP算法之前先补充两个概念：</p>
+<blockquote>
+<ul>
+<li><b>前缀：</b>指除最后一个字符以外，字符串的所有头部字串。如，”hello”中的前缀为：”h,he,hel,hell”</li>
+<li><b>后缀：</b>指除第一个字符以外，字符串的所有尾部字串。如，”hello”中的后缀为：”o,lo,llo,ello”</li>
+<li><b>部分匹配值：</b>字符串前缀和后缀的最长相等前后缀长度。如，”ababa”的前缀和后缀的最长相等前后缀长为”aba”，所以部分匹配值为3。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>假设现在有主串A&#x3D;”ababcababa”，模式串B&#x3D;”ababa”</p>
+</li>
+<li><p>在第一次匹配时模式串会在’c’上匹配失败，前面的’abab’是匹配得上的。如果按照暴力法那么主串的i要回退到第一个’b’上，j也要回退到第一个’a’上。</p>
+</li>
+<li><p>如果是KMP算法，因为是在’c’上匹配失败，那么前面的’ab’是匹配得上的，那么模式串的第一个’ab’可以跳过匹配，j直接指向第二个’a’上，而主串的i保持不变。<br><b>KMP算法示意图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%B8%B2/KMP.gif" alt="KMP算法" title="KMP算法"></p>
+</li>
+<li><p><b>next数组表：</b></p>
+<blockquote>
+<p>KMP算法中，对于j值的回溯可以时先算出一个next数组表，那么每次进行匹配时可以直接参照next数组表的值进行j的回溯。</p>
+<ul>
+<li>next数组表其实就是模式串中每一个字符的部分匹配值。</li>
+<li>要注意的是，next数组第一个数规定为0(或-1)，第二个为1。<br><b>特性：</b>next数组的增加是循序渐进的即，1，2，3，4……这样的，不可能出现1，3，4……这种断层情况。<br><b>代码实现</b><blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_next</span><span class="params">(SString T, <span class="type">int</span> next[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;</span><br><span class="line">   next[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span>(i&lt;T.length)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(j==<span class="number">0</span>||T.ch[i]==T.ch[j])</span><br><span class="line">       &#123;</span><br><span class="line">           ++i; ++j;</span><br><span class="line">           next[i]=j;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           j=next[j];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>在计算完next数组后，我们就可以固定遍历主串的i一直不回退得寻找子串位置了。<br><b>代码：</b></p>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(SString T,SString t,<span class="type">int</span> next[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> i=<span class="number">1</span>;</span><br><span class="line">   <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span>(i&lt;=T.length &amp;&amp; j&lt;=t.length)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(T.ch[i] == t.ch[j]||j==<span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           i++;j++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           j=next[j];</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(j&gt;t.length)</span><br><span class="line">       <span class="keyword">return</span> i-t.length;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>补充：</b></p>
+<ul>
+<li>上诉代码体现了指向主串的i不回退，每次只回退指向模式串的j。</li>
+<li>值得注意的是，在模式串有规律的情况下（即next不是全为1），KMP算法才相较于暴力算法有优势，否则（next全为1）这两个算法时间复杂度相近。</li>
+</ul>
+</blockquote>
+<h5 id="KMP算法的改进"><a href="#KMP算法的改进" class="headerlink" title="KMP算法的改进"></a><b>KMP算法的改进</b></h5><blockquote>
+<p>对于KMP算法来说，上面的next仍然有一些不足。<br><b>例如：</b></p>
+<blockquote>
+<ul>
+<li>假定一个模式串为：”aaaab”</li>
+<li>如果用上述的算法求出来的next数组为：01234</li>
+<li>但实际在匹配的时候，如果在模式串中的第四个字符’a’匹配失败时，<b>此时明知主串中这个位置的字符不是’a’了，但根据上面的next数组，j还是会返回到模式串的第三个字符’a’</b>，然后照样匹配失败，然后到模式串中第二个字符’a’，直到j&#x3D;0为止。</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果出现上面的情况，那么就会白白多做了3次无用匹配。</li>
+<li>为了防止这种现象，我们将上面的next进行改造：nextval&#x3D;00004</li>
+<li>即当我在匹配模式串中字符’a’失败时，j直接置为0，跳过无用的回溯。<br><b>代码：</b><blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_nextval</span><span class="params">(SString T, <span class="type">int</span> nextval[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;</span><br><span class="line">   nextval[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span>(i&lt;T.length)</span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span>(j==<span class="number">0</span>||T.ch[i]==T.ch[j])</span><br><span class="line">       &#123;</span><br><span class="line">           ++i; ++j;</span><br><span class="line">           <span class="keyword">if</span>(T.ch[i]!=T.ch[j])</span><br><span class="line">               nextval[i]=j;</span><br><span class="line">           <span class="keyword">else</span></span><br><span class="line">               nextval[i]=nextval[j];</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           j=nextval[j];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">串的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">串的存储结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E9%95%BF%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">定长顺序存储结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A0%86%E5%88%86%E9%85%8D%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.2.</span> <span class="toc-text">堆分配存储表示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9D%97%E9%93%BE%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.3.</span> <span class="toc-text">块链存储表示</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">串的基本操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">串的匹配算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">暴力匹配法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#KMP%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">KMP算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#KMP%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B"><span class="toc-number">4.3.</span> <span class="toc-text">KMP算法的改进</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

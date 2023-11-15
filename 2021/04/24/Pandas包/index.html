@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pandas包 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="Pandas介绍
+
+Pandas库主要是面向二位数据分析的第三方库。
+他被广泛运用于数据的清洗、切片等相关数据及分析前数据的准备等方面。
+Pandas库的数据结构是以Series（一维数组）为核心，,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Pandas包</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Pandas包</h1>
+        <div class="stuff">
+            <span>四月 24, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">编程语言基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="Pandas介绍"><a href="#Pandas介绍" class="headerlink" title="Pandas介绍"></a><b>Pandas介绍</b></h4><blockquote>
+<ul>
+<li>Pandas库主要是面向二位数据分析的第三方库。</li>
+<li>他被广泛运用于数据的清洗、切片等相关数据及分析前数据的准备等方面。</li>
+<li>Pandas库的数据结构是以Series（一维数组）为核心，通过其定义的索引构建二维数据框架DataFrame，然后通过该框架对数据进行一系列的检索、清洗、切片等。</li>
+<li>Pandas库中的Series能自定义索引index，使之形成二维结构，然后通过索引index来访问数组中的数据。</li>
+</ul>
+</blockquote>
+<h4 id="创建Series"><a href="#创建Series" class="headerlink" title="创建Series"></a><b>创建Series</b></h4><blockquote>
+<p>在使用Pandas库之前，必须先创建一个一维数组Series，其语法为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_series = pd.Series(data,index)</span><br></pre></td></tr></table></figure>
+<p>其中第一个参数<code>data</code>必须存在，它可以是任何的数据对象。<br>而第二个参数<code>index</code>是可选的，它是<code>data</code>的一个索引而已。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">name = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>]</span><br><span class="line"><span class="built_in">id</span> = [<span class="number">101</span>, <span class="number">102</span>, <span class="number">103</span>]</span><br><span class="line">tb = pd.Series(name, <span class="built_in">id</span>)</span><br><span class="line"><span class="built_in">print</span>(tb)</span><br></pre></td></tr></table></figure>
+<p><b>输出：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">101    A</span><br><span class="line">102    B</span><br><span class="line">103    C</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>补充：</b>从Python的字典对象创建Series时，Pandas会自动把字典的key值设置为Series中的index，把字典中的values值放在Series对应index的data内。</p>
+</blockquote>
+<h4 id="DataFrame的构造"><a href="#DataFrame的构造" class="headerlink" title="DataFrame的构造"></a><b>DataFrame的构造</b></h4><blockquote>
+<ul>
+<li><p>Pandas中DataFrame是二维数据结构。</p>
+</li>
+<li><p>其内的数据常用表格形式来存储。</p>
+</li>
+<li><p>使用DataFrame的数据结构，可以进行常见的操作，如选取、替换、删除行或列的数据，亦或者是重构表的结构、修改索引、多重筛选等。<br>构建DataFrame的语法为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DF = pd.DataFrame(data,index,columns)</span><br></pre></td></tr></table></figure>
+<p>其中<code>data</code>为数据本体（必须存在），<code>index</code>为索引值（可选），<code>columns</code>为列名（可选）<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]])</span><br><span class="line">DF = pd.DataFrame(arr, index=[<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>],columns=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(DF)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    a  b  c</span><br><span class="line">20  1  2  4</span><br><span class="line">30  4  5  6</span><br><span class="line">40  7  8  9</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>当然DataFrame也可以用字典类型的数据来创建</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">s1 = pd.Series([<span class="number">101</span>, <span class="number">102</span>, <span class="number">103</span>, <span class="number">104</span>])</span><br><span class="line">s2 = pd.Series([<span class="string">&#x27;Alex&#x27;</span>, <span class="string">&#x27;Peter&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>])</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;id&quot;</span> :s1, <span class="string">&quot;name&quot;</span>:s2&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   id   name</span><br><span class="line">0  101   Alex</span><br><span class="line">1  102  Peter</span><br><span class="line">2  103   Lisa</span><br><span class="line">3  104    NaN</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>值得注意的是，在DataFrame中，如果缺少某个数据，系统会自动用<code>NaN</code>来替代空值。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="DataFrame的基本操作"><a href="#DataFrame的基本操作" class="headerlink" title="DataFrame的基本操作"></a><b>DataFrame的基本操作</b></h4><h5 id="获取列或行"><a href="#获取列或行" class="headerlink" title="获取列或行"></a><b>获取列或行</b></h5><blockquote>
+<ul>
+<li>在DataFrame中，要获取列通常使用切片的方法</li>
+<li>如果需要获取行的数据则需要使用<code>.loc</code>或<code>iloc</code>方法<blockquote>
+<p><code>.loc</code>与<code>.iloc</code>的最大区别：<code>iloc</code>是基于位置（必须整数型）进行搜索，<code>loc</code>基于索引的标签（可以整数也可以是字符型）进行搜索。</p>
+</blockquote>
+</li>
+</ul>
+<p><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">s1 = pd.Series([<span class="number">101</span>, <span class="number">102</span>, <span class="number">103</span>, <span class="number">104</span>])</span><br><span class="line">s2 = pd.Series([<span class="string">&#x27;Alex&#x27;</span>, <span class="string">&#x27;Peter&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>])</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;id&quot;</span>:s1, <span class="string">&quot;name&quot;</span>:s2&#125;)</span><br><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;name&#x27;</span>])   <span class="comment"># 查找名字那一列数据</span></span><br><span class="line"><span class="built_in">print</span>(df.loc[<span class="number">1</span>])    <span class="comment"># 查找索引值为1的那行</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0     Alex</span><br><span class="line">1    Peter</span><br><span class="line">2     Lisa</span><br><span class="line">3      NaN</span><br><span class="line">Name: name, dtype: object</span><br><span class="line"></span><br><span class="line">id        102</span><br><span class="line">name    Peter</span><br><span class="line">Name: 1, dtype: object</span><br></pre></td></tr></table></figure>
+<p><b>注意：</b>对于上面这个例子的DataFrame，我没有设置索引值，<code>[101, 102, 103, 104]</code>是数据的一部分，不是索引值。</p>
+</blockquote>
+</blockquote>
+<h5 id="增加行-列"><a href="#增加行-列" class="headerlink" title="增加行&#x2F;列"></a><b>增加行&#x2F;列</b></h5><blockquote>
+<ul>
+<li>新添加一列的操作为：直接在原有的DataFrame基础上添加</li>
+<li>新添加一行的操作为：使用<code>.loc</code>进行添加<br><b>例子：</b><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">s1 = pd.Series([<span class="number">101</span>, <span class="number">102</span>, <span class="number">103</span>, <span class="number">104</span>])</span><br><span class="line">s2 = pd.Series([<span class="string">&#x27;Alex&#x27;</span>, <span class="string">&#x27;Peter&#x27;</span>, <span class="string">&#x27;Lisa&#x27;</span>])</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;id&quot;</span>:s1, <span class="string">&quot;name&quot;</span>:s2&#125;,index=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">df[<span class="string">&#x27;birth&#x27;</span>] = pd.Series([<span class="string">&#x27;19990102&#x27;</span>, <span class="string">&#x27;20001011&#x27;</span>, <span class="string">&#x27;20000506&#x27;</span>])       <span class="comment"># 新添加列</span></span><br><span class="line">df.loc[<span class="string">&#x27;4&#x27;</span>] = [<span class="number">105</span>,<span class="string">&#x27;Alina&#x27;</span>,<span class="string">&#x27;19991211&#x27;</span>]         <span class="comment"># 新添加一行</span></span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   id   name     birth</span><br><span class="line">1  102  Peter  20001011</span><br><span class="line">2  103   Lisa  20000506</span><br><span class="line">3  104    NaN       NaN</span><br><span class="line">4  105  Alina  19991211</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="数据的筛选"><a href="#数据的筛选" class="headerlink" title="数据的筛选"></a><b>数据的筛选</b></h5><blockquote>
+<p>在Pandas中可以对数据的任何一行或一列进行表达式的筛选。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">4</span>,<span class="number">3</span>),[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>,<span class="string">&#x27;four&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&#x27;one&#x27;</span>]&gt;<span class="number">0.5</span>)        <span class="comment"># 对第一行的数据进行筛选</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">             0         1         2</span><br><span class="line">one    0.085626  0.291507  0.621788</span><br><span class="line">two    0.273505  0.441954  0.061773</span><br><span class="line">three  0.638026  0.294578  0.819607</span><br><span class="line">four   0.257750  0.563129  0.833397</span><br><span class="line"></span><br><span class="line">0    False</span><br><span class="line">1    False</span><br><span class="line">2     True</span><br></pre></td></tr></table></figure>
+<p><b>注意：</b>筛选只会对数据进行<code>False</code>和<code>True</code>的判断。</p>
+</blockquote>
+</blockquote>
+<h5 id="删除行-列"><a href="#删除行-列" class="headerlink" title="删除行&#x2F;列"></a><b>删除行&#x2F;列</b></h5><blockquote>
+<ul>
+<li>Pandas中的删除操作主要用到<code>.drop()</code>函数。</li>
+<li>要注意的是<code>.drop()</code>函数既可以删除行也可以删除列，默认为删除行，如果要删除列则需要对函数内<code>axis</code>这一变量改成1。<br><b>例子：</b><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">4</span>,<span class="number">3</span>),[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>,<span class="string">&#x27;four&#x27;</span>],[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(df.drop(<span class="string">&#x27;one&#x27;</span>))       <span class="comment"># 删除one这一行</span></span><br><span class="line"><span class="built_in">print</span>(df.drop(<span class="string">&#x27;1&#x27;</span>,axis=<span class="number">1</span>))  <span class="comment"># 删除1这一列</span></span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">             1         2         3</span><br><span class="line">one    0.383043  0.690688  0.878634</span><br><span class="line">two    0.627987  0.863513  0.573880</span><br><span class="line">three  0.317966  0.795148  0.379909</span><br><span class="line">four   0.198166  0.202716  0.906900</span><br><span class="line"></span><br><span class="line">             1         2         3</span><br><span class="line">two    0.627987  0.863513  0.573880</span><br><span class="line">three  0.317966  0.795148  0.379909</span><br><span class="line">four   0.198166  0.202716  0.906900</span><br><span class="line"></span><br><span class="line">             2         3</span><br><span class="line">one    0.690688  0.878634</span><br><span class="line">two    0.863513  0.573880</span><br><span class="line">three  0.795148  0.379909</span><br><span class="line">four   0.202716  0.906900</span><br><span class="line"></span><br><span class="line">             1         2         3</span><br><span class="line">one    0.383043  0.690688  0.878634</span><br><span class="line">two    0.627987  0.863513  0.573880</span><br><span class="line">three  0.317966  0.795148  0.379909</span><br><span class="line">four   0.198166  0.202716  0.906900</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><b>注意：</b>单纯使用<code>.drop()</code>函数是无法对原来的DataFrame对象进行删除，如果要对原来的对象进行删除，则需要将函数内的<code>inplace</code>修改为<code>True</code><br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">4</span>,<span class="number">3</span>),[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>,<span class="string">&#x27;four&#x27;</span>],[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line">df.drop(<span class="string">&#x27;one&#x27;</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">             1         2         3</span><br><span class="line">one    0.573584  0.608141  0.479227</span><br><span class="line">two    0.624102  0.986326  0.202363</span><br><span class="line">three  0.126534  0.401310  0.187309</span><br><span class="line">four   0.617479  0.313356  0.231538</span><br><span class="line"></span><br><span class="line">             1         2         3</span><br><span class="line">two    0.624102  0.986326  0.202363</span><br><span class="line">three  0.126534  0.401310  0.187309</span><br><span class="line">four   0.617479  0.313356  0.231538</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="重置索引"><a href="#重置索引" class="headerlink" title="重置索引"></a><b>重置索引</b></h5><blockquote>
+<p>有时候需要方便的定位，需要重置索引（恢复成由0开始的整数索引），这是可以用<code>reset_index()</code>函数，与删除的同理，如果要在原数据的基础上重置索引，则需要加上<code>inplace=True</code>。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">4</span>,<span class="number">3</span>),[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>,<span class="string">&#x27;four&#x27;</span>],[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line">df.reset_index(inplace=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">             1         2         3</span><br><span class="line">one    0.681956  0.055052  0.723009</span><br><span class="line">two    0.167769  0.608805  0.750459</span><br><span class="line">three  0.907047  0.338093  0.828860</span><br><span class="line">four   0.265728  0.633751  0.435069</span><br><span class="line"></span><br><span class="line">  index         1         2         3</span><br><span class="line">0    one  0.681956  0.055052  0.723009</span><br><span class="line">1    two  0.167769  0.608805  0.750459</span><br><span class="line">2  three  0.907047  0.338093  0.828860</span><br><span class="line">3   four  0.265728  0.633751  0.435069</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>当然除了重置默认的索引，Pandas也可以重新设置索引：<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">4</span>,<span class="number">3</span>),[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;two&#x27;</span>,<span class="string">&#x27;three&#x27;</span>,<span class="string">&#x27;four&#x27;</span>],[<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line">df[<span class="string">&#x27;new_index&#x27;</span>] = [<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">df.set_index(<span class="string">&#x27;new_index&#x27;</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">             1         2         3</span><br><span class="line">one    0.904210  0.158044  0.699409</span><br><span class="line">two    0.108463  0.598657  0.747665</span><br><span class="line">three  0.777337  0.577440  0.738239</span><br><span class="line">four   0.562839  0.950309  0.274281</span><br><span class="line"></span><br><span class="line">                 1         2         3</span><br><span class="line">new_index                              </span><br><span class="line">A          0.904210  0.158044  0.699409</span><br><span class="line">B          0.108463  0.598657  0.747665</span><br><span class="line">C          0.777337  0.577440  0.738239</span><br><span class="line">D          0.562839  0.950309  0.274281</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>与<code>reset_index()</code>一样，如果不加<code>inplace=True</code>就无法在原数据上修改</p>
+</blockquote>
+</blockquote>
+<h5 id="填充和删除重复行"><a href="#填充和删除重复行" class="headerlink" title="填充和删除重复行"></a><b>填充和删除重复行</b></h5><blockquote>
+<p>对于一个原始数据集，有时我们可能会遇到数值缺失的情况，因此我们需要<code>dropna()</code>和<code>fillna()</code>对其进行操作。<br><b>删除：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">d1 = pd.Series([<span class="number">101</span>,<span class="number">102</span>,<span class="number">103</span>,<span class="number">104</span>])</span><br><span class="line">d2 = pd.Series([<span class="string">&#x27;Alex&#x27;</span>,<span class="string">&#x27;Peter&#x27;</span>,<span class="string">&#x27;Lisa&#x27;</span>])</span><br><span class="line">d3 = pd.Series([<span class="number">2000</span>,<span class="number">3000</span>])</span><br><span class="line">d4 = pd.Series([])</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;id&#x27;</span>:d1, <span class="string">&#x27;name&#x27;</span>:d2, <span class="string">&#x27;salary&#x27;</span>:d3, <span class="string">&#x27;age&#x27;</span>:d4&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.dropna())          <span class="comment"># 删除有空值的那一行</span></span><br><span class="line"><span class="built_in">print</span>(df.dropna(axis=<span class="number">1</span>))    <span class="comment"># 删除有空值的那一列</span></span><br><span class="line"><span class="built_in">print</span>(df.dropna(axis=<span class="number">1</span>, how=<span class="string">&#x27;all&#x27;</span>))     <span class="comment"># 删除全是空值的那一列</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa     NaN  NaN</span><br><span class="line">3  104    NaN     NaN  NaN</span><br><span class="line"></span><br><span class="line">Empty DataFrame</span><br><span class="line">Columns: [id, name, salary, age]</span><br><span class="line">Index: []</span><br><span class="line"></span><br><span class="line">   id</span><br><span class="line">0  101</span><br><span class="line">1  102</span><br><span class="line">2  103</span><br><span class="line">3  104</span><br><span class="line"></span><br><span class="line">   id   name  salary</span><br><span class="line">0  101   Alex  2000.0</span><br><span class="line">1  102  Peter  3000.0</span><br><span class="line">2  103   Lisa     NaN</span><br><span class="line">3  104    NaN     NaN</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>注释：</b></p>
+<blockquote>
+<ul>
+<li>删除也和上面的操作类似，不加<code>inplace=True</code>就无法对元数据进行修改。</li>
+<li>删除空值的函数默认为删除行，如果要删除列就需要在参数中加上<code>axis=1</code>。</li>
+<li>在删除时，如果只想删除全部都是空值的行&#x2F;列，需要在参数中加上<code>how=&#39;all&#39;</code>。</li>
+</ul>
+</blockquote>
+<p><b>填充：</b><br>在对空值进行处理时，除了删除操作，当然也包括填充操作<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">d1 = pd.Series([<span class="number">101</span>,<span class="number">102</span>,<span class="number">103</span>,<span class="number">104</span>])</span><br><span class="line">d2 = pd.Series([<span class="string">&#x27;Alex&#x27;</span>,<span class="string">&#x27;Peter&#x27;</span>,<span class="string">&#x27;Lisa&#x27;</span>])</span><br><span class="line">d3 = pd.Series([<span class="number">2000</span>,<span class="number">3000</span>])</span><br><span class="line">d4 = pd.Series([])</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;id&#x27;</span>:d1, <span class="string">&#x27;name&#x27;</span>:d2, <span class="string">&#x27;salary&#x27;</span>:d3, <span class="string">&#x27;age&#x27;</span>:d4&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df.fillna(<span class="string">&#x27;missing&#x27;</span>))         <span class="comment"># 填充特定值</span></span><br><span class="line"><span class="built_in">print</span>(df.fillna(df.mean()))         <span class="comment"># 填充均值</span></span><br><span class="line"><span class="built_in">print</span>(df.fillna(method=<span class="string">&#x27;ffill&#x27;</span>,limit=<span class="number">1</span>))        <span class="comment"># method指定方式：向后填充且仅限一次</span></span><br><span class="line"><span class="built_in">print</span>(df.fillna(method=<span class="string">&#x27;pad&#x27;</span>))      <span class="comment"># 使用前一值填充，与上一方法类似</span></span><br><span class="line">df[<span class="string">&#x27;salary&#x27;</span>]=df[<span class="string">&#x27;salary&#x27;</span>].ffill()   <span class="comment"># 使用ffill()函数填充，类似method指定</span></span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line">df1 = df.fillna(&#123;<span class="string">&#x27;age&#x27;</span>:<span class="number">0</span>&#125;)         <span class="comment"># 也可以直接指定某一列进行填充</span></span><br><span class="line"><span class="built_in">print</span>(df1)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa     NaN  NaN</span><br><span class="line">3  104    NaN     NaN  NaN</span><br><span class="line"></span><br><span class="line">   id     name   salary      age</span><br><span class="line">0  101     Alex     2000  missing</span><br><span class="line">1  102    Peter     3000  missing</span><br><span class="line">2  103     Lisa  missing  missing</span><br><span class="line">3  104  missing  missing  missing</span><br><span class="line"></span><br><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa  2500.0  NaN</span><br><span class="line">3  104    NaN  2500.0  NaN</span><br><span class="line"></span><br><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa  3000.0  NaN</span><br><span class="line">3  104   Lisa     NaN  NaN</span><br><span class="line"></span><br><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa  3000.0  NaN</span><br><span class="line">3  104   Lisa  3000.0  NaN</span><br><span class="line"></span><br><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  NaN</span><br><span class="line">1  102  Peter  3000.0  NaN</span><br><span class="line">2  103   Lisa  3000.0  NaN</span><br><span class="line">3  104    NaN  3000.0  NaN</span><br><span class="line"></span><br><span class="line">   id   name  salary  age</span><br><span class="line">0  101   Alex  2000.0  0.0</span><br><span class="line">1  102  Peter  3000.0  0.0</span><br><span class="line">2  103   Lisa  3000.0  0.0</span><br><span class="line">3  104    NaN  3000.0  0.0</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>注释：</b></p>
+<blockquote>
+<ul>
+<li>与上面的操作相同，填充操作除了<code>df[&#39;salary&#39;]=df[&#39;salary&#39;].ffill()</code>是直接对原数据进行修改，其他的如果要在原数据上修改，则需要在参数上加上<code>inplace=True</code>。</li>
+<li><code>df.fillna(method=&#39;ffill&#39;,limit=1)</code>与<code>df.fillna(method=&#39;pad&#39;)</code>的执行效果是相同的，只是函数的参数不一样而已。</li>
+<li>对于<code>df.fillna(method=&#39;ffill&#39;,limit=1)</code>中的<code>method</code>除了<code>ffill</code>以外，还有<code>bfill</code>是根据后面的值来填充。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="运算及分组统计"><a href="#运算及分组统计" class="headerlink" title="运算及分组统计"></a><b>运算及分组统计</b></h5><blockquote>
+<ul>
+<li><p>在Pandas中非常容易做矩阵相关列表的运算<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series(np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]))</span><br><span class="line">s2 = pd.Series(np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]))</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;a&quot;</span>: s1, <span class="string">&quot;b&quot;</span>: s2&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(df.a.mean())          <span class="comment"># 求a列的均值</span></span><br><span class="line"><span class="built_in">print</span>(df.a.<span class="built_in">sum</span>())           <span class="comment"># 求a列之和</span></span><br><span class="line"><span class="built_in">print</span>(df.a.var())           <span class="comment"># 求a列的方差</span></span><br><span class="line"><span class="built_in">print</span>(df.a.std())           <span class="comment"># 求a列的标准差</span></span><br><span class="line"><span class="built_in">print</span>(df.a.<span class="built_in">max</span>())           <span class="comment"># 求a列的最大值</span></span><br><span class="line"><span class="built_in">print</span>(df.a.<span class="built_in">min</span>())           <span class="comment"># 求a列的最小值</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  a  b</span><br><span class="line">0  1  4</span><br><span class="line">1  2  5</span><br><span class="line">2  3  6</span><br><span class="line">3  4  7</span><br><span class="line">2.5</span><br><span class="line">10</span><br><span class="line">1.6666666666666667</span><br><span class="line">1.2909944487358056</span><br><span class="line">4</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>当然在Pandas中，还可以用<code>groupby()</code>函数对数据进行分组统计整理。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series(np.array([<span class="string">&#x27;流浪星球&#x27;</span>,<span class="string">&#x27;新喜剧之王&#x27;</span>,<span class="string">&#x27;绿皮书&#x27;</span>,<span class="string">&#x27;流浪星球&#x27;</span>,<span class="string">&#x27;流浪星球&#x27;</span>,<span class="string">&#x27;新喜剧之王&#x27;</span>]))</span><br><span class="line">s2 = pd.Series(np.array([<span class="number">120000</span>, <span class="number">86000</span>,<span class="number">92000</span>,<span class="number">143000</span>,<span class="number">98000</span>,<span class="number">68000</span>]))</span><br><span class="line">s3 = pd.Series(pd.to_datetime([<span class="string">&#x27;20181203&#x27;</span>,<span class="string">&#x27;20181203&#x27;</span>,<span class="string">&#x27;20181205&#x27;</span>,<span class="string">&#x27;20181206&#x27;</span>,<span class="string">&#x27;20180207&#x27;</span>,<span class="string">&#x27;20181207&#x27;</span>]))</span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&#x27;电影名&#x27;</span>:s1, <span class="string">&#x27;票房&#x27;</span>:s2, <span class="string">&#x27;日期&#x27;</span>:s3&#125;)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line">group = df.groupby(by=[<span class="string">&#x27;电影名&#x27;</span>])         <span class="comment"># 按名称进行分组</span></span><br><span class="line"><span class="built_in">print</span>(group.<span class="built_in">max</span>())          <span class="comment"># 按分组结果找出各组中最大的那个数据</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">电影名       票房    日期                     </span><br><span class="line">新喜剧之王   86000   2018-12-07</span><br><span class="line">流浪星球    143000  2018-12-06</span><br><span class="line">绿皮书      92000   2018-12-05</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b><code>df.groupby(by=[&#39;电影名&#39;])</code>可以将电影名相同的统计为一组，<code>group.max()</code>则是找出每组中的最大值。</p>
+<ul>
+<li><p>也可以在<code>groupby()</code>后直接加入运算函数进行各类统计，如以‘电影名’分组统计总票房。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.groupby([<span class="string">&#x27;电影名&#x27;</span>]).<span class="built_in">sum</span>())</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">电影名      票房</span><br><span class="line">新喜剧之王  154000</span><br><span class="line">流浪星球   361000</span><br><span class="line">绿皮书     92000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在使用<code>groupby()</code>对数据集统计，可以在<code>groupby()</code>的参数内把对象罗列出来即可，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.groupby([<span class="string">&#x27;电影名&#x27;</span>,<span class="string">&#x27;日期&#x27;</span>]).median())</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">电影名     日期          票房     </span><br><span class="line">新喜剧之王 2018-12-03   86000</span><br><span class="line">        2018-12-07   68000</span><br><span class="line">流浪星球  2018-02-07   98000</span><br><span class="line">       2018-12-03   120000</span><br><span class="line">       2018-12-06   143000</span><br><span class="line">绿皮书   2018-12-05    92000</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>上例是将数据按电影名和日期进行统计，从而将中位数排在中间。</p>
+</li>
+<li><p>如果相对数据集进行排序还可以用<code>sort_values()</code>或<code>sort_index()</code>函数对其进行排序。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.sort_values(by=<span class="string">&#x27;票房&#x27;</span>, ascending=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    电影名      票房         日期</span><br><span class="line">5  新喜剧之王   68000 2018-12-07</span><br><span class="line">1  新喜剧之王   86000 2018-12-03</span><br><span class="line">2    绿皮书   92000 2018-12-05</span><br><span class="line">4   流浪星球   98000 2018-02-07</span><br><span class="line">0   流浪星球  120000 2018-12-03</span><br><span class="line">3   流浪星球  143000 2018-12-06</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>其中，<code>by=</code>是指数据集按什么进行排序，<code>ascending=True</code>代表这个排序为由低到高，<code>False</code>为由高到低。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a><b>数据合并</b></h5><blockquote>
+<p>对于将数据表内容连接起来的方法，Pandas提供了3个函数—<code>concat()</code>、<code>join()</code>和<code>merge()</code>。</p>
+<ul>
+<li><p><b>concat():</b></p>
+<blockquote>
+<p>基本语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.concat(objs, axis=<span class="number">0</span>, join=<span class="string">&#x27;outer&#x27;</span>, join_axes=<span class="literal">None</span>, ignore_index=<span class="literal">False</span>, keys=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参数<code>objs</code>可以是‘series’、’DataFrame‘类型。</li>
+<li>参数<code>axis</code>是指表合并轴的方向，默认值为0.0是指纵向的方式连接，1指横向的方式连接。</li>
+<li>参数<code>join</code>是指连接的方式。默认值outer是指外连接，他得到的是两个表的并集，如果是inner则是内连接，得到的是两个表的交集。</li>
+<li>参数<code>join_axes</code>是指根据指定的轴来连接数据（左连接或右连接）。<b>注意：</b>由于奇怪的原因，这个变量无法被识别。</li>
+<li>参数<code>keys</code>是指根据指定的key值来标识数据源自那个表（类似多了一个index）<br><b>例子：</b><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.DataFrame(np.full((<span class="number">3</span>, <span class="number">4</span>), <span class="number">2</span>), index=[<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>], columns=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df1)</span><br><span class="line">df2 = pd.DataFrame(np.full((<span class="number">3</span>, <span class="number">4</span>), <span class="number">6</span>), index=[<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;E&#x27;</span>], columns=[<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;f&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br><span class="line">df = pd.concat([df1, df2], sort=<span class="literal">False</span>)</span><br><span class="line">df3 = pd.concat([df1, df2],keys=[<span class="string">&#x27;df1&#x27;</span>,<span class="string">&#x27;df2&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(df3)</span><br></pre></td></tr></table></figure>
+输出：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  a  b  c  d</span><br><span class="line">A  2  2  2  2</span><br><span class="line">B  2  2  2  2</span><br><span class="line">C  2  2  2  2</span><br><span class="line"></span><br><span class="line">  c  d  e  f</span><br><span class="line">A  6  6  6  6</span><br><span class="line">B  6  6  6  6</span><br><span class="line">E  6  6  6  6</span><br><span class="line"></span><br><span class="line">    a    b  c  d    e    f</span><br><span class="line">A  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">B  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">C  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">A  NaN  NaN  6  6  6.0  6.0</span><br><span class="line">B  NaN  NaN  6  6  6.0  6.0</span><br><span class="line">E  NaN  NaN  6  6  6.0  6.0</span><br><span class="line"></span><br><span class="line">        a    b  c  d    e    f</span><br><span class="line">df1 A  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">   B  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">   C  2.0  2.0  2  2  NaN  NaN</span><br><span class="line">df2 A  NaN  NaN  6  6  6.0  6.0</span><br><span class="line">   B  NaN  NaN  6  6  6.0  6.0</span><br><span class="line">   E  NaN  NaN  6  6  6.0  6.0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<b>注：</b><blockquote>
+<ul>
+<li>这里的<code>sort</code>是为了避免Pandas的一些奇怪的警告而添加的。</li>
+<li><code>key</code>可以对来自不同的表进行建立新的索引。</li>
+<li><code>axis</code>虽然在这里没写出来，但是直接在参数上加上就可以用了。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>merge():</b><br><code>merge()</code>函数的连接方式与<code>concat</code>不同，它是以类似数据合并的方式进行连接的，语法如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.merge(obj1, obj2, how=<span class="string">&#x27;inner&#x27;</span>, on=<span class="string">&#x27;key&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>obj1代表连接左侧的DataFrame;obj2代表连接右侧的DataFrame。</li>
+<li>how代表连接方式，默认值为<code>innner</code>内连接（交集），可以设置为<code>outer</code>外连接（并集）；也可以设置为<code>left</code>,<code>right</code>分别为以左侧为轴连接（左连接），和右侧为轴连接（右连接）。</li>
+<li>on&#x3D;’key’代表合并两者所在的列，表示以该列为基准进行合并<br><b>例子：</b><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df_obj1 = pd.DataFrame(&#123;<span class="string">&#x27;y&#x27;</span>:[<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;e&#x27;</span>], <span class="string">&#x27;data1&#x27;</span>:[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>]&#125;)</span><br><span class="line">df_obj2 = pd.DataFrame(&#123;<span class="string">&#x27;y&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;d&#x27;</span>], <span class="string">&#x27;data2&#x27;</span>:[<span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>, <span class="string">&#x27;10&#x27;</span>]&#125;)</span><br><span class="line"><span class="built_in">print</span>(pd.merge(df_obj1, df_obj2))       <span class="comment"># 默认参数</span></span><br><span class="line"><span class="built_in">print</span>(pd.merge(df_obj1, df_obj2, how=<span class="string">&#x27;outer&#x27;</span>, on=<span class="string">&#x27;y&#x27;</span>))</span><br></pre></td></tr></table></figure>
+输出：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  y data1 data2</span><br><span class="line">0  b     1     9</span><br><span class="line">1  b     2     9</span><br><span class="line">2  a     3     8</span><br><span class="line">3  a     4     8</span><br><span class="line">4  d     5    10</span><br><span class="line"></span><br><span class="line">  y data1 data2</span><br><span class="line">0  b     1     9</span><br><span class="line">1  b     2     9</span><br><span class="line">2  a     3     8</span><br><span class="line">3  a     4     8</span><br><span class="line">4  d     5    10</span><br><span class="line">5  c     6   NaN</span><br><span class="line">6  e     7   NaN</span><br></pre></td></tr></table></figure>
+<b>补充：</b></li>
+<li>对于索引不同名的，可以在merge函数中添加<code>left_on</code>或<code>right_on</code>来对两个表进行左右连接。用法：<code>pd.merge(df_obj1, df_obj2, left_on=&#39;y&#39;, right_on=&#39;y1&#39;, how=&#39;outer&#39;)</code></li>
+<li>对于没有共同列的两个表，可以用<code>join</code>进行连接。用法：<code>df_obj1.join(df_obj2, how=&#39;outer&#39;)</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>append():</b><br>在Pandas中<code>append()</code>可以连接多个DataFrame或者Series，但注意在来连接Series时，要加上<code>ignore_index=Ture</code>来避免奇怪的异常。<br><b>例子：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.DataFrame(np.full((<span class="number">3</span>, <span class="number">4</span>), <span class="number">2</span>))</span><br><span class="line">df2 = pd.DataFrame(np.full((<span class="number">3</span>, <span class="number">4</span>), <span class="number">3</span>))</span><br><span class="line">df3 = pd.Series([<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df1.append(df2))</span><br><span class="line"><span class="built_in">print</span>(df1.append(df3, ignore_index=<span class="literal">True</span>))</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  0  1  2  3</span><br><span class="line">0  2  2  2  2</span><br><span class="line">1  2  2  2  2</span><br><span class="line">2  2  2  2  2</span><br><span class="line">0  3  3  3  3</span><br><span class="line">1  3  3  3  3</span><br><span class="line">2  3  3  3  3</span><br><span class="line"></span><br><span class="line">  0  1  2  3</span><br><span class="line">0  2  2  2  2</span><br><span class="line">1  2  2  2  2</span><br><span class="line">2  2  2  2  2</span><br><span class="line">3  a  b  c  d</span><br></pre></td></tr></table></figure>
+<p><b>注：</b>如果不加<code>ignore_index=True</code>就会报错：<code>Can only append a Series if ignore_index=True or if the Series has a name</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="Pandas读取文件数据"><a href="#Pandas读取文件数据" class="headerlink" title="Pandas读取文件数据"></a><b>Pandas读取文件数据</b></h4><blockquote>
+<p>Pandas除了可以对不同矩阵之间的操作，同时也可以从外部读取数据进行操作,如csv,execel,sql,json,html等文件。<br>以csv文件为例，</p>
+<ul>
+<li>如果要读取csv文件时，可以调用<code>read_csv(path)</code>函数，其中<code>path</code>为文件路径，其中还有一个参数<code>header=x</code>，这个参数表示：定义第x列为列名，默认值为0，可以设置为None。</li>
+<li>如果要导出csv文件时，可以调用<code>to_csv(path)</code>函数，其中<code>path</code>为文件路径，如果想导出文件不包括索引可以加上<code>index = False</code>。</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Pandas%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Pandas介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BASeries"><span class="toc-number">2.</span> <span class="toc-text">创建Series</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DataFrame%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">3.</span> <span class="toc-text">DataFrame的构造</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DataFrame%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">DataFrame的基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E6%88%96%E8%A1%8C"><span class="toc-number">4.1.</span> <span class="toc-text">获取列或行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E8%A1%8C-%E5%88%97"><span class="toc-number">4.2.</span> <span class="toc-text">增加行&#x2F;列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E7%AD%9B%E9%80%89"><span class="toc-number">4.3.</span> <span class="toc-text">数据的筛选</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A1%8C-%E5%88%97"><span class="toc-number">4.4.</span> <span class="toc-text">删除行&#x2F;列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E7%BD%AE%E7%B4%A2%E5%BC%95"><span class="toc-number">4.5.</span> <span class="toc-text">重置索引</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E5%92%8C%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C"><span class="toc-number">4.6.</span> <span class="toc-text">填充和删除重复行</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%8F%8A%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1"><span class="toc-number">4.7.</span> <span class="toc-text">运算及分组统计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6"><span class="toc-number">4.8.</span> <span class="toc-text">数据合并</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pandas%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">5.</span> <span class="toc-text">Pandas读取文件数据</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

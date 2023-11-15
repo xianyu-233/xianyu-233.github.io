@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>消息队列 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="前情知识：
+
+同步：可以理解为程序在执行完一个操作后，一直等待系统的返回，程序只有收到系统返回后才能继续下一步的操作（如打电话）
+异步：可以理解为程序在执行完一个操作后，委托系统作一个异步委托，当系,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">消息队列</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">消息队列</h1>
+        <div class="stuff">
+            <span>五月 19, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="前情知识："><a href="#前情知识：" class="headerlink" title="前情知识："></a>前情知识：</h4><blockquote>
+<ul>
+<li><strong>同步：</strong>可以理解为程序在执行完一个操作后，一直等待系统的返回，程序只有收到系统返回后才能继续下一步的操作（如打电话）</li>
+<li><strong>异步：</strong>可以理解为程序在执行完一个操作后，委托系统作一个异步委托，当系统返回一个结果后，系统才自动触发委托，向程序发送结果。（如发信息）</li>
+</ul>
+</blockquote>
+<h4 id="什么是消息队列"><a href="#什么是消息队列" class="headerlink" title="什么是消息队列"></a>什么是消息队列</h4><p>消息队列是在网络通信的消息传输中保存消息的容器（中间件）。</p>
+<h4 id="为什么要使用消息队列"><a href="#为什么要使用消息队列" class="headerlink" title="为什么要使用消息队列"></a>为什么要使用消息队列</h4><p>因为在高并发的环境下，大量信息的涌入会使得mysql、redis等数据库造成高压威胁（相当于有一个水池，突然上游水闸开门了，水池自然很快会满，并导致水溢出）。加入消息队列，这样就可以异步处理请求，从而缓解系统压力（相当于在水库和水池之间接一根水管）</p>
+<p><strong>不使用消息队列：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.png" alt="不使用消息队列"></p>
+<p><strong>使用消息队列：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E4%BD%BF%E7%94%A8%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.png" alt="使用消息队列"></p>
+<p>在不使用消息队列的情况下，用户请求直接连通数据库，大量<strong>同步请求</strong>使得数据库不堪重负，造成高响应延迟；在使用消息队列后，对于数据库来说，用户发送的是<strong>异步请求</strong>，因此数据库的负载压力得以减轻（由于是异步请求，因此还要作后续请求失败的处理）。</p>
+<h4 id="消息队列的特点"><a href="#消息队列的特点" class="headerlink" title="消息队列的特点"></a>消息队列的特点</h4><ul>
+<li><p><strong>异步：</strong></p>
+<p>如上面所说的，通过接入消息队列这一中间件，大量请求可以得以异步处理，从而减去数据库的负载（实际上就是减少数据库的连接，让数据库不会一口气进行多个连接处理）</p>
+</li>
+<li><p><strong>削峰：</strong></p>
+<p>由于异步特性，消息队列可以让原本的负载压力峰值下降（但是处理时间也会延长），如下图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E5%89%8A%E5%B3%B0.png" alt="削峰"></p>
+<p>如同水池接入一根水管，虽然处理时间延长了，但不会导致水的突然溢出，从而让部分水流失。</p>
+</li>
+<li><p><strong>解耦：</strong></p>
+<p>有一个系统A要调用其他系统的方法，如果直接调用，那么其他系统改变，系统A也会改变，这样的耦合度过高，比较麻烦，</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E8%A7%A3%E8%80%A61.png" alt="解耦1"></p>
+<p>但引入消息队列，将系统A和其他系统用消息队列连接起来，此时耦合度就会下降，因为其他系统如何改变，都不会影响到系统A的代码</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E8%A7%A3%E8%80%A62.png" alt="解耦2"></p>
+</li>
+</ul>
+<h4 id="消息队列带来的问题"><a href="#消息队列带来的问题" class="headerlink" title="消息队列带来的问题"></a>消息队列带来的问题</h4><ul>
+<li><p><strong>系统复杂性：</strong>因为引入消息队列，因此需要想办法去维护，比如处理<strong>消息重复消费</strong>、<strong>消息丢失</strong>、<strong>消息的顺序消费</strong>等问题，让系统复杂度上升了</p>
+</li>
+<li><p><strong>数据一致性：</strong>在解耦特性中，各系统之间的数据可能不一致，以及在各系统之间的联动中，其中一个系统出错或失败的后续处理</p>
+</li>
+<li><p><strong>可用性降低：</strong>在引入消息队列后，还需要考虑消息队列挂掉的问题。</p>
+</li>
+</ul>
+<h4 id="絮絮叨叨"><a href="#絮絮叨叨" class="headerlink" title="絮絮叨叨"></a>絮絮叨叨</h4><p>其实计算机系统很多都采用了类消息队列的操作，如CPU缓存（好像不太合适）、进程队列等，为的就是不让处理的那一方压力过大崩掉。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">前情知识：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="toc-number">2.</span> <span class="toc-text">什么是消息队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="toc-number">3.</span> <span class="toc-text">为什么要使用消息队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">消息队列的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">消息队列带来的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B5%AE%E7%B5%AE%E5%8F%A8%E5%8F%A8"><span class="toc-number">6.</span> <span class="toc-text">絮絮叨叨</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python-类 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="类的定义
+类在Python中与在C++一样，几乎可以模拟任何东西，同时也是用关键字class来定义：
+
+1234567891011121314class Dog:   def __init__(se,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Python-类</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Python-类</h1>
+        <div class="stuff">
+            <span>九月 01, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">编程语言基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a><b>类的定义</b></h4><blockquote>
+<p>类在Python中与在C++一样，几乎可以模拟任何东西，同时也是用关键字<code>class</code>来定义：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">       self.name = name</span><br><span class="line">       self.age = age</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">pr</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;name:&#x27;</span>, self.name.title())</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;age:&#x27;</span>, self.age)</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   myDog = Dog(<span class="string">&#x27;hapi&#x27;</span>, <span class="number">10</span>)</span><br><span class="line">   myDog.pr()</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name: Hapi</span><br><span class="line">age: 10</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="init-方法"><a href="#init-方法" class="headerlink" title="init()方法"></a><b><strong>init</strong>()方法</b></h5><blockquote>
+<p>首先在python的类中定义的所有函数称为方法。<br><code>__init__()</code>类似于c++中的构造函数，在为一个类创建对象时会自动调用。<br>要注意的是，<code>__init()__</code>中必须要有<code>self</code>这个形参，并且它必须要在其它形参之前。它是一个指向示例本身的引用，从而让示例可以访问类中的属性与方法。<br><strong>init</strong>()方法可以为一个类设置默认值，修改默认值可以直接修改或者通过类的内置函数来修改。</p>
+</blockquote>
+<h5 id="类中属性与方法的调用"><a href="#类中属性与方法的调用" class="headerlink" title="类中属性与方法的调用"></a><b>类中属性与方法的调用</b></h5><blockquote>
+<p>在python中类的属性与方法可以直接利用<code>.</code>进行调用，如</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">       self.name = name</span><br><span class="line">       self.age = age</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">pr</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;name:&#x27;</span>, self.name.title())</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;age:&#x27;</span>, self.age)</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   myDog = Dog(<span class="string">&#x27;hapi&#x27;</span>, <span class="number">10</span>)</span><br><span class="line">   myDog.pr()</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name: Hapi</span><br><span class="line">age: 10</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>在类中可以用<code>self</code>来代替对象实例，在类之外可以用类名+<code>.</code>+属性或方法进行调用。</p>
+</blockquote>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a><b>继承</b></h4><blockquote>
+<p>继承机制可以让一些代码可以重用。<br>通过继承创建的新类称为子类或派生类，被继承的类称为基类、父类或超类。<br><b>继承语法：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class 派生类名(基类名，基类名,...):</span><br></pre></td></tr></table></figure>
+<p>继承可以让子类继承父类的所有属性与方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name, age</span>):</span><br><span class="line">       self.name = name</span><br><span class="line">       self.age = age</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">pr</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;name:&#x27;</span>, self.name.title())</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;age:&#x27;</span>, self.age)</span><br><span class="line">       <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EletricDog</span>(<span class="title class_ inherited__">Dog</span>):</span><br><span class="line">   Eletric = <span class="number">100</span></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">changeName</span>(<span class="params">self</span>):</span><br><span class="line">       self.name = <span class="string">&#x27;EletricDog&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   myDog = EletricDog(<span class="string">&#x27;hapi&#x27;</span>, <span class="number">10</span>)</span><br><span class="line">   myDog.changeName()</span><br><span class="line">   myDog.pr()</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name: Eletricdog</span><br><span class="line">age: 10</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>如例子所示，子类中并没定义构造方法，也没定义<code>name</code>和<code>age</code>属性，但是通过继承可以获得父类的所有属性与方法。<br><b>注意：</b>当多继承时，如果不重写父类的构造方法，那么子类默认调用的是第一个父类的构造方法。</p>
+</blockquote>
+<h5 id="重写方法"><a href="#重写方法" class="headerlink" title="重写方法"></a><b>重写方法</b></h5><blockquote>
+<ul>
+<li><p><b>重写构造方法：</b></p>
+<blockquote>
+<ul>
+<li><b>子类需要自动调用父类的方法：</b> 子类不重写__init__()方法，实例化子类后，会自动调用父类的__init__()的方法。</li>
+<li><b>子类不需要自动调用父类的方法：</b>子类重写__init__()方法，实例化子类后，将不会自动调用父类的__init__()的方法。</li>
+<li><b>子类重写__init__()方法又需要调用父类的方法：</b>使用super关键词：<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">super</span>(子类，self).__init__(参数<span class="number">1</span>，参数<span class="number">2</span>，....)</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Son</span>(<span class="title class_ inherited__">Father</span>):</span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, name</span>):   </span><br><span class="line">   <span class="built_in">super</span>(Son, self).__init__(name)</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>重写父类的方法：</b></p>
+<blockquote>
+<p>在子类中直接重写一个与父类重名的函数即可，如</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">D</span>:</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">       self.name = <span class="string">&#x27;D&#x27;</span></span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">pr</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;The father:&#x27;</span>, self.name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">S</span>(<span class="title class_ inherited__">D</span>):</span><br><span class="line">   <span class="keyword">def</span> <span class="title function_">pr</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;The son:&#x27;</span>, self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   a = S()</span><br><span class="line">   a.pr()</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The son: D</span><br></pre></td></tr></table></figure></blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">类的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#init-%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">init()方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B1%BB%E4%B8%AD%E5%B1%9E%E6%80%A7%E4%B8%8E%E6%96%B9%E6%B3%95%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">类中属性与方法的调用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">2.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E5%86%99%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">重写方法</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

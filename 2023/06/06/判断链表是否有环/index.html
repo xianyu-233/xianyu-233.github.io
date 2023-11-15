@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>判断链表是否有环 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="问题描述
+有一个单向链表，链表中可能出现“环”，如何通过程序判断这个链表是否有一个环
+
+
+方法一：穷举遍历
+思路：首先从头节点开始，依次遍历该链表的每一个节点。每遍历到一个新节点时，就从头节点重新遍,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">判断链表是否有环</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">判断链表是否有环</h1>
+        <div class="stuff">
+            <span>六月 06, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><blockquote>
+<p>有一个单向链表，链表中可能出现“环”，如何通过程序判断这个链表是否有一个环</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E6%9C%89%E7%8E%AF/%E6%9C%89%E7%8E%AF%E9%93%BE%E8%A1%A8.jpg" alt="有环链表"></p>
+</blockquote>
+<h4 id="方法一：穷举遍历"><a href="#方法一：穷举遍历" class="headerlink" title="方法一：穷举遍历"></a>方法一：穷举遍历</h4><blockquote>
+<p><strong>思路：</strong>首先从头节点开始，依次遍历该链表的每一个节点。每遍历到一个新节点时，就从头节点重新遍历之前的所有节点，用新节点<strong>唯一ID</strong>与之前所有节点ID进行比较。如果重复则证明有环；否则为无环。（不是唯一ID可能分不清是否有环）</p>
+<p><strong>例子：</strong>遍历上面图2，</p>
+<blockquote>
+<ul>
+<li><strong>第一趟遍历：</strong>不进行遍历</li>
+<li><strong>第二趟遍历：</strong>1，检查遍历队列中是否有2</li>
+<li><strong>第三趟遍历：</strong>1、2，检查遍历队列中是否有3</li>
+<li><strong>第四趟遍历：</strong>1、2、3，检查遍历队列中是否有4</li>
+<li><strong>第五趟遍历：</strong>1、2、3、4，检查遍历队列中是否有5</li>
+<li><strong>第六趟遍历：</strong>1、2、3、4、5，检查遍历队列中是否有6</li>
+<li><strong>第七趟遍历：</strong>1、2、3、4、5、6，检查遍历队列中是否有7</li>
+<li><strong>第八趟遍历：</strong>1、2、3、4、5、6、7，检查遍历队列中是否有3</li>
+<li>发现遍历队列中出现3，判断该链表有环</li>
+</ul>
+</blockquote>
+<p><strong>复杂度：</strong></p>
+<blockquote>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n^n)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="方法二：哈希表缓存"><a href="#方法二：哈希表缓存" class="headerlink" title="方法二：哈希表缓存"></a>方法二：哈希表缓存</h4><blockquote>
+<p><strong>思路：</strong>创建一个以<strong>唯一节点ID</strong>为键的哈希表，每遍历一个节点就将该节点存入哈希表中，如果发现哈希表中已存在该ID，则判断该链表有环。</p>
+<p><strong>例子：</strong>以上面图2为例，</p>
+<blockquote>
+<ul>
+<li><strong>第一趟遍历后的哈希表：</strong>1</li>
+<li><strong>第二趟遍历后的哈希表：</strong>1、2</li>
+<li><strong>第三趟遍历后的哈希表：</strong>1、2、3</li>
+<li><strong>第四趟遍历后的哈希表：</strong>1、2、3、4</li>
+<li><strong>第五趟遍历后的哈希表：</strong>1、2、3、4、5</li>
+<li><strong>第六趟遍历后的哈希表：</strong>1、2、3、4、5、6</li>
+<li><strong>第七趟遍历后的哈希表：</strong>1、2、3、4、5、6、7</li>
+<li><strong>第八趟遍历后的哈希表：</strong>1、2、3、4、5、6、7（发现3已经存在于哈希表中）</li>
+<li>判断该链表有环</li>
+</ul>
+</blockquote>
+<p><strong>复杂度：</strong></p>
+<blockquote>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n)$</li>
+<li><strong>空间复杂度：</strong>$O(n)$</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="方法三：快慢指针"><a href="#方法三：快慢指针" class="headerlink" title="方法三：快慢指针"></a>方法三：快慢指针</h4><blockquote>
+<p><strong>思路：</strong>创建两个指针p1和p2，p1每次沿着链表移动一步、p2每次沿着链表移动两步。一直持续下去，如果p1和p2相遇，则证明该链表有环。</p>
+<p><strong>例子：</strong>以上面图2为例，</p>
+<blockquote>
+<ul>
+<li><strong>第一趟指针的情况：</strong>1(p1,p2)$\to$2$\to$3$\to$4$\to$5$\to$6（$\to$3）</li>
+<li><strong>第二趟指针的情况：</strong>1$\to$2(p1)$\to$3(p2)$\to$4$\to$5$\to$6（$\to$3）</li>
+<li><strong>第三趟指针的情况：</strong>1$\to$2$\to$3(p1)$\to$4$\to$5(p2)$\to$6（$\to$3）</li>
+<li><strong>第四趟指针的情况：</strong>1$\to$2$\to$3(p2)$\to$4(p1)$\to$5$\to$6（$\to$3）</li>
+<li><strong>第五趟指针的情况：</strong>1$\to$2$\to$3$\to$4$\to$5(p1,p2)$\to$6（$\to$3）</li>
+<li>p1和p2相遇，代表链表中有环</li>
+</ul>
+</blockquote>
+<p><strong>复杂度：</strong></p>
+<blockquote>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="方法四：Set集合大小变化"><a href="#方法四：Set集合大小变化" class="headerlink" title="方法四：Set集合大小变化"></a>方法四：Set集合大小变化</h4><blockquote>
+<p><strong>思路：</strong>用Set遍历链表，将节点放入Set中，如果Set长度+1则继续遍历。当Set的长度不再变化则证明链表中有环。</p>
+<p><strong>复杂度：</strong></p>
+<blockquote>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n)$</li>
+<li><strong>空间复杂度：</strong>$O(n)$</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="问题拓展1：如何找到入环点"><a href="#问题拓展1：如何找到入环点" class="headerlink" title="问题拓展1：如何找到入环点"></a>问题拓展1：如何找到入环点</h4><blockquote>
+<p>如上图2中，入环点为3，如何使用程序快速找到该点为入环点？</p>
+<p><strong>思路：</strong>当快慢指针中p1和p1相遇时（判断有环），记录下慢指针p1的位置，另取一个指针p指向链表头节点，然后指针p和慢指针p2同时移动（步距为1），当p和p1相遇时，该节点就是环点。</p>
+<p><strong>例子：</strong>以上面图2为例，</p>
+<blockquote>
+<p>已知1$\to$2$\to$3$\to$4$\to$5(p1,p2)$\to$6（$\to$3），即p1和p2在节点5处相遇</p>
+<ul>
+<li>此时设置一个指针p指向链表头节点，1(p)$\to$2$\to$3$\to$4$\to$5(p1,p2)$\to$6（$\to$3）</li>
+<li>指针p和慢指针p2同时移动:<ul>
+<li>1$\to$2(p)$\to$3$\to$4$\to$5$\to$6(p1)（$\to$3）</li>
+<li>1$\to$2$\to$3(p,p1)$\to$4$\to$5$\to$6（$\to$3）</li>
+</ul>
+</li>
+<li>入环点为节点3</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="问题拓展2：如何判断两个单链表是否相交"><a href="#问题拓展2：如何判断两个单链表是否相交" class="headerlink" title="问题拓展2：如何判断两个单链表是否相交"></a>问题拓展2：如何判断两个单链表是否相交</h4><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E6%9C%89%E7%8E%AF/%E7%9B%B8%E4%BA%A4%E5%8D%95%E9%93%BE%E8%A1%A8.jpg" alt="相交单链表"></p>
+<ul>
+<li><strong>暴力求解：</strong>直接判断第一个链表中每个节点是否在第二个链表中找到，时间复杂度为$O(L1*L2)$</li>
+<li><strong>哈希计数：</strong>设置一个哈希表，用于存放节点，各自遍历两个链表，如果是新节点就放入哈希表中，如果哈希表中已经存在该节点，则证明两个单链表相交。时间复杂度为$O(max(L1,L2))$，空间复杂度为$O(L1+L2)$</li>
+<li><strong>检测最后一个节点：</strong>可以分别找到两个链表中最后一个节点，比较它们是否相同，如果相同则证明两个链表相交。时间复杂度为$O(L1+L2)$</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%A9%B7%E4%B8%BE%E9%81%8D%E5%8E%86"><span class="toc-number">2.</span> <span class="toc-text">方法一：穷举遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8%E7%BC%93%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text">方法二：哈希表缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88"><span class="toc-number">4.</span> <span class="toc-text">方法三：快慢指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9ASet%E9%9B%86%E5%90%88%E5%A4%A7%E5%B0%8F%E5%8F%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">方法四：Set集合大小变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8B%93%E5%B1%951%EF%BC%9A%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E5%85%A5%E7%8E%AF%E7%82%B9"><span class="toc-number">6.</span> <span class="toc-text">问题拓展1：如何找到入环点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8B%93%E5%B1%952%EF%BC%9A%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4"><span class="toc-number">7.</span> <span class="toc-text">问题拓展2：如何判断两个单链表是否相交</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

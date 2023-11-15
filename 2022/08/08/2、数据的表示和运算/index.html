@@ -1,0 +1,1162 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数据的表示和运算 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="一、数制和编码1、数制
+
+二进制：计算机中用的最多的计数制。二级制只有0和1两种数字符号，计数“逢二进一”，它的任意树为的权为$2^i$，其中i为所在位
+八进制：八进制是二进制的一种书写形式，其基数,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">数据的表示和运算</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">数据的表示和运算</h1>
+        <div class="stuff">
+            <span>八月 08, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="一、数制和编码"><a href="#一、数制和编码" class="headerlink" title="一、数制和编码"></a>一、数制和编码</h2><h3 id="1、数制"><a href="#1、数制" class="headerlink" title="1、数制"></a>1、数制</h3><blockquote>
+<ul>
+<li><strong>二进制：</strong>计算机中用的最多的计数制。二级制只有0和1两种数字符号，计数“逢二进一”，它的任意树为的权为$2^i$，其中i为所在位</li>
+<li><strong>八进制：</strong>八进制是二进制的一种书写形式，其基数为8，共有0~7共8个不同的数字符号，计数“逢八进一”，只需要把二进制中的3位数码编制为一组就可以表示一位八进制</li>
+<li><strong>十六进制：</strong>十六进制也是二进制的一种书写形式，基数为16，“逢十六进一”，共有0~9,A,B,C,D,E,F六个字符。只需要把二进制中的4位数码编制为一组就可以表示一位十六进制</li>
+</ul>
+</blockquote>
+<h3 id="2、进制数之间的转换"><a href="#2、进制数之间的转换" class="headerlink" title="2、进制数之间的转换"></a>2、进制数之间的转换</h3><blockquote>
+<ul>
+<li><p><strong>二进制转八进制或十六进制：</strong></p>
+<blockquote>
+<p> 对于一个二进制混合数（既有整数部分，又有小数部分），在转换时以小数点为界，向高位（小数部分则向低位）补0至整数部分的位数为3或4的倍数，然后将其分成3位或4位一组，然后将各分组转换成八进制或十六进制数。</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>00111100001.00110</p>
+<p><strong>转八进制：</strong>000 111 100 001 . 001 100 —&gt; 0 7 4 .1 4 —&gt;74.14(八进制数)</p>
+<p><strong>转十六进制：</strong>0001 1110 0001 . 0011 0000 —&gt; 1 E 1 . 3 0 —&gt; 1E1.3（十六进制数）</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>数任意数制转换成十进制：</strong></p>
+<blockquote>
+<p>将任意进制的各位数码与它们的权值相乘，再把乘积相加即可</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>$$<br>(11011.1)_2 &#x3D; 1 \times2^4 + 1\times2^3+0\times2^2+1\times2^1+1\times2^0+1\times2^{-1}&#x3D;27.5<br>$$</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>十进制数转换成任意数制：</strong></p>
+<blockquote>
+<p>一个十进制数转换成任意数制，常采用<strong>基数乘除法</strong>，对于一个十进制数，需要将其分成整数部分和小数部分：<strong>整数部分则用除基取余法</strong>，<strong>小数部分则用乘积取正法</strong>。</p>
+<ul>
+<li><p><strong>除基取余法（整数部分）：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E9%99%A4%E5%9F%BA%E5%8F%96%E4%BD%99%E6%B3%95.png" alt="除基取余法"></p>
+<p>例如图上的例子，将<strong>十进制的75</strong>转成<strong>二进制数</strong>，每除完一次后得到的余数记录下来，最后将余数<strong>从下往上取</strong>，即在本例中$(75)_{10}$—&gt; $(1001011)_2$</p>
+</li>
+<li><p><strong>乘基取整法（小数部分）：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B9%98%E5%9F%BA%E5%8F%96%E6%95%B4%E6%B3%95.png" alt="乘基取整法"></p>
+<p>例如图上的例子，将<strong>十进制的0.3</strong>转换成<strong>二进制数</strong>，每<strong>乘完一次后就取一次结果的整数部分（无论0或1）</strong>，最后将取得数<strong>从上往下取</strong>，即在本例中$(0.3)_{10}$—&gt;$(0.01001..)_2$，实际上无法用有限位小数表示出来。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>补充：</strong>在计算机中整数可以连续表示，但小数却是离散的，因此<strong>不是所有的十进制小数都可以用二进制数表示出来，但所有的二进制小数都可以用十进制数表示</strong>。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、真值和机器数"><a href="#3、真值和机器数" class="headerlink" title="3、真值和机器数"></a>3、真值和机器数</h3><blockquote>
+<ul>
+<li><strong>真值：</strong>在生活中可以用正负号来分别表示正负数，如+12，-11等，这种带正负号的数被称为<strong>真值</strong>，<strong>真值是机器数所代表的实际值</strong>。</li>
+<li><strong>机器数：</strong>在计算机中，通常采用数符和数值一起编码的方法来表示数值，常有原码、反码、补码等，例如-5的原码为1,101，6的原码为0,110等，<strong>把符号数字化的数称为机器数</strong>。</li>
+</ul>
+</blockquote>
+<h3 id="4、字符和字符串"><a href="#4、字符和字符串" class="headerlink" title="4、字符和字符串"></a>4、字符和字符串</h3><h4 id="4-1、字符编码ASCII码"><a href="#4-1、字符编码ASCII码" class="headerlink" title="4.1、字符编码ASCII码"></a>4.1、字符编码ASCII码</h4><blockquote>
+<p>国际上普遍采用的一种字符系统是<strong>7位二进制</strong>编码的ASCII码（每个字节的最高位保持为0）</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/ascii%E8%A1%A8.png" alt="除基取余法"></p>
+<ul>
+<li>其中0<del>31号为<strong>控制字符</strong>，用于通信系统或设备的功能控制（<strong>无法打印</strong>）；编码127是DEL码；编码32是空格码；编码32</del>126为<strong>可印刷字符</strong>。</li>
+<li>0<del>9的ASCII码为48(011 0000) ~ 57(011 1001)，即去掉高3位，只保留低4位，正好是二进制形式的0</del>9.</li>
+</ul>
+</blockquote>
+<h4 id="4-2、汉字的表示与编码"><a href="#4-2、汉字的表示与编码" class="headerlink" title="4.2、汉字的表示与编码"></a>4.2、汉字的表示与编码</h4><blockquote>
+<p>在1981年所实施的国家标准中，每个编码用两个字节表示。</p>
+<p>目前最新的汉字编码是2000年公布的GB 18030，它收录了27484个汉字，编码标准采用1B、2B和4B。</p>
+<p>汉字的编码包括汉字的<strong>输入编码</strong>、<strong>汉字内码</strong>、<strong>汉字字形码</strong>三种，它们分别是计算机中用于<strong>输入、内部处理、输出</strong>三种用途的编码。</p>
+<p>其中<strong>输入编码</strong>又分为：<strong>区位码</strong>和<strong>国标码</strong></p>
+<ul>
+<li><strong>区位码：</strong></li>
+</ul>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%8C%BA%E4%BD%8D%E7%A0%81.png" alt="区位码"></p>
+<p>在区位码中，1980年的标准是将汉字和图形符号排列在一个94行94列的二维代码表中，一共4位十进制数，前两位是<strong>区码</strong>，后两位是<strong>位码</strong>。</p>
+</blockquote>
+<ul>
+<li><p><strong>国标码：</strong>为了防止区位码的区码或位码与ASCII码中的控制字符混淆，因此在原基础上+20H，因此形成了国标码。</p>
+</li>
+<li><p><strong>汉字内码：</strong>为了方便计算机区分中文字符和英文字符，将国标码两字节的最高位都改成了1，这就是汉字内码。</p>
+</li>
+</ul>
+<p>$$<br>国标码&#x3D;(区位码)<em>{16}+2020H\<br>汉字内码&#x3D;(国标码)</em>{16}+8080H<br>$$</p>
+</blockquote>
+<h2 id="二、定点数的表示与运算"><a href="#二、定点数的表示与运算" class="headerlink" title="二、定点数的表示与运算"></a>二、定点数的表示与运算</h2><h3 id="1、定点数的表示"><a href="#1、定点数的表示" class="headerlink" title="1、定点数的表示"></a>1、定点数的表示</h3><blockquote>
+<ul>
+<li><p><strong>有符号数和无符号数的表示：</strong></p>
+<blockquote>
+<ul>
+<li><strong>无符号数：</strong>指整个机器字长全部二进制位都是数值位，没有符号位，且默认为正数。如，$(110010)<em>2$—&gt;$(50)</em>{10}$</li>
+<li><strong>有符号数：</strong>机器字长有一定的数值位作符号位，<strong>有符号数用1来表示负数，用0来表示正数</strong>。有符号数约定符号位在最左端，后面跟着的是数值位。如，$(1,001)<em>2$—&gt;$(-1)</em>{10}$，$(0,001)<em>2$—&gt;$(+1)</em>{10}$。（机器中二进制有符号数是没有逗号的，这里加上仅为了方便查看）</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>机器数的定点表示：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>定点小数：</strong></p>
+<blockquote>
+<p>定点小数就是纯小数，约定<strong>小数点在符号位之后、有效数值部分最高位之前</strong>。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%AE%9A%E7%82%B9%E5%B0%8F%E6%95%B0.png" alt="定点小数"></p>
+<ul>
+<li><strong>最大值：</strong>当$x_0&#x3D;0$，其余位全为1时，能取到定点小数的最大值：$1-2^{-n}$</li>
+<li><strong>最小值：</strong>当$x_0&#x3D;1$，其余位全为1时，能取到定点小数的最小值：$-(1-2^{-n})$</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>定点整数：</strong></p>
+<blockquote>
+<p>定点整数就是纯整数，约定<strong>小数点在最低有效位之后</strong>。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0.png" alt="定点整数"></p>
+<ul>
+<li><strong>最大值：</strong>当$x_0&#x3D;0$，其余位全为1时，能取到定点整数的最大值：$2^n-1$</li>
+<li><strong>最小值：</strong>当$x_0&#x3D;1$，其余位全为1时，能取到定点整数的最大值：$-(2^n-1)$</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>原码、反码、补码、移码</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>几种码之间的转换：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%87%A0%E7%A7%8D%E7%A0%81%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2.png" alt="几种码之间的转换"></p>
+</blockquote>
+</li>
+<li><p><strong>原码：</strong></p>
+<blockquote>
+<p>原码是最简单的一种编码，<strong>除了第一位是符号位以外，其余位都是数的绝对值</strong>。如，$(1,101.11)<em>2&#x3D;(-5.75)</em>{10}$，$(0,110.01)<em>2&#x3D;(6.25)</em>{10}$</p>
+<p><strong>补充：</strong></p>
+<ul>
+<li><strong>原码表示0有两种方式：</strong>$[0]_原&#x3D;0,0000&#x3D;1,0000$</li>
+<li><strong>原码的取值范围关于原点对称</strong>。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>反码：</strong></p>
+<blockquote>
+<p>反码是原码转换成补码的中间过渡的阶段，其中规定：</p>
+<ul>
+<li><strong>正数的反码就是它的原码</strong>。如，$[0,1010]_原&#x3D;[0,1010]_反&#x3D;+10$</li>
+<li><strong>负数的反码是将其数值位全部颠倒</strong>。如，$[1,1010]_原&#x3D;[1,0101]_反&#x3D;-10$</li>
+</ul>
+<p><strong>补充：</strong></p>
+<ul>
+<li><strong>反码表示0也有两种方式：</strong>$[0]_反&#x3D;0,0000&#x3D;1,1111$</li>
+<li>因此反码与原码有类似性质，取值范围也是关于原点对称的</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>补码：</strong></p>
+<blockquote>
+<p>由于原码作减法太过复杂，因此发明了补码来<strong>将加减法统一做成加法</strong>。补码与反码类似：</p>
+<ul>
+<li><strong>正数的反码就是它的原码</strong>。如，$[0,1010]_原&#x3D;[0,1010]_补&#x3D;+10$</li>
+<li><strong>负数的补码就是其反码+1。</strong>如，$[1,1010]_原&#x3D;[1,0110]_补&#x3D;-10$</li>
+</ul>
+<p><strong>补充：</strong></p>
+<ul>
+<li><strong>补码的0只有1种表达方式：</strong>$[+0]&#x3D;[-0]&#x3D;[0.0000]_补$</li>
+<li><strong>若字长为n+1，可以表示的小数范围：</strong>$-1 \le x \le 1-2^{-n}$（比原码多一个-1）;<strong>可以表示的整数范围：</strong>$-2^n \le x \le 2^n-1$（比原码多一个-2）</li>
+<li><strong>技巧1</strong>  $[X]_补$求$[-X]_补$d的快速方法：将<strong>符号位、数值位全部取反，末位+1</strong>。</li>
+<li><strong>技巧2</strong> 补码和原码的快速转换：<strong>在数值位上从右往左找到第一个1，以此为界，左边的位数全部取反，右边的位数全部不变。</strong>（如果数值位全为0，那它的补码就是0）</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>移码：</strong></p>
+<blockquote>
+<p><strong>移码的定义</strong>：真值+偏置值（通常为$2^n$，n为真值的最高位，因此一般移码就是补码的基础上将符号位颠倒）。如，</p>
+<ul>
+<li><strong>正数的移码：</strong>$+0010101&#x3D;[1,0010101]_移$</li>
+<li><strong>负数的移码：</strong>$-0010101&#x3D;[0,1101011]_移$</li>
+</ul>
+<p><strong>补充：</strong></p>
+<ul>
+<li>移码通常用于表示浮点数的阶码部分</li>
+<li><strong>移码只能表示整数</strong></li>
+<li><strong>移码可以使得正负整数进行排序</strong></li>
+<li><strong>移码与补码有相似的性质，0的表示方式唯一，取值范围关于原点不对称</strong></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%87%A0%E7%A7%8D%E7%A0%81%E8%A1%A8%E7%A4%BA%E5%AE%9A%E7%82%B9%E6%95%B4%E6%95%B0.png" alt="几种码表示定点整数"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="2、定点数的运算"><a href="#2、定点数的运算" class="headerlink" title="2、定点数的运算"></a>2、定点数的运算</h3><h4 id="2-1、定点数的移位运算"><a href="#2-1、定点数的移位运算" class="headerlink" title="2.1、定点数的移位运算"></a>2.1、定点数的移位运算</h4><blockquote>
+<ul>
+<li><p><strong>算术移位：</strong></p>
+<blockquote>
+<p>算术移位的对象是<strong>有符号数</strong>，在移位过程中<strong>符号位不变</strong>的移位操作被称作<strong>算术移位</strong>，例如：</p>
+<p>$[1,1001]_原 (算术左移一位)—&gt; [1,0010]_原$</p>
+<p><strong>注：</strong> <strong>原码</strong>的左移和右移时，最低&#x2F;高位都是补0，<strong>负数的补码、移码</strong>左右移时，最高位补1，最低位补0.</p>
+<p><strong>算术移位的应用：二进制中算术左移就相当于乘以2，右移就相当于除以2（在不溢出的情况下）</strong></p>
+</blockquote>
+</li>
+<li><p><strong>逻辑移位：</strong></p>
+<blockquote>
+<p><strong>逻辑移位将操作数视作无符号数</strong>，即逻辑左移的时候，最低位补0；逻辑右移的时候，最高位补0.</p>
+<p><strong>注意：逻辑移位无论左移还是右移，都是补0</strong></p>
+</blockquote>
+</li>
+<li><p><strong>循环移位：</strong></p>
+<blockquote>
+<p><strong>循环移位将操作数的最高位与最低位连接起来</strong>，即在循环左移时，最高位会去到最低位上；在循环右移时，最低位会去到最高位上，例如（无进位的循环移位）</p>
+<p>$[1,0010]_原 (循环左移一位)—&gt; [0,0101]_原$</p>
+<p><strong>循环移位的类型：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D.png" alt="循环移位"></p>
+<ul>
+<li><strong>补充：</strong>进位位(CF)类似于符号位，是用于表示上一级计算是否产生了进位。</li>
+<li><strong>循环移位的应用：大端存储与小端存储的转换</strong></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-2、定点数的加减法运算"><a href="#2-2、定点数的加减法运算" class="headerlink" title="2.2、定点数的加减法运算"></a>2.2、定点数的加减法运算</h4><blockquote>
+<ul>
+<li><p><strong>原码定点数的加减法：</strong></p>
+<blockquote>
+<ul>
+<li><strong>加法原则：</strong> <strong>先判定符号位</strong>，若<strong>相同</strong>，则<strong>绝对值相加</strong>，结果符号位不变；若<strong>不同</strong>，则<strong>做减法</strong>，<strong>绝对值大的数减去绝对值小的数</strong>，结果的符号位取绝对值大的数。</li>
+<li><strong>减法原则：</strong>两个原码数相减，首先将减数的<strong>符号位取反</strong>，然后<strong>将被减数与减数按原码作加法</strong>运算。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>补码定点数的加减法：</strong></p>
+<blockquote>
+<p>补码的加减法运算规则简单，且加法与减法的步骤一致，因此<strong>计算机更常用补码的加减法运算</strong></p>
+<p><strong>特点：</strong></p>
+<ul>
+<li><p>参与运算的操作数都用补码表示</p>
+</li>
+<li><p>按二进制的运算规则进行运算</p>
+</li>
+<li><p><strong>符号位与操作数一起参与运算，符号位运算产生的进位需要丢弃，且结果的符号位由运算得出</strong></p>
+</li>
+<li><p><strong>补码加减法运算的公式：</strong><br>$$<br>加法:[A+B]_补 &#x3D; [A]_补+[B]_补\<br>减法:[A-B]_补&#x3D;[A]_补+[-B]_补<br>$$</p>
+</li>
+<li><p>补码运算后的结果也是补码。</p>
+</li>
+</ul>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>$A&#x3D;15,B&#x3D;24,求[A+B]_补和[A-B]_补$</p>
+<ul>
+<li>$[A]_补&#x3D;0,0001111,[B]_补&#x3D;0,0011000,[-B]_补&#x3D;[1,1101000]$</li>
+<li>$[A+B]_补&#x3D;[A]_补+[B]_补&#x3D;0,0001111+0,0011000&#x3D;0,0100111&#x3D;+39$</li>
+<li>$[A-B]_补[A]_补+[-B]_补&#x3D;0,0001111+1,1101000&#x3D;1,1110111&#x3D;-9$</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-3、符号扩展"><a href="#2-3、符号扩展" class="headerlink" title="2.3、符号扩展"></a>2.3、符号扩展</h4><blockquote>
+<p><strong>定义：</strong>在8位数（低位数）与32位数（高位数）相互运算时，8位数（低位数）需要扩展到32位（高位数）的操作被称为符号扩展。</p>
+<ul>
+<li><strong>原码：</strong>在原来的基础上直接补0，符号位提到扩展后的最高位。</li>
+<li><strong>补码：</strong>如果在左侧进行扩展，则补1；在右侧进行扩展，则补0，符号位提到扩展后的最高位。</li>
+</ul>
+</blockquote>
+<h4 id="2-4、溢出的概念与溢出的判断"><a href="#2-4、溢出的概念与溢出的判断" class="headerlink" title="2.4、溢出的概念与溢出的判断"></a>2.4、溢出的概念与溢出的判断</h4><blockquote>
+<p><strong>概念：</strong></p>
+<blockquote>
+<ul>
+<li><strong>上溢：</strong>运算结果<strong>超过</strong>机器所能表达的<strong>最大正数</strong>.</li>
+<li><strong>下溢：</strong>运算结果<strong>超过</strong>机器所能表达的<strong>最大负数</strong>.</li>
+</ul>
+</blockquote>
+<p><strong>溢出判断：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>采用一位符号位：</strong></p>
+<blockquote>
+<p>由于在补码的运算中，无论是加法还是减法，都是通过加法运算，因此<strong>如果两个操作数的符号位相同，而结果的符号位不同，那么判断为溢出。</strong></p>
+<p><strong>判断公式：</strong></p>
+<blockquote>
+<p> 设A的符号为$A_S$，B的符号为$B_S$，结果的符号为$R_S$，那么有：<br>$$<br>V&#x3D;A_SB_S\overline{R_S}(判断上溢)+\overline{A_SB_S}R_S(判断下溢)<br>$$<br><strong>若V&#x3D;1那么就发生溢出；V&#x3D;0就无溢出</strong></p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>采用一位符号位根据数据位的进位情况判断溢出：</strong></p>
+<blockquote>
+<p>设<strong>符号位的进位</strong>为$C_s$，<strong>最高位的进位</strong>为$C_h$.</p>
+<ul>
+<li>若$C_s$与$C_h$相同，那么说明没有溢出</li>
+<li>若$C_s$与$C_h$不相同，那么说明发生溢出</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>采用双符号位：</strong></p>
+<blockquote>
+<p>每个操作数拥有两个符号位$S_1S_2$，当$S_1S_2&#x3D;11$时表示负数，$S_1S_2&#x3D;00$时表示正数。</p>
+<p><strong>双符号位也称为模4补码</strong>，运算结果的两个符号位$S_1S_2$相同则表示没有溢出，不同则表示发生溢出。</p>
+<ul>
+<li>$S_1S_2&#x3D;00$，表示结果为正数，且没发生溢出。</li>
+<li>$S_1S_2&#x3D;01$，表示本应得到正数，实际得到了负数，发生上溢。</li>
+<li>$S_1S_2&#x3D;10$，表示本应得到负数，实际得到了正数，发生下溢。</li>
+<li>$S_1S_2&#x3D;11$，表示结果为负数，且没有发生溢出。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="2-5、定点数的乘法运算"><a href="#2-5、定点数的乘法运算" class="headerlink" title="2.5、定点数的乘法运算"></a>2.5、定点数的乘法运算</h4><blockquote>
+<ul>
+<li><p><strong>原码一位乘法</strong></p>
+<blockquote>
+<p><strong>特点：</strong></p>
+<blockquote>
+<ul>
+<li>原码一位乘法分为两部分处理：<strong>符号位处理</strong>和<strong>数值位处理</strong></li>
+<li><strong>两个数值位都视作无符号数来进行操作</strong></li>
+</ul>
+</blockquote>
+<p><strong>符号位处理：</strong></p>
+<blockquote>
+<p>设$s_1$为第一个数的符号位，$s_2$为第二个数的符号位，$R$为结果的符号位：<br>$$<br>R&#x3D;s_1 \oplus s_2<br>$$<br><strong>结果的符号位可以由两个操作数进行异或运算得出</strong></p>
+</blockquote>
+<p><strong>数值位处理：</strong></p>
+<blockquote>
+<ul>
+<li>从乘数$x_1$的最低位开始判断：若$y_n&#x3D;1$，则<strong>部分积加上被乘数</strong>$|x_2|$，<strong>然后右移一位</strong>；若$y_n&#x3D;0$，则<strong>部分积加上0，然后右移一位</strong></li>
+<li>乘数有多少位，上述步骤就重复多少遍。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><strong>乘数</strong>$x_1&#x3D;00.1011$，<strong>被乘数</strong>$x_2&#x3D;00.1101$</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%8E%9F%E7%A0%81%E4%B9%98%E6%B3%95%E4%BE%8B%E5%AD%90.png" alt="原码乘法例子"></p>
+<p><strong>符号位：</strong>$00 \oplus 00&#x3D;00$,所以结果为$00.1000 1111$</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>补码一位乘法</strong></p>
+<blockquote>
+<p>补码的一位乘法比较简单，<strong>符号位与数值位一起运算</strong></p>
+<p><strong>补码的一位乘法在乘数的最后面多加了一位辅助位</strong>$y_2$(且一开始默认为0)，设<strong>乘数的最后一位</strong>为$y_1$</p>
+<p><strong>运算规则：</strong></p>
+<blockquote>
+<ul>
+<li>如果$y_1&#x3D;0,y_2&#x3D;0$，那么部分积直接右移一位</li>
+<li>如果$y_1&#x3D;0,y_2&#x3D;1$，那么部分积加$[x]_补$，然后右移一位</li>
+<li>如果$y_1&#x3D;1,y_2&#x3D;0$，那么部分积加$[-x]_补$，然后右移一位</li>
+<li>如果$y_1&#x3D;1,y_2&#x3D;1$，那么部分积直接右移一位</li>
+</ul>
+</blockquote>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><strong>乘数</strong>$s_1&#x3D;0.1011$，<strong>被乘数</strong>$s_2&#x3D;00.1101$</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E8%A1%A5%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95%E7%9A%84%E4%BE%8B%E5%AD%90.png" alt="补码一位乘法的例子"></p>
+<p><strong>所以最后结果为</strong>$[11.0111 0001]_补$</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-6、定点数的除法运算"><a href="#2-6、定点数的除法运算" class="headerlink" title="2.6、定点数的除法运算"></a>2.6、定点数的除法运算</h4><blockquote>
+<ul>
+<li><p><strong>恢复余数法</strong></p>
+<blockquote>
+<p>恢复余数法属于一种试错的方法，每一次做除法时都默认上商1，如果余数为负数（表明不够除了），那么就加回被除数再运算。</p>
+<p><strong>运算步骤：</strong></p>
+<blockquote>
+<ul>
+<li>上商1，除数减去被除数</li>
+<li>如果余数为正，那么左移一位；如果余数为负，那么余数加回被除数，上商0，再左移</li>
+<li>重复上述两步</li>
+</ul>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95%E4%BE%8B%E5%AD%90.png" alt="恢复余数法例子"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>原码加减交替法（不恢复余数法）</strong></p>
+<blockquote>
+<p>加减交替法又称不恢复余数法，<strong>加减交替法实际上是根据优化恢复余数得来的</strong></p>
+<p>原码的加减交替法也是分开<strong>符号位</strong>和<strong>数值位</strong>两部分的操作</p>
+<p><strong>运算步骤：</strong></p>
+<blockquote>
+<ul>
+<li><strong>符号位</strong>进行<strong>异或运算</strong>，得到商的符号位</li>
+<li><strong>数值位</strong>先用<strong>被除数</strong>减去<strong>除数</strong></li>
+<li>当余数为正时，上商1，余数和商左移一位，再减去除数（即加上除数负数的补码）</li>
+<li>当余数为负时，上商0，余数和商左移一位，再加上除数</li>
+<li>当第n+1步余数为负时，需要加上除数得到第n+1步正确的余数（保证余数不是负数）</li>
+</ul>
+</blockquote>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%8A%A0%E5%87%8F%E4%BA%A4%E6%9B%BF%E6%B3%95%E4%BE%8B%E5%AD%90.png" alt="加减交替法例子"></p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>补码的加减交替法</strong></p>
+<blockquote>
+<p>补码的加减交替法的特点是<strong>符号位与数值位一起参与运算，商自然形成</strong></p>
+<p><strong>运算步骤：</strong></p>
+<blockquote>
+<ul>
+<li>若<strong>被除数与除数同号</strong>，则被除数减去除数；若<strong>被除数与除数异号</strong>，则被除数加上除数</li>
+<li>若<strong>余数与除数同号</strong>，则上商1，余数左移一位减去除数；若<strong>余数与除数异号</strong>，则上商0，余数左移一位加上除数</li>
+<li>重复上步骤n次</li>
+<li>如果对商的精度没有特殊要求，则一般采用“<strong>末位恒置1</strong>”法。</li>
+</ul>
+</blockquote>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E8%A1%A5%E7%A0%81%E5%8A%A0%E5%87%8F%E4%BA%A4%E6%9B%BF%E6%B3%95%E7%9A%84%E4%BE%8B%E5%AD%90.png" alt="补码加减交替法的例子"></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、C语言中整数类型的转换"><a href="#3、C语言中整数类型的转换" class="headerlink" title="3、C语言中整数类型的转换"></a>3、C语言中整数类型的转换</h3><h4 id="3-1、有符号数与无符号数的转换"><a href="#3-1、有符号数与无符号数的转换" class="headerlink" title="3.1、有符号数与无符号数的转换"></a>3.1、有符号数与无符号数的转换</h4><blockquote>
+<p>C语言允许在不同的数据类型之间做强制转换，<strong>而有符号数与无符号数的转换则是：二进制的位数不变，但首位的意义变了</strong></p>
+<ul>
+<li><p><strong>有符号数转无符号数：</strong></p>
+<blockquote>
+<p> 有符号数的符号位并入了数值位，即<br>$$<br>-3&#x3D;[1,0011]<em>{有符号} \to [1 0011]</em>{无符号}&#x3D;19<br>$$</p>
+</blockquote>
+</li>
+<li><p><strong>无符号数转有符号数：</strong></p>
+<blockquote>
+<p>无符号数的第一位变成了符号位</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="3-2、不同字长整数间的转换"><a href="#3-2、不同字长整数间的转换" class="headerlink" title="3.2、不同字长整数间的转换"></a>3.2、不同字长整数间的转换</h4><blockquote>
+<p>不同字长正数间的转换分为两类：<strong>长—&gt;短</strong>与<strong>短—&gt;长</strong></p>
+<ul>
+<li><p><strong>长—&gt;短</strong></p>
+<blockquote>
+<p>高位截断，保留低位，如</p>
+<p>b—&gt;a,b&#x3D;0x 00007751,a&#x3D;0x 7751</p>
+</blockquote>
+</li>
+<li><p><strong>短—&gt;长</strong></p>
+<blockquote>
+<p>直接高位补0（负数的补码就补1）即可，如</p>
+<p>a—&gt;b,a&#x3D;0x 7751,b&#x3D;0x 00007751</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="4、数据的存储和排列"><a href="#4、数据的存储和排列" class="headerlink" title="4、数据的存储和排列"></a>4、数据的存储和排列</h3><h4 id="4-1、大小端存储"><a href="#4-1、大小端存储" class="headerlink" title="4.1、大小端存储"></a>4.1、大小端存储</h4><blockquote>
+<ul>
+<li><p><strong>大端存储</strong></p>
+<blockquote>
+<p>按<strong>从最高有效字节到最低有效字节的顺序存储数据</strong>，即<strong>最高位有效数字放在前面</strong></p>
+<p><strong>例如采用大端存储的方式来存储：</strong>01234567H</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%A4%A7%E7%AB%AF%E5%AD%98%E5%82%A8.png" alt="大端存储"></p>
+</blockquote>
+</li>
+<li><p><strong>小端存储</strong></p>
+<blockquote>
+<p>按<strong>从最低位有效数字到最高有效数字的顺序存储数据</strong>，即<strong>最低位有效数字在前面</strong></p>
+<p><strong>例如采用小端存储的方式来存储：</strong>01234567H</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8.png" alt="小端存储"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="4-2、数据的”边界对齐“存储"><a href="#4-2、数据的”边界对齐“存储" class="headerlink" title="4.2、数据的”边界对齐“存储"></a>4.2、数据的”边界对齐“存储</h4><blockquote>
+<p>对于计算机，每次读取数据的时候都是直接读取一个字长的数据（这里假设字长为32位），存储单元也是按照字长的长度来规定一行占多少位。有时候存储某些数据的时候，可能会碰到某一行放不下某个数据了，如果将这个数据分两行放，每次读取时又要读两次，从而陷入尴尬的情况。</p>
+<p>为了解决这个问题，有人提出了“边界对齐”的存储方式，即<strong>通过填充空字符，让原本要分两行放的数据，全部放到下一行里</strong>，即</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E8%BE%B9%E7%95%8C%E5%AF%B9%E9%BD%90.png" alt="边界对齐"></p>
+<p><strong>优点：</strong>每次读取数据的时候都是读取了一整个的数据，不会出现读取某个数据要分两次读取，使得每次读取时都是一整个字。</p>
+<p><strong>缺点：</strong>造成部分存储空间的浪费</p>
+</blockquote>
+<h2 id="三、浮点数的表示和运算"><a href="#三、浮点数的表示和运算" class="headerlink" title="三、浮点数的表示和运算"></a>三、浮点数的表示和运算</h2><h3 id="1、浮点数的表示"><a href="#1、浮点数的表示" class="headerlink" title="1、浮点数的表示"></a>1、浮点数的表示</h3><blockquote>
+<p><strong>浮点数的表示格式：</strong></p>
+<blockquote>
+<p>通常浮点数表示为：<br>$$<br>N&#x3D;r^E \times M<br>$$<br>其中，</p>
+<ul>
+<li><strong>N为浮点数的真实值</strong></li>
+<li><strong>r为浮点数表示的基数</strong>，如$1.2 \times 10^2$中的10</li>
+<li><strong>E称为阶码，在浮点数中为定点整数</strong></li>
+<li><strong>M称为尾数，在浮点数中一般为定点小数</strong></li>
+</ul>
+<p><strong>计算机存储浮点数的格式：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA.png" alt="浮点数的表示"></p>
+<ul>
+<li><strong>阶码为整数</strong>，阶码的大小表示了浮点数的<strong>表示范围</strong></li>
+<li><strong>阶符表示阶码的正负性</strong></li>
+<li><strong>尾数为小数，</strong>尾数的大小表示了浮点数的<strong>精确度</strong></li>
+<li><strong>数符表示浮点数的正负性</strong></li>
+</ul>
+</blockquote>
+<p><strong>规格化浮点数</strong></p>
+<blockquote>
+<p>为了使得浮点数的位数得到充分利用（使得精确度达到最大），通常需要规格化来对浮点数进行调整，最后<strong>使得尾数的数值部分的最高位上是一个有效数字</strong>。</p>
+<ul>
+<li><p><strong>左规：</strong></p>
+<blockquote>
+<ul>
+<li><strong>尾数算术左移一位</strong></li>
+<li><strong>阶码部分减一</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>右规：</strong></p>
+<blockquote>
+<ul>
+<li><strong>尾数算术右移一位</strong></li>
+<li><strong>阶码部分加一</strong></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>当浮点数的基数为2时，<strong>原码在规格化后，尾数的最高位一定是1（小数点右边第一位）</strong>；<strong>补码在规格化后，尾数的最高位一定与数符位相反</strong>。</p>
+<p>当然，如果浮点数的基数为4时，原码在规格化后，<strong>尾数最高的两位一定为1</strong>；基数为8时以此类推。</p>
+</blockquote>
+<p><strong>IEEE 754标准</strong></p>
+<blockquote>
+<p>按照IEEE 754标准，常用的浮点数的格式如图所示，</p>
+<blockquote>
+<p>![IEEE 754标准](&#x2F;picture&#x2F;学习&#x2F;计算组成原理上的图&#x2F;数据的表示和运算&#x2F;IEEE 754标准.png)</p>
+<ul>
+<li><strong>数符表示为该浮点数的正负性</strong></li>
+<li><strong>阶码部分用移码表示，偏置值为+127（float类型）</strong>，即对于每一个<strong>阶码只要减去127</strong>就是该浮点数的阶数（float类型）</li>
+<li><strong>尾数部分用原码表示，且尾数隐藏了一个最高位，其默认值为1</strong></li>
+</ul>
+<p><strong>注意：</strong> <strong>阶码为全1的时候表示无穷大</strong></p>
+</blockquote>
+<p><strong>不同类型的浮点数：</strong></p>
+<blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/IEEE754%E6%A0%87%E5%87%86%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B.png" alt="IEEE754标准的浮点数类型"></p>
+<p><strong>以短浮点数为例：</strong></p>
+<ul>
+<li><strong>最高位为数值的符号位</strong></li>
+<li>阶码有8位，<strong>偏置值为</strong>$2^8-1&#x3D;127$</li>
+<li>后23位为尾数位，但通过规格化后，<strong>尾数总是1.xxx，因此通常尾数都会省略小数点左边的那一位</strong>。（所以说23位的尾数可以表示24位的数）</li>
+</ul>
+</blockquote>
+<p><strong>IEEE 754浮点数的表示范围：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/IEEE754%E7%9A%84%E8%A1%A8%E7%A4%BA%E8%8C%83%E5%9B%B4.png" alt="IEEE754的表示范围"></p>
+<p><strong>最大绝对值：</strong>尾数部分为 1.11…1&#x3D;$2-2^{-23}$；阶数部分为 $2^{254-127}&#x3D;2^{127}$;所以合起来就等于$2^{127} \times (2-2^{-23})$</p>
+</blockquote>
+</blockquote>
+<p><strong>浮点数与定点数的表示（相同位数下）：</strong></p>
+<blockquote>
+<ul>
+<li><strong>数值的表示范围：</strong>浮点数的表示范围远大于定点数的表示范围。</li>
+<li><strong>数值的精确度：</strong>浮点数的精确度不及定点数的精确度。</li>
+<li><strong>数的运算：</strong>浮点数的运算远比定点数的运算复杂。</li>
+<li><strong>溢出问题：</strong>浮点数只有在规格化时出现的溢出才是真正的溢出，定点数在计算时发生溢出就是真正的溢出了。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2、浮点数的加减运算"><a href="#2、浮点数的加减运算" class="headerlink" title="2、浮点数的加减运算"></a>2、浮点数的加减运算</h3><blockquote>
+<p><strong>浮点数的运算特点是：阶码运算和尾数运算分开</strong></p>
+<p><strong>浮点数的加减法统一使用补码运算</strong>，以下是浮点数的加减运算：</p>
+<ul>
+<li><p><strong>对阶</strong></p>
+<blockquote>
+<p>浮点数的对阶目的是<strong>使两个操作数的小数点对齐</strong>，即<strong>阶码相同</strong>。</p>
+<p><strong>浮点数的对阶是：小阶向大阶对齐</strong>（反过来的话会导致大阶的精度下降）</p>
+</blockquote>
+</li>
+<li><p><strong>尾数求和</strong></p>
+<blockquote>
+<p>两个操作数的尾数<strong>按照定点数的加减运算来求和（补码运算）</strong>。</p>
+</blockquote>
+</li>
+<li><p><strong>规格化</strong></p>
+<blockquote>
+<p>将浮点数进行规格化，详细可参考前面的<strong>规格化浮点数</strong>。</p>
+<p>主要是：<strong>左规</strong>和<strong>右规</strong></p>
+</blockquote>
+</li>
+<li><p><strong>舍入</strong></p>
+<blockquote>
+<p>在<strong>对阶</strong>和<strong>规格化</strong>的过程中，可能会将尾数低位丢失，从而引起误差。因此这里介绍两种常见的舍入方式：</p>
+<ul>
+<li><p><strong>“0”舍“1”入法：</strong></p>
+<blockquote>
+<p>类似于十进制的“四舍五入”法，即在尾数右移时，<strong>被移去的最高位数值为0，则舍去</strong>；<strong>被移去的最高位数值为1，则在尾数末位加1</strong>（如果这样导致溢出，则需要再做一次右规）</p>
+</blockquote>
+</li>
+<li><p><strong>恒置“1”法：</strong></p>
+<blockquote>
+<p>尾数右移时，<strong>无论丢掉的最高位是“0”还是“1”，都使右移后的尾数末位恒置“1”</strong>。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>溢出判断</strong></p>
+<blockquote>
+<p>浮点数的溢出判断需要在两个地方进行：<strong>尾数部分</strong>与<strong>阶码部分</strong></p>
+<ul>
+<li><strong>尾数部分：</strong>尾数部分的溢出不代表着结果就是溢出的，需要<strong>通过规格化操作</strong>，最后判断阶码部分是否产生溢出。</li>
+<li><strong>阶码部分：</strong>当阶码大于最大阶码时，表示<strong>上溢</strong>，此时<strong>进入中断处理</strong>；当阶码小于最小阶码时，表示<strong>下溢</strong>，此时<strong>按机器零处理</strong>。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、C语言强制类型转换"><a href="#3、C语言强制类型转换" class="headerlink" title="3、C语言强制类型转换"></a>3、C语言强制类型转换</h3><blockquote>
+<p>在C语言中<strong>float</strong>和<strong>double</strong>类型对应着IEEE 754<strong>单精度浮点数</strong>和<strong>双精度浮点数</strong>。<strong>long double</strong>类型对应于<strong>拓展双精度浮点数</strong>（长度和格式随着编译器和处理器类型的不同而不同）。</p>
+<p>在C语言中等式的赋值和判断中常会出现强制类型转换，以<strong>char-&gt;int-&gt;long double</strong>和<strong>float-&gt;double</strong>，从前往后范围和精度都逐渐增大，转化过程没有损失。</p>
+<ul>
+<li><strong>从int转为float时：</strong> <strong>不产生溢出</strong>，但int保留32位，float保留24位（尾数位），因此会有数据舍入，导致<strong>精度缺失</strong>。</li>
+<li><strong>从int或float转为double时：</strong>由于double的位数较多（尾数52位），因此<strong>不会造成溢出以及精度缺失</strong>。</li>
+<li><strong>从double转为float或int时：</strong>由于位数的差距，因此既<strong>有可能造成溢出，也可能造成精度缺失</strong>。</li>
+<li><strong>从float转成int时：</strong>由于浮点数的表示范围远大于整型，因此<strong>可能造成溢出</strong>，由于int只能表示整数，因此小数部分可能会被截去，从而造成<strong>精度缺失</strong>。</li>
+</ul>
+</blockquote>
+<h2 id="四、算术逻辑单元"><a href="#四、算术逻辑单元" class="headerlink" title="四、算术逻辑单元"></a>四、算术逻辑单元</h2><h3 id="1、算术逻辑单元的功能和结构"><a href="#1、算术逻辑单元的功能和结构" class="headerlink" title="1、算术逻辑单元的功能和结构"></a>1、算术逻辑单元的功能和结构</h3><blockquote>
+<p>运算器由<strong>算术逻辑单元（ALU）、累加器、状态寄存器和通用寄存器组成</strong>，其中最重要的是<strong>算术逻辑单元（ALU）</strong>，ALU的基本功能包括<strong>加、减、乘、除</strong>四则运算，<strong>与、或、非、异或</strong>等逻辑运算，以及<strong>移位、求补</strong>等操作。</p>
+<p><strong>ALU结构图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/ALU.png" alt="ALU"></p>
+<p><strong>基本的逻辑运算：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>与运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;A \cdot B $</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B8%8E%E9%97%A8.png" alt="与门"></p>
+</blockquote>
+</li>
+<li><p><strong>或运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;A+B$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E6%88%96%E9%97%A8.png" alt="或门"></p>
+</blockquote>
+</li>
+<li><p><strong>非运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;\overline{A}$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E9%9D%9E%E9%97%A8.png" alt="非门"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>复合逻辑运算：</strong></p>
+<blockquote>
+<ul>
+<li><p><strong>与非运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;\overline{A\cdot B}$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B8%8E%E9%9D%9E%E9%97%A8.png" alt="与非门"></p>
+</blockquote>
+</li>
+<li><p><strong>或非运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;\overline{A+B}$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E6%88%96%E9%9D%9E%E9%97%A8.png" alt="或非门"></p>
+</blockquote>
+</li>
+<li><p><strong>异或运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;A \oplus B$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%BC%82%E6%88%96%E9%97%A8.png" alt="异或门"></p>
+</blockquote>
+</li>
+<li><p><strong>同或运算</strong></p>
+<blockquote>
+<p><strong>表达式：</strong>$Y&#x3D;A⊙B$</p>
+<p><strong>真值表：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+<th align="center">Y</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p><strong>门电路：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%90%8C%E6%88%96%E9%97%A8.png" alt="同或门"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>补充：</strong></p>
+<blockquote>
+<p>对于一切的逻辑运算，都可以用上述的逻辑门来表示，<strong>不同的表达式有不同的门电路</strong>，因此门电路的优化可以通过表达式的优化来达成（不过这是离散数学的内容了）</p>
+</blockquote>
+<p><strong>ALU的基本结构</strong></p>
+</blockquote>
+<h3 id="2、串行加法器和并行加法器"><a href="#2、串行加法器和并行加法器" class="headerlink" title="2、串行加法器和并行加法器"></a>2、串行加法器和并行加法器</h3><blockquote>
+<p><strong>一位全加器：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B8%80%E4%BD%8D%E5%85%A8%E5%8A%A0%E5%99%A8.png" alt="一位全加器"></p>
+<ul>
+<li><strong>A和B是两个加数</strong></li>
+<li><strong>C为进位</strong></li>
+<li><strong>S为本为和</strong></li>
+</ul>
+<p><strong>和表达式：</strong>$S_i&#x3D;A_i\oplus B_i\oplus C_{i-1}$</p>
+<p><strong>进位表达式：</strong>$C_i&#x3D;A_iB_i+(A_i \oplus B_i)C_{i-1}$</p>
+</blockquote>
+<p><strong>串行加法器：</strong></p>
+<blockquote>
+<p>串行加法器<strong>只有一个全加器</strong>，数据逐位送到加法器中计算，其中外接一个进位信号的暂存器。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8.png" alt="串行加法器"></p>
+<p>如果要计算最少n位的数相加，那么加法器就要循环n次。</p>
+<p><strong>优点：</strong>器件少、成本低</p>
+<p><strong>缺点：</strong>运算速度慢</p>
+</blockquote>
+<p><strong>并行加法器：</strong></p>
+<blockquote>
+<p>并行加法器由<strong>若干个全加器</strong>组成，其数量与机器的字长相同；各位数据同时进行运算。</p>
+<p>虽然并行加法器可以使得各位同时运算，但<strong>低位运算的结果也会对高位的运算产生影响</strong>（进位等），因此并行加法器的最长运行时间<strong>主要由进位信号的传递时延</strong>有关，各位的求和延迟只是次要原因。</p>
+<p>因此并行加法器的进位可以分为两类：<strong>串行进位</strong>和<strong>并行进位</strong></p>
+<ul>
+<li><p><strong>串行进位：</strong></p>
+<blockquote>
+<p>把n个全加器以进位串联起来，这样的并行加法器就称为<strong>串行进位的并行加法器</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E4%B8%B2%E8%A1%8C%E8%BF%9B%E4%BD%8D.png" alt="串行进位"></p>
+<p>由图易得，如果位数越多，那么进位的时延就越长，加法运算的时间就越多。</p>
+<p><strong>优点：</strong>设计简单，电路简单</p>
+<p><strong>缺点：</strong>随着位数的增加，运行速度就会下降</p>
+</blockquote>
+</li>
+<li><p><strong>并行进位：</strong></p>
+<blockquote>
+<p>并行进位又称<strong>先行进位、同时进位</strong>，即<strong>在求和的过程中就可以直接将是否进位求出</strong></p>
+<p>根据进位的表达式可得：<br>$$<br>C_1&#x3D;G_1+P_1C_0\<br>C_2&#x3D;G_2+P_2C_1&#x3D;G_2+P_2(G_1+P_1C_0)\<br>C_3&#x3D;G_3+P_3C_2&#x3D;G_3+P_3(G_2+P_2(G_1+P_1C_0))<br>$$</p>
+<ul>
+<li>$G_i&#x3D;A_iB_i$</li>
+<li>$P_i&#x3D;A_i\oplus B_i$</li>
+</ul>
+<p>上式格式可以表明所有的<strong>进位输出</strong>都只与$A_i,B_i$以及最低进位输入$C_0$决定，因此<strong>各级的进位输出可以同时产生</strong>。</p>
+<p><strong>注意：</strong>这种进位的产生方式与字长无关，只与其内部的电路结构有关，但随着位数越高，其内部的进位电路就会越复杂。</p>
+<p><strong>优点：</strong>进位产生的速度快</p>
+<p><strong>缺点：</strong>越高位器件的电路就越复杂</p>
+</blockquote>
+</li>
+<li><p><strong>分组并行进位：</strong></p>
+<blockquote>
+<p>分组并行进位可以分为：<strong>单级并行进位</strong>和<strong>多级先行进位</strong></p>
+<ul>
+<li><p><strong>单级并行进位</strong></p>
+<blockquote>
+<p><strong>单级并行进位</strong>又称<strong>组内并行、组间串行进位</strong>，它实际上就是将串行进位与并行进位结合起来。</p>
+<p>以16位加法器为例，可分为4组，每组4位。每组内的4位使用并行进位，组间的进位则使用串行进位，如下图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%8D%95%E7%BA%A7%E5%85%88%E8%A1%8C%E8%BF%9B%E4%BD%8D.png" alt="单级先行进位"></p>
+</blockquote>
+</li>
+<li><p><strong>多级先行进位</strong></p>
+<blockquote>
+<p><strong>多级先行进位</strong>又称<strong>组内并行、组间并行进位</strong>，它在并行进位的基础上，将多位划分为各组，然后这各组再进行并行计算。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%8A%E7%9A%84%E5%9B%BE/%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/%E5%A4%9A%E7%BA%A7%E5%B9%B6%E8%A1%8C%E8%BF%9B%E4%BD%8D.png" alt="多级并行进位"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h2 id="五、其他补充"><a href="#五、其他补充" class="headerlink" title="五、其他补充"></a>五、其他补充</h2><blockquote>
+<ul>
+<li><strong>unsigned型数据：</strong>unsigned型数据为<strong>无符号整数</strong>，它的存储方式与int一致，都是用<strong>补码</strong>来存储。<strong>最大的区别：</strong>int型数据最高位为符号位，unsigned型数据最高位为数值位。</li>
+<li><strong>判断浮点数是否是规格化数：</strong>观察尾数第一位是否为0，为0则不是规格化数，不为0则是规格化数（IEEE754标准除外）。</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E5%88%B6%E5%92%8C%E7%BC%96%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">一、数制和编码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%95%B0%E5%88%B6"><span class="toc-number">1.1.</span> <span class="toc-text">1、数制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%BF%9B%E5%88%B6%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">2、进制数之间的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E7%9C%9F%E5%80%BC%E5%92%8C%E6%9C%BA%E5%99%A8%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3、真值和机器数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.4.</span> <span class="toc-text">4、字符和字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81ASCII%E7%A0%81"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1、字符编码ASCII码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E6%B1%89%E5%AD%97%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E7%BC%96%E7%A0%81"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2、汉字的表示与编码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E4%B8%8E%E8%BF%90%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">二、定点数的表示与运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.1.</span> <span class="toc-text">1、定点数的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.</span> <span class="toc-text">2、定点数的运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1、定点数的移位运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2、定点数的加减法运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3%E3%80%81%E7%AC%A6%E5%8F%B7%E6%89%A9%E5%B1%95"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.3、符号扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4%E3%80%81%E6%BA%A2%E5%87%BA%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%BA%A2%E5%87%BA%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-number">2.2.4.</span> <span class="toc-text">2.4、溢出的概念与溢出的判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.5.</span> <span class="toc-text">2.5、定点数的乘法运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6%E3%80%81%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-number">2.2.6.</span> <span class="toc-text">2.6、定点数的除法运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">3、C语言中整数类型的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81%E6%9C%89%E7%AC%A6%E5%8F%B7%E6%95%B0%E4%B8%8E%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1、有符号数与无符号数的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E3%80%81%E4%B8%8D%E5%90%8C%E5%AD%97%E9%95%BF%E6%95%B4%E6%95%B0%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2、不同字长整数间的转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E6%8E%92%E5%88%97"><span class="toc-number">2.4.</span> <span class="toc-text">4、数据的存储和排列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E5%A4%A7%E5%B0%8F%E7%AB%AF%E5%AD%98%E5%82%A8"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1、大小端存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E6%95%B0%E6%8D%AE%E7%9A%84%E2%80%9D%E8%BE%B9%E7%95%8C%E5%AF%B9%E9%BD%90%E2%80%9C%E5%AD%98%E5%82%A8"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2、数据的”边界对齐“存储</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">三、浮点数的表示和运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">3.1.</span> <span class="toc-text">1、浮点数的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-number">3.2.</span> <span class="toc-text">2、浮点数的加减运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81C%E8%AF%AD%E8%A8%80%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">3、C语言强制类型转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83"><span class="toc-number">4.</span> <span class="toc-text">四、算术逻辑单元</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E7%BB%93%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">1、算术逻辑单元的功能和结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%B8%B2%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8%E5%92%8C%E5%B9%B6%E8%A1%8C%E5%8A%A0%E6%B3%95%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">2、串行加法器和并行加法器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">4.2.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%85%B6%E4%BB%96%E8%A1%A5%E5%85%85"><span class="toc-number">5.</span> <span class="toc-text">五、其他补充</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>决策树实例代码 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="基本算法：
+输入：训练数据集D输出：回归树f(x)(1) 选择一个切分变量j与切分点s，求解$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1),"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">决策树实例代码</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">决策树实例代码</h1>
+        <div class="stuff">
+            <span>八月 21, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="基本算法："><a href="#基本算法：" class="headerlink" title="基本算法："></a><b>基本算法：</b></h4><blockquote>
+<p><b>输入：</b>训练数据集D<br><b>输出：</b>回归树f(x)<br>(1) 选择一个切分变量j与切分点s，求解<br>$$min_{j,s}[min_{c_1}\sum_{x_i \in R_1(j,s)}(y_i-c_1)^2+min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]$$<br>遍历变量j，对固定的切分变量j扫描切分点s，找到令上式达到最小值的(j,s)<br>(2) 用选定的(j,s)划分区域并决定相应的输出值：<br>$$R_1(j,s)&#x3D;(x|x^{(j)} \le s ) \quad \quad \quad R_2(j,s)&#x3D;(x|x^{(j)} &gt; s )$$<br>$$c_m&#x3D;ave(y_i|x_i \in R_m(j,s))$$<br>(3) 继续对两个子区域调用步骤(1),(2)，直到满足条件为止<br>(4) 将输入空间划分为M个区域$R_1,R_2,…,R_M$，生成决策树f(x)</p>
+</blockquote>
+<h4 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a><b>具体代码</b></h4><blockquote>
+<ul>
+<li><p><b>导入的包：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"><span class="keyword">import</span> pickle</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>创建数据集：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">createDataSet</span>():</span><br><span class="line">   dataSet = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],  <span class="comment"># 数据集</span></span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>]]</span><br><span class="line">   labels = [<span class="string">&#x27;年龄&#x27;</span>, <span class="string">&#x27;有工作&#x27;</span>, <span class="string">&#x27;有自己的房子&#x27;</span>, <span class="string">&#x27;信贷情况&#x27;</span>]  <span class="comment"># 分类属性</span></span><br><span class="line">   <span class="keyword">return</span> dataSet, labels  <span class="comment"># 返回数据集和分类属性</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><b>数据集的样貌：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%86%B3%E7%AD%96%E6%A0%91/%E6%A0%B7%E4%BE%8B.png" alt="样例图" title="样例"></p>
+<ul>
+<li><p><b>计算香农熵：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">calcShannonEnt</span>(<span class="params">dataSet</span>):</span><br><span class="line">   numEntries = <span class="built_in">len</span>(dataSet)  <span class="comment"># 数据集的行数</span></span><br><span class="line">   labelsCounts = &#123;&#125;  <span class="comment"># 每个标签(yes和no)出现次数的字典</span></span><br><span class="line">   <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:</span><br><span class="line">       currentLabel = featVec[-<span class="number">1</span>]</span><br><span class="line">       <span class="keyword">if</span> currentLabel <span class="keyword">not</span> <span class="keyword">in</span> labelsCounts.keys():</span><br><span class="line">           labelsCounts[currentLabel] = <span class="number">0</span></span><br><span class="line">       labelsCounts[currentLabel] += <span class="number">1</span></span><br><span class="line">   shannonEnt = <span class="number">0.0</span>  <span class="comment"># 经验熵</span></span><br><span class="line">   <span class="keyword">for</span> key <span class="keyword">in</span> labelsCounts:  <span class="comment"># 开始计算经验熵</span></span><br><span class="line">       prob = <span class="built_in">float</span>(labelsCounts[key]) / numEntries  <span class="comment"># 计算该标签（yes或no）的概率</span></span><br><span class="line">       shannonEnt -= prob * log(prob, <span class="number">2</span>)  <span class="comment"># 根据定义计算</span></span><br><span class="line">   <span class="keyword">return</span> shannonEnt</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>根据某个特征进行划分数据集：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">data要切分的为数据集</span></span><br><span class="line"><span class="string">axis为要切分的特征索引（如年龄，有工作，有自己的房子，信贷情况）</span></span><br><span class="line"><span class="string">value为特征的具体值(如年龄中的青年、中年、老年)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 将数据集按照某个特征划分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">splitDataSet</span>(<span class="params">dataSet, axis, value</span>):</span><br><span class="line">   retDataSet = []</span><br><span class="line">   <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:</span><br><span class="line">       <span class="keyword">if</span> featVec[axis] == value:  <span class="comment"># 分类的地方</span></span><br><span class="line">           reducedFeatVec = featVec[:axis]  <span class="comment"># 在axis前的所有数据，如axis为&quot;有工作&quot;的索引时，featVec[:axis]就代表“年龄”这一列数据</span></span><br><span class="line">           reducedFeatVec.extend(</span><br><span class="line">               featVec[axis + <span class="number">1</span>:])  <span class="comment"># 在axis后的所有数据，如axis为&quot;有工作&quot;的索引时。featVec[axis+1:]代表“有自己的房子”和“信贷情况”的数据</span></span><br><span class="line">           retDataSet.append(reducedFeatVec)</span><br><span class="line">   <span class="keyword">return</span> retDataSet  <span class="comment"># 仅返回索引值为axis的特征中，值为value的数据</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>计算信息增益，并且返回最优特征</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算信息增益，并返回信息增益最大的特征索引值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chooseBestFeatureToSplit</span>(<span class="params">dataSet</span>):</span><br><span class="line">   numFeatures = <span class="built_in">len</span>(dataSet[<span class="number">0</span>]) - <span class="number">1</span>  <span class="comment"># 数据集特征数</span></span><br><span class="line">   baseEntropy = calcShannonEnt(dataSet)  <span class="comment"># 计算数据几的信息熵</span></span><br><span class="line">   bestInfoGain = <span class="number">0.0</span>  <span class="comment"># 信息增益</span></span><br><span class="line">   bestFeature = -<span class="number">1</span>  <span class="comment"># 最优特征的索引值</span></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(numFeatures):</span><br><span class="line">       featList = [example[i] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 我看不懂，但我大为震撼</span></span><br><span class="line">       uniqueVals = <span class="built_in">set</span>(featList)  <span class="comment"># 各特征值</span></span><br><span class="line">       newEntropy = <span class="number">0.0</span>  <span class="comment"># 经验条件熵</span></span><br><span class="line">       <span class="keyword">for</span> value <span class="keyword">in</span> uniqueVals:  <span class="comment"># 计算信息增益</span></span><br><span class="line">           <span class="comment"># print(&quot;value=&quot;, value, &quot;i=&quot;, i)</span></span><br><span class="line">           subDataSet = splitDataSet(dataSet, i, value)</span><br><span class="line">           prob = <span class="built_in">len</span>(subDataSet) / <span class="built_in">float</span>(<span class="built_in">len</span>(dataSet))</span><br><span class="line">           newEntropy += prob * calcShannonEnt(subDataSet)  <span class="comment"># 计算经验条件熵</span></span><br><span class="line">       infoGain = baseEntropy - newEntropy  <span class="comment"># 计算信息增益</span></span><br><span class="line">       <span class="comment"># print(&quot;第&quot;, i, &quot;个特征的增益为&quot;, infoGain)</span></span><br><span class="line">       <span class="keyword">if</span> infoGain &gt; bestInfoGain:</span><br><span class="line">           bestInfoGain = infoGain</span><br><span class="line">           bestFeature = i</span><br><span class="line">   <span class="keyword">return</span> bestFeature</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>在数据集中找到出现最多的元素：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找classList中出现最多的元素</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">majorityCount</span>(<span class="params">classList</span>):</span><br><span class="line">   classCount = &#123;&#125;</span><br><span class="line">   <span class="keyword">for</span> vote <span class="keyword">in</span> classList:</span><br><span class="line">       <span class="keyword">if</span> vote <span class="keyword">not</span> <span class="keyword">in</span> classCount.keys(): classCount[vote] = <span class="number">0</span></span><br><span class="line">       classCount[vote] += <span class="number">1</span></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)</span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>创建决策树：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">createTree</span>(<span class="params">dataSet, labels, featLabels</span>):</span><br><span class="line">   classList = [example[-<span class="number">1</span>] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 去分类标签“yes”或“no”</span></span><br><span class="line">   <span class="keyword">if</span> classList.count(classList[<span class="number">0</span>]) == <span class="built_in">len</span>(classList):  <span class="comment"># 如果类别完全相同则停止划分</span></span><br><span class="line">       <span class="keyword">return</span> classList[<span class="number">0</span>]</span><br><span class="line">   <span class="keyword">if</span> <span class="built_in">len</span>(dataSet[<span class="number">0</span>]) == <span class="number">1</span>:  <span class="comment"># 如果全部特征都划分完后，选择出现最多的元素进行返回</span></span><br><span class="line">       <span class="keyword">return</span> majorityCount(classList)</span><br><span class="line">   bestFeat = chooseBestFeatureToSplit(dataSet)  <span class="comment"># 选择最优特征的索引</span></span><br><span class="line">   bestFeatLabel = labels[bestFeat]</span><br><span class="line">   featLabels.append(bestFeatLabel)  <span class="comment"># 存储最优特征的标签</span></span><br><span class="line">   myTree = &#123;bestFeatLabel: &#123;&#125;&#125;  <span class="comment"># 根据最优特征的标签生成树</span></span><br><span class="line">   <span class="keyword">del</span> (labels[bestFeat])  <span class="comment"># 删除已经使用的特征标签</span></span><br><span class="line">   featValues = [example[bestFeat] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 得到训练集中所有最优特征的属性值</span></span><br><span class="line">   uniqueVal = <span class="built_in">set</span>(featValues)</span><br><span class="line">   <span class="keyword">for</span> value <span class="keyword">in</span> uniqueVal:</span><br><span class="line">       <span class="comment"># 递归生成树</span></span><br><span class="line">       myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), labels, featLabels)</span><br><span class="line">   <span class="keyword">return</span> myTree</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>根据决策树进行分类</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据决策树对点进行分类</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">classify</span>(<span class="params">inputTree, featLabels, testVec</span>):</span><br><span class="line">   firstStr = <span class="built_in">next</span>(<span class="built_in">iter</span>(inputTree))  <span class="comment"># 获取根节点</span></span><br><span class="line">   secondDict = inputTree[firstStr]  <span class="comment"># 获取根节点下的两颗树</span></span><br><span class="line">   featIndex = featLabels.index(firstStr)</span><br><span class="line">   <span class="keyword">for</span> key <span class="keyword">in</span> secondDict.keys():</span><br><span class="line">       <span class="keyword">if</span> testVec[featIndex] == key:</span><br><span class="line">           <span class="keyword">if</span> <span class="built_in">type</span>(secondDict[key]).__name__ == <span class="string">&#x27;dict&#x27;</span>:  <span class="comment"># 如果子节点是一棵树，那么递归调用分类器</span></span><br><span class="line">               classLabel = classify(secondDict[key], featLabels, testVec)</span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               classLabel = secondDict[key]  <span class="comment"># 如果子节点是一个叶子节点，那么直接返回</span></span><br><span class="line">   <span class="keyword">return</span> classLabel</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>主函数：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   dataSet, labels = createDataSet()</span><br><span class="line">   featLabels = []</span><br><span class="line">   myTree = createTree(dataSet, labels, featLabels)</span><br><span class="line">   <span class="built_in">print</span>(myTree)</span><br><span class="line">   testVec = [<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">   result = classify(myTree, featLabels, testVec)</span><br><span class="line">   <span class="keyword">if</span> result == <span class="string">&#x27;yes&#x27;</span>:</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;放贷&#x27;</span>)</span><br><span class="line">   <span class="keyword">if</span> result == <span class="string">&#x27;no&#x27;</span>:</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;不放贷&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>DLC（拓展）</b>：将决策树转为二进制形式存储起来，以及读取二进制形式的决策树</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 存储决策树</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">storeTree</span>(<span class="params">inputTree, filename</span>):</span><br><span class="line">   <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line">       pickle.dump(inputTree, fw)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取决策树</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">grabTree</span>(<span class="params">filename</span>):</span><br><span class="line">   fr = <span class="built_in">open</span>(filename, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">   <span class="keyword">return</span> pickle.load(fr)</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<ul>
+<li><p><b>完整代码：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">createDataSet</span>():</span><br><span class="line">   dataSet = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],  <span class="comment"># 数据集</span></span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;no&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="string">&#x27;yes&#x27;</span>],</span><br><span class="line">              [<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">&#x27;no&#x27;</span>]]</span><br><span class="line">   labels = [<span class="string">&#x27;年龄&#x27;</span>, <span class="string">&#x27;有工作&#x27;</span>, <span class="string">&#x27;有自己的房子&#x27;</span>, <span class="string">&#x27;信贷情况&#x27;</span>]  <span class="comment"># 分类属性</span></span><br><span class="line">   <span class="keyword">return</span> dataSet, labels  <span class="comment"># 返回数据集和分类属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calcShannonEnt</span>(<span class="params">dataSet</span>):</span><br><span class="line">   numEntries = <span class="built_in">len</span>(dataSet)  <span class="comment"># 数据集的行数</span></span><br><span class="line">   labelsCounts = &#123;&#125;  <span class="comment"># 每个标签(yes和no)出现次数的字典</span></span><br><span class="line">   <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:</span><br><span class="line">       currentLabel = featVec[-<span class="number">1</span>]</span><br><span class="line">       <span class="keyword">if</span> currentLabel <span class="keyword">not</span> <span class="keyword">in</span> labelsCounts.keys():</span><br><span class="line">           labelsCounts[currentLabel] = <span class="number">0</span></span><br><span class="line">       labelsCounts[currentLabel] += <span class="number">1</span></span><br><span class="line">   shannonEnt = <span class="number">0.0</span>  <span class="comment"># 经验熵</span></span><br><span class="line">   <span class="keyword">for</span> key <span class="keyword">in</span> labelsCounts:  <span class="comment"># 开始计算经验熵</span></span><br><span class="line">       prob = <span class="built_in">float</span>(labelsCounts[key]) / numEntries  <span class="comment"># 计算该标签（yes或no）的概率</span></span><br><span class="line">       shannonEnt -= prob * log(prob, <span class="number">2</span>)  <span class="comment"># 根据定义计算</span></span><br><span class="line">   <span class="keyword">return</span> shannonEnt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">data要切分的为数据集</span></span><br><span class="line"><span class="string">axis为要切分的特征索引（如年龄，有工作，有自己的房子，信贷情况）</span></span><br><span class="line"><span class="string">value为特征的具体值(如年龄中的青年、中年、老年)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 将数据集按照某个特征划分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">splitDataSet</span>(<span class="params">dataSet, axis, value</span>):</span><br><span class="line">   retDataSet = []</span><br><span class="line">   <span class="keyword">for</span> featVec <span class="keyword">in</span> dataSet:</span><br><span class="line">       <span class="keyword">if</span> featVec[axis] == value:  <span class="comment"># 分类的地方</span></span><br><span class="line">           reducedFeatVec = featVec[:axis]  <span class="comment"># 在axis前的所有数据，如axis为&quot;有工作&quot;的索引时，featVec[:axis]就代表“年龄”这一列数据</span></span><br><span class="line">           reducedFeatVec.extend(</span><br><span class="line">               featVec[axis + <span class="number">1</span>:])  <span class="comment"># 在axis后的所有数据，如axis为&quot;有工作&quot;的索引时。featVec[axis+1:]代表“有自己的房子”和“信贷情况”的数据</span></span><br><span class="line">           retDataSet.append(reducedFeatVec)</span><br><span class="line">   <span class="keyword">return</span> retDataSet  <span class="comment"># 仅返回索引值为axis的特征中，值为value的数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算信息增益，并返回信息增益最大的特征索引值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">chooseBestFeatureToSplit</span>(<span class="params">dataSet</span>):</span><br><span class="line">   numFeatures = <span class="built_in">len</span>(dataSet[<span class="number">0</span>]) - <span class="number">1</span>  <span class="comment"># 数据集特征数</span></span><br><span class="line">   baseEntropy = calcShannonEnt(dataSet)  <span class="comment"># 计算数据几的信息熵</span></span><br><span class="line">   bestInfoGain = <span class="number">0.0</span>  <span class="comment"># 信息增益</span></span><br><span class="line">   bestFeature = -<span class="number">1</span>  <span class="comment"># 最优特征的索引值</span></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(numFeatures):</span><br><span class="line">       featList = [example[i] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 我看不懂，但我大为惊叹</span></span><br><span class="line">       uniqueVals = <span class="built_in">set</span>(featList)  <span class="comment"># 各特征值</span></span><br><span class="line">       newEntropy = <span class="number">0.0</span>  <span class="comment"># 经验条件熵</span></span><br><span class="line">       <span class="keyword">for</span> value <span class="keyword">in</span> uniqueVals:  <span class="comment"># 计算信息增益</span></span><br><span class="line">           <span class="comment"># print(&quot;value=&quot;, value, &quot;i=&quot;, i)</span></span><br><span class="line">           subDataSet = splitDataSet(dataSet, i, value)</span><br><span class="line">           prob = <span class="built_in">len</span>(subDataSet) / <span class="built_in">float</span>(<span class="built_in">len</span>(dataSet))</span><br><span class="line">           newEntropy += prob * calcShannonEnt(subDataSet)  <span class="comment"># 计算经验条件熵</span></span><br><span class="line">       infoGain = baseEntropy - newEntropy  <span class="comment"># 计算信息增益</span></span><br><span class="line">       <span class="comment"># print(&quot;第&quot;, i, &quot;个特征的增益为&quot;, infoGain)</span></span><br><span class="line">       <span class="keyword">if</span> infoGain &gt; bestInfoGain:</span><br><span class="line">           bestInfoGain = infoGain</span><br><span class="line">           bestFeature = i</span><br><span class="line">   <span class="keyword">return</span> bestFeature</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 找classList中出现最多的元素</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">majorityCount</span>(<span class="params">classList</span>):</span><br><span class="line">   classCount = &#123;&#125;</span><br><span class="line">   <span class="keyword">for</span> vote <span class="keyword">in</span> classList:</span><br><span class="line">       <span class="keyword">if</span> vote <span class="keyword">not</span> <span class="keyword">in</span> classCount.keys(): classCount[vote] = <span class="number">0</span></span><br><span class="line">       classCount[vote] += <span class="number">1</span></span><br><span class="line">   sortedClassCount = <span class="built_in">sorted</span>(classCount.items(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)</span><br><span class="line">   <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">createTree</span>(<span class="params">dataSet, labels, featLabels</span>):</span><br><span class="line">   classList = [example[-<span class="number">1</span>] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 去分类标签“yes”或“no”</span></span><br><span class="line">   <span class="keyword">if</span> classList.count(classList[<span class="number">0</span>]) == <span class="built_in">len</span>(classList):  <span class="comment"># 如果类别完全相同则停止划分</span></span><br><span class="line">       <span class="keyword">return</span> classList[<span class="number">0</span>]</span><br><span class="line">   <span class="keyword">if</span> <span class="built_in">len</span>(dataSet[<span class="number">0</span>]) == <span class="number">1</span>:  <span class="comment"># 如果全部特征都划分完后，选择出现最多的元素进行返回</span></span><br><span class="line">       <span class="keyword">return</span> majorityCount(classList)</span><br><span class="line">   bestFeat = chooseBestFeatureToSplit(dataSet)  <span class="comment"># 选择最优特征的索引</span></span><br><span class="line">   bestFeatLabel = labels[bestFeat]</span><br><span class="line">   featLabels.append(bestFeatLabel)  <span class="comment"># 存储最优特征的标签</span></span><br><span class="line">   myTree = &#123;bestFeatLabel: &#123;&#125;&#125;  <span class="comment"># 根据最优特征的标签生成树</span></span><br><span class="line">   <span class="keyword">del</span> (labels[bestFeat])  <span class="comment"># 删除已经使用的特征标签</span></span><br><span class="line">   featValues = [example[bestFeat] <span class="keyword">for</span> example <span class="keyword">in</span> dataSet]  <span class="comment"># 得到训练集中所有最优特征的属性值</span></span><br><span class="line">   uniqueVal = <span class="built_in">set</span>(featValues)</span><br><span class="line">   <span class="keyword">for</span> value <span class="keyword">in</span> uniqueVal:</span><br><span class="line">       <span class="comment"># 递归生成树</span></span><br><span class="line">       myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), labels, featLabels)</span><br><span class="line">   <span class="keyword">return</span> myTree</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据决策树对点进行分类</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">classify</span>(<span class="params">inputTree, featLabels, testVec</span>):</span><br><span class="line">   firstStr = <span class="built_in">next</span>(<span class="built_in">iter</span>(inputTree))  <span class="comment"># 获取根节点</span></span><br><span class="line">   secondDict = inputTree[firstStr]  <span class="comment"># 获取根节点下的两颗树</span></span><br><span class="line">   featIndex = featLabels.index(firstStr)</span><br><span class="line">   <span class="keyword">for</span> key <span class="keyword">in</span> secondDict.keys():</span><br><span class="line">       <span class="keyword">if</span> testVec[featIndex] == key:</span><br><span class="line">           <span class="keyword">if</span> <span class="built_in">type</span>(secondDict[key]).__name__ == <span class="string">&#x27;dict&#x27;</span>:  <span class="comment"># 如果子节点是一棵树，那么递归调用分类器</span></span><br><span class="line">               classLabel = classify(secondDict[key], featLabels, testVec)</span><br><span class="line">           <span class="keyword">else</span>:</span><br><span class="line">               classLabel = secondDict[key]  <span class="comment"># 如果子节点是一个叶子节点，那么直接返回</span></span><br><span class="line">   <span class="keyword">return</span> classLabel</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储决策树</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">storeTree</span>(<span class="params">inputTree, filename</span>):</span><br><span class="line">   <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fw:</span><br><span class="line">       pickle.dump(inputTree, fw)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取决策树</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">grabTree</span>(<span class="params">filename</span>):</span><br><span class="line">   fr = <span class="built_in">open</span>(filename, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">   <span class="keyword">return</span> pickle.load(fr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">   dataSet, labels = createDataSet()</span><br><span class="line">   featLabels = []</span><br><span class="line">   myTree = createTree(dataSet, labels, featLabels)</span><br><span class="line"></span><br><span class="line">   <span class="built_in">print</span>(myTree)</span><br><span class="line">   testVec = [<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">   result = classify(myTree, featLabels, testVec)</span><br><span class="line">   <span class="keyword">if</span> result == <span class="string">&#x27;yes&#x27;</span>:</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;放贷&#x27;</span>)</span><br><span class="line">   <span class="keyword">if</span> result == <span class="string">&#x27;no&#x27;</span>:</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;不放贷&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>运行结果：</b></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;有自己的房子&#x27;: &#123;0: &#123;&#x27;有工作&#x27;: &#123;0: &#x27;no&#x27;, 1: &#x27;yes&#x27;&#125;&#125;, 1: &#x27;yes&#x27;&#125;&#125;</span><br><span class="line">放贷</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p>上面第一行为生成的决策树，第二行是一个测试例子解预测结果。</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">基本算法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">具体代码</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

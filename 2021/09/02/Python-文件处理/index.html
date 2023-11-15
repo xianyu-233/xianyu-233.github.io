@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python-文件处理 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="从文件中读取数据
+使用文本文件中的信息，首先需要将其读取到内存中，读取方式又包括一次性读取所有文件和每次一行的方式逐步读取。
+
+读取整个文件
+
+1234with open(&amp;#x27;data.tx,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Python-文件处理</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Python-文件处理</h1>
+        <div class="stuff">
+            <span>九月 02, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">编程语言基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="从文件中读取数据"><a href="#从文件中读取数据" class="headerlink" title="从文件中读取数据"></a><b>从文件中读取数据</b></h4><blockquote>
+<p>使用文本文件中的信息，首先需要将其读取到内存中，读取方式又包括<b>一次性读取所有文件</b>和<b>每次一行的方式</b>逐步读取。</p>
+</blockquote>
+<h5 id="读取整个文件"><a href="#读取整个文件" class="headerlink" title="读取整个文件"></a><b>读取整个文件</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   line = file_data.read()</span><br><span class="line"></span><br><span class="line">   <span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279        </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>打开文件的操作有点类似于导入包，<code>with</code>是关键字，<code>open()</code>是函数，<code>file_data</code>是一个文件信息的对象，具体输出：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;_io.TextIOWrapper name=&#x27;data.txt&#x27; mode=&#x27;r&#x27; encoding=&#x27;cp936&#x27;&gt;</span><br></pre></td></tr></table></figure>
+<p>第一个<b>大概</b>是文件地址，第二个是文件打开方式，r代表只读，第三个<b>大概</b>是编码方式。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>关键字<code>with</code>在不需要访问文件后将其关闭，但是python非常贴心，它会自动选择合适的时机自动将其关闭。</p>
+</li>
+<li><p>另外，如果读取出来的的数据有空格，而你想去掉它，可以直接调用<code>strip()</code>函数来去除多余的空格，如</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   line = file_data.read()</span><br><span class="line"></span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">len</span>(line))</span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">len</span>(line.rstrip()))</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">48</span><br><span class="line">40</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>这个函数可以对任何字符串数据使用，并且<code>rstrip</code>或<code>lstrip</code>指的是删除右边的或左边的空格，<code>strip</code>则是两边空格都删掉。</p>
+</blockquote>
+</li>
+<li><p>关于文件的路径（即上例中<code>open</code>的参数），路径分为<b>绝对路径</b>和<b>相对路径</b></p>
+<blockquote>
+<ul>
+<li><b>相对路径：</b>从程序开始到文件位置的路径，一般开头没有<code>\</code>或<code>/</code></li>
+<li><b>绝对路径：</b>从基本盘的位置开始到文件所在的位置，一般开头为<code>/</code>或’X:&#39;（X代表盘号）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="逐行读取"><a href="#逐行读取" class="headerlink" title="逐行读取"></a><b>逐行读取</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.txt&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> file_data:</span><br><span class="line">       <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">3.141592</span><br><span class="line"></span><br><span class="line">6535897</span><br><span class="line"></span><br><span class="line">9323846</span><br><span class="line"></span><br><span class="line">2643383</span><br><span class="line"></span><br><span class="line">279 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>如果想要消去多余的空行，可以使用<code>strip()</code>进行操作。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a) <span class="keyword">as</span> file_data:</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> file_data:</span><br><span class="line">       <span class="built_in">print</span>(i.rstrip())</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="创建一个包括文件各行的列表"><a href="#创建一个包括文件各行的列表" class="headerlink" title="创建一个包括文件各行的列表"></a><b>创建一个包括文件各行的列表</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a) <span class="keyword">as</span> file_data:</span><br><span class="line">   lines = file_data.readlines()</span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">type</span>(lines))</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> lines:</span><br><span class="line">       <span class="built_in">print</span>(i.rstrip())</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;list&#x27;&gt;</span><br><span class="line">3.141592</span><br><span class="line">6535897</span><br><span class="line">9323846</span><br><span class="line">2643383</span><br><span class="line">279</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>直接读的数据是字符串型的数据。</p>
+</blockquote>
+</blockquote>
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a><b>写入文件</b></h4><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(a, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">   a = <span class="string">&#x27;This is a data&#x27;</span></span><br><span class="line">   file_data.write(a)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6.png" alt="图片" title="写入文件！"></p>
+</blockquote>
+<ul>
+<li><code>open</code>函数中的第二个参数可以指定打开文件的方式，其中默认为<code>r</code>读取文件，<code>w</code>为写入文件（覆盖地写入），<code>a</code>为附加模式（可以在原来的基础上继续追加数据），<code>r+</code>是同时允许读取和写入文件。<br><b>多行写入：</b><blockquote>
+<p>多行写入只需多次调用<code>file_data.write(a)</code>即可。<br><b>注意：</b>多行写入也是覆盖式写入，而且需要换行的话要自行在每行末尾追加<code>\n</code></p>
+</blockquote>
+</li>
+</ul>
+<p><b>附加写入</b></p>
+<blockquote>
+<p>将<code>open()</code>中第二个参数改为<code>a</code>后，python不会在返回文件对象前清空文件。<br>你写入到文件的行都将追加到文件末尾。<br><b>注意：</b>如果文件不存在，python将为你创建一个空文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ad = <span class="string">&#x27;data.txt&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(ad, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">       a = <span class="string">&#x27;This is a data\n&#x27;</span></span><br><span class="line">       file_data.write(a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">   <span class="keyword">with</span> <span class="built_in">open</span>(ad, <span class="string">&#x27;a&#x27;</span>) <span class="keyword">as</span> file_data:</span><br><span class="line">       a = <span class="string">&#x27;wryyyyyyyyyyyyyyyyy\n&#x27;</span></span><br><span class="line">       file_data.write(a)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6_1.png" alt="图片" title="写入文件！"></p>
+</blockquote>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">1.</span> <span class="toc-text">从文件中读取数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">读取整个文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96"><span class="toc-number">1.2.</span> <span class="toc-text">逐行读取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8C%85%E6%8B%AC%E6%96%87%E4%BB%B6%E5%90%84%E8%A1%8C%E7%9A%84%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">创建一个包括文件各行的列表</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">写入文件</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

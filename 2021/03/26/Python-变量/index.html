@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python-变量 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="Python的变量
+在Python中，变量没有特定的标识符，即定义变量时不需要用特定的标识符来修饰变量。
+
+
+变量的使用规范：
+
+变量名只能包含字母、数字和下划线。变量名可以用下划线和字母开头，但不,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Python-变量</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Python-变量</h1>
+        <div class="stuff">
+            <span>三月 26, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">编程语言基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="Python的变量"><a href="#Python的变量" class="headerlink" title="Python的变量"></a><b>Python的变量</b></h4><blockquote>
+<p>在Python中，变量没有特定的标识符，即定义变量时不需要用特定的标识符来修饰变量。</p>
+</blockquote>
+<blockquote>
+<p><b>变量的使用规范</b>：</p>
+<ul>
+<li>变量名只能包含字母、数字和下划线。变量名可以用<b>下划线</b>和<b>字母</b>开头，但不能用<b>数字</b>开头。</li>
+<li>变量名不能包括空格。</li>
+<li>变量名不能与Python中的函数名与关键字重名。</li>
+<li>变量名尽量为小写。</li>
+</ul>
+</blockquote>
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a><b>字符串</b></h5><blockquote>
+<p>在Python中，字符串的定义可以用双引号<code>“</code>，也可以用单引号<code>‘</code>来定义，<br><b>例如：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;This is a string&quot;</span></span><br><span class="line">b = <span class="string">&quot;This is also a string&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">pring(b)</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%AD%97%E7%AC%A6%E4%B8%B2.jpg" alt="字符串" title="字符串的定义"></p>
+</blockquote>
+<p><b>用函数修改字符串的大小写</b><br>对于全是小写的字符串</p>
+<ul>
+<li>使用<code>.title()</code>可以使字符串中每个单词的首字母变为大写。</li>
+<li>使用<code>.upper()</code>可以使字符串中每个字母都变为大写。</li>
+<li>使用<code>.lower()</code>可以使字符串中每个字母都变为小写。<br><b>例如：</b><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;a poor man&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a.title())</span><br><span class="line"><span class="built_in">print</span>(a.upper())</span><br><span class="line"><span class="built_in">print</span>(a.lower())</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99.jpg" alt="字符串" title="字符串的大小写"></p>
+</blockquote>
+</li>
+</ul>
+<p><b>字符串的连接</b><br>在Python中你可以通过<code>+</code>来对两个字符串进行连接。<br><b>例如：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;a&quot;</span></span><br><span class="line">b = <span class="string">&quot;dog&quot;</span></span><br><span class="line">c = a+<span class="string">&quot; &quot;</span>+b</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8B%BC%E6%8E%A5.jpg" alt="字符串" title="字符串的拼接"></p>
+</blockquote>
+</blockquote>
+<h5 id="数字"><a href="#数字" class="headerlink" title="数字"></a><b>数字</b></h5><blockquote>
+<ul>
+<li><p><b>整数</b></p>
+<blockquote>
+<p>Pyton中的整数除了定义时与其他语言有所区别，其余都一样<br>Pyton中整数支持<b>加、减、乘、除</b>的运算。</p>
+</blockquote>
+</li>
+<li><p><b>浮点数</b></p>
+<blockquote>
+<p>Python将带有小数点的数字称为<b>浮点数</b><br>对于浮点数来说，结果包含的小数位数可能是不确定的。<br><b>例如：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/Python/%E6%B5%AE%E7%82%B9%E6%95%B0.jpg" alt="浮点数" title="浮点数"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a><b>注释</b></h5><blockquote>
+<p>在Python中，可以用<code>#</code>来进行注释，在<code>#</code>后面的内容都会被Python解释器忽略。<br><b>例如：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#这是一条注释</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;这不是注释&quot;</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="一些奇奇怪怪的错误"><a href="#一些奇奇怪怪的错误" class="headerlink" title="一些奇奇怪怪的错误"></a><b>一些奇奇怪怪的错误</b></h5><blockquote>
+<ul>
+<li>上面也说了，Python在定义变量时不需要标识符，字符串又可以用<code>+</code>来拼接，那么在拼接字符串时塞个数字进去会怎样？如<code>message = &quot;A&quot;+23+&quot;rd Years&quot;</code></li>
+<li>答案是会报错，因为Python无法识别出这个拼接后的<code>message</code>是什么类型的数据。</li>
+<li>这是可以用<code>str()</code>来避免这个错误，即<code>message = &quot;A&quot;+str(23)+&quot;rd Years&quot;</code></li>
+</ul>
+</blockquote>
+<h5 id="一个彩蛋"><a href="#一个彩蛋" class="headerlink" title="一个彩蛋"></a><b>一个彩蛋</b></h5><blockquote>
+<p>输入<code>import this</code>可以浏览，<br>这也是一个编程准则，其内容如下</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Beautiful is better than ugly.</span><br><span class="line"></span><br><span class="line">Explicit is better than implicit.</span><br><span class="line"></span><br><span class="line">Simple is better than complex.</span><br><span class="line"></span><br><span class="line">Complex is better than complicated.</span><br><span class="line"></span><br><span class="line">Flat is better than nested.</span><br><span class="line"></span><br><span class="line">Sparse is better than dense.</span><br><span class="line"></span><br><span class="line">Readability counts.</span><br><span class="line"></span><br><span class="line">Special cases aren&#x27;t special enough to break the rules.</span><br><span class="line"></span><br><span class="line">Although practicality beats purity.</span><br><span class="line"></span><br><span class="line">Errors should never pass silently.</span><br><span class="line"></span><br><span class="line">Unless explicitly silenced.</span><br><span class="line"></span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line"></span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line"></span><br><span class="line">Although that way may not be obvious at first unless you&#x27;re Dutch.</span><br><span class="line"></span><br><span class="line">Now is better than never.</span><br><span class="line"></span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line"></span><br><span class="line">If the implementation is hard to explain, it&#x27;s a bad idea.</span><br><span class="line"></span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line"></span><br><span class="line">Namespaces are one honking great idea -- let&#x27;s do more of those!</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>中文翻译：<del>(其实是机翻)</del></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">美丽胜于丑陋。</span><br><span class="line"></span><br><span class="line">显性比隐性好。</span><br><span class="line"></span><br><span class="line">简单胜于复杂。</span><br><span class="line"></span><br><span class="line">复杂总比复杂好。</span><br><span class="line"></span><br><span class="line">平的比嵌套的好。</span><br><span class="line"></span><br><span class="line">疏胜于密。</span><br><span class="line"></span><br><span class="line">可读性很重要。</span><br><span class="line"></span><br><span class="line">特殊情况不足以打破规则。</span><br><span class="line"></span><br><span class="line">尽管实用胜过纯洁。</span><br><span class="line"></span><br><span class="line">错误不应该悄悄地过去。</span><br><span class="line"></span><br><span class="line">除非明确沉默。</span><br><span class="line"></span><br><span class="line">面对模棱两可，拒绝猜测的诱惑。</span><br><span class="line"></span><br><span class="line">应该有一个——最好只有一个——显而易见的方法。</span><br><span class="line"></span><br><span class="line">尽管这种方式一开始可能并不明显，除非你是荷兰人。</span><br><span class="line"></span><br><span class="line">现在总比没有好。</span><br><span class="line"></span><br><span class="line">虽然从来没有比现在更好。</span><br><span class="line"></span><br><span class="line">如果实现很难解释，那就不是个好主意。</span><br><span class="line"></span><br><span class="line">如果实现很容易解释，那么这可能是一个好主意。</span><br><span class="line"></span><br><span class="line">名称空间是一个非常好的主意——让我们做更多的工作吧！</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python%E7%9A%84%E5%8F%98%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">Python的变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.</span> <span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E5%AD%97"><span class="toc-number">1.2.</span> <span class="toc-text">数字</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.3.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number">1.4.</span> <span class="toc-text">一些奇奇怪怪的错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%BD%A9%E8%9B%8B"><span class="toc-number">1.5.</span> <span class="toc-text">一个彩蛋</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>贝叶斯分类器 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="贝叶斯分类器简介
+贝叶斯分类器是基于概率框架下的一种分类器，它与决策树等模型不一样。决策树是直接对后验概率$P(y|x)$进行建模的判别式模型贝叶斯分类器则是先对联合概率分布$P(x,y)$建模，之,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">贝叶斯分类器</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">贝叶斯分类器</h1>
+        <div class="stuff">
+            <span>八月 27, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="贝叶斯分类器简介"><a href="#贝叶斯分类器简介" class="headerlink" title="贝叶斯分类器简介"></a><b>贝叶斯分类器简介</b></h4><blockquote>
+<p>贝叶斯分类器是基于概率框架下的一种分类器，它与决策树等模型不一样。<br>决策树是直接对后验概率$P(y|x)$进行建模的<b>判别式模型</b><br>贝叶斯分类器则是先对联合概率分布$P(x,y)$建模，之后再对条件概率公式得出后验概率的<b>生成模型</b><br>其中贝叶斯分类器的核心部件就是<b>贝叶斯定理</b>。<br><b>补充：</b>贝叶斯分类器不仅可以分类，还能计算出对应类的概率。</p>
+</blockquote>
+<h4 id="贝叶斯定理"><a href="#贝叶斯定理" class="headerlink" title="贝叶斯定理"></a><b>贝叶斯定理</b></h4><blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>$$P(y|x)&#x3D;\frac{P(x|y)P(y)}{P(x)}$$</p>
+<p>其中， $P(y|x)$称为<b>后验概率</b>，$P(x|y)$称为<b>似然概率</b>，$P(x)，P(y)$称为<b>先验概率</b></p>
+</blockquote>
+<ul>
+<li>贝叶斯分类器就是根据贝叶斯定理，最终分别计算$P(y&#x3D;正例|x)$与$P(y&#x3D;反例|x)$这两个之间谁大谁小，从而得到分类结果。</li>
+<li>当然也可以进行推广，计算$P(y&#x3D;类别1|x)$、$P(y&#x3D;类别2|x)$……$P(y&#x3D;类别n|x)$从而得到一个多分类器。</li>
+<li>也可以通过计算后验概率来对搜索单词进行补全。</li>
+</ul>
+</blockquote>
+<h4 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a><b>朴素贝叶斯</b></h4><blockquote>
+<p>朴素贝叶斯是贝叶斯分类器中最简单的模型。它将各特征之间设为独立关系，举个例子:<br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E8%A5%BF%E7%93%9C%E4%BE%8B%E5%AD%90.png" alt="例子" title="例子"><br>其中特征x包括：色泽、根蒂、敲声、纹理、脐部、触感、密度、含糖率<br>现在我们要对一个<b>色泽&#x3D;青绿，根蒂&#x3D;蜷缩，敲声&#x3D;浊响，纹理&#x3D;清晰，脐部&#x3D;凹陷，触感&#x3D;硬滑，密度&#x3D;0.697，含糖率&#x3D;0.460</b>的西瓜进行判断它的好坏。<br>根据贝叶斯定理：$P(y|x)&#x3D;\frac{P(x|y)P(y)}{P(x)}$<br>首先它们两的P(x)是一样的，可以忽略不计，所以就变成了比较P(x|y&#x3D;好瓜)P(y&#x3D;好瓜)和P(x|y&#x3D;坏瓜)P(y&#x3D;坏瓜)之间的大小。</p>
+<blockquote>
+<ul>
+<li>先计算出P(y&#x3D;好瓜)与P(y&#x3D;坏瓜)两个概率，利用频率代替概率容易得出例子中P(y&#x3D;好瓜)&#x3D;$\frac{8}{17} \approx 0.471$，P(y&#x3D;坏瓜)&#x3D;$\frac{9}{17} \approx 0.529$</li>
+<li>这里就体现了朴素这两个字了，我们要求出P(x|y)，直接求，这有八个特征，而且样本量也不大，计算似然就会非常麻烦。为了简便计算，<b>我们假设各属性之间相互独立</b>，得到$P(x|y) &#x3D; \prod_{i&#x3D;0}^m P(x_i|y)$，即<br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E8%AE%A1%E7%AE%97%E8%A5%BF%E7%93%9C%E7%9A%84%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0.png" alt="例子" title="例子"><br><b>补充：</b>这里假设了密度和含糖率都服从正态分布。</li>
+<li>最后计算P(y&#x3D;好瓜|x)和P(y&#x3D;坏瓜|x)，即<br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C.png" alt="例子" title="例子"></li>
+</ul>
+</blockquote>
+<p>得到P(y&#x3D;好瓜)P(y&#x3D;好瓜|x) $&gt;$ P(y&#x3D;坏瓜)P(y&#x3D;坏瓜|x)，所以这个瓜是个好瓜。<br><b>注意：</b>有时如果数据集较小，计算似然概率时容易出现结果为0。这个时候需要利用<b>拉普拉斯平滑</b>来对模型进行改进，防止过拟合。</p>
+</blockquote>
+<h4 id="拉普拉斯平滑"><a href="#拉普拉斯平滑" class="headerlink" title="拉普拉斯平滑"></a><b>拉普拉斯平滑</b></h4><blockquote>
+<p>拉普拉斯平滑的思想很简单，即对每个类别下所有划分的计数加1。<br>公式如下：</p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91%E5%85%AC%E5%BC%8F.png" alt="例子" title="公式"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91%E5%85%AC%E5%BC%8F_1.png" alt="例子" title="公式"><br>其中$ajl$，代表第j个特征的第l个选择，$S_j$代表第j个特征的个数，K代表种类的个数，$\lambda$为1.</p>
+</blockquote>
+<p>通过拉普拉斯平滑的改进，可以有效避免过多出现零概率的现象。</p>
+</blockquote>
+<h4 id="半朴素贝叶斯"><a href="#半朴素贝叶斯" class="headerlink" title="半朴素贝叶斯"></a><b>半朴素贝叶斯</b></h4><blockquote>
+<p>实际上，属性全部完全独立是不现实的，但考虑所有属性之间都有联系的话，计算又不方便。<br>因此平衡一下，假设部分属性之间存在联系。根据不同的策略可以得到不同联系算法。</p>
+<ul>
+<li><p><b>NB</b></p>
+<blockquote>
+<p>就是朴素贝叶斯分类。<br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AFNB.png" alt="例子" title="例子"></p>
+</blockquote>
+</li>
+<li><p><b>SPODE</b></p>
+<blockquote>
+<p>假设所有的属性都依赖于同一个属性，称为“超父”，然后通过交叉验证的方式来确定超父。<br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AFSPODE.png" alt="例子" title="例子"></p>
+</blockquote>
+</li>
+<li><p><b>AODE</b></p>
+<blockquote>
+<p>AODE与SPODE相类似，不过区别在于，SPODE利用模型来选择超父属性，AODE则是将每个属性都作为超父属性，即<br>$$h(x)&#x3D;max(\sum_{j&#x3D;1}^d P(c,x_j) \prod_{i&#x3D;1}^d P(x_i|c,x_j))$$</p>
+</blockquote>
+</li>
+<li><p><b>TAN</b></p>
+<blockquote>
+<p>TAN(Tree Augmented naive Bayes)在最大带权生成树算法的基础上，通过下面的步骤将属性间的依赖关系简化为树形结构：</p>
+<ul>
+<li><p>计算任意两个属性之间的条件互信息:</p>
+<blockquote>
+<p>$$L(x_i,x_j|y)&#x3D;\sum_{x_i,x_j} P(x_i,x_j|c) log \frac{P(x_i,x_j|c)}{P(x_i|c)P(x_j|c)} \quad \quad c \in Y$$</p>
+</blockquote>
+</li>
+<li><p>以属性为节点构造完全图，两节点之间的权值为互信息</p>
+</li>
+<li><p>构建此完全图的最大带权生成树，挑选根变量，将边设置为有向的；</p>
+</li>
+<li><p>加入类别节点y，增加从y到每个属性xi的有向边；<br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB/%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AFTAN.png" alt="例子" title="例子"></p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><b>补充：</b>半朴素贝叶斯与朴素贝叶斯在计算上最大的区别在于计算似然值$P(x|y) &#x3D; \prod_{i&#x3D;0}^m P(x_i|y)$的区别。<br>朴素贝叶斯的是：$P(x|y) &#x3D; \prod_{i&#x3D;0}^m P(x_i|y)$<br>半朴素贝叶斯的是：$P(x|y) &#x3D; \prod_{i&#x3D;0}^m P(x_i|x_n,y)$</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<h4 id="贝叶斯网络"><a href="#贝叶斯网络" class="headerlink" title="贝叶斯网络"></a><b>贝叶斯网络</b></h4><blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%A1%A8%E6%83%85%E5%8C%85/%E6%88%91%E6%91%B8%E5%88%B0%E4%BA%86.jpg" alt="摸了" title="还没看懂"></p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">贝叶斯分类器简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">贝叶斯定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">3.</span> <span class="toc-text">朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B9%B3%E6%BB%91"><span class="toc-number">4.</span> <span class="toc-text">拉普拉斯平滑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8A%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF"><span class="toc-number">5.</span> <span class="toc-text">半朴素贝叶斯</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C"><span class="toc-number">6.</span> <span class="toc-text">贝叶斯网络</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

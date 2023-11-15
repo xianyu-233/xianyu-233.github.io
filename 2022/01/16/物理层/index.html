@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>物理层 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="物理层的基本概念：
+1、物理层考虑的是在不同的计算机上传输数据比特流
+2、物理层主要任务是描述与传输媒体接口有关的一些特性
+
+
+机械特性：指接口的严格标准化的规定，如接口所用接线器的形状、尺寸、引脚,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">物理层</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">物理层</h1>
+        <div class="stuff">
+            <span>一月 16, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="物理层的基本概念："><a href="#物理层的基本概念：" class="headerlink" title="物理层的基本概念："></a>物理层的基本概念：</h2><blockquote>
+<p>1、物理层考虑的是在不同的计算机上传输<b>数据比特流</b></p>
+<p>2、物理层主要任务是描述与<strong>传输媒体接口</strong>有关的一些<strong>特性</strong></p>
+<blockquote>
+<ul>
+<li><strong>机械特性：</strong>指接口的严格标准化的规定，如接口所用接线器的形状、尺寸、引脚数目等等。</li>
+<li><strong>电气特性：</strong>指明在接口电缆各条线上出现电压的范围。</li>
+<li><strong>功能特性：</strong>知名某条线上出现某一电平的意义。</li>
+<li><strong>规程特性：</strong>指明对于不同功能的各种可能事件的出现顺序。</li>
+</ul>
+</blockquote>
+<p>物理层的传输单元为<strong>比特流</strong>。</p>
+</blockquote>
+<h2 id="数据通信的基础知识："><a href="#数据通信的基础知识：" class="headerlink" title="数据通信的基础知识："></a><strong>数据通信的基础知识：</strong></h2><h3 id="数据系统的通信模型："><a href="#数据系统的通信模型：" class="headerlink" title="数据系统的通信模型："></a><strong>数据系统的通信模型：</strong></h3><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E6%95%B0%E6%8D%AE%E9%80%9A%E8%AE%AF%E6%A8%A1%E5%9E%8B.png" alt="数据通讯模型"></p>
+<p><strong>源系统</strong>一般包括以下部分：</p>
+<ul>
+<li><strong>信源</strong>：源点设备产生要发送的数据。又称<strong>原站</strong>或<strong>源点</strong>。</li>
+<li><strong>发送器：</strong>源点生成的数字比特流需要通过发送器编码后才能在传输信道上传输。典型的发送器是<strong>调制器</strong>。</li>
+</ul>
+<p><strong>目的系统</strong>一般包括以下部分：</p>
+<ul>
+<li><strong>接收器：</strong>接收传输系统发送过来的信号，需要通过接收器编码才能让接收方处理。典型的接收器是<strong>解调器</strong>。</li>
+<li><strong>终点：</strong>信号最终传输到的目的地，又称<strong>目的站</strong>或<strong>信宿</strong>。</li>
+</ul>
+<p><strong>补充：</strong>图上面的<strong>调制解调器</strong>是<strong>解调器</strong>与<strong>调制器</strong>的集合版，即<strong>调制解调器</strong>既可以将数字信号转成模拟信号，也可以将模拟信号转成数字信号。</p>
+<p><strong>信号的分类：</strong></p>
+<ul>
+<li><strong>数字信号：</strong>代表信息的参数是离散的，也称<strong>离散信号</strong>。</li>
+<li><strong>模拟信号：</strong>代表信息的参数是连续的，也称<strong>连续信号</strong>。</li>
+</ul>
+</blockquote>
+<h3 id="有关信道的概念："><a href="#有关信道的概念：" class="headerlink" title="有关信道的概念："></a>有关信道的概念：</h3><blockquote>
+<p><strong>信道：</strong>表示某一个方向发送信息的媒体。</p>
+<p><strong>信息交互的基本方式：</strong></p>
+<ul>
+<li><strong>单向信道：</strong>又称<strong>单工信道</strong>，只能有一个方向的通信而无反方向的通信，只需一条信道。如：广播通信等</li>
+<li><strong>双向交替信道：</strong>又称<strong>半双工信道</strong>，双方可以都发送和接收信息，但每一次只能有一方发送，另一方只能接收，需要两条信道。<strong>双向同时信道：</strong>又称<strong>全双工通信</strong>，双方可以<strong>同时发送与接收</strong>信息，也需要两条信道。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p> <strong>信息传输方式：</strong></p>
+<ul>
+<li><strong>串行传输：</strong>每一次只能发送一个比特，只需一根线就能实现，所以日常能看见的基本都是串行传输。</li>
+</ul>
+<p><strong>特点：</strong>发送速度<strong>慢</strong>，费用<strong>低</strong>，适合<strong>远距离</strong>。</p>
+<ul>
+<li><strong>并行传输：</strong>每一次可以发送多个比特流，因此需要多跟线来实现，多用于计算机内部的传输。</li>
+</ul>
+<p><strong>特点：</strong>发送速度<strong>快</strong>，费用<strong>高</strong>，适合<strong>近距离</strong>。</p>
+<p><strong>码元：</strong>指用一个<strong>固定时长</strong>的<strong>信号波形</strong>，代表不同离散数值的基本波形，是数字信道中数字信号的计量单位，这个时长内的信号称为k进制码元，该时长称为码元宽度。当码元的离散状态有M个时，此时该码元称为<strong>M进制码元</strong>。如在使用二进制编码时，只有0、1两种不同码元，也称为二进制码元。</p>
+<p><strong>速率：</strong>速率也叫数据率，指数据的<strong>传输速率</strong>，表示单位时间内传输的数据量。可以用<strong>码元传输速率</strong>和<strong>信息传输速率</strong>表示。（<strong>注：</strong>这的传输速率指的是数据从主机发送到链路上的速率，链路上的称为<strong>传播速率</strong>。）</p>
+<ul>
+<li><p><strong>码元传输速率：</strong>别名码元速率、波形速率、调制速率、符号速率等，表示<strong>单位时间内数字系统所传输的码元个数</strong>（也称<strong>脉冲个数</strong>或<strong>信号的变化次数</strong>），单位为<strong>波特（Baud）</strong>。码元速率与进制数无关。</p>
+</li>
+<li><p><strong>信息传输速率：</strong>别名信息速率、比特率等，表示<strong>单位时间内数字通信系统的二进制码元个数</strong>（即<strong>比特数</strong>），单位是<strong>比特每秒（b&#x2F;s）</strong>。</p>
+</li>
+</ul>
+<p><strong>关系：</strong>若一个码元携带<strong>n bit</strong>的信息量，则<strong>M Baud</strong>的码元传输速率对应的信息传输速率为<strong>M*n bit&#x2F;s</strong>。</p>
+<p><strong>带宽：</strong>表示单位时间从网络中的某一点到另一点所能通过的“<strong>最高数据率</strong>”，一般用来表示网络的通信线路所能传输的能力，单位是<strong>b&#x2F;s</strong>。当然还有另一种带宽的定义：<strong>信道上最高能通过的频率与最低通过的频率之差。</strong></p>
+</blockquote>
+<h3 id="奈奎斯特定理与香农定理："><a href="#奈奎斯特定理与香农定理：" class="headerlink" title="奈奎斯特定理与香农定理："></a>奈奎斯特定理与香农定理：</h3><h4 id="奈奎斯特定理（又称奈氏准则）"><a href="#奈奎斯特定理（又称奈氏准则）" class="headerlink" title="奈奎斯特定理（又称奈氏准则）"></a>奈奎斯特定理（又称奈氏准则）</h4><blockquote>
+<p><strong>定义：</strong>在<strong>理想低通（没有噪声、带宽有限）</strong>的信道中，为了避免<strong>码间串扰</strong>，极限码元传输速率为<strong>2W波特</strong>，其中W为该信道的带宽。</p>
+<p>（<strong>补充：</strong>码间串扰指的是，信号传播频率过大导致接收端接收到的信号波形失去码元之间的清晰界限的现象。）</p>
+<p><strong>根据码元传输速率与比特传输速率之间的转换</strong>，可以得到码元种类为V的信道极限数据传输速率为：<br>$$<br>理想信道的极限数据传输速率&#x3D;2Wlog_2V	\quad(单位为b&#x2F;s)<br>$$<br><strong>对于奈氏准则，可得到以下结论：</strong></p>
+<ul>
+<li>在任何信道中，码元的传输速率是有上限的，超过上限则会出现码间串扰。</li>
+<li>信道的带宽越高，码元的有效传播速率越快。</li>
+<li>奈氏准则给出了码元传输的限制，但未给定信息的传输速率，即未对一个码元对应多少位比特做出限制。</li>
+</ul>
+</blockquote>
+<h4 id="香农定理"><a href="#香农定理" class="headerlink" title="香农定理"></a>香农定理</h4><blockquote>
+<p> <strong>定义：</strong>香农定理给定了<strong>带宽有限、存在高斯白噪声</strong>干扰的信道的极限数据传输速率为：<br>$$<br>信道的极限数据传输速率&#x3D;Wlog_2(1+\frac{S}{N}) \quad (单位为b&#x2F;s)<br>$$<br>其中W为信道带宽，S&#x2F;N为信噪比（可以用来表示噪声对于信号的影响）定义为：<br>$$<br>信噪比&#x3D;10log_{10}(\frac{S}{N}) \quad (单位为dB)<br>$$<br><strong>对于香农定理，可得到以下结论：</strong></p>
+<ul>
+<li>信道的带宽或信道比越大，信息的极限传输速率就越高。</li>
+<li>对于一定的带宽和一定的信噪比，信息传输速率的上限是确定的。</li>
+<li>只要信息传输速率低于极限，那么就能找到某种方式提升信息传输速率。</li>
+<li>香农定理求得的是极限信息传输速率，实际信道的传输速率要低于该值。</li>
+</ul>
+<p><strong>总结：</strong>香农定理<strong>考虑的是更实际的极限传输速率</strong>，<strong>奈氏准则考虑的是一个无噪声的理想条件下</strong>的极限传输速率。</p>
+</blockquote>
+<h3 id="编码与调制"><a href="#编码与调制" class="headerlink" title="编码与调制"></a>编码与调制</h3><blockquote>
+<p><strong>编码：</strong>把数据转换成数字信号的过程。</p>
+<p><strong>调制：</strong>把数据转换成模拟信号的过程。</p>
+</blockquote>
+<h4 id="数字数据编码为数字信号"><a href="#数字数据编码为数字信号" class="headerlink" title="数字数据编码为数字信号"></a>数字数据编码为数字信号</h4><p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E5%B8%B8%E7%94%A8%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F.png" alt="常用编码方式"></p>
+<h5 id="归零编码"><a href="#归零编码" class="headerlink" title="归零编码"></a>归零编码</h5><blockquote>
+<p><strong>定义：</strong>在归零编码中用高电平代表1、低电平代表0（也可以相反），每个时钟周期均跳为低电平。</p>
+</blockquote>
+<h5 id="非归零编码"><a href="#非归零编码" class="headerlink" title="非归零编码"></a>非归零编码</h5><blockquote>
+<p><strong>定义：</strong>高电平代表1，低电平代表0，且一整个时钟周期都不改变电平。缺点是双方满以同步。</p>
+</blockquote>
+<h5 id="反向非零编码"><a href="#反向非零编码" class="headerlink" title="反向非零编码"></a>反向非零编码</h5><blockquote>
+<p><strong>定义：</strong>电平翻转的代表0，电平保持不变的代表1。</p>
+</blockquote>
+<h5 id="曼彻斯特编码"><a href="#曼彻斯特编码" class="headerlink" title="曼彻斯特编码"></a>曼彻斯特编码</h5><blockquote>
+<p><strong>定义：</strong>将一个码元的时钟周期分为两个相等的间隔，前半部分为高电平，后半部分为低电平代表1；前半部分为低电平，后半部分为高电平代表0。（也可以相反）</p>
+</blockquote>
+<h5 id="差分曼彻斯特编码"><a href="#差分曼彻斯特编码" class="headerlink" title="差分曼彻斯特编码"></a>差分曼彻斯特编码</h5><blockquote>
+<p><strong>定义：</strong>如果码元为1，则前半个码元的电平与上一个码元的后半部分的电平相等；若码元为0，则前半个码元的电平与上一个码元的后半部分的电平相反。</p>
+</blockquote>
+<h4 id="数字数据调制为模拟信号"><a href="#数字数据调制为模拟信号" class="headerlink" title="数字数据调制为模拟信号"></a>数字数据调制为模拟信号</h4><p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E6%95%B0%E5%AD%97%E8%B0%83%E5%88%B6%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F.png" alt="数字调制的三种方式"></p>
+<h5 id="幅移键控-ASK-（调幅）"><a href="#幅移键控-ASK-（调幅）" class="headerlink" title="幅移键控(ASK)（调幅）"></a>幅移键控(ASK)（调幅）</h5><blockquote>
+<p>通过改变载波信号的振幅来表示数字0和1，而载波的频率与相位不变。<strong>特点是</strong>容易实现，但抗干扰能力差。</p>
+</blockquote>
+<h5 id="频移键控-FSK-（调频）"><a href="#频移键控-FSK-（调频）" class="headerlink" title="频移键控(FSK)（调频）"></a>频移键控(FSK)（调频）</h5><blockquote>
+<p>通过改变载波信号的频率来表示数字0和1，而载波的振幅与相位不变。<strong>特点是</strong>容易实现，抗干扰能力强。</p>
+</blockquote>
+<h5 id="相移键控-PSK-（调相位）"><a href="#相移键控-PSK-（调相位）" class="headerlink" title="相移键控(PSK)（调相位）"></a>相移键控(PSK)（调相位）</h5><blockquote>
+<p>通过改变载波信号的相位来表示数字0和1，而载波的振幅与频率不变。</p>
+</blockquote>
+<h5 id="正交振幅调制-QAM-（调幅加调相位）"><a href="#正交振幅调制-QAM-（调幅加调相位）" class="headerlink" title="正交振幅调制(QAM)（调幅加调相位）"></a>正交振幅调制(QAM)（调幅加调相位）</h5><blockquote>
+<p>在频率相同的情况下，将<strong>幅移键控</strong>和<strong>相移键控</strong>相结合，形成叠加信号。</p>
+<p>设波特率为B，采用m个相位，每个相位有n种振幅，则QAM技术的数据传输速率R为：<br>$$<br>R&#x3D;Blog_2(mn)\quad(单位为b&#x2F;s)<br>$$</p>
+</blockquote>
+<h4 id="模拟数据编码为数字信号"><a href="#模拟数据编码为数字信号" class="headerlink" title="模拟数据编码为数字信号"></a>模拟数据编码为数字信号</h4><blockquote>
+<p>这种编码方式最典型的例子是常用于对音频信号进行编码的<strong>脉码调制(PCM)<strong>它主要包括三个步骤，即</strong>采样、量化</strong>和<strong>编码</strong>。</p>
+<ul>
+<li><p><strong>采样：</strong>指对模拟信号进行周期性扫描，把时间上连续的信号变成时间上离散的信号。</p>
+<p><strong>注意：</strong>采样的频率必须大于模拟数据的频带带宽（最高变化频率）的两倍，这样才能保证采样的信号不失真。</p>
+</li>
+<li><p><strong>量化：</strong>把采样取得的电平幅值按照一定的分级标度转化为对应的数字值并取整数。</p>
+</li>
+<li><p><strong>编码：</strong>把量化的结果转换为对应的二进制编码。</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="模拟数据调制为模拟信号"><a href="#模拟数据调制为模拟信号" class="headerlink" title="模拟数据调制为模拟信号"></a>模拟数据调制为模拟信号</h4><blockquote>
+<p>为了实现传输的有效性，可能需要较高的频率。这种调制方式还可以使用频分复用。</p>
+</blockquote>
+<h2 id="传输媒体"><a href="#传输媒体" class="headerlink" title="传输媒体"></a>传输媒体</h2><blockquote>
+<p><strong>传输媒体</strong>也称为传输介质或传输媒介，它是数据传输系统中在发送器和接收器之间的物理通路<strong>（它不属于物理层）</strong>。传输媒体可以分为两大类，<strong>导引型传输媒体</strong>和<strong>非导引型传输媒体</strong>。</p>
+<p>在导引型传输媒体中，电磁波被导引沿固定媒体传播；在非导引型传输媒体中，电磁波在自由空间里传播（也就是无线传输）。</p>
+</blockquote>
+<h3 id="导引型传输媒体"><a href="#导引型传输媒体" class="headerlink" title="导引型传输媒体"></a>导引型传输媒体</h3><h4 id="双绞线"><a href="#双绞线" class="headerlink" title="双绞线"></a>双绞线</h4><blockquote>
+<p>双绞线也称为双扭线，把两根相互绝缘的铜导线并排在一起，然后用规则的方式<strong>绞合</strong>起来就形成了双绞线。绞合的两根线可以有效地较少相互的电磁干扰。</p>
+<p>根据是否加入屏蔽层,可以将双绞线分为:<strong>无屏蔽双绞线</strong>与<strong>屏蔽双绞线</strong>。由字面上可以知道后者的抗干扰能力要比前者强。</p>
+<p>同时双绞线还可以根据不同的绞合度进行分类。</p>
+<p><strong>双绞线结构图:</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E5%8F%8C%E7%BB%9E%E7%BA%BF.png" alt="双绞线"></p>
+<p><strong>双绞线的特点：</strong></p>
+<ul>
+<li>模拟传输与数字传输都可以使用双绞线</li>
+<li>双绞线的通信距离一般为几到十几公里，太远的传输距离会导致信号失真，这时则需要加上中继器对信号进行整形。</li>
+<li>双绞线在传输数字信号时的速率为几兆比特，传输距离为几公里，因此较多用于局域网的传输。</li>
+<li>双绞线便宜。</li>
+</ul>
+</blockquote>
+<h4 id="同轴电缆"><a href="#同轴电缆" class="headerlink" title="同轴电缆"></a>同轴电缆</h4><blockquote>
+<p><strong>组成：</strong>同轴电缆由内导体同质芯线（单股实心线或多股绞合线）、绝缘层、网状编织的外导体屏蔽层以及保护塑料外层所组成。</p>
+<p><strong>同轴电缆结构图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86.png" alt="同轴电缆"></p>
+<p>同轴电缆的嗲款取决于电缆的质量，高质量的同轴电缆的带宽接近1GHz。</p>
+<p>同轴电缆主要用于有线电视的信号传输中，以及局域网的信号通信中也存在同轴电缆的身影。</p>
+</blockquote>
+<h4 id="光纤"><a href="#光纤" class="headerlink" title="光纤"></a>光纤</h4><blockquote>
+<p>光纤通信就是利用光导纤维传递光脉冲来进行通信。<strong>有光脉冲相当于1，没有光脉冲相当于0</strong>。</p>
+<p>光纤是光的通信媒体，因此需要进行光信号与电信号之间的转换。</p>
+<ul>
+<li><strong>发送端：</strong>采用<strong>发光二极管</strong>或<strong>半导体激光器</strong>这两元件，让电脉冲可以转化成光脉冲。</li>
+<li><strong>接收端：</strong>采用<strong>光电二极管</strong>或<strong>成光检测器</strong>这两元件，让光脉冲可以转化成电脉冲。</li>
+</ul>
+<p><strong>组成：</strong>光纤主要由<strong>纤芯（实心）</strong>和<strong>包层</strong>构成双层通信圆柱体，其中纤芯非常细，直径在8~100微米之间。其中包层的折射率要小于纤芯的折射率（因此在大的入射角中发生全反射，降低信号的衰减）。</p>
+<p><strong>光纤的构造及传播方式：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E5%85%89%E7%BA%A4%E7%9A%84%E6%9E%84%E9%80%A0.png" alt="光纤的构造"></p>
+<p>当然在光纤中只要满足入射角大于某个值就可发生全反射，那么就可以在光纤中射入多条光脉冲信号。由此可以将光纤分为：<strong>单模光纤</strong>和<strong>多模光纤</strong>。</p>
+<p><strong>单模光纤：</strong>光纤直径只有一个光的波长，使得光线一直向前传播，而不会产生多次反射。</p>
+<p><strong>多模光纤：</strong>可以存在多条不同角度入射的光线在一条光纤中传输。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E5%85%89%E7%BA%A4%E7%A7%8D%E7%B1%BB.png" alt="光纤种类"></p>
+<p><strong>光纤特点：</strong></p>
+<ul>
+<li>传输损耗小，中继距离长，对远距离传输十分友好。</li>
+<li>抗雷电及电磁干扰性能好。</li>
+<li>无串音干扰，保密性好，不容易被窃听或截取数据。</li>
+<li>体积小，重量轻。</li>
+</ul>
+</blockquote>
+<h3 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h3><h4 id="无线电波"><a href="#无线电波" class="headerlink" title="无线电波"></a>无线电波</h4><blockquote>
+<p>属于无线传输信息的方式之一，传播的特点是呈辐射状地向所有方向进行传输。</p>
+</blockquote>
+<h4 id="微波"><a href="#微波" class="headerlink" title="微波"></a>微波</h4><blockquote>
+<p>微波通信主要有两类方式：<strong>地面微波接力通信</strong>和<strong>卫星通信</strong></p>
+<ul>
+<li><strong>地面微波接力通信：</strong>由于微波在空间是直线传播的，而地球是一个曲面的球体。因此在使用微波通信时就需要采用天线塔对信号进行接力。</li>
+<li><strong>卫星通信：</strong>顾名思义就是使用人造卫星，对地球上传播的微波信号进行接力。</li>
+</ul>
+<p><strong>优点：</strong></p>
+<ul>
+<li>微波波段频率很高，其频段范围宽，所以其通信信道的容量大。</li>
+<li>微波传输质量较高。</li>
+<li>由于是无线传输，因此受地形限制要小。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>相邻中继站之间必须直视，不能有障碍物。</li>
+<li>微波的传播更容易受自然环境的影响。</li>
+<li>与电缆通信相比较，微波通信的隐蔽性与保密性较差。</li>
+<li>中继站等设备的建造与维护花销大。</li>
+</ul>
+<p><strong>补充：</strong>卫星通信的传播时延较长。</p>
+</blockquote>
+<h2 id="中继器与集线器"><a href="#中继器与集线器" class="headerlink" title="中继器与集线器"></a>中继器与集线器</h2><h3 id="中继器"><a href="#中继器" class="headerlink" title="中继器"></a>中继器</h3><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E4%B8%AD%E7%BB%A7%E5%99%A8.png" alt="中继器"></p>
+<p><strong>功能：</strong>对信号进行<strong>再生和还原</strong>，对衰减的信号进行放大，保持与原数据相同。</p>
+<p><strong>中继器的两端：</strong></p>
+<ul>
+<li>仅对信号进行一个增强作用不会进行差错检测。</li>
+<li>两端可连接相同媒体（两端都是双绞线），也可以连不同媒体。</li>
+<li>中继器两端的网段一定是同一个协议。</li>
+</ul>
+<p><strong>5-4-3规则：</strong>网络标准对信号的延迟进行了规定，因此中继器的添加也要有所限制。否则会导致信息传输延迟过大。</p>
+</blockquote>
+<h3 id="集线器（多口中继器）"><a href="#集线器（多口中继器）" class="headerlink" title="集线器（多口中继器）"></a>集线器（多口中继器）</h3><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E7%9A%84%E5%9B%BE/%E7%89%A9%E7%90%86%E5%B1%82/%E9%9B%86%E7%BA%BF%E5%99%A8.png" alt="集线器"></p>
+<p><strong>功能：</strong>对信号进行<strong>再生、放大、转发</strong>，对衰减的信号进行放大，接着将信号转发到其他所有（除输入端口外）处于工作状态的端口上。</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">物理层的基本概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">数据通信的基础知识：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">数据系统的通信模型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%85%B3%E4%BF%A1%E9%81%93%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A"><span class="toc-number">2.2.</span> <span class="toc-text">有关信道的概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%AE%9A%E7%90%86%E4%B8%8E%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86%EF%BC%9A"><span class="toc-number">2.3.</span> <span class="toc-text">奈奎斯特定理与香农定理：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E5%AE%9A%E7%90%86%EF%BC%88%E5%8F%88%E7%A7%B0%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">奈奎斯特定理（又称奈氏准则）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%99%E5%86%9C%E5%AE%9A%E7%90%86"><span class="toc-number">2.3.2.</span> <span class="toc-text">香农定理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="toc-number">2.4.</span> <span class="toc-text">编码与调制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%BA%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.4.1.</span> <span class="toc-text">数字数据编码为数字信号</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BD%92%E9%9B%B6%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">归零编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%9E%E5%BD%92%E9%9B%B6%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.2.</span> <span class="toc-text">非归零编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E9%9D%9E%E9%9B%B6%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.3.</span> <span class="toc-text">反向非零编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.4.</span> <span class="toc-text">曼彻斯特编码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="toc-number">2.4.1.5.</span> <span class="toc-text">差分曼彻斯特编码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E6%95%B0%E6%8D%AE%E8%B0%83%E5%88%B6%E4%B8%BA%E6%A8%A1%E6%8B%9F%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.4.2.</span> <span class="toc-text">数字数据调制为模拟信号</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B9%85%E7%A7%BB%E9%94%AE%E6%8E%A7-ASK-%EF%BC%88%E8%B0%83%E5%B9%85%EF%BC%89"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">幅移键控(ASK)（调幅）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%91%E7%A7%BB%E9%94%AE%E6%8E%A7-FSK-%EF%BC%88%E8%B0%83%E9%A2%91%EF%BC%89"><span class="toc-number">2.4.2.2.</span> <span class="toc-text">频移键控(FSK)（调频）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E7%A7%BB%E9%94%AE%E6%8E%A7-PSK-%EF%BC%88%E8%B0%83%E7%9B%B8%E4%BD%8D%EF%BC%89"><span class="toc-number">2.4.2.3.</span> <span class="toc-text">相移键控(PSK)（调相位）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E6%8C%AF%E5%B9%85%E8%B0%83%E5%88%B6-QAM-%EF%BC%88%E8%B0%83%E5%B9%85%E5%8A%A0%E8%B0%83%E7%9B%B8%E4%BD%8D%EF%BC%89"><span class="toc-number">2.4.2.4.</span> <span class="toc-text">正交振幅调制(QAM)（调幅加调相位）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E7%BC%96%E7%A0%81%E4%B8%BA%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.4.3.</span> <span class="toc-text">模拟数据编码为数字信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E8%B0%83%E5%88%B6%E4%B8%BA%E6%A8%A1%E6%8B%9F%E4%BF%A1%E5%8F%B7"><span class="toc-number">2.4.4.</span> <span class="toc-text">模拟数据调制为模拟信号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">3.</span> <span class="toc-text">传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">3.1.</span> <span class="toc-text">导引型传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E7%BB%9E%E7%BA%BF"><span class="toc-number">3.1.1.</span> <span class="toc-text">双绞线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E8%BD%B4%E7%94%B5%E7%BC%86"><span class="toc-number">3.1.2.</span> <span class="toc-text">同轴电缆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E7%BA%A4"><span class="toc-number">3.1.3.</span> <span class="toc-text">光纤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%AF%BC%E5%BC%95%E5%9E%8B%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="toc-number">3.2.</span> <span class="toc-text">非导引型传输媒体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E7%94%B5%E6%B3%A2"><span class="toc-number">3.2.1.</span> <span class="toc-text">无线电波</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E6%B3%A2"><span class="toc-number">3.2.2.</span> <span class="toc-text">微波</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E7%BB%A7%E5%99%A8%E4%B8%8E%E9%9B%86%E7%BA%BF%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">中继器与集线器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E7%BB%A7%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">中继器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%EF%BC%88%E5%A4%9A%E5%8F%A3%E4%B8%AD%E7%BB%A7%E5%99%A8%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">集线器（多口中继器）</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

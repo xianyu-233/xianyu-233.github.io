@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>排序算法 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="直接插入排序
+
+思想：算法从左往右遍历，左边为排好序的子序列，右边为待排序的子序列，按顺序遍历右边的元素，按顺序插入到左边的子序列中。（时间消耗在寻找左边插入位置上）
+
+演示图：
+
+
+代码：
+123,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">排序算法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">排序算法</h1>
+        <div class="stuff">
+            <span>十二月 28, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h4><blockquote>
+<ul>
+<li><p><strong>思想：</strong>算法从左往右遍历，左边为排好序的子序列，右边为待排序的子序列，按顺序遍历右边的元素，按顺序插入到左边的子序列中。（时间消耗在寻找左边插入位置上）</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="插入排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 升序排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert_sorted</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> len)</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> tmp;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="comment">// 顺序遍历右边的数</span></span><br><span class="line">    tmp=array[i];</span><br><span class="line">    <span class="comment">// 寻找应该插入到左边字序的哪个位置</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">      <span class="comment">// 向后判断，如果右边的数小于左边的数，则进行交换，直到处于正确的位置上</span></span><br><span class="line">      <span class="keyword">if</span>(tmp&lt;array[j])&#123;</span><br><span class="line">        <span class="comment">// 相邻的进行交换</span></span><br><span class="line">        <span class="built_in">swap</span>(array[j],array[j+<span class="number">1</span>]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：实际上直接插入排序更适合用于链表数组的排序，用作顺序表中，则会变成冒泡排序。</p>
+<p>另外，在寻找插入位置上可以引入折半查找插入位置，从而得到一定程度地优化。</p>
+</li>
+<li><p><strong>稳定性：</strong>属于稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n^2)$，如果序列本身有序，时间复杂度为$O(n)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><blockquote>
+<ul>
+<li><strong>思想：</strong>先将序列按步长为d来分割成若干个子序列，对各子序列进行直接插入排序；缩小步长d；重复上述步骤，直到d&#x3D;1.</li>
+<li><strong>注意：</strong>步长d&#x3D;1的希尔排序就是直接插入排序；希尔排序本质就是逐渐构建一个相对有序的序列，最终使用一次直接插入排序；希尔排序仅适用于顺序表的排序。</li>
+<li><strong>稳定性：</strong>属于不稳定算法</li>
+<li><strong>复杂度：</strong><ul>
+<li><strong>时间复杂度：</strong>位于$O(n^{1.3})$~$O(n^2)$之间</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><blockquote>
+<ul>
+<li><p><strong>思想：</strong>通过遍历让两个相邻的数进行比较，如果为逆序，则进行交换；每一趟遍历都将最大的数交换到最底部（升序排序）</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="冒泡排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 升序排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bubble_sorted</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> len)</span></span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;len-i;j++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>])</span><br><span class="line">        <span class="built_in">swap</span>(array[j],array[j+<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>冒泡排序更适合用于顺序表中的排序，链表中需要一个额外的指针进行交换</p>
+</li>
+<li><p><strong>稳定性：</strong>属于稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n^2)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><blockquote>
+<ul>
+<li><p><strong>思想：</strong>将数组分为两部分，左边的为排好序的子序，右边为待排序的子序。每次从右边的子序选择最小值，将其放到左边子序中。（时间主要使用在右边寻找最小值上）</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="选择排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 升序排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">select_sort</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> len)</span></span>&#123;</span><br><span class="line">  <span class="type">int</span> min_idx;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">    min_idx=i;</span><br><span class="line">    <span class="comment">// 寻找右边最小值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;len;j++)&#123;</span><br><span class="line">      <span class="comment">// 如果比当前值要小，那么就将下标记录下</span></span><br><span class="line">      <span class="keyword">if</span>(array[j]&lt;array[min_idx])</span><br><span class="line">        min_idx=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">swap</span>(array[i],array[min_idx]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>稳定性：</strong>属于不稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n^2)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><blockquote>
+<ul>
+<li><p><strong>思想：</strong>从序列中选择一个元素作为“基准”（一般为序列第一个元素）；遍历序列中的所有元素，小于基准的放到左边，大于基准的放到右边；得到两个子序列，子序列继续重复上述操作，直到子序列长度为1.</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="快速排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> left,<span class="type">int</span> right)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 防止越界</span></span><br><span class="line">  <span class="keyword">if</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">// 设置基准</span></span><br><span class="line">    <span class="type">int</span> base=array[left];</span><br><span class="line">    <span class="type">int</span> i=left, j=right;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">      <span class="comment">// 在右边寻找第一个小于基准的数</span></span><br><span class="line">      <span class="keyword">while</span>(i&lt;j &amp;&amp; base&lt;=array[j])&#123;</span><br><span class="line">        j--;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 在不越界的情况下找到第一个小于基准的数</span></span><br><span class="line">      <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">        array[i]=array[j];</span><br><span class="line">        <span class="comment">// 此时空位在j上，开始查找左边第一个大于基准的数</span></span><br><span class="line">        i++;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 在左边寻找第一个大于基准的数 </span></span><br><span class="line">      <span class="keyword">while</span>(i&lt;j &amp;&amp; base&gt;array[i])&#123;</span><br><span class="line">        i++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 在不越界的情况下找到第一个大于基准的数</span></span><br><span class="line">      <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">        array[j]=array[i];</span><br><span class="line">        <span class="comment">// 此时空位在i上，开始查找又边第一个小于基准的数</span></span><br><span class="line">        j--;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将基准放到中间，此时左边的所有元素都小于基准，右边的所有元素都大于基准</span></span><br><span class="line">    array[i]=base;</span><br><span class="line">    <span class="comment">//递归调用</span></span><br><span class="line">    <span class="comment">// 左边的子序列</span></span><br><span class="line">    <span class="built_in">quick_sort</span>(array,left,i<span class="number">-1</span>);</span><br><span class="line">    <span class="comment">// 右边的子序列</span></span><br><span class="line">    <span class="built_in">quick_sort</span>(array,i+<span class="number">1</span>,right);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>快速排序主要使用了一个分治思想，将序列分成两部分，每部分再各自处理；快速排序每一次循环都会将一个基准放到正确的位置；对于排列均匀的数组，快速排序可以达到最优的速度；快速排序的第n次遍历就会产生n个已排好的数。</p>
+</li>
+<li><p><strong>稳定性：</strong>属于不稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n\log n)$，在原本有序的情况下最差，变为$O(n^2)$</li>
+<li><strong>空间复杂度：</strong>$O(递归次数)$<ul>
+<li><strong>最好的情况：</strong>基准一直对半分，此时为$O(\log n)$</li>
+<li><strong>最坏的情况：</strong>基准将数据分成一边倒，此时为$O(n)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>注意：</strong>快速排序的递归顺序是先大后小（先处理大序列，再分割为小序列逐一处理）</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><blockquote>
+<ul>
+<li><p><strong>思想：</strong>将待排序列的元素分成两个大小一样的子序，对两个子序进行排序，将排好序的子序再进行合并，从而最终得到有序序列。</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.gif" alt="归并排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 升序排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge_sort</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> left,<span class="type">int</span> right,<span class="type">int</span> temp[])</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(left&lt;right)&#123;</span><br><span class="line">    <span class="comment">// 二分</span></span><br><span class="line">    <span class="type">int</span> mid = (left+right)/<span class="number">2</span>;</span><br><span class="line">    <span class="comment">// 对左边进行排序</span></span><br><span class="line">    <span class="built_in">merge_sort</span>(array, left, mid, temp);</span><br><span class="line">    <span class="comment">// 对右边进行排序</span></span><br><span class="line">    <span class="built_in">merge_sort</span>(array, mid+<span class="number">1</span>, right, temp);</span><br><span class="line">    <span class="comment">// 进行归并排序</span></span><br><span class="line">    <span class="type">int</span> i=left, j=mid+<span class="number">1</span>, k=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">// i为左边子序的下标，j为右边子序的下标，k作为temp的下标</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid &amp;&amp; j&lt;=right)&#123;</span><br><span class="line">      <span class="comment">// 如果左边的数组小于右边的数组</span></span><br><span class="line">      <span class="keyword">if</span>(array[i]&lt;=array[j])</span><br><span class="line">        temp[k++]=array[i++];</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">        temp[k++]=array[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果左边数组有剩余的数</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;=mid)</span><br><span class="line">      temp[k++]=array[i++];</span><br><span class="line">    <span class="comment">// 如果右边数组有剩余的数</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=right)</span><br><span class="line">      temp[k++]=array[j++];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将临时数组的值放回原数组</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;k;i++)</span><br><span class="line">      array[left+i]=temp[i];</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>稳定性：</strong>属于稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n\log n)$，一共需要$\log n$轮归并，每轮耗时$n$</li>
+<li><strong>空间复杂度：</strong>$O(n)$</li>
+</ul>
+</li>
+<li><p><strong>注意：</strong>与快速排序的递归不同，归并排序的递归是先小后大（先处理小序列最后再处理大序列）</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><blockquote>
+<ul>
+<li><p><strong>前情知识：</strong>堆实际上是一个完全二叉树，其中子结点和父结点满足以下关系</p>
+<ul>
+<li>父$\to$子：父为$i$，左孩子为$2i+1$，右孩子为$2i+2$</li>
+<li>子$\to$父：子为i，父为$\frac{i-1}{2}$</li>
+</ul>
+</li>
+<li><p><strong>思路：</strong>构建一个堆（这里为大根堆），将堆顶的元素与数组尾的元素进行交换，然后再将剩下部分调整为堆。</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%A0%86%E6%8E%92%E5%BA%8F.gif" alt="堆排序"></p>
+</li>
+<li><p><strong>代码：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 升序排序</span></span><br><span class="line"><span class="comment">// 堆调整（大根堆）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">heap_adjust</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> start,<span class="type">int</span> end)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 获取头节点</span></span><br><span class="line">  <span class="type">int</span> temp = array[start];</span><br><span class="line">  <span class="comment">// 开始调整，2*start+1为头节点的左孩子</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>*start+<span class="number">1</span>;i&lt;=end;i=i*<span class="number">2</span>+<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="comment">// 有右孩子且左孩子小于右孩子</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;end&amp;&amp;array[i]&lt;array[i+<span class="number">1</span>])&#123;</span><br><span class="line">      i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果子结点大于父结点</span></span><br><span class="line">    <span class="keyword">if</span>(array[i]&gt;temp)&#123;</span><br><span class="line">      <span class="comment">// 将子结点放到父结点上</span></span><br><span class="line">      array[start]=array[i];</span><br><span class="line">      <span class="comment">// 继续判断该结点的子结点</span></span><br><span class="line">      start=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 将一开始的父结点放到合适的地方</span></span><br><span class="line">  array[start] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">heap_sort</span><span class="params">(<span class="type">int</span> array[],<span class="type">int</span> len)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 第一次建立大根堆，从后往前依次调整</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=(len<span class="number">-2</span>)/<span class="number">2</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="built_in">heap_adjust</span>(array,i,len<span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 每次将根和堆尾进行交换，然后进行调整</span></span><br><span class="line">  <span class="type">int</span> tmp;</span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">    tmp=array[<span class="number">0</span>];</span><br><span class="line">    array[<span class="number">0</span>]=array[len<span class="number">-1</span>-i];</span><br><span class="line">    array[len<span class="number">-1</span>-i]=tmp;</span><br><span class="line">    <span class="comment">// len-1-i-1分为两部分：(len-1)-i-1,(len-1)是为了防止越界</span></span><br><span class="line">    <span class="built_in">heap_adjust</span>(array,<span class="number">0</span>,len<span class="number">-1</span>-i<span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>稳定性：</strong>属于不稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(n\log n)$，其中建堆时间复杂度为$O(\log n)$，排序时间为$O(n)$</li>
+<li><strong>空间复杂度：</strong>$O(1)$</li>
+</ul>
+</li>
+<li><p><strong>使用实例：</strong>快速在1亿个数中找到前100个最大值，即先取前100个数构成一个小根堆，然后用剩下的数与堆顶进行比较，若大于堆顶则交换，并且重新调整堆。总的时间复杂度为$O(n\log n)$</p>
+</li>
+</ul>
+</blockquote>
+<h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><blockquote>
+<ul>
+<li><p><strong>思路：</strong>将关键字拆分为d位，按照各个关键字权值递增的次序（即个位、十位、百位），做d趟“分配”与”收集“。分配：根据当前关键字，将n个元素分配到相应的队列上，耗时为$O(n)$；收集：把各队列中的结点，依次出队并相互连接，形成一个完整的序列，耗时为$O(r)$</p>
+</li>
+<li><p><strong>演示图：</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F.gif" alt="基数排序"></p>
+</li>
+<li><p><strong>稳定性：</strong>属于稳定算法</p>
+</li>
+<li><p><strong>复杂度：</strong></p>
+<ul>
+<li><strong>时间复杂度：</strong>$O(d*(n+r))$</li>
+<li><strong>空间复杂度：</strong>$O(n)$</li>
+</ul>
+</li>
+<li><p><strong>适用场景：</strong></p>
+<ul>
+<li>关键字可以分为d组</li>
+<li>每组关键字取值范围不大</li>
+<li>属于个数远大于分组数d</li>
+<li>数据全为正整数或全为负整数</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.</span> <span class="toc-text">直接插入排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">3.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">4.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">5.</span> <span class="toc-text">快速排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">7.</span> <span class="toc-text">堆排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="toc-number">8.</span> <span class="toc-text">基数排序</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Python-数据类型(2) - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="元组
+元组与列表定义方式相似，列表用[]而元组用()：
+
+12a = (100, 200)print(a)
+效果：
+1(100, 200)
+
+值得注意的是，元组不能修改，甚至想删除其中的元素也不行。,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Python-数据类型(2)</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Python-数据类型(2)</h1>
+        <div class="stuff">
+            <span>八月 30, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">编程语言基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="元组"><a href="#元组" class="headerlink" title="元组"></a><b>元组</b></h4><blockquote>
+<p>元组与列表定义方式相似，列表用<code>[]</code>而元组用<code>()</code>：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = (<span class="number">100</span>, <span class="number">200</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(100, 200)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>值得注意的是，元组不能修改，甚至想删除其中的元素也不行。<br>不过可以重新定义或者<code>del</code>直接整个元组删掉。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="number">1</span>] = <span class="number">300</span>;</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> a</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line"> File &quot;D:/学习用的/pyex/ML/ML/normal_ex.py&quot;, line 71, in &lt;module&gt;</span><br><span class="line">   a[1] = 300;</span><br><span class="line">TypeError: &#x27;tuple&#x27; object does not support item assignment</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line"> File &quot;D:/学习用的/pyex/ML/ML/normal_ex.py&quot;, line 74, in &lt;module&gt;</span><br><span class="line">   print(a)</span><br><span class="line">NameError: name &#x27;a&#x27; is not defined</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a><b>集合</b></h4><h5 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a><b>集合的定义</b></h5><blockquote>
+<p>集合可以用<code>&#123;&#125;</code>和<code>set()</code>两种方法定义：</p>
+<ul>
+<li><p></b>直接使用大括号定义：<b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;have&#x27;, &#x27;a&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>用set()函数来定义：</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>(<span class="string">&#x27;apple&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;e&#x27;, &#x27;p&#x27;, &#x27;a&#x27;, &#x27;l&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>值得注意的是，用<code>set</code>如果只放一对单引号的话只能定义出单子符的集合。<br>想要定义字符串集合可以：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;set&#x27;&gt;</span><br><span class="line">&#123;&#x27;have&#x27;, &#x27;I&#x27;, &#x27;a&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<p><b>补充：</b>集合与列表不同，集合中不会出现重复的元素，且集合的输出标记为<code>&#123;&#125;</code>。</p>
+</blockquote>
+<h5 id="集合的添加"><a href="#集合的添加" class="headerlink" title="集合的添加"></a><b>集合的添加</b></h5><blockquote>
+<ul>
+<li><b>.add()</b><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.add(<span class="string">&#x27;pen&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;pen&#x27;, &#x27;have&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;, &#x27;a&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>集合添加元素是使用集合内的函数来实现的，<b>值得注意的是</b>，如果元素已经存在，那么集合不会进行任何操作。</p>
+</blockquote>
+</li>
+</ul>
+<p><b>注意：</b>要创建空集合只能用<code>set()</code>，直接用大括号会创建出一个空字典。</p>
+<ul>
+<li><b>.update()</b><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.update([<span class="number">1</span>, <span class="number">3</span>],[<span class="number">2</span>, <span class="number">5</span>])</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;1, 2, &#x27;have&#x27;, 3, 5, &#x27;a&#x27;, &#x27;I&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p><code>update()</code>也是集合添加元素的一个函数，这个函数可以同时添加多个元素，且可以是其他类型的数据，如数组，元组等。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a><b>删除元素</b></h5><blockquote>
+<ul>
+<li><p><b>remove()</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.remove(<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;have&#x27;, &#x27;a&#x27;, &#x27;apple&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>删除时注意元素是否存在，不存在的话会发生错误。</p>
+</blockquote>
+</li>
+<li><p><b>discard()</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.discard(<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line">a.discard(<span class="string">&#x27;adsa&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;apple&#x27;, &#x27;have&#x27;, &#x27;a&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>discard()</code>同样可以删除集合中的元素，且删除不存在的元素时不会报错。</p>
+</blockquote>
+</li>
+<li><p><b>pop()</b></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.pop()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;apple&#x27;, &#x27;I&#x27;, &#x27;have&#x27;&#125;</span><br></pre></td></tr></table></figure>
+<p><b>注意：</b>这个删除的随机删除的。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="清空集合"><a href="#清空集合" class="headerlink" title="清空集合"></a><b>清空集合</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">a.clear()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set()</span><br></pre></td></tr></table></figure>
+<p><code>clear()</code>这个函数可以将集合一键清空，留下一个空集合。</p>
+</blockquote>
+</blockquote>
+<h5 id="判断元素是否存在于集合中"><a href="#判断元素是否存在于集合中" class="headerlink" title="判断元素是否存在于集合中"></a><b>判断元素是否存在于集合中</b></h5><blockquote>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">set</span>((<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;have&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;apple&#x27;</span>, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line">test1 = <span class="string">&#x27;have&#x27;</span> <span class="keyword">in</span> a</span><br><span class="line">test2 = <span class="string">&#x27;pen&#x27;</span> <span class="keyword">in</span> a</span><br><span class="line"><span class="built_in">print</span>(test1)</span><br><span class="line"><span class="built_in">print</span>(test2)</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">True</span><br><span class="line">False</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a><b>字典</b></h4><h5 id="字典的定义"><a href="#字典的定义" class="headerlink" title="字典的定义"></a><b>字典的定义</b></h5><blockquote>
+<p>python最后一种数据类型就是字典了，字典类型分为两部分：键 - 值</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="string">&#x27;x&#x27;</span>: <span class="string">&#x27;x1&#x27;</span>, <span class="string">&#x27;y&#x27;</span>: <span class="string">&#x27;123&#x27;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&#x27;x&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;x&#x27;: &#x27;x1&#x27;, &#x27;y&#x27;: &#x27;123&#x27;&#125;</span><br><span class="line">x1</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>字典中每个<b>键值对</b>用<code>:</code>分割，每个对之间用<code>，</code>分割</li>
+<li>字典中冒号<code>：</code>左边的称为键，右边称为值，其中键、值的数据类型可以不一致。</li>
+<li>键的值必须是唯一的，但是值不需要。</li>
+<li>直接用<code>a=&#123;&#125;</code>就可以创建一个空字典了<br>字典的一个特征是大括号、冒号。<br><b>补充：</b>字典的键只能是一个单词或数字或字母，值可以是任何的数据类型</li>
+</ul>
+</blockquote>
+<h5 id="字典的访问"><a href="#字典的访问" class="headerlink" title="字典的访问"></a><b>字典的访问</b></h5><blockquote>
+<ul>
+<li><p>直接根据字典的变量名进行访问，即</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line"></span><br><span class="line">name = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">keys = <span class="number">12</span></span><br><span class="line"></span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = name</span><br><span class="line">message[<span class="string">&#x27;age&#x27;</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">message[<span class="string">&#x27;orther&#x27;</span>] = [<span class="string">&#x27;None&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;], &#x27;age&#x27;: [1, 2, 3, 4, 5], &#x27;orther&#x27;: [&#x27;None&#x27;]&#125;</span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><b>利用关键字进行访问</b></p>
+<blockquote>
+<p>访问字典主要有两个关键字，<code>keys</code>与<code>values</code>，以<code>keys</code>为例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line">name = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">keys = <span class="number">12</span></span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = name</span><br><span class="line">message[<span class="string">&#x27;age&#x27;</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">message[<span class="string">&#x27;orther&#x27;</span>] = [<span class="string">&#x27;None&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="built_in">print</span>(message.keys())</span><br></pre></td></tr></table></figure>
+<p><b>结果</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;], &#x27;age&#x27;: [1, 2, 3, 4, 5], &#x27;orther&#x27;: [&#x27;None&#x27;]&#125;</span><br><span class="line">dict_keys([&#x27;name&#x27;, &#x27;age&#x27;, &#x27;orther&#x27;])</span><br></pre></td></tr></table></figure>
+<p><b>补充：</b>将数据放入字典后，数据类型也会变化，<code>keys</code>会变为dict_keys，<code>values</code>会变为dict_values。</p>
+</blockquote>
+</li>
+<li><p><b>根据键值进行访问</b></p>
+<blockquote>
+<p>就像查字典一样，我们可以根据字典的键来查找对应的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line">name = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">keys = <span class="number">12</span></span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = name</span><br><span class="line">message[<span class="string">&#x27;age&#x27;</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">message[<span class="string">&#x27;orther&#x27;</span>] = [<span class="string">&#x27;None&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message[<span class="string">&#x27;name&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="字典添加键-值对"><a href="#字典添加键-值对" class="headerlink" title="字典添加键-值对"></a><b>字典添加键-值对</b></h5><blockquote>
+<p>字典是一种动态结构，可随时在其中添加键-值对。具体方法：字典名[‘键’] &#x3D; 值，如</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line">name = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = name</span><br></pre></td></tr></table></figure>
+<p><b>效果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><b>补充：</b>当然键与值都可以是变量，<b>另外，字典中键不支持直接修改，而值的修改与定义类似，也是根据键来进行修改。</b></p>
+</blockquote>
+<h5 id="字典中键-值对的删除"><a href="#字典中键-值对的删除" class="headerlink" title="字典中键-值对的删除"></a><b>字典中键-值对的删除</b></h5><blockquote>
+<p>对于字典中不再需要的信息，可使用del 语句将相应的键—值对彻底删除。使用<code>del</code>语句时，必须指定字典名和要删除的键。</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line">name = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>]</span><br><span class="line">key = <span class="string">&#x27;age&#x27;</span></span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = name</span><br><span class="line">message[key] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">message[<span class="string">&#x27;orther&#x27;</span>] = [<span class="string">&#x27;None&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="keyword">del</span> message[<span class="string">&#x27;orther&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(message)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;], &#x27;age&#x27;: [1, 2, 3, 4, 5], &#x27;orther&#x27;: [&#x27;None&#x27;]&#125;</span><br><span class="line">&#123;&#x27;name&#x27;: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;], &#x27;age&#x27;: [1, 2, 3, 4, 5]&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a><b>补充</b></h5><blockquote>
+<ul>
+<li><p>字典可以做出一个类似对象的东西，如</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: &#x27;Alex&#x27;, &#x27;age&#x27;: 19, &#x27;skill&#x27;: [&#x27;python&#x27;, &#x27;ML&#x27;, &#x27;NLP&#x27;]&#125;</span><br></pre></td></tr></table></figure>
+<p>上面就定义了一个人的对象。</p>
+</blockquote>
+</li>
+<li><p>字典还可以通过嵌套生成一个树形结构。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;ltree&#x27;: &#123;&#x27;lnode&#x27;: 12, &#x27;rnode&#x27;: 22&#125;, &#x27;rtree&#x27;: 19&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>字典所有键-值对的同时遍历</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">message =&#123;&#125;</span><br><span class="line">message[<span class="string">&#x27;name&#x27;</span>] = <span class="string">&#x27;Alex&#x27;</span></span><br><span class="line">message[<span class="string">&#x27;age&#x27;</span>] = <span class="number">19</span></span><br><span class="line">message[<span class="string">&#x27;skill&#x27;</span>] = [<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;ML&#x27;</span>, <span class="string">&#x27;NPL&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> message.items():</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;key:&#x27;</span>, key)</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&#x27;value:&#x27;</span>, value)</span><br></pre></td></tr></table></figure>
+<p><b>结果：</b></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">key: name</span><br><span class="line">value: Alex</span><br><span class="line">key: age</span><br><span class="line">value: 19</span><br><span class="line">key: skill</span><br><span class="line">value: [&#x27;python&#x27;, &#x27;ML&#x27;, &#x27;NPL&#x27;]</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%BB%84"><span class="toc-number">1.</span> <span class="toc-text">元组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.</span> <span class="toc-text">集合的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E6%B7%BB%E5%8A%A0"><span class="toc-number">2.2.</span> <span class="toc-text">集合的添加</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-number">2.3.</span> <span class="toc-text">删除元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B8%85%E7%A9%BA%E9%9B%86%E5%90%88"><span class="toc-number">2.4.</span> <span class="toc-text">清空集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E4%BA%8E%E9%9B%86%E5%90%88%E4%B8%AD"><span class="toc-number">2.5.</span> <span class="toc-text">判断元素是否存在于集合中</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%85%B8"><span class="toc-number">3.</span> <span class="toc-text">字典</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">字典的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="toc-number">3.2.</span> <span class="toc-text">字典的访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E6%B7%BB%E5%8A%A0%E9%94%AE-%E5%80%BC%E5%AF%B9"><span class="toc-number">3.3.</span> <span class="toc-text">字典添加键-值对</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E4%B8%AD%E9%94%AE-%E5%80%BC%E5%AF%B9%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">3.4.</span> <span class="toc-text">字典中键-值对的删除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">3.5.</span> <span class="toc-text">补充</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

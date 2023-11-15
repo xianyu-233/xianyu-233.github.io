@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>支持向量机（SVM） - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="SVM的介绍
+
+SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督学习的算法。
+在机器学习中，SVM算法说白了就是通过训练样本与算法划出一些可以分类的线，然后找,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">支持向量机（SVM）</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">支持向量机（SVM）</h1>
+        <div class="stuff">
+            <span>十月 10, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="SVM的介绍"><a href="#SVM的介绍" class="headerlink" title="SVM的介绍"></a><b>SVM的介绍</b></h4><blockquote>
+<ul>
+<li>SVM全程为Support Vector Machine,中文名为支持向量机，是一种监督学习的算法。</li>
+<li>在机器学习中，SVM算法说白了就是通过训练样本与算法划出一些可以分类的线，然后找到间隔最大的一条线。</li>
+<li>SVM算法的最大优点是可以应用在训练样本点较少的训练集上。<br><b>支持向量机的结构图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/SVM%E7%BB%93%E6%9E%84%E5%9B%BE.jpg" alt="SVM的结构" title="结构图"><br><b>支持向量机由简至繁可以分为：</b><blockquote>
+<ul>
+<li><b>线性可分支持向量机</b>（类似与感知机，数据严格线性可分，其中的间隔叫做<b>硬间隔</b>）</li>
+<li><b>线性支持向量机</b>（条件放宽了，除去一些误差点，大部分数据都是线性可分的，其中的间隔叫做<b>软间隔</b>）</li>
+<li><b>线性不可分支持向量机</b>（这个需要用到核技巧，后面会细讲）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a><b>线性可分支持向量机</b></h4><blockquote>
+<p>首先先通过图来直观感受<b>线性可分支持向量机</b>。</p>
+<blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E7%BA%BF%E6%80%A7SVM.jpg" alt="线性SVM" title="线性SVM"><br><b>注释：</b></p>
+<ul>
+<li>SVM就是要找中间这样的一条线（超平面）来将样本点分开。</li>
+<li>中间这条线（或平面、超平面）上下移动时，接触到的第一个样本点称为<b>支持向量</b>。</li>
+<li>两个支持向量之间的距离d称为<b>间隔</b>。硬间隔软间隔就是这个东西。</li>
+<li>SVM的最终目的就是要求d最大时的参数值。</li>
+</ul>
+</blockquote>
+<p>假设一个特征空间上的训练数据集（为线性可分的）</p>
+<blockquote>
+<p>$$T &#x3D; (x_1,y_1),(x_2,y_2),…,(x_n,y_n)$$<br>其中$y_i \in (+1,-1)$，$x_i$为第i个特征向量，称为示例。<br>$y_i$为$x_i$的类标记，当$y_i&#x3D;+1$时，$x_i$为正例，当$y_i&#x3D;-1$时，$x_i$为反例。<br>$(x_i,y_i)$称为样本点。<br>学习的目标就是在特征空间里找到一个分离超平面，能够将示例分成两类，并且使得间距达到最大。</p>
+</blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>给定线性可分的数据集，通过最大化间距学习得到的超平面为<br>$$w^{*T} x+b^*&#x3D;0$$<br>那么相应的分类决策函数为：<br>$$f(x)&#x3D;sign(w^{*T} x+b^*) \quad \quad f(x) \in (-1,1)$$</p>
+</blockquote>
+</blockquote>
+<h5 id="函数距离与几何距离"><a href="#函数距离与几何距离" class="headerlink" title="函数距离与几何距离"></a><b>函数距离与几何距离</b></h5><blockquote>
+<p>一般来说,当分离超平面$w^{*T}x+b^*&#x3D;0$确定后，<br>$|wx_i+b|$能相对地确定该点到超平面的远近<br> 而$y_i(wx_i+b)$的值可以确定分类的确定性以及可信度。</p>
+<ul>
+<li><p><b>函数距离（函数间隔）</b></p>
+<blockquote>
+<p>$$\gamma_i&#x3D;y_i(w^T x_i+b)$$</p>
+<p>那么我们取上述的最小值作为函数距离，即</p>
+<p>$$\gamma &#x3D; min_{i&#x3D;1…m}y_i(w^T x_i+b)$$</p>
+<p><b>示意图：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E5%87%BD%E6%95%B0%E8%B7%9D%E7%A6%BB.png" alt="函数距离" title="函数距离"></p>
+<p>其中d就是点到超平面的函数距离，其中原点就表示为超平面。而这个距离越大就代表着点离超平面的距离越远，分类的可信度就越大（支持向量的函数距离是他所属类中最小的）。</p>
+<p>另外，分类正确的点的函数距离一定是一个正数（这个可以代具体例子进行校验）。</p>
+<p><b>补充：</b>在函数距离中，$w$和$b$等比例放大或缩小，如$w \to 2w,b \to 2b$这些变化只会使得函数距离发生等比例扩大或缩小，并不会对超平面$w^{<em>T}x+b^</em>&#x3D;0$造成影响。</p>
+<p>仅仅只知道函数距离并不足以让我们描述间距的大小，所以我们还需要引入几何距离。</p>
+</blockquote>
+</li>
+<li><p><b>几何距离（几何间隔）</b></p>
+<blockquote>
+<p>在函数距离中，我们知道如果将$w$和$b$等比例放大或缩小，都不会对超平面造成影响。那么我们令$w$和$b$同时除以$||w||$，那么可以得到$\frac{w^Tx_i}{||w||}+\frac{b}{||w||}$，那么我们就得到了几何距离定义的雏形了。</p>
+<p>因此我们可以将几何距离定义为：<br>$$d_i&#x3D;\frac{y_i(w^Tx_i+b)}{||w||}\quad \quad y_i \in (-1,1)$$<br>那么我们取上述的最小值作为几何距离，即<br>$$d &#x3D; min_{i&#x3D;1…m}\frac{y_i(w^Tx_i+b)}{||w||}\quad \quad y_i \in (-1,1)$$<br><b>示意图：</b><br> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/SVM/%E5%87%A0%E4%BD%95%E8%B7%9D%E7%A6%BB.png" alt="几何距离" title="几何距离"> </p>
+<p><b>补充:</b></p>
+<ul>
+<li><p>当然我们也可以通过点到线的距离公式$d&#x3D;\frac{|w_1x+w_2y+b|}{\sqrt{w_1^2+w_2^2}}$来理解几何距离。</p>
+</li>
+<li><p>几何间隔与函数间隔有以下关系：</p>
+<blockquote>
+<p>$$d_i &#x3D; \frac{\gamma_i}{||w||}$$</p>
+<p>$$d &#x3D; \frac{\gamma}{||w||}$$</p>
+<p>因此如果$w$和$b$成比例地放大或缩小，改变的只有函数间隔，几何间隔并不受影响。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>间隔最大化</b> </p>
+<blockquote>
+<ul>
+<li>支持向量机的基本学习思想是求解出一个可以正确划分训练数据集<b>并且几何间隔最大</b>的超平面。</li>
+<li>对于线性可分的数据集来说，能正确划分数据集的超平面有无数个（类似于感知机），而几何间隔最大的超平面只有一个，因此这是一个求最优化的问题。</li>
+<li>对于间隔最大化的通俗解释是：几何间隔最大的超平面意味着对分类确信度普遍较高，并且对于预测的泛化能力也比较强。对于较难分类的点（支持向量）也有较好的分类确信度。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>最大间隔分离超平面</b></p>
+<blockquote>
+<ul>
+<li>我们的目的是找到一个几何间隔最大的分离超平面，那么我们可以定义成：<br>$$max_{w,b}\ d$$</li>
+</ul>
+<p>$$s.t. \quad y_i(\frac{w^Tx_i+b}{||w||})\ge d_i \quad i&#x3D;1,2,…,N$$</p>
+<ul>
+<li>根据几何间隔与函数间隔之间的关系，可以将上式转化成函数间隔形式：<br>$$max_{w,b}\ \frac{\gamma}{||w||}$$</li>
+</ul>
+<p>$$s.t. \quad y_i(w^Tx_i+b)\ge \gamma_i \quad i&#x3D;1,2,…,N$$</p>
+<ul>
+<li><p>实际上，我们已知函数间隔$\gamma_i$并不影响几何间隔，那么求解$max_{w,b}\ \frac{\gamma}{||w||}$可以转化成求解$max_{w,b}\ \frac{1}{||w||}$，也就等价于求解$min_{w,b}\ ||w||$</p>
+</li>
+<li><p>甚至$\gamma_i$可以进行伸缩变化成1，那么约束条件$y_i(w^Tx_i+b)\ge \gamma_i$可以转化为$y_i(w^Tx_i+b)\ge 1$</p>
+</li>
+<li><p>所以这个最大间隔优化问题可以转化为：<br>$$min_{w,b}\ \frac{1}{2}||w||^2$$</p>
+</li>
+</ul>
+<p>$$s.t. \quad y_i(w^Tx_i+b)-1 \ge 0 \quad i&#x3D;1,2,…,N$$</p>
+<p><b>补充：</b>$min_{w,b}\ \frac{1}{2}||w||^2$与$min_{w,b}\ ||w||$的解是一样的，因为式子里要求的是最小值下的$w$和$b$，而不是求它们的最小值。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="学习的对偶算法"><a href="#学习的对偶算法" class="headerlink" title="学习的对偶算法"></a><b>学习的对偶算法</b></h5><blockquote>
+<ul>
+<li><b>注意：</b>详细的数学推导、解释见这篇文章：<a href="/2021/10/21/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95/index.html">拉格朗日乘子法</a></li>
+</ul>
+<p>为了求解线性可分支持向量机的最优化问题，我们最终得到了形如上式的一个带约束条件的最优化问题。</p>
+<p>为了求解出最优解，我们将它作为原始最优化问题，应用拉格朗日对偶性，通过对偶问题得到原始问题的最优解。</p>
+<p>这样做的优点：</p>
+<blockquote>
+<ul>
+<li>对偶问题往往更容易求解。</li>
+<li>容易引入核函数，从而推广到非线性可分的支持向量机。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>首先将原始问题改造成标准形式：</p>
+<blockquote>
+<p>$$min_{w,b}\ \frac{1}{2}||w||^2$$</p>
+<p>$$s.t. \quad 1 - y_i(w^Tx_i+b) \le 0 \quad i&#x3D;1,2,…,N$$</p>
+</blockquote>
+</li>
+<li><p>然后构建拉格朗日函数，即对每一个不等式约束引进一个拉格朗日乘子$\alpha_i \ge 0, \ \ i&#x3D;1,2,…,N$，定义的拉格朗日函数为：</p>
+<blockquote>
+<p>$$L(w,b,\alpha)&#x3D;\frac{1}{2}||w||^2 - \sum^N_{i&#x3D;1} \alpha_i y_i(w x_i +b)+\sum^N_{i&#x3D;1} \alpha_i$$<br>其中，$\alpha &#x3D; (\alpha_1,\alpha_2,…,\alpha_N)^T$为拉格朗日乘子向量。</p>
+</blockquote>
+</li>
+<li><p>根据此拉格朗日函数我们可得原问题的对偶问题为：</p>
+<blockquote>
+<p>$$max_{\alpha} \ min_{w,b} \ L(w,b,\alpha)$$</p>
+</blockquote>
+</li>
+</ul>
+<p>根据上面对偶问题的公式，我们需要先对$w,b$求$L(w,b,\alpha)$的最小值，再对$\alpha$求L(w,b,\alpha)$的最大值。</p>
+<ul>
+<li><p>求$min_{w,b} \ L(w,b,\alpha)$</p>
+<blockquote>
+<ul>
+<li>将拉格朗日函数$L(w,b,\alpha)$分别对$w,b$求偏导，并令其等于0。<blockquote>
+<p>$$\nabla_w \ L(w,b,\alpha) &#x3D; w - \sum_{i&#x3D;1}^N \alpha_i y_i x_i &#x3D; 0$$</p>
+<p>（其中$\frac{1}{2}||w||^2$的求导思路是，将其范数形式写出来，然后对每一项的$w_i$求偏导，最终得到一个向量。）</p>
+<p>$$\nabla_b \ L(w,b,\alpha) &#x3D; -\sum^N_{i&#x3D;1} \alpha_i y_i&#x3D;0$$</p>
+</blockquote>
+</li>
+</ul>
+<p>得到，</p>
+<blockquote>
+<p>$$\sum_{i&#x3D;1}^N \alpha_i y_i x_i &#x3D; w$$</p>
+<p>$$\sum^N_{i&#x3D;1} \alpha_i y_i&#x3D;0$$</p>
+</blockquote>
+<ul>
+<li>将上面得到的结果代会拉格朗日函数$L(w,b,\alpha)$中得，<blockquote>
+<p>$$L(w,b,\alpha) &#x3D; \frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum^N_{i&#x3D;1} \alpha_i y_i((\sum_{j&#x3D;1}^N \alpha_j y_j x_j)x_i +b)+ \sum_{i&#x3D;1}^N \alpha_i$$</p>
+<ul>
+<li><p>化简亿下得到：<br>$$L(w,b,\alpha) &#x3D; \frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) -\sum_{i&#x3D;1}^N \alpha_iy_ib + \sum_{i&#x3D;1}^N \alpha_i$$</p>
+</li>
+<li><p>其中$\sum^N_{i&#x3D;1} \alpha_i y_i&#x3D;0$，所以$\sum_{i&#x3D;1}^N \alpha_iy_ib&#x3D;0$，最终得到：<br>$$L(w,b,\alpha) &#x3D; -\frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i&#x3D;1}^N \alpha_i$$</p>
+</li>
+</ul>
+<p><b>补充：</b>在这补充一下为什么有$\sum^N_{i&#x3D;1} \alpha_i y_i&#x3D;0$，所以$\sum_{i&#x3D;1}^N \alpha_iy_ib&#x3D;0$，而$\sum_{j&#x3D;1}^N \alpha_j y_j x_j \neq 0$。<br>首先，$\sum^N_{i&#x3D;1} \alpha_i y_i&#x3D;0$指的是它的总和为0，但是每一项不一定为0，所以如果每一项都乘以一个不同得数，那么最终的求和结果有极大概率会改变，即$\sum_{j&#x3D;1}^N \alpha_j y_j x_j \neq 0$。<br>但是如果它每一项都乘以一个相同的数，那么它最终的结果还是0，即$\sum_{i&#x3D;1}^N \alpha_iy_ib&#x3D;0$，也可以理解为$b\sum_{i&#x3D;1}^N \alpha_iy_i&#x3D;0$。</p>
+</blockquote>
+</li>
+</ul>
+<p>最终我们求出了$min_{w,b} \ L(w,b,\alpha) &#x3D; -\frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i&#x3D;1}^N \alpha_i$</p>
+</blockquote>
+</li>
+<li><p>求$min_{w,b}L(w,b,\alpha)$对$\alpha$的极大，即</p>
+<blockquote>
+<p>$$max_{\alpha} \ \  -\frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) + \sum_{i&#x3D;1}^N \alpha_i$$</p>
+<p>$$s.t. \quad \sum^N_{i&#x3D;1} \alpha_iy_i&#x3D;0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i&#x3D;1,2,…,N$$</p>
+<ul>
+<li>将最大化问题转化成求最小化问题得，<br>$$min_{\alpha} \ \  \frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i&#x3D;1}^N \alpha_i$$</li>
+</ul>
+<p>$$s.t. \quad \sum^N_{i&#x3D;1} \alpha_iy_i&#x3D;0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i&#x3D;1,2,…,N$$</p>
+<ul>
+<li>考虑原始最优化问题：<br>$$min_{w,b}\ \frac{1}{2}||w||^2$$</li>
+</ul>
+<p>$$s.t. \quad 1 - y_i(w^Tx_i+b) \le 0 \quad i&#x3D;1,2,…,N$$</p>
+<ul>
+<li>满足对偶问题中<b>定理一</b>：<blockquote>
+<p>若$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数(这没$h_j(x)$)，$c_i(x)$是严格可行的，即存在x对于所有i都有$c_i(x)&lt;0$,那么存在$x^∗,α^∗,β^∗$，$x^∗$是原始问题的解，$\alpha^∗,\beta^∗$是对偶问题的解，<b>那么求解原始问题可以转化成求解对偶问题的解了</b>。</p>
+</blockquote>
+</li>
+</ul>
+<p><b>补充：</b>为什么$c_i(x)$是严格可行的？因为满足条件$1 - y_i(w^Tx_i+b) &#x3D; 0 \quad i&#x3D;1,2,…,N$的只有支持向量，其他计算出来的结果一定小于0的，所以说存在x使得$c_i(x)$严格可行。</p>
+<ul>
+<li>设$\alpha^*&#x3D;(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$是对偶最优化问题的解，那么可以由此求得原始问题对$(w,b)$的解$w^*,b^*$,有以下定理：<blockquote>
+<p>设$\alpha^*&#x3D;(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$是对偶最优化问题的解，则存在下标j，使得$\alpha_j^* &gt; 0$，使得$w^*,b^*$满足以下式子：<br>$$w^* &#x3D;\sum_{i&#x3D;1}^N \alpha_i^* y_i x_i$$</p>
+<p>$$b^* &#x3D; y_j - \sum_{i&#x3D;1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+</blockquote>
+</li>
+</ul>
+<p><b>补充：</b>以上式子可以根据KKT条件进行证明。</p>
+</blockquote>
+</li>
+</ul>
+<p>因此分离超平面可以写成：</p>
+<blockquote>
+<p>$$\sum^N_{i&#x3D;1}\alpha^*_i y_i(x x_i)+b^*&#x3D;0$$</p>
+</blockquote>
+<p>分类决策函数可以写成：</p>
+<blockquote>
+<p>$$f(x)&#x3D;sign(\sum^N_{i&#x3D;1}\alpha^*_i y_i(x x_i)+b^*)$$</p>
+</blockquote>
+<p><b>补充：</b></p>
+<blockquote>
+<ul>
+<li>由上式可知，分类决策函数只依赖于输入x和训练样本输入的内积。</li>
+<li>而且$\alpha$的维度与训练集的个数相关，训练集有多少个，那么$\alpha$就有多少维。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a><b>算法描述</b></h5><blockquote>
+<ul>
+<li><b>线性可分支持向量机学习算法：</b><blockquote>
+<p><b>输入：</b>线性可分训练集$T&#x3D;[(x_1,y_1),(x_2,y_2),…,(x_N,y_N)]$，其中$x_i \in R^n,y_i \in (-1,1), \quad i&#x3D;1,2,…,N$<br><b>输出：</b>分离超平面和分类决策函数。</p>
+<ul>
+<li><p>构造并求解约束最优化问题</p>
+<blockquote>
+<p>$$min_{\alpha} \ \  \frac{1}{2}\sum_{i&#x3D;1}^N \sum_{j&#x3D;1}^N \alpha_i \alpha_j y_i y_j(x_i x_j) - \sum_{i&#x3D;1}^N \alpha_i$$</p>
+<p>$$s.t. \quad \sum^N_{i&#x3D;1} \alpha_iy_i&#x3D;0$$</p>
+<p>$$\quad \quad \alpha_i \ge 0 \quad i&#x3D;1,2,…,N$$</p>
+<p>利用SMO算法求出最优解$\alpha^*&#x3D;(\alpha_1^*,\alpha_2^*,\alpha_3^*,…,\alpha_N^*)^T$。</p>
+</blockquote>
+</li>
+<li><p>计算</p>
+<blockquote>
+<p>$$w^* &#x3D; \sum^N_{i&#x3D;1}\alpha^*_i y_i x_i$$ </p>
+<p>选择$\alpha^*$的一个正分量$\alpha_j^* &gt; 0$，计算<br>$$b^* &#x3D; y_j - \sum_{i&#x3D;1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+<p><b>补充：</b>计算$b^*$时的$(x_j,y_j)$是一个随机的一个支持向量。</p>
+</blockquote>
+</li>
+<li><p>求得分离超平面</p>
+<blockquote>
+<p>$$\sum^N_{i&#x3D;1}\alpha_i^* y_i(x x_i)+b^*&#x3D;0$$<br>分类决策函数：<br>$$f(x)&#x3D;sign(\sum^N_{i&#x3D;1}\alpha_i^* y_i(x x_i)+b^*)$$</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h5 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a><b>支持向量</b></h5><blockquote>
+<p>由</p>
+<blockquote>
+<p>$$w^* &#x3D; \sum^N_{i&#x3D;1}\alpha^*_i y_i x_i$$ </p>
+<p>$$b^* &#x3D; y_j - \sum_{i&#x3D;1}^N \alpha_i^* y_i (x_i x_j)$$</p>
+</blockquote>
+<p>可知，$w^*$和$b^*$只依赖于训练数据中对应$\alpha_i^* &gt; 0$的样本点（在SMO算法中我们可以算出只有少数的一些点的$\alpha_i^*$大于0），而其他样本点对$w^*$和$b^*$基本没影响。<br>我们将训练集中对应$\alpha_i^* &gt; 0$的样本点称之为<b>支持向量</b>。<br><b>定义：</b></p>
+<blockquote>
+<p>考虑原始最优化问题及对偶最优化问题，将训练数据集中对应$\alpha_i^* &gt; 0$的样本点$(x_i,y_i)$的实例$x_i \in R^n$称为<b>支持向量</b>。</p>
+</blockquote>
+<p><b>补充：</b><br>根据该定义，支持向量一定在间隔边界上。由KKT互补条件：</p>
+<blockquote>
+<p>$$\alpha_i^*(y_i(w^* x_i +b^*)-1)&#x3D;0, \quad i&#x3D;1,2,…,N$$</p>
+<p>对应于$\alpha_i^* &gt; 0$的实例$x_i$，有</p>
+<p>$$y_i(w^* x_i +b^*)-1 &#x3D; 0$$<br>或<br>$$w^* x_i +b^* &#x3D; \pm 1$$</p>
+</blockquote>
+<p>即它的函数距离一定等于1，那么$x_i$一定在间隔边界上。（根据这个特性，证明只有少数的点都可以训练出一个分离超平面。）</p>
+</blockquote>
+<h4 id="SMO算法"><a href="#SMO算法" class="headerlink" title="SMO算法"></a><b>SMO算法</b></h4><h4 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a><b>非线性支持向量机</b></h4><h5 id="高维映射"><a href="#高维映射" class="headerlink" title="高维映射"></a><b>高维映射</b></h5><h5 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a><b>核方法</b></h5>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#SVM%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">SVM的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">线性可分支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%B7%9D%E7%A6%BB%E4%B8%8E%E5%87%A0%E4%BD%95%E8%B7%9D%E7%A6%BB"><span class="toc-number">2.1.</span> <span class="toc-text">函数距离与几何距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">学习的对偶算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.3.</span> <span class="toc-text">算法描述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-number">2.4.</span> <span class="toc-text">支持向量</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SMO%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">SMO算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">非线性支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E7%BB%B4%E6%98%A0%E5%B0%84"><span class="toc-number">4.1.</span> <span class="toc-text">高维映射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B8%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">核方法</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

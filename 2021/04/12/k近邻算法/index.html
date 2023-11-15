@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>k近邻法 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="k近邻法的介绍
+
+k近邻法假设给定一个训练数据集，其中实例类别已定。分类时，对新的实例，根据其k个最近邻的训练实例的类别，通过多数表决等方式进行预测。
+k近邻法实际上利用训练数据集对特征向量空间进行,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">k近邻法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">k近邻法</h1>
+        <div class="stuff">
+            <span>四月 12, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%B7%B1%E6%B8%8A%E5%B7%A8%E5%9D%91/" rel="tag">深渊巨坑</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="k近邻法的介绍"><a href="#k近邻法的介绍" class="headerlink" title="k近邻法的介绍"></a><b>k近邻法的介绍</b></h4><blockquote>
+<ul>
+<li>k近邻法假设给定一个训练数据集，其中实例类别已定。分类时，对新的实例，根据其k个最近邻的训练实例的类别，通过多数表决等方式进行预测。</li>
+<li>k近邻法实际上利用训练数据集对特征向量空间进行划分，并作为其分类的“模型”。</li>
+<li>k近邻法的三个基本要素：<b>k值的选择</b>、<b>距离度量</b>和<b>分类决策规则</b></li>
+</ul>
+</blockquote>
+<h4 id="k近邻算法"><a href="#k近邻算法" class="headerlink" title="k近邻算法"></a><b>k近邻算法</b></h4><blockquote>
+<ul>
+<li>k近邻算法对于新的输入实例，在训练数据集中找到与该实例<b>最近的k个实例</b>，这k个实例多数属于某个类，就把这个输入实例归为这个类。<br><b>如图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/k%E8%BF%91%E9%82%BB%E6%A8%A1%E5%9E%8B%E5%9B%BE.jpg" alt="k近邻" title="k近邻"></li>
+<li>如果绿色物体的判定圈为实线圈，那么该物体为红色三角形</li>
+<li>如果判定圈为虚线圈，那么该物体为蓝色方块。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><b>算法定义：</b></p>
+<blockquote>
+<p><b>输入</b>：训练数据集<br>$$T&#x3D;[(x_1,y_1),(x_2,y_2),…,(x_N,y_N)]$$<br>其中，$x_i{\in}\chi{\subseteq}R^n$为实例的特征向量，$y_i{\in}\gamma&#x3D;(c_1,c_2,…,c_K)$为实例的类别，$i&#x3D;1,2,…,N$;实例特征向量x;<br><b>输出</b>：实例x所属的类y<br>(1)根据给定的距离度量，在训练集T中找出x最邻近的k个点，涵盖这k个点的x的领域记作$N_k(x)$;<br>(2)在$N_k(x)$中根据分类决策规则（如多数表决）决定x的类别y：<br>$$y&#x3D;arg \max_{c_j}\sum_{x_i{\subseteq}N_k(x)}I(y_i&#x3D;c_j),i&#x3D;1,2,…,N;j&#x3D;1,2,…,K\quad \quad (1)$$<br>在（1）式中，I为指标函数，即当$y_i&#x3D;c_j$时I为1,否则I为0.</p>
+</blockquote>
+<ul>
+<li>k近邻算法的特殊情况是k&#x3D;1的时候，这时称为<b>最近邻算法</b>。对于输入的实例点（特征向量）x，最近邻法将训练数据集中与x最近邻点的类视作x的类&#x2F;</li>
+<li>k近邻法没有显式的学习过程。</li>
+</ul>
+</blockquote>
+<h4 id="k近邻模型"><a href="#k近邻模型" class="headerlink" title="k近邻模型"></a><b>k近邻模型</b></h4><h5 id="模型"><a href="#模型" class="headerlink" title="模型"></a><b>模型</b></h5><blockquote>
+<ul>
+<li>当训练集、距离度量、k值及分类决策规则确定后，它所属的类唯一确定。</li>
+<li>特征空间中，对每个实例点$x_i$,距离该点比其他点更近的所有点组成一个区域，叫作<b>单元</b>。</li>
+<li>每个实例点拥有一个单元，所有训练实例点的单元构成对特征空间的一个<b>划分</b><br><b>如图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/k%E8%BF%91%E9%82%BB%E6%B3%95%E5%AF%B9%E5%BA%94%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%92%E5%88%86.png" alt="k近邻法对应特征空间的划分" title="k近邻法对应特征空间的划分"><br>每个点都有一个单元，测试点落在哪个单元上，那就将该测试点归为该单元的一类。</li>
+</ul>
+</blockquote>
+<blockquote>
+<h5 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a><b>距离度量</b></h5><ul>
+<li><p>特征空间中两个实例点的距离是两个实例点相似程度的反映。</p>
+</li>
+<li><p>k近邻模型的特征空间一般是n维实数向量空间$R^n$，一般使用<b>欧氏距离</b><br><b>距离定义：</b></p>
+<blockquote>
+<p>设特征空间$\chi$是n维实数向量空间$R^n$，$x_i,x_j{\in}\chi,x_i&#x3D;(x^{(1)}_i,x^{(2)}_i,…,x^{(n)}_i)^T,x_j&#x3D;(x^{(1)}_j,x^{(2)}_j,…,x^{(n)}_j),x_i,x_j$的$L_P$距离定义为:</p>
+<p>$$L_P(x_i,x_j)&#x3D;(\sum_{l&#x3D;1}^n|x^{(l)}_i-x^{(l)}_j|^P)^{\frac{1}{P}}$$</p>
+<p>这里$p \ge 1.$当$p&#x3D;2$时，称为<b>欧氏距离</b>，即<br>$$L_2(x_i,x_j)&#x3D;(\sum^n_{l&#x3D;1}|x^{(l)}_i-x^{(l)}_j|^2)^{1 \over 2}$$</p>
+<p>当$p&#x3D;1$时，称为<b>曼哈顿距离</b>，即<br>$$L_1(x_i,x_j)&#x3D;(\sum^n_{l&#x3D;1}|x^{(l)}_i-x^{(l)}_j|)$$</p>
+<p>当$p&#x3D;\infty$时，它是各个坐标距离的最大值，即<br>$$L_{\infty}(x_i,x_j)&#x3D;max_l \ |x^{(l)}_i-x^{(l)}_j|$$</p>
+</blockquote>
+</li>
+<li><p><b>补充：</b>对于p值的不同取值，实例点的最邻近点也会有所不同。<br><b>如图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F.png" alt="L距离间的关系" title="距离间的关系"></p>
+</li>
+</ul>
+</blockquote>
+<h5 id="k值的选择"><a href="#k值的选择" class="headerlink" title="k值的选择"></a><b>k值的选择</b></h5><blockquote>
+<ul>
+<li>k值为离<b>待分类实例点</b>最近的<b>已知实例点的个数</b><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/k%E8%BF%91%E9%82%BB%E6%A8%A1%E5%9E%8B%E5%9B%BE.jpg" alt="k近邻" title="k近邻"><br>如上图中，实线圈的k值为3,虚线圈的k值为5.</p>
+</blockquote>
+</li>
+</ul>
+<p>k值对于k近邻法的结果会产生很大影响。</p>
+<ul>
+<li><p>如果k值过小，</p>
+<blockquote>
+<ul>
+<li>优点是学习的近似误差会减小，因为只有与输入实例较近的训练实例才会对预测结果产生作用。</li>
+<li>但缺点是学习的估计误差会增大，因为预测结果对近邻的实例点非常敏感，如果邻近的实例点刚好是噪声点，预测就会出错。换句话说，k值越小，模型越复杂，就越容易出现过拟合。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如果k值过大，</p>
+<blockquote>
+<ul>
+<li>优点是可以减少学习的估计误差</li>
+<li>缺点是学习的近似误差会增大，此时与输入实例较远的点也会对预测起作用，使预测发生错误。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>在实际应用中，k值一般取一个较小的值，通常通过交叉验证法来选取最优的k值。</p>
+</blockquote>
+<h5 id="分类决策规则"><a href="#分类决策规则" class="headerlink" title="分类决策规则"></a><b>分类决策规则</b></h5><blockquote>
+<ul>
+<li>k近邻法中的分类决策规则往往是<b>多数表决</b>:<blockquote>
+<p>由输入实例的k个邻近的训练实例中的多数类决定输入实例的类。</p>
+</blockquote>
+</li>
+</ul>
+<p><b>下面是从数学的角度来证明多数表决等价于经验风险最小化</b></p>
+<ul>
+<li><p>多数表决规则可以解释为：如果分类的损失函数为0-1损失函数，分类函数为：</p>
+<blockquote>
+<p>$$f:R^n \to (c_1,c_2,…,c_k)$$<br>那么误分类的概率为：<br>$$P(Y{\neq}f(x))&#x3D;1-P(Y&#x3D;f(x))$$</p>
+</blockquote>
+</li>
+<li><p>对给定的实例$x{\in}{\chi}$，其最近邻的k个训练实例点构成集合$N_k(x)$.如果涵盖$N_k(x)$的区域的类别是$c_j$，那么误分类率是：</p>
+<blockquote>
+<p>$$\frac{1}{k}\sum_{x_i{\in}N_k(x)}I(y_i{\neq}c_j)&#x3D;1-\frac{1}{k}\sum_{x_i{\in}N_k(x)}I(y_i&#x3D;c_j)$$</p>
+</blockquote>
+</li>
+</ul>
+<p>要使误分类率最小即经验风险最小化，就要使$\sum_{x_i{\in}N_k(x)}I(y_i&#x3D;c_j)$最大，所以多数表决规则等价于经验风险最小化。</p>
+</blockquote>
+<h4 id="kd树"><a href="#kd树" class="headerlink" title="kd树"></a><b>kd树</b></h4><blockquote>
+<ul>
+<li>k近邻法最简单的实现方法是<b>线性扫描</b>，即对输入实例对每一个训练集点都计算距离，此时的计算量会变得非常大。所以为了减少计算量而引入了kd树。</li>
+<li>kd树是一种对k维空间中的实例点进行存储，以便对其进行快速检索的树形数据结构。</li>
+<li>kd树是二叉树，表示对k维空间的一个划分。</li>
+<li>构建kd树相当于不断的用垂直于坐标轴的超平面将k维空间进行划分，构成一系列的k维超矩形区域。</li>
+<li>kd树的每一个结点对应于一个k维超矩形区域。</li>
+</ul>
+</blockquote>
+<h5 id="构造kd树"><a href="#构造kd树" class="headerlink" title="构造kd树"></a><b>构造kd树</b></h5><blockquote>
+<p><b>算法定义：</b></p>
+<blockquote>
+<p><b>输入:</b>k维空间数据集$T&#x3D;(x_1,x_2,…,x_N)$,<br>其中$x_i&#x3D;(x^{(1)}_i,x^{(2)}_i,…,x^{(k)}_i)^T,i&#x3D;1,2,…,N$<br>输出：kd树<br>(1) <b>开始：</b>构造根结点，根结点对应于包含T的k维空间的超矩形区域。<br>选择$x^{(k)}$为坐标轴，以T中所有实例的$x^{(k)}$坐标的中位数为切分点，将根结点对应的超矩形区域切分为两个子区域。切分由通过切分点并与坐标轴$x^{(k)}$垂直的超平面实现<br>由根结点生成深度为1的左、右子结点：左子结点对应坐标$x^{(k)}$小于切分点的子区域，右子结点对应于坐标$x^{(k)}$大于切分点的子区域。<br><b>注：将落在切分超平面上的实例点保存在根结点.</b> </p>
+<p>(2) <b>重复：</b>对深度为j的结点，选择$x^{(k)}$为切分点的坐标轴，$l&#x3D;(j \ mod \ k)+1$，以该结点的区域中所有实例的$x^{(k)}$坐标的中位数为切分点，将该结点对应的超矩形区域切分为两个子区域.切分由通过切分点并与坐标轴$x^{(k)}$垂直的超平面实现.<br>由该结点生成深度为j+1的左、右子结点：左子结点对应坐标$x^{(k)}$小于切分点的子区域，右子结点对应坐标$x^{(k)}$大于切分点的子区域。<br><b>注：将落在切分超平面上的实例点保存在该结点.</b></p>
+<p>(3) 直到两个子区域没有实例存在时停止.从而形成kd树的区域划分。</p>
+</blockquote>
+<p><b>kd树划分例子：</b></p>
+<blockquote>
+<p> 给定一个二维空间的数据集：<br>$$T&#x3D;[(2,3)^T,(5,4)^T,(9,6)^T,(4,7)^T,(8,1)^T,(7,2)^T]$$<br>构造一个kd树;</p>
+<ul>
+<li>根结点对应包含数据集T的矩形，选择$x^{(1)}$轴，6个数据点的$x^{(1)}$坐标的<b>中位数</b>是7,所以以$x^{(1)}&#x3D;7$将空间分为左右两个矩形，</li>
+<li>左矩形$x^{(2)}$的中位数为4,所以又以$x^{(2)}&#x3D;4$为平面将左矩形分为两个更小的矩形，同理，右矩形以$x^{(2)}&#x3D;6$分割右矩形。</li>
+<li>由于没有$x^{(3)}$，所以重复回$x^{(1)}$，以此递归直到空间不能再被划分。<br><b>结果如图：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/kd%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0.jpg" alt="kd树的构造" title="kd树"><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/kd%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0-1.jpg" alt="kd树的构造" title="kd树"><br><b>注：</b>对于每一层的结点对应的特征值$x^{(i)}$来说都有：<b>左子树&lt;根结点&lt;右子树</b>。如对于第一层中的$x^{(1)}$，恒有左结点(<b>5</b>,4)&lt;根结点(<b>7</b>,2)&lt;右结点(<b>9</b>,6)</li>
+</ul>
+</blockquote>
+</blockquote>
+<h5 id="搜索kd树"><a href="#搜索kd树" class="headerlink" title="搜索kd树"></a><b>搜索kd树</b></h5><blockquote>
+<p>kd树可以省去对大部分数据点的搜索,从而减少搜索的计算量,<b>以下为查找最近邻点</b>为例.同样的方法可以应用到k近邻.<br><b>算法描述:</b></p>
+<blockquote>
+<p><b>输入</b>:已构造的kd树;目标点x;<br><b>输出</b>:x的最近邻<br>(1) 在kd树中找出包含目标点x的叶结点：从根结点出发，递归向下访问kd树；若目标点x当前维度的坐标小于切分点的坐标，则移动到左子结点，否则移动到右子结点，直到子结点为叶子结点为止。<br>(2) 以此叶结点为“当前最近点”。<br>(3) 递归向上回溯，在每个结点进行以下操作：</p>
+<blockquote>
+<ul>
+<li>如果<b>该结点保存的实例点</b>比<b>当前最近点</b>距离<b>目标点</b>更近，则以该实例点为“当前最近点”。</li>
+<li>当前最近点一定存在于该结点一个子结点对应的区域。检查该子结点的父结点的另一个子结点对应的区域是否有更近的点。具体的，检查另一个子结点对应的区域是否与以目标点为球心、以目标点与“当前最近点”间的距离为半径的超球体相交。<br>$\quad$如果相交，可能在另一个子结点对应的区域内存在与目标点更近的点，那么移动到另一个子结点，接着，递归进行最近邻搜索;<br>$\quad$如果不相交，继续向上回溯。</li>
+</ul>
+</blockquote>
+<p>(4) 当回退到根结点时，搜索结束，最后的“当前最近点”即为x的最近邻点</p>
+</blockquote>
+<p><b>例题：</b></p>
+<blockquote>
+<p> 给定一个二维空间的数据集：<br>$$T&#x3D;[(2,3)^T,(5,4)^T,(9,6)^T,(4,7)^T,(8,1)^T,(7,2)^T]$$<br><b>构建的kd树为：</b><br><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/k%E8%BF%91%E9%82%BB/kd%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0-%E7%BB%93%E6%9E%9C.jpg" alt="kd树的构造" title="kd树"><br><b>问题:</b>求点(2,4.5)的最邻近点。</p>
+<ul>
+<li>第一步,找到包含(2,4.5)的叶子结点，即找到(4,7)，此时“最近点”为(4,7).</li>
+<li>第二步，进行回退，找到(4,7)的父结点(5,4),比较哪个离点(2,4.5)更近，发现(5,4)更近，将“最近点”设为(5,4)</li>
+<li>第三步，计算(5,4)的另一个子结点(2,3)到目标点(2,4.5)的距离，发现(2,3)到目标点(2,4.5)的距离更近，(2,3)为叶子结点，因此将“最近点”设为(2,3)</li>
+<li>第四步，继续回退，找到(5,4)的父结点(7,2)，计算目标点(2,4.5)到(7,2)的距离，这个距离大于<b>目前的最近邻点</b>，所以不用计算点目标点（2,4.5）到(7,2)的另一个子结点的距离。</li>
+<li>最后，发现(7,2)就是根结点，结束回退，最终(2,3)就是最近邻点了。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="k近邻的优缺点："><a href="#k近邻的优缺点：" class="headerlink" title="k近邻的优缺点："></a><b>k近邻的优缺点：</b></h4><blockquote>
+<ul>
+<li><p><b>优点：</b></p>
+<blockquote>
+<ul>
+<li>无论是线性可分还是线性不可分的数据都可以进行分类</li>
+<li>简单易懂，易于实现</li>
+<li>可以处理多分类问题</li>
+<li>只要k值合适，那么分类时对异常点不敏感</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>缺点：</b></p>
+<blockquote>
+<ul>
+<li>计算量太大，如果不使用kd树算法，需要每次都计算测试点到所有训练点的距离</li>
+<li>当训练样本不平衡时（即有一方只占极小数时），分类效果会不理想。</li>
+<li>对数据依赖度极高，如果在训练数据集中有一些错误数据时，将会导致预测数据的不准确。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p><b>后记：</b>学了k近邻算法后，当然要实践一下啦，<a href="/2021/04/18/k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/index.html">代码实现</a><br>坑填得好慢啊！！</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#k%E8%BF%91%E9%82%BB%E6%B3%95%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">k近邻法的介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#k%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">k近邻算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#k%E8%BF%91%E9%82%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">k近邻模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">距离度量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#k%E5%80%BC%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">3.3.</span> <span class="toc-text">k值的选择</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E5%86%B3%E7%AD%96%E8%A7%84%E5%88%99"><span class="toc-number">3.4.</span> <span class="toc-text">分类决策规则</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kd%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">kd树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9E%84%E9%80%A0kd%E6%A0%91"><span class="toc-number">4.1.</span> <span class="toc-text">构造kd树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2kd%E6%A0%91"><span class="toc-number">4.2.</span> <span class="toc-text">搜索kd树</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#k%E8%BF%91%E9%82%BB%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">k近邻的优缺点：</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

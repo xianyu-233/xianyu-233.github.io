@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>概率论与数理统计（一） - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="1.1 一些概念
+事件的概率:一个事件发生的概率
+
+确定事件:事件发生概率为确定值的事件
+
+一定发生的事件：事件发生的概率为1。
+一定不发生的事件：事件发生的概率为0。
+
+
+
+随机事件：事件发生的概,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">概率论与数理统计（一）</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">概率论与数理统计（一）</h1>
+        <div class="stuff">
+            <span>一月 23, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" rel="tag">概率论</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1-1-一些概念"><a href="#1-1-一些概念" class="headerlink" title="1.1 一些概念"></a><b>1.1 一些概念</b></h3><blockquote>
+<p><b>事件的概率:</b>一个事件发生的概率</p>
+<ul>
+<li><b>确定事件:</b>事件发生概率为确定值的事件<blockquote>
+<ul>
+<li><b>一定发生的事件：</b>事件发生的概率为1。</li>
+<li><b>一定不发生的事件：</b>事件发生的概率为0。</li>
+</ul>
+</blockquote>
+</li>
+<li><b>随机事件：</b>事件发生的概率不确定，可能发生也可能不发生。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><b>试验：</b>对事件进行观察、测量和实验。<br><b>随机试验：</b></p>
+<blockquote>
+<ul>
+<li>在相同条件下可重复。 </li>
+<li>结果不止一个。</li>
+<li>无法预测实验的结果。</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><b>事件：</b>随机试验的每一个结果。<br><b>随机事件：</b>可能发生也可能不发生的事件。<br><b>基本事件：</b>相对实验目的，不可再分（不必再分）的事件。（如，目的为观察结果丢硬币是正面还是方面，那么丢出一个硬币的正面就是一个基本事件。）<br><b>复合事件：</b>由基本事件复合。（如，丢骰子小于5的事件，复合了丢出1，2，3，4点的事件）<br><b>必然事件：</b>一定发生的事件，<b>用$\Omega$表示</b>。<br><b>不可能事件：</b>一定不发生的事件，<b>用$\phi$表示</b>。</p>
+</blockquote>
+<blockquote>
+<p><b>样本空间：</b>所有基本事件的集合。<br><b>样本点：</b>样本空间的元素。</p>
+</blockquote>
+<h3 id="1-2-事件间的关系"><a href="#1-2-事件间的关系" class="headerlink" title="1.2 事件间的关系"></a><b>1.2 事件间的关系</b></h3><blockquote>
+<ul>
+<li><p><b>包含关系：</b>A发生，必定导致B也发生。</p>
+<blockquote>
+<p>表示方法：<br>A$\subset$B A包含于B<br>B$\supset$A B包含A</p>
+</blockquote>
+</li>
+<li><p><b>并（和）关系：</b>A$\cup$B 或者 A+B，即表示A与B至少有一个发生。</p>
+<blockquote>
+<p><b>性质：</b>$A+B\supset A$， A+A&#x3D;A， A+$\varnothing$&#x3D;A， A+$\Omega$&#x3D;$\Omega$</p>
+</blockquote>
+</li>
+<li><p><b>交（积）关系：</b>A$\cap$B 或者 AB，表示A与B同时发生。</p>
+<blockquote>
+<p><b>性质：</b>AB$\subset$A， AA&#x3D;A， A$\varnothing$&#x3D;$\varnothing$， A$\Omega$&#x3D;A</p>
+</blockquote>
+</li>
+<li><p><b>差：</b>A-B，表示A发生而B不发生。</p>
+<blockquote>
+<p><b>性质：</b>A-B&#x3D;A-AB</p>
+</blockquote>
+</li>
+<li><p><b>互不相容事件：</b>A，B不能同时发生。</p>
+<blockquote>
+<p><b>性质：</b>AB&#x3D;$\varnothing$</p>
+</blockquote>
+</li>
+<li><p><b>对立事件：</b>A，B互不相容，并且A$\cup$B&#x3D;$\Omega$</p>
+<blockquote>
+<p><b>性质：</b>AB&#x3D;$\varnothing$ 且 A+B&#x3D;$\Omega$<br>A&#x3D;$ ^{\lnot}$B，B&#x3D;$ ^{\lnot}$A<br>A-B&#x3D;A-AB&#x3D;A$ ^{\lnot}$B<br><b>两者的区别：</b></p>
+<ul>
+<li>对立事件一定是互不相容事件，而互不相容事件不一定是对立事件</li>
+<li>互不相容事件适用于多个事件，对立事件只适用于两个事件。</li>
+<li>互不相容事件可以同时不发生，而对立事件一定会发生其中的一个。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><b>完备事件组：</b></p>
+<blockquote>
+<p>$A_1$,$A_2$,$A_3$…$A_n$俩俩互不相容，且$A_1$+$A_2$+$A_3$+…$A_n$&#x3D;$\Omega$</p>
+</blockquote>
+</li>
+</ul>
+<p><b>事件间的运算律：</b></p>
+<ul>
+<li><b>交换律：</b>A$\cup$B&#x3D;B$\cap$A, A$\cap$B&#x3D;B$\cap$A</li>
+<li><b>结合律：</b>(A$\cup$B)$\cup$C&#x3D;A$\cup$(B$\cup$C), (A$\cap$B)$\cap$C&#x3D;A$\cap$(B$\cap$C)</li>
+<li><b>分配律：</b><blockquote>
+<p>(A$\cup$B)$\cap$C&#x3D;(A$\cap$C)$\cup$(B$\cap$C)<br>(A$\cap$B)$\cup$C&#x3D;(A$\cup$C)$\cap$(B$\cup$C)</p>
+</blockquote>
+</li>
+<li><b>对偶律：</b>$ ^{\lnot}$(A$\cup$B)&#x3D;$ ^{\lnot}$A$\cap$ $ ^{\lnot}$B , $ ^{\lnot}$(A$\cap$B)&#x3D;$ ^{\lnot}$A $\cup$ $ ^{\lnot}$B</li>
+</ul>
+</blockquote>
+<h3 id="排序组合："><a href="#排序组合：" class="headerlink" title="排序组合："></a><b>排序组合：</b></h3><h4 id="两个原理："><a href="#两个原理：" class="headerlink" title="两个原理："></a><b>两个原理：</b></h4><blockquote>
+<ul>
+<li><b>加法原理：</b>几类的方案进行相加</li>
+<li><b>乘法原理：</b>分几步进行相乘</li>
+</ul>
+</blockquote>
+<h4 id="排列：从n个不同元素中取出m个进行排列"><a href="#排列：从n个不同元素中取出m个进行排列" class="headerlink" title="排列：从n个不同元素中取出m个进行排列"></a><b>排列：</b>从n个不同元素中取出m个进行排列</h4><blockquote>
+<ul>
+<li><b>不重复排列：</b>取出的m个元素中不可以出现重复（无放回）<blockquote>
+<p>$P_{n}^m&#x3D;n(n-1)(n-2)…(n-m+1)&#x3D;\frac{n!}{(n-m)!}$<br><b>全排序：</b>从n个不同元素中取出n个元素进行排序。</p>
+<blockquote>
+<p>$P_{n}^n&#x3D;n!$</p>
+</blockquote>
+</blockquote>
+</li>
+<li><b>重复排序：</b>取出的m个元素可以出现重复（有放回）<blockquote>
+<p>${nnn…n}&#x3D;{n^m}$<br>（0！&#x3D;1,这个可以用$P_{n}^m&#x3D;\frac{n!}{(n-m)!}$和$P_{n}^n$来证明）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="组合："><a href="#组合：" class="headerlink" title="组合："></a><b>组合：</b></h4><blockquote>
+<p>从n个不同元素中取出m个不同元素。<br>${C_{n}^m}&#x3D;{\frac{P_{n}^m}{m!}}&#x3D;\frac{n!}{m!(n-m)!}$<br>${C_{n}^m}&#x3D;{C_{n}^{n-m}}$<br>${C_{n}^0}&#x3D;{C_{n}^n}&#x3D;1$</p>
+</blockquote>
+<p><a href="/2021/01/29/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">下一篇</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1.1 一些概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BA%8B%E4%BB%B6%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">2.</span> <span class="toc-text">1.2 事件间的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%BB%84%E5%90%88%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">排序组合：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">两个原理：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%88%97%EF%BC%9A%E4%BB%8En%E4%B8%AA%E4%B8%8D%E5%90%8C%E5%85%83%E7%B4%A0%E4%B8%AD%E5%8F%96%E5%87%BAm%E4%B8%AA%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%88%97"><span class="toc-number">3.2.</span> <span class="toc-text">排列：从n个不同元素中取出m个进行排列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E5%90%88%EF%BC%9A"><span class="toc-number">3.3.</span> <span class="toc-text">组合：</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

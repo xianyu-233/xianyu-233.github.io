@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>内存管理 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="一、内存管理概念1、内存管理的基本原理和要求
+内存管理：指操作系统对内存空间进行合理的划分和有计划的动态分配与回收。
+内存管理的功能：
+
+
+内存空间的分配和回收
+内存空间的扩充
+地址转换
+存储保护
+,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">内存管理</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">内存管理</h1>
+        <div class="stuff">
+            <span>八月 10, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/" rel="tag">基础学科</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="一、内存管理概念"><a href="#一、内存管理概念" class="headerlink" title="一、内存管理概念"></a>一、内存管理概念</h2><h3 id="1、内存管理的基本原理和要求"><a href="#1、内存管理的基本原理和要求" class="headerlink" title="1、内存管理的基本原理和要求"></a>1、内存管理的基本原理和要求</h3><blockquote>
+<p><strong>内存管理：</strong>指操作系统对内存空间进行合理的划分和有计划的动态分配与回收。</p>
+<p><strong>内存管理的功能：</strong></p>
+<blockquote>
+<ul>
+<li><strong>内存空间的分配和回收</strong></li>
+<li><strong>内存空间的扩充</strong></li>
+<li><strong>地址转换</strong></li>
+<li><strong>存储保护</strong></li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="1-1、程序装入和链接"><a href="#1-1、程序装入和链接" class="headerlink" title="1.1、程序装入和链接"></a>1.1、程序装入和链接</h4><blockquote>
+<p>​        创建进程的前提是要先将程序和数据装入内存。而将用户源程序转变为在内存中的可执行程序，需要以下步骤：</p>
+<ul>
+<li><strong>编译</strong>：由编译程序将用户源代码编译成若干目标模块</li>
+<li><strong>链接：</strong>由链接程序将编译后的一组目标模块与所需要的库函数链接在一起，形成一个完整的装入模块</li>
+<li><strong>装入：</strong>由装入程序将模块装入内存</li>
+</ul>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%A8%8B%E5%BA%8F%E8%A3%85%E5%85%A5.png" alt="程序装入"></p>
+<p>对于程序的<strong>链接</strong>，也有以下三种方法：</p>
+<blockquote>
+<ul>
+<li><strong>静态链接：</strong>在程序运行前就将各目标模块及它们所需的库函数链接成一个完成的可执行文件，以后不再拆开（逻辑地址固定）</li>
+<li><strong>装入时动态链接：</strong>在需要装入内存时，才使用边装入边链接的方式。</li>
+<li><strong>运行时动态链接：</strong>对于目标模块的链接，只有在执行中需要用到该模块时才进行链接。</li>
+</ul>
+</blockquote>
+<p>对于程序的<strong>装入</strong>，同样有以下三种方法：</p>
+<blockquote>
+<ul>
+<li><p><strong>绝对装入</strong></p>
+<blockquote>
+<p>​        指在<strong>编译时</strong>就将程序中的的逻辑地址写成内存中的物理地址。即在绝对装入的程序中，逻辑地址就是运行时的物理地址。绝对装入由于灵活性差，只能用在单道程序环境中。</p>
+</blockquote>
+</li>
+<li><p><strong>可重定位装入</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E9%9D%99%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D.png" alt="静态重定位"></p>
+<p>​        又称<strong>静态重定位</strong>，指目标模块的初始地址都是从0开始的逻辑地址。在装入内存时，获得其物理起始地址后，再将其逻辑地址直接加上物理的起始地址。要求程序必须一次性装入内存，而且作业的存放地址是连续的。而且程序在装入内存后不可再移动，也不可再请求分配空间。</p>
+</blockquote>
+</li>
+<li><p><strong>动态运行时装入</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%8A%A8%E6%80%81%E9%87%8D%E5%AE%9A%E4%BD%8D.png" alt="动态重定位"></p>
+<p>​        也称<strong>动态重定位</strong>，目标模块的初始地址也都是从0开始的逻辑地址。在装入时，将其逻辑地址与<strong>重定位寄存器</strong>的值相加从而得到其真实的物理地址。这样一来程序的物理地址就由逻辑地址和重定位寄存器的值所决定，从而装入内存时的灵活性就大大地提高了。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="1-2、逻辑地址空间与物理地址空间"><a href="#1-2、逻辑地址空间与物理地址空间" class="headerlink" title="1.2、逻辑地址空间与物理地址空间"></a>1.2、逻辑地址空间与物理地址空间</h4><blockquote>
+<ul>
+<li><strong>逻辑地址空间：</strong>指在编译后，每个目标模块都是从0开始编址的，这些地址称为该目标模块的<strong>相对地址（逻辑地址）</strong>。当连接程序将各个模块链接成一个完整的可执行目标程序时，这时的可执行程序就构成了一个从0号单元开始编址的<strong>逻辑地址空间</strong></li>
+<li><strong>物理地址空间：</strong>指内存中物理单元的集合，它是地址转换的最终地址，进程在运行时执行指令和访问数据时的地址。当装入程序通过地址转换<strong>将逻辑地址转换成物理地址</strong>，这个过程称为<strong>地址重定位</strong>。（其中程序员只能指定程序的逻辑地址，逻辑地址向物理地址的转换是操作系统完成的工作，对所有用户都是透明的）</li>
+</ul>
+</blockquote>
+<h4 id="1-3、内存保护"><a href="#1-3、内存保护" class="headerlink" title="1.3、内存保护"></a>1.3、内存保护</h4><blockquote>
+<p>​        指在分配内存前，需要保护操作系统不受用户进程影响，同时保护用户进程不会相互影响。内存保护可采取两种方式：</p>
+<ul>
+<li><p><strong>在CPU中设置一对上、下限寄存器：</strong>存放用户程序在内存中的上限地址和下限地址，当CPU在执行该程序需要访问一个地址时，分别于这两个寄存器的值进行比较，判断有无越界。（越界则抛出一个<strong>越界中断</strong>）</p>
+</li>
+<li><p><strong>采用重定位寄存器（基址寄存器）和界地址寄存器（限长寄存器）</strong>：重定位寄存器存放该程序的最小地址；而界地址寄存器存放的是该程序逻辑地址的最大值。当CPU在执行该程序需要访问一个地址时，判断该地址是否小于界地址寄存器的值，然后再加上重定位寄存器的值，最后再用该地址访问内存，即</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E9%87%8D%E5%AE%9A%E4%BD%8D%E5%92%8C%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4.png" alt="重定位和内存保护"></p>
+</li>
+</ul>
+</blockquote>
+<h3 id="2、覆盖与交换"><a href="#2、覆盖与交换" class="headerlink" title="2、覆盖与交换"></a>2、覆盖与交换</h3><blockquote>
+<p><strong>覆盖技术：</strong></p>
+<blockquote>
+<p><strong>基本思想：</strong></p>
+<blockquote>
+<p>​        由于程序运行时并非任何时候都要访问程序集数据的各个部分，因此可把用户空间分成一个<strong>固定区</strong>和若干<strong>覆盖区</strong>。将最经常活跃的那部分放在固定区，其余部分<strong>按调用关系分段</strong>，需要使用时再放入覆盖区。</p>
+</blockquote>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E8%A6%86%E7%9B%96%E6%8A%80%E6%9C%AF.png" alt="覆盖技术"></p>
+</blockquote>
+<p><strong>特点：</strong></p>
+<blockquote>
+<p>必须由程序员确定覆盖结构，操作系统自动覆盖</p>
+<p>对用户不透明，增加编程负担</p>
+<p>覆盖技术只用于早期的操作系统</p>
+</blockquote>
+</blockquote>
+<p><strong>交换技术</strong></p>
+<blockquote>
+<p><strong>基本思想：</strong></p>
+<blockquote>
+<p>​        将处于等待状态的程序从内存转移到辅存中，从而把内存空间腾出来，这一过程称为<strong>换出</strong>；把准备好竞争CPU运行的程序从辅存转移到内存中，这一过程称为<strong>换入</strong>（即上一章的<strong>中级调度</strong>）。</p>
+</blockquote>
+<p><strong>注意的问题</strong></p>
+<blockquote>
+<ul>
+<li>在磁盘中，通常会有一部分区域用作交换，被称为交换区，采用连续分配的方式；其余的称为文件区，是存放一般文件的区域，采用离散分配的方式，从而提高空间的利用率。</li>
+<li>程序换出的依据可以是优先级、调入内存的时间等。</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="3、连续分配管理方式"><a href="#3、连续分配管理方式" class="headerlink" title="3、连续分配管理方式"></a>3、连续分配管理方式</h3><blockquote>
+<p>​        连续分配方式是指为一个用户程序分配一个<strong>连续</strong>的内存空间，其中连续分配方式主要包括：<strong>单一连续分配</strong>、<strong>固定分区分配</strong>和<strong>动态分区分配</strong>。</p>
+<ul>
+<li><p><strong>单一连续分配</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%8D%95%E4%B8%80%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D.png" alt="单一连续分配"></p>
+<p>​        内存再此方式下分为<strong>系统区</strong>和<strong>用户区</strong>。系统区仅供操作系统使用，通常在低地址部分；用户区是为用户提供的内存空间。在这种内存中永远<strong>只有一道程序</strong>，因此不会出现访问越界等现象。</p>
+<p><strong>优点：</strong>简单、无外部碎片，可采用覆盖技术。</p>
+<p><strong>缺点：</strong>只能用于单用户、单任务的操作系统中，有内部碎片，存储器利用率低。</p>
+</blockquote>
+</li>
+<li><p><strong>固定分区分配</strong></p>
+<blockquote>
+<img src="/picture/学习/操作系统上的图/内存管理/固定分区分配.png" alt="固定分区分配" style="zoom: 67%;" />
+
+<p>​        它将用户内存空间划分为若干固定大小的区域，每个分区只装入一个作业。根据分区划分方法的不同，可以分为以下两种：</p>
+<blockquote>
+<ul>
+<li><p><strong>分区大小相等</strong>：用于利用一台计算机去控制多个相同对象的场合，灵活性差，容易产生区内碎片</p>
+</li>
+<li><p><strong>分区大小不等：</strong>划分为多个较小的分区、适量的中等分区和少量大分区</p>
+<p>为便于内存分配，通常将分区按大小排队，为其建立一张<strong>分区说明表</strong>，其中包括表项每个分区的初始地址、大小及状态（是否已分配），如图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%88%86%E5%8C%BA%E8%AF%B4%E6%98%8E%E8%A1%A8.png" alt="分区说明表"></p>
+</li>
+</ul>
+</blockquote>
+<p><strong>缺点：</strong></p>
+<blockquote>
+<ul>
+<li>程序可能太大而放不进任何一个分区，此时就需要用到覆盖技术了</li>
+<li>贮存利用率低，当程序小于固定分区大小时，也要占用一个分区，那么此时就会产生内部碎片</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>动态分区分配</strong></p>
+<blockquote>
+<p>​        动态分区分配又称<strong>可变分区分配</strong>，指不预先划分内存，而是在程序装入内存时，根据程序大小动态地建立分区，并使得分区的大小正好合适内存。如图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E5%88%86%E5%8C%BA.png" alt="动态分配分区"></p>
+<p>​        动态分区刚开始分配时很好，但是逐渐往后就会使得内存出现许多小的内存块。如果随着事件进一步推移，那么就会产生更多的碎片空间，从而导致内存的利用率下降。一种解决办法是使用<strong>紧凑技术</strong>（即操作系统不时地对进程进行移动和整理，使得碎片可以相互合并，从而形成较大的可用空间）；另一种办法是在动态分配时使用相应算法：</p>
+<blockquote>
+<ul>
+<li><p><strong>首次适应（First Fit）算法</strong></p>
+<blockquote>
+<p><strong>算法思路：</strong>每次从低地址开始查找，找到第一个能满足大小的空闲分区</p>
+<p><strong>实现方法：</strong> <strong>空闲分区以地址递增的次序排列</strong>，每次分配内存时按顺序查找空闲分区链（空闲分区表），找到大小能满足要求的第一个空闲分区。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E9%A6%96%E6%AC%A1%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95.png" alt="首次适应算法"></p>
+<p><strong>优点：</strong>综合性能最好，算法开销小，回收分区后一般不需要对空闲分区队列重新排列</p>
+</blockquote>
+</li>
+<li><p><strong>最佳适应（Best Fit）算法</strong></p>
+<blockquote>
+<p><strong>算法思路：</strong>为了保证大进程可以有连续唔冻大片空间，因此<strong>优先使用更小的空闲区</strong></p>
+<p><strong>实现方法：</strong>空闲分区<strong>按容量递增次序链接</strong>。每次分配内存时<strong>顺序查找空闲分区</strong>链（空闲分区表），<strong>找到大小能满足要求的第一个空闲分区</strong></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%9C%80%E4%BD%B3%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95.png" alt="最佳适应算法"></p>
+<p><strong>优点：</strong>会有更多的大分区被保留下来，能够满足大进程的需求</p>
+<p><strong>缺点：</strong>会产生很多难以利用的碎片；<strong>算法开销大</strong>（因为每次都需要对空闲分区链重新排序）</p>
+</blockquote>
+</li>
+<li><p><strong>最坏适应（Worst Fit）算法</strong></p>
+<blockquote>
+<p><strong>算法思路：</strong>为了解决最佳适应算法的问题，在每次分配时<strong>优先利用最大的连续分区</strong>，这样分配后的剩余空闲区就不会太小，方便使用</p>
+<p><strong>实现方法：</strong>空闲分区<strong>按容量递减次序链接</strong>。每次分配内存时顺序查找空闲分区链（空闲分区表），找到大小能满足要求的第一个空闲分区</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%9C%80%E5%9D%8F%E9%80%82%E5%BA%94%E7%AE%97%E6%B3%95.png" alt="最坏适应算法"></p>
+<p><strong>优点：</strong>可以减少难以利用的内存碎片</p>
+<p><strong>缺点：</strong>大分区容易被使用完，不利于大进程；<strong>算法开销也大</strong></p>
+</blockquote>
+</li>
+<li><p><strong>邻近适应（Next Fit）算法</strong></p>
+<blockquote>
+<p><strong>算法思路：</strong>每次都从上次查找结束的位置开始检索空间。</p>
+<p><strong>实现方法：</strong>空闲分区以地址递增的顺序排列（<strong>排成一个循环链表</strong>）。每次分配内存时<strong>从上次查找结束的位置开始查找</strong>空闲分区链（空闲分区表），找到大小能满足要求的第一个空闲分区</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E9%82%BB%E8%BF%91%E6%9C%80%E4%BD%B3%E7%AE%97%E6%B3%95.png" alt="邻近最佳算法"></p>
+<p><strong>优点：</strong>不用每次都从低地址的小分区开始检索。算法开销小</p>
+<p><strong>缺点：</strong>会时高地址的大分区也被用完。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="4、非连续分配管理方式"><a href="#4、非连续分配管理方式" class="headerlink" title="4、非连续分配管理方式"></a>4、非连续分配管理方式</h3><blockquote>
+<p>​        非连续分配允许一个程序分散地装入不同的内存分区。在连续分配管理中，如果内存中没有足够大的连续空间，那么程序则无法装入内存中；在非连续分配管理中，只要内存足够大，那么就可以将程序分成许多个小部分放入内存中。</p>
+<p>​        因此根据不同的分法，非连续分配管理可以分为：<strong>分页式存储</strong>和<strong>分段式存储</strong></p>
+</blockquote>
+<h4 id="4-1、分页式存储"><a href="#4-1、分页式存储" class="headerlink" title="4.1、分页式存储"></a>4.1、分页式存储</h4><blockquote>
+<p><strong>分页存储的概念：</strong></p>
+<blockquote>
+<ul>
+<li><strong>页：</strong>指进程中的块</li>
+<li><strong>页号：</strong>指进程中块的序号（在操作系统中一般都是隐藏的）</li>
+<li><strong>页表：</strong>用于记录每个进程的页面和内存中页框之间的映射关系。通常<strong>存放在进程的PCB中</strong></li>
+<li><strong>页表项：</strong>指页表中每一行数据，一般由页号和内存块号组成</li>
+<li><strong>页框：</strong>也称为<strong>页帧</strong>，指内存中的块</li>
+<li><strong>页框号（页帧号）：</strong>指内存中的块的序号。甚至可以叫作<strong>内存块号</strong>，简称<strong>块号</strong>（外存也可以这样划分，也叫块号）</li>
+</ul>
+<p><strong>其中的关系：</strong></p>
+<blockquote>
+<p> <img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E9%A1%B5%E8%A1%A8.png" alt="页表"></p>
+</blockquote>
+</blockquote>
+<p><strong>分页存储的管理方式</strong></p>
+<blockquote>
+<p>​        由于固定分区会产生内部碎片，而动态分区又会产生外部碎片，从而导致内存利用率变低。因此我们引入了一种新的划分方法：分页划分。即<strong>把内存划分为大小相同且固定的块，其中块的大小相对较小，作为内存的基本单元。</strong>每个进程以块为划分，在执行时，以块为单位逐个向内存申请。</p>
+<p>​        <strong>分页存储与固定分区技术的区别：</strong>①、分页技术的块很小，一般只有KB级别的大小，因此即使造成内部碎片，其损失也是可以接受的；②、程序在使用分页技术的块时，无需连续申请，每一个块可以离散地分布在内存中各个地方。</p>
+</blockquote>
+<p><strong>基本地址变换机构</strong></p>
+<blockquote>
+<p>地址变换机构的任务是将逻辑地址转换为内存中的物理地址，其过程如下图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E8%BF%87%E7%A8%8B.png" alt="地址转换过程"></p>
+<p><strong>一些概念：</strong></p>
+<blockquote>
+<ul>
+<li><strong>页表起始地址：</strong>指该页表在内存中的起始地址（因为页表是连续存在的，因此在根据页号查页表时，需要知道页表的起始地址）</li>
+<li><strong>页表长度：</strong>指该进程分了多少个页块</li>
+<li><strong>页表项长度：</strong>指一个页地址占多大存储空间（如4GB内存中，一个页面大小为4KB的话，则需要20位来表示所有的页块，那么这些页块地址就需要3个字节的长度来表示，这3字节就是页表项长度）</li>
+<li><strong>页面大小：</strong>指一个页块能表是多大的内存空间（程序中的大小与内存中的大小一致）</li>
+<li><strong>页表寄存器：</strong>存放页表在内存的起始地址F和页表长度M的寄存器</li>
+<li><strong>页内偏移量：</strong>指该地址在该页内的位置</li>
+<li><strong>越界中断：</strong>指该页大于页表长度，属于不存在的页号，因此会向系统发出一个<strong>内中断</strong></li>
+</ul>
+</blockquote>
+<p><strong>变换过程：</strong></p>
+<blockquote>
+<ul>
+<li><strong>计算页号P：</strong>$P&#x3D;\frac{逻辑地址A}{页面大小L}$</li>
+<li><strong>计算页内偏移量W：</strong>$W&#x3D;逻辑地址A%页面大小L$</li>
+<li><strong>比较页号P和页表长度M</strong>，若$P\ge M$，则产生一个越界中断；否则继续执行</li>
+<li><strong>根据页号获得相应的页表项地址，</strong>即$页表项地址&#x3D;页表初始地址F+页号P \times 页表项长度$</li>
+<li><strong>根据页表项地址取得相应的内存块号b</strong></li>
+<li><strong>计算物理地址E，</strong>$E&#x3D;内存块号b \times 页面大小L+页内偏移量W$</li>
+</ul>
+<p><strong>例如：</strong></p>
+<blockquote>
+<p>页面大小L为1KB，页面2对应的物理块为b&#x3D;8，计算逻辑地址A&#x3D;2600的物理地址转换：</p>
+<ul>
+<li>计算页号：$P&#x3D;\frac{2600}{1KB}&#x3D;2$</li>
+<li>计算页内偏移量：$W&#x3D;2600%1KB(1024B)&#x3D;552$</li>
+<li>根据题目可知，页号2对应了物理块号8</li>
+<li>计算物理地址：$E&#x3D;8 \times 1KB+552&#x3D;8744$</li>
+</ul>
+<p>因此只要给出页面大小，那么逻辑地址就可以转化为物理地址了</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>快表：</strong></p>
+<blockquote>
+<p>​         为了提高页块的查询速度，一般会在地址变换机构中增设一个<strong>高速缓冲寄存器——快表</strong>。快表又称<strong>相联存储器</strong>，用于存放少数常用的页表项，从而达到加速地址转换的效果。</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%85%B7%E6%9C%89%E5%BF%AB%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.png" alt="具有快表的地址转换"></p>
+<p><strong>查询过程：</strong></p>
+<blockquote>
+<ul>
+<li><strong>计算页号P：</strong>$P&#x3D;\frac{逻辑地址A}{页面大小L}$</li>
+<li><strong>计算页内偏移量W：</strong>$W&#x3D;逻辑地址A%页面大小L$</li>
+<li><strong>比较页号P和页表长度M</strong>，若$P\ge M$，则产生一个越界中断；否则继续执行</li>
+<li><strong>根据页号查询快表中是否命中</strong>，如果命中则根据快表中的记录访问内存；如果不命中则去内存中查询页表</li>
+</ul>
+</blockquote>
+<p><strong>两种不同的方式：</strong></p>
+<blockquote>
+<ul>
+<li><strong>先查询快表，再查询页表</strong></li>
+<li><strong>快表和页表同时查询</strong></li>
+</ul>
+</blockquote>
+<p><strong>注意：</strong></p>
+<blockquote>
+<ul>
+<li>高速缓冲寄存器的速度是远快于内存的</li>
+<li>高速缓冲寄存器中存放的是内存中的副本</li>
+<li>快表能实现的基础是：<strong>局部性原理</strong>（即系统更可能会连续地访问程序的某部分，而不是先访问这再访问那的离散型访问）</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>多级页表</strong></p>
+<blockquote>
+<p><strong>以下用两级页表作为讨论对象</strong></p>
+<p><strong>数据结构：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E4%B8%A4%E7%BA%A7%E9%A1%B5%E8%A1%A8.png" alt="两级页表"></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E4%B8%A4%E7%BA%A7%E9%A1%B5%E8%A1%A8%E7%BB%93%E6%9E%84.png" alt="两级页表结构"></p>
+<p><strong>注意：</strong>一级页号所对应的页表也被称为，<strong>页目录表（常用）</strong>、<strong>顶级页表</strong>或<strong>外层页表</strong></p>
+</blockquote>
+<p>​        使用二级页表后，可以根据一级页号查找到一个二级子页表，然后再根据二级页号来找到相应的内存块。因此一个二级页表的访问次数一般为3次。</p>
+<p>​        而且使用二级页表后，可以按需地将二级页表放入内存中，即需要的那一部分就放入内存中，不需要的部分暂时放在外存中，这样一来就节约了空间。（实现这个功能可以在页表中加入一个状态字段来表示该页表是否在内存中）</p>
+<p><strong>注意</strong></p>
+<blockquote>
+<ul>
+<li><p>使用分级页表的话，<strong>各级页表的大小不能超过一个页面</strong>，如</p>
+<blockquote>
+<p>某系统按字节编址，采用28位来表示页号，页面大小为4KB，页表项大小为4B，需要分3级页表来存储</p>
+<ul>
+<li>页面大小为$4KB&#x3D;2^{12}B$，即一个页面可以存$2^{12}$个字节的东西</li>
+<li>页表项为$4B$，即一个页表项长度为4个字节</li>
+<li>现在拿一个页面存页表项，即可以存$\frac{2^{12}}{4}&#x3D;2^{10}$个页表项（超出这个数，那么一个页表就存不下那么多个子页表项了）</li>
+<li>因此28位页号需要分成8, 10, 10 三级页号来表示。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>两级页表的<strong>访存次数</strong>（没有快表）：需要三次访存才能找到内存单元。</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>与单机页表的比较：</strong></p>
+<blockquote>
+<p>​        解决了页表过大时，占用空间的问题。但是两级页表的访存次数比单机页表多了一次，因此在访问速度上要慢于单级页表。（时间换空间策略）</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="4-2、分段式存储"><a href="#4-2、分段式存储" class="headerlink" title="4.2、分段式存储"></a>4.2、分段式存储</h4><blockquote>
+<p>​        进程的地址空间：按照程序本身的逻辑关系划分为若干个段，每一段从0开始编址。</p>
+<p>​        内存分配原则：以段位单位进行分配，<strong>每个段中占据连续的内存空间</strong>，但<strong>各段之间可以不相邻</strong>，如下图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%88%86%E6%AE%B5.png" alt="分段"></p>
+<p><strong>数据结构：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="段的数据结构"></p>
+<ul>
+<li><strong>段号：</strong>决定了每个进程最多可以分几段</li>
+<li><strong>段内地址：</strong>决定了每个段的最大长度</li>
+</ul>
+</blockquote>
+<p><strong>段表</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E8%A1%A8.png" alt="段表"></p>
+<ul>
+<li>每个段对应一个段表项，其中记录了该段在<strong>内存的初始位置</strong>和<strong>段的长度</strong></li>
+<li>相较于页表，段表还多出了一个段长</li>
+<li>每个<strong>段表项的长度</strong>是相同的</li>
+<li>段号是可以隐藏的</li>
+</ul>
+</blockquote>
+<p><strong>地址转换：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E7%9A%84%E5%8F%98%E5%9D%80%E6%9C%BA%E6%9E%84.png" alt="段的变址机构"></p>
+<ul>
+<li>根据逻辑地址得到段号和段内地址</li>
+<li>利用段表寄存器中的段表长度来<strong>判断段号是否越界</strong>，如果越界，则产生越界中断，否则继续进行（<strong>注意：</strong>段表长度至少为1，而段号最小为0）</li>
+<li><strong>查询段表</strong>，找到对应的段表项</li>
+<li><strong>检查段内地址是否越界</strong>，如果越界，则产生越界中断（根据偏移量和段长的比较进行判断）</li>
+<li>计算物理地址</li>
+</ul>
+</blockquote>
+<p><strong>分段的共享实现：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%88%86%E6%AE%B5%E7%9A%84%E5%85%B1%E4%BA%AB%E5%AE%9E%E7%8E%B0.png" alt="分段的共享实现"></p>
+<p>进程使用分段可以更好地实现共享存储，<strong>只需要让双方都指向共享区域即可</strong>。</p>
+<p><strong>分页无法实现共享的原因：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%88%86%E9%A1%B5%E7%9A%84%E5%85%B1%E4%BA%AB.png" alt="分页的共享"></p>
+<p>由于分页方式中，页面大小无法由用户控制，因此进程共享部分容易被分到不同页面中，从而导致难以与其它进程共享。</p>
+</blockquote>
+</blockquote>
+<p><strong>分页和分段的区别：</strong></p>
+<blockquote>
+<ul>
+<li>页是信息的<strong>物理单位</strong>，其目的是为了提高内存利用率，且分页由系统决定，对于用户来说是透明的；段是信息的<strong>逻辑单位</strong>，其目的是为了满足用户需求，分段可以由用户决定，对用户是可见的。</li>
+<li><strong>页面大小由系统决定，段的大小由程序员决定</strong></li>
+<li>分页的用户进程逻辑地址是一维的，即只需知道地址即可；分段中的用户进程逻辑地址是二维的，需要知道段号和段内地址。</li>
+<li>分段更容易实现信息的共享和保护</li>
+<li>分段也可以引入快表机制</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="4-3、段页式存储"><a href="#4-3、段页式存储" class="headerlink" title="4.3、段页式存储"></a>4.3、段页式存储</h4><blockquote>
+<p>​        段页式管理方式就是对程序即进行分段管理，又进行分页管理。即<strong>对程序先分段，然后在每个段中再分页</strong>，因此程序的逻辑地址会分为三部分：段号、页号和页内偏移量。如图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F.png" alt="段页式管理方式"></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80.png" alt="段页式逻辑地址"></p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E6%AE%B5%E8%A1%A8.png" alt="段页式段表"></p>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p> 再段页式管理中的段表与纯段式管理中的段表有些许不同。</p>
+<ul>
+<li>段页式中的段表记录的是页表长度和页表存放块</li>
+<li>段式中过的段表记录的是段长和基址</li>
+</ul>
+</blockquote>
+<p><strong>地址转换过程：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E8%AE%BF%E5%AD%98%E8%BF%87%E7%A8%8B.png" alt="段页式访存过程"></p>
+<ul>
+<li>根据逻辑地址得到段号、页号和页内偏移量</li>
+<li>判断段号是否越界</li>
+<li>根据段号查询段表，根据查询结果得到页表存放块号并根据页表长度判断是否越界</li>
+<li>根据页表存放块号找到相应的页表，再根据页号找到相应的页表项</li>
+<li>根据页表项从而得到内存块号</li>
+<li>将内存块号和页内偏移量相结合，从而得到<strong>物理地址</strong></li>
+</ul>
+<p><strong>注意：</strong></p>
+<blockquote>
+<ul>
+<li>段页式一共进行了三次访存，访问段表、访问页表、访问目标内存单元</li>
+<li>段页式管理也可以引入快表进行查询</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="二、虚拟内存管理"><a href="#二、虚拟内存管理" class="headerlink" title="二、虚拟内存管理"></a>二、虚拟内存管理</h2><h3 id="1、虚拟内存的基本概念"><a href="#1、虚拟内存的基本概念" class="headerlink" title="1、虚拟内存的基本概念"></a>1、虚拟内存的基本概念</h3><blockquote>
+<p><strong>传统存储管理方式的特征：</strong></p>
+<blockquote>
+<ul>
+<li><strong>一次性：</strong>作业必须一次性全部装入内存后，才能开始运行</li>
+<li><strong>驻留性：</strong>作业被装入内存后，就一直驻留在内存中，即使某部分不起作用也不会换出，直到作业运行结束</li>
+</ul>
+<p>因此可知，传统的存储管理方式对内存空间的利用率仍可以继续提高。</p>
+</blockquote>
+<p><strong>局部性原理：</strong></p>
+<blockquote>
+<ul>
+<li><strong>时间局部性：</strong>程序中某条指令一旦被执行，不久后该指令可能会再次执行。（因为程序中可能存在循环操作）</li>
+<li><strong>空间局部性：</strong>一旦程序访问了某个存储单元，在不久后，其附近的存储单元也将被访问，即程序在一段时间内访问的地址，可能是在一定的范围之内的。（由于数据以数组形式存放）</li>
+</ul>
+</blockquote>
+<p><strong>虚拟存储器的定义和特征：</strong></p>
+<blockquote>
+<p>​        基于局部性原理，在程序装入时，将程序的一部分装入内存，而将其它部分留在外存，就可以启动程序执行。因此操作系统在执行程序的过程中，将所需要的部分调入内存中，将暂时用不上的部分换出到外存上，从而腾出空间存放将要调入内存的信息。这样，系统好像为用户提供了一个比实际内存大得多的存储器，称为<strong>虚拟存储器</strong>。</p>
+<p><strong>虚拟存储器的特点：</strong></p>
+<blockquote>
+<ul>
+<li><strong>多次性：</strong>指程序允许被分为多次调入内存中运行</li>
+<li><strong>对换性：</strong>指整个程序无需在运行时一直保留在内存中，允许在运行时进行换出或换进</li>
+<li><strong>虚拟性：</strong>指从逻辑上扩充内存的容量，使得用户所看到的内存容量远大于实际的内存容量</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>虚拟内存技术的实现：</strong></p>
+<blockquote>
+<p><strong>虚拟内存的实现需要建立在离散分配的内存管理方式的基础之上</strong></p>
+<p>虚拟内存的实现方式：</p>
+<blockquote>
+<ul>
+<li>请求分页存储管理</li>
+<li>请求分段存储管理</li>
+<li>请求段页式存储管理</li>
+</ul>
+</blockquote>
+<p>需要的硬件支持：</p>
+<blockquote>
+<ul>
+<li>一定容量的内存和外存</li>
+<li>页表机制</li>
+<li>中断机制</li>
+<li>地址转换机制</li>
+</ul>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="2、请求分页管理方式"><a href="#2、请求分页管理方式" class="headerlink" title="2、请求分页管理方式"></a>2、请求分页管理方式</h3><blockquote>
+<p>​        <strong>请求分页系统</strong>建立在<strong>基本分页系统</strong>基础之上，为了支持虚拟存储器功能而增加了<strong>请求调页</strong>和<strong>页面置换</strong>两大功能。请求分页系统是目前最常用的一种实现虚拟存储器的方法。</p>
+<p><strong>页表机制：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E9%A1%B5%E8%A1%A8.png" alt="请求分页页表"></p>
+<p><strong>新增的字段：</strong></p>
+<ul>
+<li><strong>状态位：</strong>用于指示该页是否调入内存</li>
+<li><strong>访问字段：</strong>记录本页在一段时间内被访问的次数，或记录本页最近多长时间未被访问</li>
+<li><strong>修改位：</strong>标识该页调入内存后是否被修改过</li>
+<li><strong>外存地址：</strong>指出该页在外存上的地址，通常位物理块号</li>
+</ul>
+</blockquote>
+<p><strong>缺页中断机制：</strong></p>
+<blockquote>
+<p>​        在请求分页系统中，每当要访问的页面不再内存中是，就会产生一个<strong>缺页中断</strong>，请求操作系统将所缺的页调入内存。此时应<strong>将缺页的进程阻塞</strong>，直到调页完成后再唤醒。</p>
+<p><strong>注意：</strong></p>
+<blockquote>
+<ul>
+<li>缺页中断是在一条指令执行期间产生和处理的中断信号，因此属于<strong>内部中断</strong></li>
+<li>一条指令在执行期间，可能产生多次缺页中断</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>地址变换机制：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2.png" alt="请求分页中的地址转换"></p>
+<p>注意，与基本分页系统相比，请求分页系统多了<strong>检查页是否在内存中</strong>和<strong>将页换进内存</strong>的操作</p>
+</blockquote>
+<p><strong>补充：</strong></p>
+<blockquote>
+<ul>
+<li>在将某一页数据置换出外存时，需要检查其是否进行过修改，如果发生过修改，则写回外存；如果没有，则直接覆盖</li>
+<li>如果请求分页系统中也存在快表，那么如果置换的页也存在于快表中，此时也要对快表进行更换</li>
+<li>一个页面的置换，需要使用到外存和CPU，因此需要一定的系统开销</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="3、页面置换算法"><a href="#3、页面置换算法" class="headerlink" title="3、页面置换算法"></a>3、页面置换算法</h3><h4 id="3-1、最佳置换算法（OPT）"><a href="#3-1、最佳置换算法（OPT）" class="headerlink" title="3.1、最佳置换算法（OPT）"></a>3.1、最佳置换算法（OPT）</h4><blockquote>
+<p><strong>算法思路：</strong>选择以后永不使用或很久以后才使用的页面，以保证获得最低的缺页率</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>假定系统为某进程分配了三个物理块，并且页面号引入串为：7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.png" alt="最佳置换算法"></p>
+<p>例如四个页面时，由于7号页面是倒数第三个页面才用到，因此首先让它先置换出去。</p>
+</blockquote>
+<p><strong>优点：</strong>缺页率最低，效果最好</p>
+<p><strong>缺点：</strong>使用该算法需要先知道后续要调用的页面号（而这个一般都是不可知的），因此只能是理论上的算法，实际上难以实现</p>
+</blockquote>
+<h4 id="3-2、先进先出置换算法（FIFO）"><a href="#3-2、先进先出置换算法（FIFO）" class="headerlink" title="3.2、先进先出置换算法（FIFO）"></a>3.2、先进先出置换算法（FIFO）</h4><blockquote>
+<p><strong>算法思路：</strong>优先淘汰最早进入内存的页面，即优先淘汰在内存中驻留时间最久的页面</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>假定系统为某进程分配了三个物理块，并且页面号引入串为：3，2，1，0，3，2，4，3，2，1，0，4</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.png" alt="先进先出置换算法"></p>
+<p>该算法将内存中的页面串成一个队列，每次置换时将队尾的页面置换出去。</p>
+<p><strong>注意：</strong>FIFO算法还会产生一个<strong>Belady异常</strong>：即<strong>随着分配的物理块数增大，缺页率反而增加</strong>的异常现象，如下图</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/Belady%E5%BC%82%E5%B8%B8.png" alt="Belady异常"></p>
+<p>在多加了一个内存块4以后，缺页次数反而从原来的9次，提高到了10次。</p>
+</blockquote>
+<p><strong>特点：</strong>实现简单，但效果并不理想。</p>
+</blockquote>
+<h4 id="3-3、最近最久未使用置换算法（LRU）"><a href="#3-3、最近最久未使用置换算法（LRU）" class="headerlink" title="3.3、最近最久未使用置换算法（LRU）"></a>3.3、最近最久未使用置换算法（LRU）</h4><blockquote>
+<p><strong>算法思路：</strong>选择最近最长时间未访问过的页面给予淘汰。（即使用页表项中的<strong>访问字段记录最近访问情况</strong>）</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>假定系统为某进程分配了四个物理块，并且页面号引入串为：1, 8, 1, 7, 8, 2, 7, 2, 1, 8, 3, 8, 2, 1, 3, 1, 7, 1, 3, 7</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.png" alt="最近最久未使用置换算法"></p>
+<p>该算法是根据以前的情况来推测以后哪些页面可能会被访问，使用到了局部性原理，因此是最接近LRU的算法</p>
+</blockquote>
+<p><strong>特点：</strong>算法性能好，但需要寄存器和栈的硬件支持。</p>
+</blockquote>
+<h4 id="3-4、时钟置换算法（CLOCK）"><a href="#3-4、时钟置换算法（CLOCK）" class="headerlink" title="3.4、时钟置换算法（CLOCK）"></a>3.4、时钟置换算法（CLOCK）</h4><blockquote>
+<p>时钟置换算法是一种性能和开销都较为均衡的算法，又称<strong>最近未使用算法（NRU）</strong></p>
+<p><strong>算法思路：</strong>将内存中的页面连成一个循环链表，每次扫描哪个是最近未访问过的页面，找到以后将其置换。</p>
+<p><strong>页表项结构：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%E9%A1%B5%E8%A1%A8%E9%A1%B9.png" alt="时钟置换算法页表项"></p>
+<p>仅使用访问位来表示最近是否被访问过。</p>
+</blockquote>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p>假定系统为某进程分配了五个物理块，并且页面号引入串为：1, 3, 4, 2, 5, 6, 3, 4, 7</p>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.png" alt="时钟置换算法"></p>
+<ul>
+<li>当某页被访问时，其访问位置为1</li>
+<li>当要淘汰一个页面时，只需检查页的访问位，如果是0，就选择该页换出；如果是1，则将它置为0，暂不换出，继续检查下一个页面</li>
+<li>若第一轮扫描中所有页面都是1，则将这些页面的访问位全部置为0后，再进行第二轮扫描（在一个简单CLOCK算法中，<strong>最多只会经过两轮扫描</strong>）</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="3-5、改进型的时钟置换算法"><a href="#3-5、改进型的时钟置换算法" class="headerlink" title="3.5、改进型的时钟置换算法"></a>3.5、改进型的时钟置换算法</h4><blockquote>
+<p><strong>算法思路：</strong>在时钟置换算法的基础上，加上了”只有被淘汰的页面被修改是，才需要写回外存“</p>
+<p><strong>页表项结构：</strong>在时钟置换算法的基础上，用<strong>（访问位，修改位）</strong>的形式来表示各页面的状态，如（1，1）表示一个页面近期被访问过且修改过</p>
+<p><strong>算法规则：</strong></p>
+<blockquote>
+<ul>
+<li>将所有可能被置换的页面排成一个循环队列</li>
+<li><strong>第一轮：</strong>从当前位置开始扫描到第一个（0，0）的页面用于替换。<strong>本轮扫描不修改任何标志位</strong>（即<strong>最近没访问，且没修改的页面</strong>）</li>
+<li><strong>第二轮：</strong>若第一轮扫描失败（未能找到要求的页面），则重新扫描，查找第一个（0，1）的页面用于替换。本轮扫描过后将所有访问过的页面中的<strong>访问位设为0</strong>.（即<strong>最近未访问，但经过修改的页面</strong>）</li>
+<li><strong>第三轮：</strong>若第二轮扫描失败，则重新扫描，查找第一个（0，0）的页面用于替换。<strong>本轮扫描不修改任何标志位</strong>（即<strong>最近访问过，但未修改过的页面</strong>）</li>
+<li><strong>第四轮：</strong>若第三轮扫描失败，则重新扫描，找到第一个（0，1）的页面用于替换。（即<strong>最近访问过，且修改过的页面</strong>）</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="3-6、五类算法的比较"><a href="#3-6、五类算法的比较" class="headerlink" title="3.6、五类算法的比较"></a>3.6、五类算法的比较</h4><blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95.png" alt="置换算法"></p>
+</blockquote>
+<h3 id="4、页面分配策略"><a href="#4、页面分配策略" class="headerlink" title="4、页面分配策略"></a>4、页面分配策略</h3><blockquote>
+<p><strong>驻留集大小</strong></p>
+<blockquote>
+<p>由于操作系统不可能将一个进程完全地放入内存中，因此只能在进程中选择适当的页数放入内存中，而这个页数的集合被称为<strong>驻留集</strong>。</p>
+<p><strong>驻留集：</strong>给一个进程分配的物理页框的集合就是这个进程的驻留集（即在内存中给进程分配的页数）</p>
+<p>驻留集分配得大了，会导致系统整体的并发性下降（系统可并发执行的程序减少了）<br>驻留集分配得小了，会导致进程频繁缺页（可用的页数下降，导致经常换页）</p>
+<p><strong>固定分配：</strong>操作系统为每个进程分配一组固定数目的物理块，在进程运行期间不再改变。即<strong>驻留集大小不变</strong>。<br><strong>可变分配：</strong>先为每个进程分配一定数目的物理块，在进程运行期间，可根据情况做适当的增加或减少。即<strong>驻留集大小可变</strong>。</p>
+<p><strong>局部置换：</strong>指发生缺页时<strong>只能选进程自己的物理块</strong>进行置换（进程自身的内存）<br><strong>全局置换：</strong>可以将操作系统保留的空间物理块分配给缺页进程，也可以将别的进程持有的物理块置换到外存，再分配给缺页进程。（整个系统的内存）</p>
+<p>根据不同组合，操作系统常用以下三种策略：</p>
+<blockquote>
+<ul>
+<li><p><strong>固定分配局部置换</strong></p>
+<blockquote>
+<p><strong>操作过程：</strong></p>
+<ul>
+<li><p>为每个进程分配一定数量的物理块，在整个运行期间都不改变。</p>
+</li>
+<li><p>若进程在运行中发生缺页，则只能从该进程在内存中的页面中选出一页换出，然后调入所需的页面</p>
+</li>
+</ul>
+<p><strong>缺点：</strong>难以确定每个进程应该分配多少内存块。</p>
+</blockquote>
+</li>
+<li><p><strong>可变分配全局置换</strong></p>
+<blockquote>
+<p><strong>操作过程：</strong></p>
+<ul>
+<li>为系统中每个进程分配一定数目的物理块，操作系统自身也保持一个空闲物理块队列</li>
+<li>当某进程发生缺页时，系统从空闲物理块队列中取出一个物理块分配给该进程</li>
+<li>并将调入的页装入其中</li>
+</ul>
+<p><strong>优点：</strong>可以动态增加进程的物理块，使得分配更加灵活</p>
+<p><strong>缺点：</strong>可能会盲目地给进程增加物理块，使得系统并发性下降</p>
+</blockquote>
+</li>
+<li><p><strong>可变分配局部置换</strong></p>
+<blockquote>
+<p><strong>操作过程：</strong></p>
+<ul>
+<li>为每个进程分配一定数目的物理块</li>
+<li>当某进程发生缺页时，只从该进程在内存中的页面选出一页换出</li>
+<li>如果某进程频繁发生缺页，则系统就再为该进程分配物理块，直到该进程缺页率趋于适当值</li>
+<li>如果某进程缺页率特别低，则适当减少分配给该进程的物理块</li>
+</ul>
+<p><strong>优点：</strong>可以动态增加进程物理块的数量，也能动态减少进程物理块的数量，同时也保证了系统的并发性。</p>
+<p><strong>缺点：</strong>实现复杂且系统开销大（需要对物理块动态地分配）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<p><strong>调入页面的时机：</strong></p>
+<blockquote>
+<ul>
+<li><strong>预调页策略：</strong>根据局部性原理，一次调入若干相邻的页。（常用于进程的首次调入中，由程序员指出应先调入哪些页）</li>
+<li><strong>请求调页策略：</strong>进程在运行中需要访问的页面不在内存而提出请求，由系统将所需要页面调入内存。（即常见的每次只调入所缺的页面）</li>
+</ul>
+</blockquote>
+<p><strong>从何处调入页面：</strong></p>
+<blockquote>
+<p>​        请求分页系统中的外存分为两部分：用于存放文件的<strong>文件区</strong>，用于存放对换页面的<strong>对换区</strong>。其中文件区采用离散分配的方式，对换区则采用连续分配的方式。因此对换区的读写速度会快于文件区。从何处调入页面就存在三种情况：</p>
+<ul>
+<li><p><strong>系统拥有足够的对换区空间：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E8%B6%B3%E5%A4%9F%E7%9A%84%E5%AF%B9%E6%8D%A2%E5%8C%BA.png" alt="足够的对换区"></p>
+<p>系统中文件的交换全部由对换区和内存进行。因此在程序执行前，需要将副本放入对换区中，然后才能进入内存。</p>
+</blockquote>
+</li>
+<li><p><strong>系统缺少足够的对换区空间：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BC%BA%E5%B0%91%E5%AF%B9%E6%8D%A2%E5%8C%BA.png" alt="缺少对换区"></p>
+<ul>
+<li>不会被修改的数据（即只读数据）可以直接从文件区中读入内存中</li>
+<li>修改的数据则需要经过对换区后才能写回文件区，而且对于修改过的数据可以从对换区直接读入。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>UNIX方式</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/UNIX%E6%96%B9%E5%BC%8F.png" alt="UNIX方式"></p>
+<ul>
+<li>程序第一次调入时可以直接从文件区中调入</li>
+<li>后续的调出和调入都需要经过对换区了</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="5、抖动"><a href="#5、抖动" class="headerlink" title="5、抖动"></a>5、抖动</h3><blockquote>
+<p>​        指在页面置换过程中，<strong>刚刚换出的页面马上又要换入内存中，刚刚换入的页面又要换出内存中</strong>，这种频繁的页面调度就称为<strong>抖动</strong>或<strong>颠簸</strong>。</p>
+<p>​        <strong>抖动发生的原因：</strong>某个进程<strong>频繁访问的页面数</strong>高于<strong>可用的物理页面数</strong>。</p>
+</blockquote>
+<h3 id="6、工作集"><a href="#6、工作集" class="headerlink" title="6、工作集"></a>6、工作集</h3><blockquote>
+<p><strong>工作集：</strong>指某段时间间隔里，进程时机访问页面的集合。</p>
+<p><strong>驻留集：</strong>指请求分页存储管理中给进程分配的物理块的集合</p>
+<p><strong>例子：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%B7%A5%E4%BD%9C%E9%9B%86%E4%BE%8B%E5%AD%90.png" alt="工作集例子"></p>
+<p>​        根据局部性原理，工作集大小是可能小于窗口尺寸的。一般来说驻留集的大小不能小于工作集的大小，否则会导致进程运行过程中频繁缺页。</p>
+</blockquote>
+</blockquote>
+<h2 id="三、内存映射文件"><a href="#三、内存映射文件" class="headerlink" title="三、内存映射文件"></a>三、内存映射文件</h2><blockquote>
+<p><strong>内存映射文件：</strong>操作系统向上层程序员提供的功能（系统调用）</p>
+<p><strong>作用：</strong></p>
+<blockquote>
+<ul>
+<li>能更方便地使用文件</li>
+<li>能更好地共享文件</li>
+</ul>
+</blockquote>
+<p><strong>传统的文件访问方式</strong></p>
+<blockquote>
+<ul>
+<li>open 系统调用——打开文件</li>
+<li>seek 系统调用——将读写指针移到某要读取文件的位置</li>
+<li>read 系统调用——从读写指针所指位置读入若干数据（从磁盘读入内存）</li>
+<li>write 系统调用——将内存中的指定数据，写回磁盘（根据读写指针来确定要写回的位置）</li>
+</ul>
+</blockquote>
+<p><strong>内存映射文件的访问方式</strong></p>
+<blockquote>
+<ul>
+<li>open 系统调用——打开文件</li>
+<li>mmap 系统调用——<strong>将文件映射到进程的虚拟地址空间</strong></li>
+<li>以访问内存的方式访问文件数据（即查看是否缺页）</li>
+<li>文件数据的读入、写出都由操作系统自动完成</li>
+<li>进程关闭文件时，操作系统自动将文件被修改的数据写回磁盘</li>
+</ul>
+</blockquote>
+<p><strong>内存映射文件的共享：</strong></p>
+<blockquote>
+<p><img src="/picture/%E5%AD%A6%E4%B9%A0/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84%E5%9B%BE/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E8%99%9A%E6%8B%9F%E7%A9%BA%E9%97%B4%E5%85%B1%E4%BA%AB.png" alt="虚拟空间共享"></p>
+</blockquote>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">一、内存管理概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%92%8C%E8%A6%81%E6%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">1、内存管理的基本原理和要求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E3%80%81%E7%A8%8B%E5%BA%8F%E8%A3%85%E5%85%A5%E5%92%8C%E9%93%BE%E6%8E%A5"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1、程序装入和链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E3%80%81%E9%80%BB%E8%BE%91%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4%E4%B8%8E%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2、逻辑地址空间与物理地址空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E3%80%81%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3、内存保护</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%A6%86%E7%9B%96%E4%B8%8E%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">2、覆盖与交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">3、连续分配管理方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E9%9D%9E%E8%BF%9E%E7%BB%AD%E5%88%86%E9%85%8D%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">4、非连续分配管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E3%80%81%E5%88%86%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1、分页式存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E3%80%81%E5%88%86%E6%AE%B5%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2、分段式存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3%E3%80%81%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3、段页式存储</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">二、虚拟内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">1、虚拟内存的基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%AF%B7%E6%B1%82%E5%88%86%E9%A1%B5%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2、请求分页管理方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">3、页面置换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E3%80%81%E6%9C%80%E4%BD%B3%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88OPT%EF%BC%89"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1、最佳置换算法（OPT）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2%E3%80%81%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88FIFO%EF%BC%89"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2、先进先出置换算法（FIFO）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3%E3%80%81%E6%9C%80%E8%BF%91%E6%9C%80%E4%B9%85%E6%9C%AA%E4%BD%BF%E7%94%A8%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88LRU%EF%BC%89"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3、最近最久未使用置换算法（LRU）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4%E3%80%81%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95%EF%BC%88CLOCK%EF%BC%89"><span class="toc-number">2.3.4.</span> <span class="toc-text">3.4、时钟置换算法（CLOCK）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5%E3%80%81%E6%94%B9%E8%BF%9B%E5%9E%8B%E7%9A%84%E6%97%B6%E9%92%9F%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.5.</span> <span class="toc-text">3.5、改进型的时钟置换算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6%E3%80%81%E4%BA%94%E7%B1%BB%E7%AE%97%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">2.3.6.</span> <span class="toc-text">3.6、五类算法的比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E9%A1%B5%E9%9D%A2%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="toc-number">2.4.</span> <span class="toc-text">4、页面分配策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E6%8A%96%E5%8A%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5、抖动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E5%B7%A5%E4%BD%9C%E9%9B%86"><span class="toc-number">2.6.</span> <span class="toc-text">6、工作集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">三、内存映射文件</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>

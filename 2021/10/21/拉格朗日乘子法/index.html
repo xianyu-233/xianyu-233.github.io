@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>拉格朗日乘子法 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="xainyu-233,"> 
+    <meta name="description" content="拉格朗日对偶性介绍
+在求解有约束的最优化问题时，经常使用的方法是：利用拉格朗日对偶性将原始问题转化为对偶问题，通过求解对偶问题从而得到原始问题的解。
+
+原始问题
+定义：
+
+假设$f(x),c_i(x,"> 
+    <meta name="author" content="xianyu"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/%E5%96%B7.jfif"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xianyu-233.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">拉格朗日乘子法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">拉格朗日乘子法</h1>
+        <div class="stuff">
+            <span>十月 21, 2021</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h4 id="拉格朗日对偶性介绍"><a href="#拉格朗日对偶性介绍" class="headerlink" title="拉格朗日对偶性介绍"></a><b>拉格朗日对偶性介绍</b></h4><blockquote>
+<p>在求解有约束的最优化问题时，经常使用的方法是：利用拉格朗日对偶性将原始问题转化为对偶问题，通过求解对偶问题从而得到原始问题的解。</p>
+</blockquote>
+<h4 id="原始问题"><a href="#原始问题" class="headerlink" title="原始问题"></a><b>原始问题</b></h4><blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>假设$f(x),c_i(x),h_j(x)$是定义在$R^n$上的连续可微函数，约束最优化问题为：<br>$$min_{x \in R^n} \ \ f(x)$$</p>
+<p>$$s.t. \quad c_i(x) \le 0, \quad i&#x3D;1,2,…,k$$</p>
+<p>$$\quad h_j(x)&#x3D;0,\quad j&#x3D;1,2,…,l$$</p>
+</blockquote>
+<ul>
+<li><p>首先，我们引入<b>拉格朗日函数</b>：</p>
+<blockquote>
+<p>$$L(x,\alpha,\beta)&#x3D;f(x)+\sum^K_{i&#x3D;1}{\alpha_i}{c_i(x)}+{\sum}^M_{j&#x3D;1}\beta_jh_j(x)$$</p>
+<p>其中，$x&#x3D;(x^{(1)},x^{(2)},…,x^{(n)})^T \in R^n$，$\alpha_i,\beta_j$是拉格朗日乘子，$\alpha_i \ge 0$。考虑x的函数：<br>$$\theta_P(x)&#x3D;max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$<br>这里，$\theta_P(x)$表示原始问题$f(x)$+约束条件。</p>
+</blockquote>
+</li>
+<li><p>引入拉格朗日函数的作用：</p>
+<blockquote>
+<p>我们知道，要求解带约束的优化问题，梯度下降，牛顿法这类方法都是不能解决的，因此我们可以通过拉格朗日函数，将约束条件融入到问题上，即将约束条件塞到$f(x)$里，构成一条式子。<br>当x不满足约束条件时，即某个i使得$c_i(w) &gt; 0$或者是某个j使得$h_j(w) \neq 0$,那么就有<br>$$\theta_P(x)&#x3D;max_{\alpha,\beta;\alpha_i \ge 0} \ \ [f(x)+\sum^K_{i&#x3D;1}{\alpha_i}{c_i(x)}+{\sum}^M_{j&#x3D;1}\beta_jh_j(x)]&#x3D;+\infty$$<br><b>原因：</b></p>
+<blockquote>
+<ul>
+<li>当$c_i(w) &gt; 0$时，函数的目的是取到最大值，那么我们可以直接令这个i对应的$\alpha_i &#x3D; +\infty$，这里取最大值的结果会变成$+\infty$。</li>
+<li>同理，如果$h_j(w) \neq 0$，函数的目的是取到最大值，那么j对应的$\beta_j&#x3D; +\infty$，这里取最大值的结果会变成$+\infty$。</li>
+</ul>
+<p>因为这里的目的是取最大值，而且$c_i(w) \le 0,\alpha_i \ge 0$（负数乘一个正数，结果还是负数）且$h_j(w) &#x3D; 0$，那么$\theta_P(x)$的最大值就等于$f(x)$，所以可得，<br>$$\theta_P(x)&#x3D;\begin{cases}f(x) \quad \quad x满足约束 \\+\infty \quad \quad 其他 \\\end{cases}$$</p>
+<p><b>因此原问题的定义域就扩展到了整个实数域，不过只有满足约束条件的才等于$f(x)$，不满足的那一部分都等于正无穷。</b></p>
+</blockquote>
+<p>如果考虑求原问题的最小化，那么可以得到：<br>$$min_x \ \theta_P(x)&#x3D;min_x \ max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$<br>到此，我们已经将原问题的形式，从<br>$$min_{x \in R^n} \ \ f(x)$$</p>
+<p>$$s.t. \quad c_i(x) \le 0, \quad i&#x3D;1,2,…,k$$</p>
+<p>$$\quad h_j(x)&#x3D;0,\quad j&#x3D;1,2,…,l$$<br>变成了<br>$$min_x \ \theta_P(x)&#x3D;min_x \ max_{\alpha,\beta;\alpha_i \ge 0} \ \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>这样一来，求出$min_x \ \theta_P(x)$的解就等于求出了$min_{x \in R^n} \ \ f(x)$的解。<br>设原始问题的最优值为：$p^*&#x3D;min_x \ \theta_P(x)$</li>
+</ul>
+<p><b>补充：</b></p>
+<ul>
+<li>后面一直在提的原始问题也是$min_x \ \theta_P(x)$这个形式。</li>
+<li>这个问题又称为广义拉格朗日函数的极小极大问题。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a><b>对偶问题</b></h4><blockquote>
+<p><b>定义：</b></p>
+<blockquote>
+<p>$$\theta_D(\alpha,\beta)&#x3D;min_x \ \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>再考虑极大化$\theta_D(\alpha,\beta)&#x3D;min_x \ \ L(x,\alpha,\beta)$，即</li>
+</ul>
+<p>$$max_{\alpha,\beta:\alpha_i \ge 0} \ \ min_x \ L(x,\alpha,\beta)$$</p>
+<ul>
+<li>该问题又称为广义拉格朗日函数的极大极小问题。</li>
+</ul>
+</blockquote>
+<p>此时我们可以将广义拉格朗日函数的极大极小问题表示为约束最优化问题：</p>
+<blockquote>
+<p>$$max_{\alpha,\beta} \ \ min_x \ L(x,\alpha,\beta)$$<br>$$s.t. \quad \alpha_i \ge 0, \quad i&#x3D;1,2,…,k$$</p>
+</blockquote>
+<p>同时我们也可以将其称为原始问题的对偶问题，定义对偶问题的最优值：</p>
+<blockquote>
+<p>$$d^*&#x3D;max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta)$$</p>
+</blockquote>
+</blockquote>
+<h4 id="原始问题与对偶问题的关系"><a href="#原始问题与对偶问题的关系" class="headerlink" title="原始问题与对偶问题的关系"></a><b>原始问题与对偶问题的关系</b></h4><blockquote>
+<p><b>定理：</b><br>如果原问题和对偶问题都有最优解$p^*$和$d^*$。<br>那么它们满足：</p>
+<blockquote>
+<p>$$d^* &#x3D; max_{\alpha,\beta:\alpha_i \ge 0} \ \ \theta_D(\alpha,\beta) \le min_x \ \theta_P(x)&#x3D;p^*$$<br><b>证明：</b></p>
+<blockquote>
+<ul>
+<li>因为$\theta_D(\alpha,\beta)&#x3D;min_x \ L(x,\alpha,\beta)$而$\theta_P(x)&#x3D;max_{\alpha,\beta:\alpha_i \ge 0} \ L(x,\alpha,\beta)$</li>
+<li>所以对于任意变量恒有，$\theta_D(\alpha,\beta) \le theta_P(x)$</li>
+<li>那么容易得到，$max_{\alpha,\beta:\alpha_i \ge 0} \ \theta_D(x,\alpha,\beta) \le min_x \ theta_P(x,\alpha,\beta)$</li>
+<li>(对于任何x，恒有$f(x) \ge g(x)$，那么在$g(x)$中取得的最大值也会小于等于$f(x)$中取得的最小值)，这就是<b>极大值中的极小值</b>恒大于<b>极小值中的极大值</b>。</li>
+<li>所以有$d^* \le p^*$</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>设$x^*,\alpha^*,\beta^*$分别是对偶问题$\theta_D$和原始问题$\theta_P$的可行解，且$d^* &#x3D; p^*$，那么$x^*,\alpha^*,\beta^*$就是原始问题与对偶问题的最优解。<br>在某些条件下，原始问题与对偶问题的解是相等的，即$d^* &#x3D; p^*$。那么就可以利用对偶问题的解来代替原始问题的解了。</p>
+<ul>
+<li><p><b>定理一：</b>、</p>
+<blockquote>
+<p>若$f(x)$和$c_i(x)$是凸函数，$h_j(x)$是仿射函数，$c_i(x)$是严格可行的，即存在x对于所有i都有$c_i(x)&lt;0$,那么存在$x^*,\alpha^*,\beta^*$，$x^*$是原始问题的解，$\alpha^*,\beta^*$是对偶问题的解，并且<br>$$p^*&#x3D;d^*&#x3D;L(x^*,\alpha^*,\beta^*)$$</p>
+</blockquote>
+</li>
+<li><p><b>定理二（KKT条件）：</b><br>在满足定理一的基础上，$x^*,\alpha^*,\beta^*$，$x^*$分别是原始问题和对偶问题的解的充分必要条件是，$x^*,\alpha^*,\beta^*$，$x^*$满足以下条件：</p>
+<blockquote>
+<ul>
+<li>$\nabla_x L(x^*,\alpha^*,\beta^*)&#x3D;0$</li>
+<li>$a_i^* c_i(x^*)&#x3D;0, \quad \quad i&#x3D;1,2,…,k$</li>
+<li>$c_i(x^*) \le 0, \quad \quad i&#x3D;1,2,…,k$</li>
+<li>$a_i^* \ge 0, \quad \quad i&#x3D;1,2,…,k$</li>
+<li>$h_j(x^*)&#x3D;0  \quad \quad j&#x3D;1,2,…,l$</li>
+</ul>
+<p>其中根据$a_i^* c_i(x^*)&#x3D;0, \quad \quad i&#x3D;1,2,…,k$（称为KKT互补条件）可以得到：若$a_i^* &gt; 0$，则$c_i(x^*) &#x3D; 0$。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6%E6%80%A7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">拉格朗日对偶性介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">原始问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">对偶问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">原始问题与对偶问题的关系</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+
+</html>
