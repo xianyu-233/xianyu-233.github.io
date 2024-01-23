@@ -18415,19 +18415,19 @@
   <entry>
     <title>AOP面向切面编程</title>
     <url>/2024/01/07/AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/</url>
-    <content><![CDATA[<h4 id="面向切面编程"><a href="#面向切面编程" class="headerlink" title="面向切面编程"></a>面向切面编程</h4><p>属于一种编程范式，目的是为了将关注点与主要业务分离，使得耦合度更低和提供提供更好的模块化与可维护性</p>
+    <content><![CDATA[<h4 id="面向切面编程"><a href="#面向切面编程" class="headerlink" title="面向切面编程"></a><b>面向切面编程</b></h4><p>属于一种编程范式，目的是为了将关注点与主要业务分离，使得耦合度更低和提供提供更好的模块化与可维护性</p>
 <p>在面向对象编程中，主要的业务逻辑封装在类和对象中，而像日志、事务管理、安全性这类分布在每个业务逻辑中，使得代码耦合度上升，而且这类逻辑不属于主要的业务逻辑，但是又必需保留。</p>
 <p>AOP这是提供了一个方式来方式来解决这个问题。其中下面是AOP里的一些概念：</p>
 <ul>
-<li><strong>切面</strong>（Aspect）：切面是模块化单元，以及包含了定义在何处和何时应用横切关注点的逻辑。切面可以跨多个类和对象。</li>
-<li><strong>切点</strong>（Pointcut）：切点是在程序中何处使用切面的逻辑位置。通过定义切点，可以指定切面将在哪执行。</li>
-<li><strong>通知</strong>（Advice）：同时表示在切点上执行的操作，也就是切面的行为（如日志记录等）。通知可以在切点前、切点后执行。</li>
-<li><strong>连接点</strong>（JoinPoint）：连接点是在程序执行过程中可以插入切面的特定点。切点指定了连接点的位置</li>
-<li><strong>引入</strong>（Introduction）：引入允许向现有现有的类或对象添加新的方法或属性，通过引入可以在不修改原有类代码的情况下，为类添加额外的新功能</li>
-<li><strong>织入</strong>（Weaving）：织入是将切面应用到目标对象或程序中的过程。可以在编译时、类加载时或运行时进行。织入将切面的代码插入到目标对象的连接点上，从而实现横切关注点的功能</li>
+<li><b>切面</b>（Aspect）：切面是模块化单元，以及包含了定义在何处和何时应用横切关注点的逻辑。切面可以跨多个类和对象。</li>
+<li><b>切点</b>（Pointcut）：切点是在程序中何处使用切面的逻辑位置。通过定义切点，可以指定切面将在哪执行。</li>
+<li><b>通知</b>（Advice）：同时表示在切点上执行的操作，也就是切面的行为（如日志记录等）。通知可以在切点前、切点后执行。</li>
+<li><b>连接点</b>（JoinPoint）：连接点是在程序执行过程中可以插入切面的特定点。切点指定了连接点的位置</li>
+<li><b>引入</b>（Introduction）：引入允许向现有现有的类或对象添加新的方法或属性，通过引入可以在不修改原有类代码的情况下，为类添加额外的新功能</li>
+<li><b>织入</b>（Weaving）：织入是将切面应用到目标对象或程序中的过程。可以在编译时、类加载时或运行时进行。织入将切面的代码插入到目标对象的连接点上，从而实现横切关注点的功能</li>
 </ul>
 <p>总而言之，AOP就是使用一些技术来实现横切关注点和业务逻辑的分离。其中常见的AOP框架和库：Spring AOP和AspectJ。</p>
-<h4 id="一个AOP例子"><a href="#一个AOP例子" class="headerlink" title="一个AOP例子"></a>一个AOP例子</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoggingAspect.java</span></span><br><span class="line"><span class="comment">//切面类：日志打印</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggingAspect</span> </span>&#123;</span><br><span class="line">    <span class="comment">//前置通知，在方法执行前记录日志</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeAdvice</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行前置通知：在方法执行前记录日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterAdvice</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行后置通知：在方法执行后记录日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="一个AOP例子"><a href="#一个AOP例子" class="headerlink" title="一个AOP例子"></a><b>一个AOP例子</b></h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoggingAspect.java</span></span><br><span class="line"><span class="comment">//切面类：日志打印</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggingAspect</span> </span>&#123;</span><br><span class="line">    <span class="comment">//前置通知，在方法执行前记录日志</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeAdvice</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行前置通知：在方法执行前记录日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterAdvice</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;执行后置通知：在方法执行后记录日志&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//ProductService.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addProduct</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -18441,6 +18441,18 @@
       </categories>
       <tags>
         <tag>编程基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>系统性能监控系统</title>
+    <url>/2024/01/23/%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a><b>介绍</b></h4><p>本文介绍一种Prometheus+Grafana搭建一个系统性能监控系统的方式。通过该监控系统可以监控机器的性能，如，CPU、内存、网络、IO。也可以添加自定义的数据进行监控，如某个页面打开的次数，系统中某个接口调用次数与时间等。</p>
+<h4 id="Prometheus"><a href="#Prometheus" class="headerlink" title="Prometheus"></a><b>Prometheus</b></h4><h4 id="Grafana"><a href="#Grafana" class="headerlink" title="Grafana"></a><b>Grafana</b></h4>]]></content>
+      <categories>
+        <category>编程技能</category>
+      </categories>
+      <tags>
+        <tag>编程技能</tag>
       </tags>
   </entry>
 </search>
